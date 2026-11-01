@@ -70,11 +70,15 @@ test("actual screenshots replace homepage video and preserve compact search and 
     "href",
     /:3002\/uradnik\/prihlasenie$/,
   );
-  await page.getByRole("searchbox").fill("FV/2026/0057");
+  // This published invoice exists in the standard 72-record seed, including fresh CI environments.
+  await page.getByRole("searchbox").fill("FV/2026/0041");
   await page.getByRole("button", { name: "Hľadať", exact: true }).click();
-  expect(new URL(page.url()).searchParams.get("q")).toBe("FV/2026/0057");
+  expect(new URL(page.url()).searchParams.get("q")).toBe("FV/2026/0041");
   await expect(
-    page.getByRole("link", { name: "Prenájom sály na komunitné podujatie", exact: true }),
+    page.getByRole("link", {
+      name: "Preúčtovanie príspevku na obnovu interiéru mestskej knižnice",
+      exact: true,
+    }),
   ).toBeVisible();
 });
 
