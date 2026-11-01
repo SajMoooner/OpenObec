@@ -1,12 +1,10 @@
 package sk.openobec.query;
 
-import jakarta.servlet.http.*;
 import java.util.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.*;
 import org.springframework.web.servlet.config.annotation.*;
 import sk.openobec.common.*;
 import sk.openobec.read.Ref;
@@ -75,24 +73,7 @@ public class QueryController {
   static class Web implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-      registry
-          .addInterceptor(
-              new HandlerInterceptor() {
-                public boolean preHandle(
-                    HttpServletRequest req, HttpServletResponse res, Object h) {
-                  String incoming = req.getHeader("X-Request-Id");
-                  String id =
-                      incoming != null && incoming.matches("[A-Za-z0-9._:-]{1,100}")
-                          ? incoming
-                          : UUID.randomUUID().toString();
-                  req.setAttribute("request_id", id);
-                  res.setHeader("X-Request-Id", id);
-                  if (!"zilina".equals(req.getHeader("X-Obec-Id")))
-                    throw new ApiException(400, "BAD_REQUEST", "Vyžaduje sa X-Obec-Id: zilina.");
-                  return true;
-                }
-              })
-          .addPathPatterns("/rest/**");
+      registry.addInterceptor(new RequestDiagnosticsInterceptor()).addPathPatterns("/rest/**");
     }
   }
 }

@@ -1,14 +1,12 @@
 package sk.openobec.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.servlet.http.*;
 import java.util.*;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.*;
-import org.springframework.web.servlet.*;
 import org.springframework.web.servlet.config.annotation.*;
 import sk.openobec.files.S3Storage;
 
@@ -84,19 +82,7 @@ public class CommonConfiguration implements WebMvcConfigurer {
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     registry
-        .addInterceptor(
-            new HandlerInterceptor() {
-              @Override
-              public boolean preHandle(
-                  HttpServletRequest req, HttpServletResponse res, Object handler) {
-                String requestId = UUID.randomUUID().toString();
-                req.setAttribute("request_id", requestId);
-                res.setHeader("X-Request-Id", requestId);
-                if (!"zilina".equals(req.getHeader("X-Obec-Id")))
-                  throw new ApiException(400, "BAD_REQUEST", "Vyžaduje sa X-Obec-Id: zilina.");
-                return true;
-              }
-            })
+        .addInterceptor(new RequestDiagnosticsInterceptor())
         .addPathPatterns("/rest/**", "/internal/**");
   }
 }

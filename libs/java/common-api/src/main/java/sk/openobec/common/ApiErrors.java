@@ -58,16 +58,18 @@ public class ApiErrors {
   @ExceptionHandler(Exception.class)
   public ResponseEntity<?> unexpected(Exception e, HttpServletRequest req) {
     org.slf4j.LoggerFactory.getLogger(ApiErrors.class)
-        .error(
-            "Request {} failed: {}", req.getAttribute("request_id"), e.getClass().getSimpleName());
+        .atError()
+        .addKeyValue("request_id", RequestDiagnosticsInterceptor.requestId(req))
+        .addKeyValue("exception_type", e.getClass().getSimpleName())
+        .log("HTTP request failed");
     return response(500, "INTERNAL_ERROR", "Požiadavku sa nepodarilo dokončiť.", List.of(), req);
   }
 
   private ResponseEntity<?> response(
       int status, String code, String message, List<ErrorDetail> details, HttpServletRequest req) {
-    String requestId =
-        Objects.toString(req.getAttribute("request_id"), UUID.randomUUID().toString());
-    var builder = ResponseEntity.status(status);
+    String requestId = RequestDiagnosticsInterceptor.requestId(req);
+    RequestDiagnosticsInterceptor.completed(req, status);
+    var builder = ResponseEntity.status(status).header("X-Request-Id", requestId);
     if (status == 503) builder.header("Retry-After", "2");
     return builder.body(
         Map.of(
