@@ -11,9 +11,9 @@ Dátum: 1. 11. 2026. Overené na macOS s Java21 (Temurin21.0.9), Node26.3.1, pnp
 | Schémy a konfigurácia, `python3 -m unittest discover -s tests/contracts -v` | 12 úspešných |
 | Vlastníctvo a životný cyklus ručných procesov, `python3 -m unittest discover -s tests/runtime -v` | 2 úspešné; skutočný Node proces, otvorenie a uvoľnenie portu |
 | `pnpm typecheck`, `pnpm lint` | Bez chýb |
-| `pnpm test:frontend` | 13 úspešných: presné sumy, dátumy/DST, formuláre, chyby API, úplné načítanie súvislostí |
+| `pnpm test:frontend` | 20 úspešných: presné sumy, dátumy/DST, formuláre, chyby API, úplné načítanie súvislostí |
 | `pnpm build` | Všetky tri samostatné produkčné aplikácie zostavené |
-| `pnpm test:e2e` proti Docker stacku | 22 úspešných, 32,3 s |
+| `pnpm test:e2e` proti Docker stacku | 25 úspešných, 24,4 s |
 | `scripts/smoke/run.sh` | 4 úspešné živé HTTP skúšky; všetkých 70 operácií podľa OpenAPI |
 | `tests/integration/faults.py -v` v ručnom režime | 1 úspešná koordinovaná skúška, 45,265 s |
 | `tests/integration/recovery.py -v` v ručnom režime | 1 úspešná skúška obnovy, 5,876 s; 83 exportovaných záznamov, 2 prehrané udalosti |
@@ -21,7 +21,7 @@ Dátum: 1. 11. 2026. Overené na macOS s Java21 (Temurin21.0.9), Node26.3.1, pnp
 | Predvolený Docker štart | Všetkých 12 obrazov aplikácií zostavených; 21 služieb beží a je zdravých |
 | Bežné vypnutie a opätovný Docker štart | 72 zdrojových dokumentov bez zmeny, rovnaké PDF a platné pokračovanie starého prehľadu |
 
-Browser skúšky overujú vytvorenie dokumentu, pripojenie skutočného PDF, výber súvisiaceho dokumentu, publikovanie, vyhľadanie občanom a zhodu stiahnutých bajtov. Pokrývajú aj editáciu, zrušenie publikovania, zachovanie formulára pri chybe uploadu alebo validácie, opakovanie uploadu bez duplikátu, čiastočný výpadok vyhľadávania, klávesnicu a mobilnú navigáciu. Ďalšie prípady overujú všetkých 21 odkazov marketingovej ukážky, čitateľné mobilné/tabuľkové zoznamy a medzery v responzívnom texte.
+Browser skúšky overujú vytvorenie dokumentu, pripojenie skutočného PDF, výber súvisiaceho dokumentu, publikovanie, vyhľadanie občanom a zhodu stiahnutých bajtov. Pokrývajú aj editáciu, zrušenie publikovania, zachovanie formulára pri chybe uploadu alebo validácie, opakovanie uploadu bez duplikátu, čiastočný výpadok vyhľadávania, klávesnicu a mobilnú navigáciu. Úprava obstarávania zachováva nezmenený termín vrátane zlomkov sekundy a oboch výskytov jesenného prechodu času; zámerná zmena používa Bratislavu a neexistujúci jarný čas sa odmietne. Ďalšie prípady overujú všetkých 21 odkazov marketingovej ukážky, čitateľné mobilné/tabuľkové zoznamy a medzery v responzívnom texte.
 
 Java výpisy obsahujú očakávané varovania pri úmyselných skúškach nedostupného brokera, neplatného DLQ topicu a prerušenej TCP prípojky. Výsledné počty zlyhaní a chýb zostali nulové; nejde o tvrdenie, že výpis testov je bez varovaní.
 

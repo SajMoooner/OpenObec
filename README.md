@@ -52,6 +52,7 @@ Koordinované skúšky výpadkov a obnovy sa spúšťajú samostatne podľa [run
 
 - [Výsledky overenia a spotreba pamäte](docs/verification.md)
 - [Vizuálny systém](DESIGN.md)
+- [Realizačné rozhodnutia](docs/decisions.md)
 - [Realizačný návrh](docs/superpowers/specs/2026-11-01-openobec-design.md)
 - [Analýza podkladov a mapa pôvodných 46 operácií](docs/analysis/2026-11-01-source-review.md)
 - [Pôvod vstupných dokumentov](docs/references/2026-11-01/manifest.json)

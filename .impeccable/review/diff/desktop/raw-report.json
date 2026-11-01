@@ -1,7 +1,7 @@
 {
   "tool": "comp-diff",
   "version": 1,
-  "createdAt": "2026-11-01T16:42:01.742Z",
+  "createdAt": "2026-11-01T17:00:37.588Z",
   "label": "desktop",
   "comp": ".impeccable/mocks/marketing-navy.png",
   "build": ".impeccable/review/desktop.png",
