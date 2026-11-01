@@ -169,6 +169,7 @@ test("published editor hydrates reference names and guards inverse edit entries"
 test("partial attachment save retries only remaining files on the same record and successful save bypasses unload", async ({
   page,
 }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   await enter(page);
   let creates = 0,
     updates = 0,
@@ -205,7 +206,7 @@ test("partial attachment save retries only remaining files on the same record an
   await page.locator("#datum_schvalenia").fill("2026-10-01");
   await page.locator("#datum_ucinnosti").fill("2026-11-01");
   await page.locator("#new-files").setInputFiles(
-    ["first.pdf", "second.pdf"].map((name) => ({
+    ["first.pdf", longFilename].map((name) => ({
       name,
       mimeType: "application/pdf",
       buffer: Buffer.from("%PDF-1.4"),
@@ -213,6 +214,10 @@ test("partial attachment save retries only remaining files on the same record an
   );
   await page.getByRole("button", { name: "Uložiť koncept" }).click();
   await expect(page.locator("#form-error")).toContainText("Záznam je uložený");
+  await expect(page.getByText(longFilename, { exact: false }).last()).toContainText(
+    "Nenahraté, skúste znova",
+  );
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.getByRole("link", { name: "Zrušiť", exact: true }).click();
   await expect(page.getByRole("alertdialog")).toBeVisible();
   await page.getByRole("button", { name: "Zostať a pokračovať" }).click();
@@ -226,7 +231,7 @@ test("partial attachment save retries only remaining files on the same record an
   await expect(page.getByRole("status")).toContainText("Dokument bol uložený");
   expect(creates).toBe(1);
   expect(updates).toBe(1);
-  expect(filenames).toEqual(["first.pdf", "second.pdf", "second.pdf"]);
+  expect(filenames).toEqual(["first.pdf", longFilename, longFilename]);
   expect(nativePrompts).toBe(0);
 });
 test("file-only edits guard reload and logout while opening a new tab leaves work intact", async ({
@@ -382,4 +387,161 @@ test("published detail exposes configured public URL and early attachments; draf
   await page.reload();
   await expect(page.getByText("Koncept", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Otvoriť verejný dokument" })).toHaveCount(0);
+});
+
+for (const action of ["deleting", "unpublishing"]) {
+  test(`${action} the last row on a retained office page recovers without losing filters`, async ({
+    page,
+  }) => {
+    await enter(page);
+    let deleted = false;
+    await page.route("**/api/rest/v1/vzn**", async (route) => {
+      const url = new URL(route.request().url());
+      if (url.pathname.endsWith("/delete") || url.pathname.endsWith("/update")) {
+        deleted = true;
+        return route.fulfill({ json: {} });
+      }
+      const list = url.pathname.endsWith("/vzn");
+      const pageNumber = Number(url.searchParams.get("page"));
+      return route.fulfill({
+        json: {
+          data: list
+            ? !deleted || pageNumber === 1
+              ? [synthetic]
+              : []
+            : url.pathname.endsWith("/prilohy")
+              ? []
+              : { ...synthetic, zverejnene: !deleted },
+          pagination: { total: deleted ? 10 : 11, total_pages: deleted ? 1 : 2 },
+        },
+      });
+    });
+    await page.goto(`${office}/uradnik/vzn?q=owned&sort=updated_at&state=true&page=2`);
+    await page.getByRole("link", { name: "Otvoriť OWNED-WORKFLOW" }).click();
+    if (action === "deleting") {
+      await page.getByRole("button", { name: "Vymazať dokument", exact: true }).click();
+      await page
+        .getByRole("alertdialog")
+        .getByRole("button", { name: "Vymazať dokument", exact: true })
+        .click();
+    } else {
+      await page.getByRole("button", { name: "Stiahnuť zo zverejnenia", exact: true }).click();
+      await expect(page.getByRole("status")).toContainText("stiahnutý zo zverejnenia");
+      await page.locator("main").getByRole("link", { name: "VZN", exact: true }).click();
+    }
+    await expect(page.getByRole("status").filter({ hasText: "10 dokumentov" })).toBeVisible();
+    await expect(page.getByText("Zatiaľ tu nie sú žiadne dokumenty", { exact: true })).toHaveCount(
+      0,
+    );
+    await expect(
+      page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+    await expect(page).toHaveURL(`${office}/uradnik/vzn?q=owned&sort=updated_at&state=true&page=1`);
+    await expect(page.getByRole("link", { name: "Otvoriť OWNED-WORKFLOW" })).toBeVisible();
+  });
+}
+
+const longFilename = `Faktura${"1234567890".repeat(10)}.pdf`;
+test("long selected attachment fits mobile editor, validation and dirty confirmation", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await enter(page);
+  await page.locator("#new-files").setInputFiles({
+    name: longFilename,
+    mimeType: "application/pdf",
+    buffer: Buffer.from("%PDF-1.4"),
+  });
+  await expect(page.getByText(longFilename, { exact: false }).last()).toContainText(
+    "Vybrané, čaká na nahratie",
+  );
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole("button", { name: "Uložiť koncept" }).click();
+  await expect(page.locator("#form-error")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole("link", { name: "Zrušiť", exact: true }).click();
+  await expect(page.getByRole("alertdialog")).toBeVisible();
+  await page.getByRole("button", { name: "Zostať a pokračovať" }).click();
+  expect(
+    await page.locator("#new-files").evaluate((e: HTMLInputElement) => e.files?.[0]?.name),
+  ).toBe(longFilename);
+});
+
+test("existing and pending detail attachments keep full filenames and remove action reachable on mobile", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await enter(page);
+  await page.route("**/api/rest/v1/vzn/**", (route) =>
+    route.fulfill({
+      json: {
+        data: new URL(route.request().url()).pathname.endsWith("/prilohy")
+          ? [
+              {
+                id: "owned-file",
+                filename: longFilename,
+                content_type: "application/pdf",
+                size_bytes: 123,
+              },
+            ]
+          : synthetic,
+      },
+    }),
+  );
+  await page.goto(`${office}/uradnik/vzn/${synthetic.id}`);
+  const remove = page.getByRole("button", { name: `Odstrániť ${longFilename}`, exact: true });
+  await expect(remove).toBeVisible();
+  await remove.scrollIntoViewIfNeeded();
+  const box = (await remove.boundingBox())!;
+  expect(box.x + box.width).toBeLessThanOrEqual(390);
+  await remove.click();
+  await expect(page.getByRole("alertdialog")).toContainText(longFilename);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole("alertdialog").getByRole("button", { name: "Zrušiť", exact: true }).click();
+  await page.locator("#attachment-upload").setInputFiles({
+    name: longFilename,
+    mimeType: "application/pdf",
+    buffer: Buffer.from("%PDF-1.4"),
+  });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test("dashboard recent ten and draft six include newest records concentrated in one agenda", async ({
+  page,
+}) => {
+  await page
+    .context()
+    .addCookies([{ name: "openobec-demo", value: "zilina", domain: "127.0.0.1", path: "/" }]);
+  await page.route("**/api/rest/v1/*?*", async (route) => {
+    const url = new URL(route.request().url());
+    const busy = url.pathname.endsWith("/faktury");
+    const records = Array.from({ length: busy ? 12 : 1 }, (_, i) => ({
+      ...synthetic,
+      id: `owned-recent-${i + 1}`,
+      cislo: `${busy ? "NEW" : "OLD"}-${i + 1}`,
+      predmet: `${busy ? "Newest" : "Older"} ${i + 1}`,
+      nazov: "",
+      zverejnene: url.searchParams.get("zverejnene") !== "false",
+      updated_at: busy
+        ? `2026-11-01T10:${String(59 - i).padStart(2, "0")}:00Z`
+        : "2025-01-01T00:00:00Z",
+    }));
+    await route.fulfill({
+      json: {
+        data: records.slice(0, Number(url.searchParams.get("page_size"))),
+        pagination: { total: records.length, total_pages: 1 },
+      },
+    });
+  });
+  await page.goto(`${office}/uradnik/home`);
+  const rows = page.locator("main tbody tr");
+  await expect(rows).toHaveCount(10);
+  for (let i = 1; i <= 10; i++) await expect(rows.nth(i - 1)).toContainText(`NEW-${i}`);
+  const drafts = page
+    .locator("section")
+    .filter({ has: page.getByRole("heading", { name: "Pokračovať v rozpracovaných" }) })
+    .getByRole("link");
+  await expect(drafts).toHaveCount(6);
+  for (let i = 1; i <= 6; i++) await expect(drafts.nth(i - 1)).toContainText(`NEW-${i}`);
 });

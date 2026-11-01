@@ -44,14 +44,18 @@ export function DocumentList({
       : office
         ? "all"
         : "true";
-  const navigate = (changes: Record<string, string>) => {
+  const navigate = (changes: Record<string, string>, replace = false) => {
     setDraft(undefined);
     const next = new URLSearchParams(searchParams.toString());
     for (const [key, value] of Object.entries(changes)) {
       if (value) next.set(key, value);
       else next.delete(key);
     }
-    window.history.pushState(null, "", `${pathname}${next.size ? `?${next}` : ""}`);
+    window.history[replace ? "replaceState" : "pushState"](
+      null,
+      "",
+      `${pathname}${next.size ? `?${next}` : ""}`,
+    );
   };
   const q = draft?.url === searchParams.toString() ? draft.value : query;
   const setQ = (value: string) => setDraft({ url: searchParams.toString(), value });
@@ -188,6 +192,28 @@ export function DocumentList({
             </div>
           </div>
         </>
+      ) : (data?.pagination.total ?? 0) > 0 ? (
+        <div className="space-y-4">
+          <Empty
+            title="Na tejto strane už nie sú dokumenty"
+            text="Zoznam sa mohol zmeniť. Vaše vyhľadávanie, zoradenie a vybraný stav zostali zachované."
+          />
+          {page > (data?.pagination.total_pages ?? 0) ? (
+            <Button
+              variant="outline"
+              className="min-h-11"
+              onClick={() =>
+                navigate({ page: String(Math.max(1, data?.pagination.total_pages ?? 1)) }, true)
+              }
+            >
+              Prejsť na poslednú dostupnú stranu
+            </Button>
+          ) : (
+            <Button variant="outline" className="min-h-11" onClick={reload}>
+              Obnoviť zoznam
+            </Button>
+          )}
+        </div>
       ) : (
         <Empty
           title={query ? "Nenašli sa žiadne výsledky" : "Zatiaľ tu nie sú žiadne dokumenty"}

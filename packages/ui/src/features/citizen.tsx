@@ -27,7 +27,7 @@ export function CitizenHome({}: { query?: string }) {
   useEffect(() => {
     const c = new AbortController();
     const calls = AGENDAS.map(async (a) => {
-      const path = `${a.slug === "vzn" ? "" : "/query"}/${a.slug}?page_size=5&zverejnene=true&q=${encodeURIComponent(key.query)}`;
+      const path = `${a.slug === "vzn" ? "" : "/query"}/${a.slug}?page_size=${key.query ? 5 : 10}&sort=-created_at&zverejnene=true&q=${encodeURIComponent(key.query)}`;
       const r = await api<List>(path, { signal: c.signal });
       return {
         typ: a.slug,

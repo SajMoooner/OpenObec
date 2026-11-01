@@ -9,7 +9,8 @@ import {
 export function returnLabel(returnTo: string, fallback: string) {
   if (/\/(obcan|uradnik)\/home(?:\?|$)/.test(returnTo))
     return returnTo.includes("?") ? "Späť na výsledky vyhľadávania" : "Späť na prehľad";
-  return fallback;
+  const destination = /^\/(?:obcan|uradnik)\/([^/?]+)(?:\?|$)/.exec(returnTo)?.[1];
+  return agendaFor(destination ?? "")?.title ?? fallback;
 }
 export function summaryFields(agenda: AgendaSlug, record: DocumentRecord) {
   const p = documentPresentation(agendaFor(agenda)!, record);

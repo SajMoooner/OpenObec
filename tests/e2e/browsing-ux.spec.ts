@@ -172,3 +172,138 @@ test("all six agenda tables expose their domain columns and fit mobile", async (
       await page.screenshot({ path: "/tmp/openobec-task1-procurement-390.png", fullPage: true });
   }
 });
+
+for (const portal of ["obcan", "uradnik"]) {
+  test(`retained out-of-range ${portal} page offers truthful recovery with context and no history trap`, async ({
+    page,
+  }) => {
+    if (portal === "uradnik")
+      await page
+        .context()
+        .addCookies([{ name: "openobec-demo", value: "zilina", domain: "127.0.0.1", path: "/" }]);
+    let requests = 0;
+    await page.route("**/api/rest/v1/**", async (route) => {
+      const url = new URL(route.request().url());
+      if (url.searchParams.has("page")) requests++;
+      const pageNumber = Number(url.searchParams.get("page"));
+      await route.fulfill({
+        json: {
+          data:
+            pageNumber === 1
+              ? [
+                  {
+                    ...(portal === "obcan" ? { typ: "faktury" } : {}),
+                    ...(portal === "obcan" ? { zaznam: recentRecord(1) } : recentRecord(1)),
+                  },
+                ]
+              : [],
+          pagination: { page: pageNumber, page_size: 10, total: 8, total_pages: 1 },
+        },
+      });
+    });
+    const origin = portal === "obcan" ? "http://127.0.0.1:3001" : "http://127.0.0.1:3002";
+    await page.goto(`${origin}/${portal}/home`);
+    await page.goto(`${origin}/${portal}/faktury?q=owned&sort=updated_at&state=true&page=999`);
+    await expect(page.getByRole("status").filter({ hasText: "8 dokumentov" })).toBeVisible();
+    await expect(page.getByText("Zatiaľ tu nie sú žiadne dokumenty", { exact: true })).toHaveCount(
+      0,
+    );
+    await expect(
+      page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+    await expect(page).toHaveURL(
+      `${origin}/${portal}/faktury?q=owned&sort=updated_at&state=true&page=1`,
+    );
+    await expect(page.getByRole("link", { name: "Otvoriť NEW-1" })).toBeVisible();
+    expect(requests).toBe(2);
+    await page.goBack();
+    await expect(page).toHaveURL(`${origin}/${portal}/home`);
+  });
+}
+
+function recentRecord(index: number, older = false) {
+  return {
+    id: `owned-final-${index}`,
+    cislo: `${older ? "OLD" : "NEW"}-${index}`,
+    predmet: `${older ? "Older" : "Newest"} ${index}`,
+    zverejnene: true,
+    created_at: older
+      ? "2025-01-01T00:00:00Z"
+      : `2026-11-01T10:${String(59 - index).padStart(2, "0")}:00Z`,
+    updated_at: older
+      ? "2025-01-01T00:00:00Z"
+      : `2026-11-01T10:${String(59 - index).padStart(2, "0")}:00Z`,
+  };
+}
+
+test("citizen latest ten includes ten newest records from one busy agenda", async ({ page }) => {
+  await page.route("**/api/rest/v1/**", async (route) => {
+    const url = new URL(route.request().url());
+    const busy = url.pathname.endsWith("/faktury");
+    const rows = busy
+      ? Array.from({ length: 12 }, (_, i) => recentRecord(i + 1))
+      : [recentRecord(1, true)];
+    await route.fulfill({
+      json: {
+        data: rows
+          .slice(0, Number(url.searchParams.get("page_size")))
+          .map((zaznam) =>
+            url.pathname.includes("/query/")
+              ? { typ: busy ? "faktury" : url.pathname.split("/").at(-1), zaznam }
+              : zaznam,
+          ),
+        pagination: { total: rows.length, total_pages: 1 },
+      },
+    });
+  });
+  await page.goto("/obcan/home");
+  const rows = page.locator("main tbody tr");
+  await expect(rows).toHaveCount(10);
+  for (let i = 1; i <= 10; i++) await expect(rows.nth(i - 1)).toContainText(`NEW-${i}`);
+});
+
+for (const portal of ["obcan", "uradnik"]) {
+  test(`cross-agenda related ${portal} detail labels the originating list and editor continuation`, async ({
+    page,
+  }) => {
+    if (portal === "uradnik")
+      await page
+        .context()
+        .addCookies([{ name: "openobec-demo", value: "zilina", domain: "127.0.0.1", path: "/" }]);
+    await page.route("**/api/rest/v1/**", async (route) => {
+      const path = new URL(route.request().url()).pathname;
+      const invoice = path.includes("/faktury/");
+      const record = { ...recentRecord(invoice ? 2 : 1), suvisiace_zaznamy: [] };
+      const data = path.endsWith("/prilohy")
+        ? []
+        : path.endsWith("/suvislosti")
+          ? { nodes: [], edges: [] }
+          : path.includes("/query/")
+            ? {
+                root: { typ: invoice ? "faktury" : "zmluvy", zaznam: record },
+                suvisiace_zaznamy: invoice ? [] : [{ typ: "faktury", zaznam: recentRecord(2) }],
+                vazby: [],
+                pagination: { next_cursor: null },
+              }
+            : record;
+      await route.fulfill({ json: { data, projection: { status: "ready" } } });
+    });
+    const origin = portal === "obcan" ? "http://127.0.0.1:3001" : "http://127.0.0.1:3002";
+    const returnTo = `/${portal}/zmluvy?q=owned&sort=updated_at&page=2`;
+    await page.goto(
+      `${origin}/${portal}/zmluvy/owned-final-1?returnTo=${encodeURIComponent(returnTo)}`,
+    );
+    await page.getByRole("button", { name: /Newest 2/ }).click();
+    await page.getByRole("link", { name: "Otvoriť celý dokument" }).click();
+    await expect(page).toHaveURL(new RegExp(`/${portal}/faktury/owned-final-2\\?`));
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Newest 2");
+    const back = page.locator("main").getByRole("link", { name: "Zmluvy", exact: true });
+    await expect(back).toHaveAttribute("href", returnTo);
+    if (portal === "uradnik") {
+      await page.getByRole("link", { name: "Upraviť", exact: true }).click();
+      await expect(page.getByLabel("Evidenčné číslo")).toHaveValue("NEW-2");
+      await expect(back).toHaveAttribute("href", returnTo);
+    }
+  });
+}

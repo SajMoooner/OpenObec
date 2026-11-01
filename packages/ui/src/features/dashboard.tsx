@@ -29,7 +29,7 @@ export function OfficeDashboard() {
       tasks.map(async ({ agenda, kind, key }) => {
         try {
           const params = new URLSearchParams({
-            page_size: kind === "published" ? "1" : "5",
+            page_size: kind === "published" ? "1" : kind === "draft" ? "6" : "10",
             sort: "-updated_at",
           });
           if (kind !== "all") params.set("zverejnene", String(kind === "published"));

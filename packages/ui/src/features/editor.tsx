@@ -207,7 +207,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
             </AlertDescription>
           </Alert>
         )}
-        <fieldset disabled={busy} className="space-y-8">
+        <fieldset disabled={busy} className="min-w-0 space-y-8">
           {[
             {
               title: "Údaje dokumentu",
@@ -344,7 +344,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
             </>
           )}
           <Separator />
-          <section className="space-y-3">
+          <section className="min-w-0 space-y-3">
             <h2 className="text-lg font-semibold">Prílohy</h2>
             <Label htmlFor="new-files">Pridať súbory k dokumentu</Label>
             <Input
@@ -359,7 +359,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
               nahrajú po uložení údajov.
             </p>
             {files.length > 0 && (
-              <ul className="list-inside list-disc text-sm text-muted-foreground">
+              <ul className="min-w-0 list-inside list-disc text-sm text-muted-foreground [overflow-wrap:anywhere]">
                 {files.map((f, i) => (
                   <li key={`${f.name}/${i}`}>
                     {f.name} · {attachmentType(f.type)} ·{" "}
