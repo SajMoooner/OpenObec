@@ -40,7 +40,7 @@ for (const [name, deadline] of [
       await page.goto(`${office}/uradnik/verejne-obstaravanie/${id}/upravit`);
       await page.locator("#predmet").fill("Upravený predmet bez zmeny lehoty");
       await page.getByRole("button", { name: "Uložiť koncept", exact: true }).click();
-      await expect(page).toHaveURL(`${office}/uradnik/verejne-obstaravanie/${id}`);
+      await expect(page).toHaveURL(new RegExp(`/uradnik/verejne-obstaravanie/${id}\\?returnTo=`));
       const after = (await (await request.get(`${endpoint}/${id}`, { headers })).json()).data;
       expect(after.predmet).toBe("Upravený predmet bez zmeny lehoty");
       expect(after.lehota_predkladania).toBe(deadline);
@@ -55,7 +55,7 @@ for (const [name, deadline] of [
       ).toBe(deadline);
       await page.locator("#lehota_predkladania").fill("2026-11-01T11:31:46.12");
       await page.getByRole("button", { name: "Uložiť koncept", exact: true }).click();
-      await expect(page).toHaveURL(`${office}/uradnik/verejne-obstaravanie/${id}`);
+      await expect(page).toHaveURL(new RegExp(`/uradnik/verejne-obstaravanie/${id}\\?returnTo=`));
       expect(
         (await (await request.get(`${endpoint}/${id}`, { headers })).json()).data
           .lehota_predkladania,

@@ -56,7 +56,7 @@ test("create PDF, link, publish, search, edit and unpublish", async ({ page, req
   await page.getByRole("button", { name: "Uložiť a zverejniť" }).click();
   const id = (await (await created).json()).data.id as string;
   owned.push(id);
-  await expect(page).toHaveURL(`${office}/uradnik/faktury/${id}`);
+  await expect(page).toHaveURL(new RegExp(`/uradnik/faktury/${id}\\?returnTo=`));
   await expect(page.getByText("Zverejnené", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "publication.pdf", exact: true })).toBeVisible();
   await expect(async () => {
@@ -131,7 +131,7 @@ test("upload failure retains inputs and retries the same saved document", async 
   await expect(page.locator("#predmet")).toHaveValue(title);
   await page.unroute("**/api/rest/v1/faktury/*/prilohy");
   await page.getByRole("button", { name: "Uložiť koncept" }).click();
-  await expect(page).toHaveURL(`${office}/uradnik/faktury/${id}`);
+  await expect(page).toHaveURL(new RegExp(`/uradnik/faktury/${id}\\?returnTo=`));
   await expect(page.getByRole("link", { name: "publication.pdf", exact: true })).toBeVisible();
   const response = await request.get(`${office}/api/rest/v1/faktury?q=${number}`);
   const result = await response.json();

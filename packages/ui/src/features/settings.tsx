@@ -4,8 +4,6 @@ import { CheckCircle2, Plug, LoaderCircle } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
 import { Badge } from "@openobec/ui/components/badge";
 import { Alert, AlertTitle, AlertDescription } from "@openobec/ui/components/alert";
-import { Input } from "@openobec/ui/components/input";
-import { Label } from "@openobec/ui/components/label";
 export function ConnectorSettings() {
   const [testing, setTesting] = useState(false);
   const [done, setDone] = useState(false);
@@ -14,7 +12,7 @@ export function ConnectorSettings() {
       <div>
         <div className="flex flex-wrap items-center gap-3">
           <h1 className="text-3xl font-semibold tracking-tight">Pripojenie mestského IS</h1>
-          <Badge variant="outline">Ukážka</Badge>
+          <Badge variant="outline">Simulácia</Badge>
         </div>
         <p className="mt-3 text-sm text-muted-foreground">
           Miesto pre budúce prepojenie evidencie mesta s publikovaním dokumentov.
@@ -29,16 +27,16 @@ export function ConnectorSettings() {
         </AlertDescription>
       </Alert>
       <section className="space-y-5 rounded-lg border p-6">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <dl className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="demo-city">Mesto</Label>
-            <Input id="demo-city" value="Žilina" readOnly />
+            <dt className="text-sm text-muted-foreground">Mesto</dt>
+            <dd className="font-medium">Žilina</dd>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="demo-system">Ukážkový systém</Label>
-            <Input id="demo-system" value="CORA GEO – simulácia" readOnly />
+            <dt className="text-sm text-muted-foreground">Ukážkový systém</dt>
+            <dd className="font-medium">CORA GEO – simulácia</dd>
           </div>
-        </div>
+        </dl>
         <p className="text-sm text-muted-foreground">
           Skutočné prihlasovacie údaje sa v deme nezadávajú.
         </p>

@@ -1,6 +1,7 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   FileText,
   Receipt,
@@ -40,6 +41,7 @@ import {
   useSidebar,
 } from "@openobec/ui/components/sidebar";
 import { Brand } from "./shared";
+import { OfficeNavigationProvider, useOfficeNavigation } from "./navigation-guard";
 const icons = [Receipt, Files, FileText, ShoppingBag, Gavel, BookOpen];
 export function CitizenShell({
   children,
@@ -158,7 +160,7 @@ function OfficeRouteLink(props: React.ComponentProps<typeof Link>) {
     />
   );
 }
-export function OfficeShell({
+function OfficeShellContent({
   children,
   citizenUrl,
 }: {
@@ -166,7 +168,8 @@ export function OfficeShell({
   citizenUrl: string;
 }) {
   const path = usePathname();
-  const router = useRouter();
+  const navigation = useOfficeNavigation();
+  const [logoutError, setLogoutError] = useState("");
   const context =
     AGENDAS.find((a) => path.startsWith(`/uradnik/${a.slug}`))?.title ??
     (path.includes("settings") ? "Pripojenie mestského IS" : "Prehľad");
@@ -227,21 +230,37 @@ export function OfficeShell({
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton
-                onClick={async () => {
-                  await fetch("/api/demo/logout", { method: "POST" });
-                  router.replace("/uradnik/prihlasenie");
-                  router.refresh();
-                }}
+                onClick={() =>
+                  navigation?.requestExit(() => {
+                    void (async () => {
+                      setLogoutError("");
+                      try {
+                        const response = await fetch("/api/demo/logout", { method: "POST" });
+                        if (!response.ok) throw new Error("Logout failed");
+                        navigation.saved("/uradnik/prihlasenie");
+                      } catch {
+                        setLogoutError(
+                          "Demo sa nepodarilo opustiť. Neuložené zmeny zostali zachované. Skúste to znova.",
+                        );
+                      }
+                    })();
+                  })
+                }
               >
                 <LogOut />
                 <span>Opustiť demo</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
+          {logoutError && (
+            <p role="alert" className="text-sm text-sidebar-foreground">
+              {logoutError}
+            </p>
+          )}
           <p className="mt-2 text-xs text-sidebar-foreground/70">Všetky údaje sú ukážkové.</p>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset>
+      <SidebarInset className="min-w-0">
         <header className="flex h-16 shrink-0 items-center justify-between gap-3 border-b px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <SidebarTrigger />
@@ -256,10 +275,21 @@ export function OfficeShell({
           </div>
           <span className="text-sm text-muted-foreground">Žilina · demo</span>
         </header>
-        <main id="obsah" className="mx-auto w-full max-w-7xl flex-1 space-y-6 p-4 sm:p-6 lg:p-8">
+        <main
+          id="obsah"
+          className="mx-auto min-w-0 w-full max-w-7xl flex-1 space-y-6 p-4 sm:p-6 lg:p-8"
+        >
           {children}
         </main>
       </SidebarInset>
     </SidebarProvider>
+  );
+}
+
+export function OfficeShell(props: { children: React.ReactNode; citizenUrl: string }) {
+  return (
+    <OfficeNavigationProvider citizenUrl={props.citizenUrl}>
+      <OfficeShellContent {...props} />
+    </OfficeNavigationProvider>
   );
 }

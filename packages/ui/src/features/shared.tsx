@@ -151,31 +151,29 @@ export function RecordsTable({
   const headings = single ? documentPresentation(single, {}) : undefined;
   const money = !single || !!headings?.amount;
   return (
-    <Table className="table-fixed lg:table-auto">
+    <Table className="table-fixed @min-[66rem]:table-auto">
       <TableHeader>
         <TableRow>
           <TableHead>Dokument</TableHead>
-          {showAgenda && <TableHead className="hidden lg:table-cell">Agenda</TableHead>}
+          {showAgenda && <TableHead className="hidden @min-[66rem]:table-cell">Agenda</TableHead>}
           {(!single || headings?.party) && (
-            <TableHead className="hidden lg:table-cell">
+            <TableHead className="hidden @min-[66rem]:table-cell">
               {headings?.party?.label ?? "Organizácia / stav obstarávania"}
             </TableHead>
           )}
-          <TableHead className="hidden lg:table-cell">
-            {dateContext === "updated"
-              ? "Naposledy upravené"
-              : (headings?.date.label ?? "Dátum dokumentu")}
+          <TableHead className="hidden @min-[66rem]:table-cell">
+            {dateContext === "updated" ? "Upravené" : (headings?.date.label ?? "Dátum dokumentu")}
           </TableHead>
           {money && (
-            <TableHead className="hidden text-right lg:table-cell">
+            <TableHead className="hidden text-right @min-[66rem]:table-cell">
               {headings?.amount?.label ?? "Suma"}
             </TableHead>
           )}
           {single?.slug === "vzn" && (
-            <TableHead className="hidden lg:table-cell">Dátum účinnosti</TableHead>
+            <TableHead className="hidden @min-[66rem]:table-cell">Dátum účinnosti</TableHead>
           )}
-          {office && <TableHead className="hidden lg:table-cell">Zverejnenie</TableHead>}
-          <TableHead className="w-12">
+          {office && <TableHead className="hidden @min-[66rem]:table-cell">Zverejnenie</TableHead>}
+          <TableHead className="w-16">
             <span className="sr-only">Detail</span>
           </TableHead>
         </TableRow>
@@ -185,7 +183,7 @@ export function RecordsTable({
           const presentation = documentPresentation(agendaFor(typ)!, r);
           const date =
             dateContext === "updated"
-              ? { label: "Naposledy upravené", value: r.updated_at }
+              ? { label: "Upravené", value: r.updated_at }
               : presentation.date;
           const href =
             `/${office ? "uradnik" : "obcan"}/${typ}/${r.id}` +
@@ -194,7 +192,7 @@ export function RecordsTable({
               : "");
           return (
             <TableRow key={`${typ}/${r.id}`}>
-              <TableCell className="whitespace-normal py-4 [overflow-wrap:anywhere] lg:max-w-xs">
+              <TableCell className="whitespace-normal py-4 [overflow-wrap:anywhere] @min-[66rem]:max-w-xs">
                 <Link
                   className="block min-h-11 content-center font-medium text-primary underline-offset-4 hover:underline"
                   href={href}
@@ -202,7 +200,7 @@ export function RecordsTable({
                   {titleOf(r)}
                 </Link>
                 <div className="text-xs text-muted-foreground">{r.cislo}</div>
-                <div className="mt-2 space-y-1 text-sm lg:hidden">
+                <div className="mt-2 space-y-1 text-sm @min-[66rem]:hidden">
                   {showAgenda && <Badge variant="outline">{agendaFor(typ)?.title}</Badge>}
                   {presentation.party && (
                     <p>
@@ -227,12 +225,12 @@ export function RecordsTable({
                 </div>
               </TableCell>
               {showAgenda && (
-                <TableCell className="hidden lg:table-cell">
+                <TableCell className="hidden @min-[66rem]:table-cell">
                   <Badge variant="outline">{agendaFor(typ)?.title}</Badge>
                 </TableCell>
               )}
               {(!single || headings?.party) && (
-                <TableCell className="hidden whitespace-normal lg:table-cell">
+                <TableCell className="hidden whitespace-normal @min-[66rem]:table-cell">
                   {!single && presentation.party && (
                     <span className="block text-xs text-muted-foreground">
                       {presentation.party.label}
@@ -241,14 +239,14 @@ export function RecordsTable({
                   {presentation.party?.value ?? "—"}
                 </TableCell>
               )}
-              <TableCell className="hidden lg:table-cell">
+              <TableCell className="hidden @min-[66rem]:table-cell">
                 {!single && (
                   <span className="block text-xs text-muted-foreground">{date.label}</span>
                 )}
                 {formatDate(date.value)}
               </TableCell>
               {money && (
-                <TableCell className="hidden text-right tabular-nums lg:table-cell">
+                <TableCell className="hidden text-right tabular-nums @min-[66rem]:table-cell">
                   {!single && presentation.amount && (
                     <span className="block text-xs text-muted-foreground">
                       {presentation.amount.label}
@@ -258,12 +256,12 @@ export function RecordsTable({
                 </TableCell>
               )}
               {single?.slug === "vzn" && (
-                <TableCell className="hidden lg:table-cell">
+                <TableCell className="hidden @min-[66rem]:table-cell">
                   {formatDate(presentation.secondaryDate?.value)}
                 </TableCell>
               )}
               {office && (
-                <TableCell className="hidden lg:table-cell">
+                <TableCell className="hidden @min-[66rem]:table-cell">
                   <Published value={r.zverejnene} />
                 </TableCell>
               )}

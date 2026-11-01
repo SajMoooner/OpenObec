@@ -30,7 +30,7 @@ export function OfficeLogin({ marketingUrl }: { marketingUrl: string }) {
         </Link>
       </header>
       <main className="mx-auto flex w-full max-w-lg flex-1 flex-col justify-center gap-6 px-6 py-12">
-        <div className="space-y-4">
+        <section className="space-y-5 rounded-xl border bg-background p-6">
           <h1 className="text-3xl leading-tight font-semibold tracking-tight">
             Vstup pre úradníka
           </h1>
@@ -38,9 +38,7 @@ export function OfficeLogin({ marketingUrl }: { marketingUrl: string }) {
             Vyskúšajte evidenciu a publikovanie dokumentov na jednom mieste. Demo je pripravené pre
             mesto Žilina s ukážkovými údajmi.
           </p>
-        </div>
-        <section className="space-y-5 rounded-xl border bg-background p-6">
-          <h2 className="text-lg font-medium">Pracovný portál OpenObec</h2>
+          <p className="text-sm font-medium">Žilina · ukážkové prostredie</p>
           <p className="text-sm leading-6 text-muted-foreground">
             Môžete pridávať dokumenty, nahrávať prílohy a zverejňovať ich v občianskom portáli. Na
             vstup do dema nepotrebujete heslo.

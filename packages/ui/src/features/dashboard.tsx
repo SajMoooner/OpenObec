@@ -10,52 +10,76 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@openobec/ui/components/dropdown-menu";
-import { Loading, Failure, RecordsTable, Empty } from "./shared";
+import { Alert, AlertTitle, AlertDescription } from "@openobec/ui/components/alert";
+import { Loading, RecordsTable, Empty } from "./shared";
+type Dataset = { total: number; nodes: RecordNode[] };
+const kinds = ["all", "draft", "published"] as const;
 export function OfficeDashboard() {
   const [attempt, setAttempt] = useState(0);
-  const key = useMemo(() => ({ attempt }), [attempt]);
-  const [state, setState] = useState<{
-    key: typeof key;
-    rows: RecordNode[];
-    counts: Record<string, number>;
-    error?: Error;
-  }>();
+  const [datasets, setDatasets] = useState<Record<string, Dataset>>({});
+  const [failures, setFailures] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  // Successful sections survive retries. Only absent/failed requests are repeated.
   useEffect(() => {
-    const c = new AbortController();
-    Promise.all(
-      AGENDAS.map(async (a) => {
-        const r = await api<{ data: DocumentRecord[]; pagination: { total: number } }>(
-          `/${a.slug}?page_size=5&sort=-updated_at`,
-          { signal: c.signal },
-        );
-        return {
-          slug: a.slug,
-          total: r.pagination.total,
-          nodes: r.data.map((zaznam) => ({ typ: a.slug, zaznam })),
-        };
-      }),
-    )
-      .then((all) => {
-        if (!c.signal.aborted)
-          setState({
-            key,
-            counts: Object.fromEntries(all.map((x) => [x.slug, x.total])),
-            rows: all
-              .flatMap((x) => x.nodes)
-              .sort((a, b) => b.zaznam.updated_at.localeCompare(a.zaznam.updated_at))
-              .slice(0, 10),
+    const controller = new AbortController();
+    const tasks = AGENDAS.flatMap((agenda) =>
+      kinds.map((kind) => ({ agenda, kind, key: `${agenda.slug}/${kind}` })),
+    ).filter(({ key }) => !datasets[key]);
+    void Promise.allSettled(
+      tasks.map(async ({ agenda, kind, key }) => {
+        try {
+          const params = new URLSearchParams({
+            page_size: kind === "published" ? "1" : "5",
+            sort: "-updated_at",
           });
-      })
-      .catch((error) => {
-        if (!c.signal.aborted) setState({ key, rows: [], counts: {}, error });
-      });
-    return () => c.abort();
-  }, [key]);
-  const current = state?.key === key ? state : undefined;
-  const loading = !current;
-  const error = current?.error;
-  const rows = current?.rows ?? [];
-  const counts = current?.counts ?? {};
+          if (kind !== "all") params.set("zverejnene", String(kind === "published"));
+          const result = await api<{ data: DocumentRecord[]; pagination: { total: number } }>(
+            `/${agenda.slug}?${params}`,
+            { signal: controller.signal },
+          );
+          if (!controller.signal.aborted) {
+            setDatasets((old) => ({
+              ...old,
+              [key]: {
+                total: result.pagination.total,
+                nodes: result.data.map((zaznam) => ({ typ: agenda.slug, zaznam })),
+              },
+            }));
+            setFailures((old) => old.filter((item) => item !== key));
+          }
+        } catch {
+          if (!controller.signal.aborted) setFailures((old) => [...new Set([...old, key])]);
+        }
+      }),
+    ).then(() => {
+      if (!controller.signal.aborted) setLoading(false);
+    });
+    return () => controller.abort();
+    // datasets is the retained cache; changing it must not abort sibling requests.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [attempt]);
+  const summaries = kinds.map((kind) => {
+    const available = AGENDAS.flatMap((agenda) =>
+      datasets[`${agenda.slug}/${kind}`] ? [datasets[`${agenda.slug}/${kind}`]] : [],
+    );
+    return {
+      kind,
+      total: available.reduce((sum, data) => sum + data.total, 0),
+      available: available.length,
+    };
+  });
+  const rowsFor = (kind: string, limit: number) =>
+    Object.entries(datasets)
+      .filter(([key]) => key.endsWith(`/${kind}`))
+      .flatMap(([, data]) => data.nodes)
+      .sort((a, b) => b.zaznam.updated_at.localeCompare(a.zaznam.updated_at))
+      .slice(0, limit);
+  const rows = rowsFor("all", 10);
+  const drafts = rowsFor("draft", 6);
+  const failedAgendas = useMemo(
+    () => AGENDAS.filter((agenda) => failures.some((key) => key.startsWith(`${agenda.slug}/`))),
+    [failures],
+  );
   return (
     <>
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -73,45 +97,130 @@ export function OfficeDashboard() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            {AGENDAS.map((a) => (
-              <DropdownMenuItem key={a.slug} asChild>
-                <Link href={`/uradnik/${a.slug}/novy`}>{a.singular}</Link>
+            {AGENDAS.map((agenda) => (
+              <DropdownMenuItem key={agenda.slug} asChild>
+                <a
+                  href={`/uradnik/${agenda.slug}/novy?returnTo=${encodeURIComponent("/uradnik/home")}`}
+                >
+                  {agenda.singular}
+                </a>
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      {loading ? (
+      {loading && !Object.keys(datasets).length ? (
         <Loading />
-      ) : error ? (
-        <Failure error={error} retry={() => setAttempt((a) => a + 1)} />
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border bg-border lg:grid-cols-3">
-            {AGENDAS.map((a) => (
+          {failures.length > 0 && (
+            <Alert>
+              <AlertTitle>Neúplné údaje</AlertTitle>
+              <AlertDescription>
+                <p>
+                  Nedostupné údaje: {failedAgendas.map((agenda) => agenda.title).join(", ")}. Súhrny
+                  uvádzajú iba načítané agendy, dostupné dokumenty zostávajú zobrazené.
+                </p>
+                <Button
+                  variant="outline"
+                  className="mt-3"
+                  disabled={loading}
+                  onClick={() => {
+                    setLoading(true);
+                    setAttempt((n) => n + 1);
+                  }}
+                >
+                  Obnoviť nedostupné údaje
+                </Button>
+              </AlertDescription>
+            </Alert>
+          )}
+          <dl className="grid grid-cols-1 divide-y rounded-lg border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {summaries.map(({ kind, total, available }) => (
+              <div key={kind} className="p-5">
+                <dt className="text-sm text-muted-foreground">
+                  {kind === "all"
+                    ? "Všetky dokumenty"
+                    : kind === "draft"
+                      ? "Koncepty"
+                      : "Zverejnené"}
+                </dt>
+                <dd className="mt-2 text-3xl font-semibold tabular-nums">
+                  {available ? total : "—"}
+                </dd>
+                {available < AGENDAS.length && (
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {available} zo {AGENDAS.length} agend · {loading ? "načítavam" : "neúplné"}
+                  </p>
+                )}
+              </div>
+            ))}
+          </dl>
+          <nav
+            aria-label="Počty podľa agendy"
+            className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {AGENDAS.map((agenda) => (
               <Link
-                href={`/uradnik/${a.slug}`}
-                key={a.slug}
-                className="flex items-center justify-between gap-3 bg-background p-5 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                key={agenda.slug}
+                href={`/uradnik/${agenda.slug}`}
+                className="flex min-h-11 items-center justify-between gap-2 border-b py-3 text-sm hover:text-primary"
               >
-                <div>
-                  <p className="text-sm text-muted-foreground">{a.title}</p>
-                  <p className="mt-2 text-2xl font-semibold tabular-nums">{counts[a.slug] ?? 0}</p>
-                </div>
-                <ArrowRight className="size-4 text-muted-foreground" />
+                <span>{agenda.title}</span>
+                <span className="flex items-center gap-3 tabular-nums">
+                  {datasets[`${agenda.slug}/all`]?.total ??
+                    (failures.includes(`${agenda.slug}/all`) ? "Nedostupné" : "Načítavam…")}
+                  <ArrowRight className="size-4" />
+                </span>
               </Link>
             ))}
-          </div>
+          </nav>
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold">Pokračovať v rozpracovaných</h2>
+            {drafts.length ? (
+              <div className="divide-y rounded-lg border">
+                {drafts.map(({ typ, zaznam }) => (
+                  <a
+                    key={`${typ}/${zaznam.id}`}
+                    href={`/uradnik/${typ}/${zaznam.id}/upravit?returnTo=${encodeURIComponent("/uradnik/home")}`}
+                    className="flex min-h-11 items-center justify-between gap-4 p-4 hover:bg-accent"
+                  >
+                    <div className="min-w-0">
+                      <p className="break-words text-sm font-medium">
+                        {zaznam.nazov || zaznam.predmet}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {agendaForTitle(typ)} · {zaznam.cislo} · Koncept
+                      </p>
+                    </div>
+                    <span className="shrink-0 text-sm text-primary">
+                      Upraviť <ArrowRight className="ml-2 inline size-4" />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                {summaries[1].available === AGENDAS.length
+                  ? "Nemáte rozpracované koncepty."
+                  : "V načítaných agendách nie sú rozpracované koncepty."}
+              </p>
+            )}
+          </section>
           <section className="space-y-4">
             <h2 className="text-xl font-semibold">Posledné zmeny</h2>
             {rows.length ? (
               <div className="overflow-hidden rounded-lg border">
-                <RecordsTable nodes={rows} office />
+                <RecordsTable nodes={rows} office dateContext="updated" returnTo="/uradnik/home" />
               </div>
             ) : (
               <Empty
-                title="Pripravené na prvý dokument"
-                text="Vyberte agendu a pridajte ukážkový záznam."
+                title={
+                  summaries[0].available === AGENDAS.length
+                    ? "Pripravené na prvý dokument"
+                    : "Zatiaľ nie sú načítané dokumenty"
+                }
+                text="Vyberte agendu a pridajte ukážkový záznam alebo obnovte nedostupné údaje."
               />
             )}
           </section>
@@ -119,4 +228,7 @@ export function OfficeDashboard() {
       )}
     </>
   );
+}
+function agendaForTitle(slug: string) {
+  return AGENDAS.find((agenda) => agenda.slug === slug)?.title;
 }

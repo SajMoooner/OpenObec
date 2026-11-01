@@ -37,34 +37,58 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "@openobec/ui/components/alert-dialog";
-import { Loading, Failure, Published } from "./shared";
+import { DocumentSummary, returnLabel, summaryFields } from "./document-fields";
+import { useOfficeNavigation } from "./navigation-guard";
+import { Loading, Failure, Published, countLabel } from "./shared";
 import { Attachments } from "./attachments";
-export function RecordFields({ agenda, record }: { agenda: AgendaSlug; record: DocumentRecord }) {
+export function RecordFields({
+  agenda,
+  record,
+  belowSummary = false,
+}: {
+  agenda: AgendaSlug;
+  record: DocumentRecord;
+  belowSummary?: boolean;
+}) {
   const def = agendaFor(agenda)!;
   return (
     <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
-      {def.fields.map((f) => (
-        <div key={f.key} className={f.kind === "textarea" ? "sm:col-span-2" : ""}>
-          <dt className="mb-1 text-sm text-muted-foreground">{f.label}</dt>
-          <dd className="break-words whitespace-pre-wrap text-sm leading-6">
-            {record[f.key] == null
-              ? "Neurčené"
-              : f.kind === "money"
-                ? formatMoney(record[f.key])
-                : f.kind === "date" || f.kind === "datetime"
-                  ? formatDate(record[f.key])
-                  : (f.options?.find((x) => x.value === record[f.key])?.label ??
-                    String(record[f.key]))}
-          </dd>
-        </div>
-      ))}
+      {def.fields
+        .filter(
+          (field) =>
+            !belowSummary ||
+            (!summaryFields(agenda, record).some(
+              (summary) => summary.label === field.label.replace(/ \(€\)$/, ""),
+            ) &&
+              field.key !== "cislo" &&
+              field.key !== "nazov" &&
+              !(field.key === "predmet" && !record.nazov)),
+        )
+        .map((f) => (
+          <div key={f.key} className={f.kind === "textarea" ? "sm:col-span-2" : ""}>
+            <dt className="mb-1 text-sm text-muted-foreground">{f.label}</dt>
+            <dd className="break-words whitespace-pre-wrap text-sm leading-6">
+              {record[f.key] == null
+                ? "Neurčené"
+                : f.kind === "money"
+                  ? formatMoney(record[f.key])
+                  : f.kind === "date" || f.kind === "datetime"
+                    ? formatDate(record[f.key])
+                    : (f.options?.find((x) => x.value === record[f.key])?.label ??
+                      String(record[f.key]))}
+            </dd>
+          </div>
+        ))}
       {def.party && (
         <div className="sm:col-span-2">
-          <dt className="mb-1 text-sm text-muted-foreground">{def.partyLabel}</dt>
+          <dt className="mb-1 text-sm text-muted-foreground">
+            {belowSummary ? "IČO" : def.partyLabel}
+          </dt>
           <dd className="text-sm leading-6">
-            {String((record[def.party] as Record<string, unknown>)?.nazov ?? "—")}
+            {!belowSummary && String((record[def.party] as Record<string, unknown>)?.nazov ?? "—")}
             <span className="ml-3 text-muted-foreground">
-              IČO: {String((record[def.party] as Record<string, unknown>)?.ico ?? "neuvedené")}
+              {!belowSummary && "IČO: "}
+              {String((record[def.party] as Record<string, unknown>)?.ico ?? "neuvedené")}
             </span>
           </dd>
         </div>
@@ -110,6 +134,7 @@ export function DocumentDetail({
   office?: boolean;
 }) {
   const router = useRouter();
+  const navigation = useOfficeNavigation();
   const contextParams = useSearchParams();
   const returnTo = safeReturnTo(
     contextParams.get("returnTo"),
@@ -121,6 +146,7 @@ export function DocumentDetail({
   );
   const joined = useJoined(agenda, id, !office);
   const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
   const [actionError, setActionError] = useState<Error>();
   const [confirm, setConfirm] = useState(false);
   const [retries, setRetries] = useState(0);
@@ -150,6 +176,11 @@ export function DocumentDetail({
         method: "POST",
         body: JSON.stringify({ zverejnene: !record.zverejnene }),
       });
+      setMessage(
+        record.zverejnene
+          ? "Dokument bol stiahnutý zo zverejnenia."
+          : "Dokument bol zverejnený. Verejný prehľad sa môže ešte aktualizovať.",
+      );
       source.reload();
       setRetries(0);
       joined.reload();
@@ -198,11 +229,11 @@ export function DocumentDetail({
         <Button variant="link" className="px-0" asChild>
           <Link href={returnTo}>
             <ArrowLeft />
-            {def.title}
+            {returnLabel(returnTo, def.title)}
           </Link>
         </Button>
         <div className="mt-3 flex flex-wrap items-start justify-between gap-4">
-          <div className="max-w-3xl space-y-3">
+          <div className="min-w-0 max-w-3xl space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="outline">{def.singular}</Badge>
               <Published value={record.zverejnene} />
@@ -214,30 +245,51 @@ export function DocumentDetail({
           </div>
           {office && (
             <div className="flex flex-wrap gap-2">
-              <Button variant="outline" asChild>
-                <Link
+              <Button variant={record.zverejnene ? "default" : "outline"} asChild>
+                <a
                   href={`/uradnik/${agenda}/${id}/upravit?returnTo=${encodeURIComponent(returnTo)}`}
                 >
                   <Pencil />
                   Upraviť
-                </Link>
-              </Button>
-              <Button disabled={busy} onClick={publish}>
-                {record.zverejnene ? <EyeOff /> : <Globe />}
-                {record.zverejnene ? "Stiahnuť zo zverejnenia" : "Zverejniť"}
+                </a>
               </Button>
               <Button
-                variant="outline"
-                size="icon"
-                aria-label="Vymazať dokument"
-                onClick={() => setConfirm(true)}
+                variant={record.zverejnene ? "outline" : "default"}
+                disabled={busy}
+                onClick={publish}
               >
-                <Trash2 />
+                {record.zverejnene ? <EyeOff /> : <Globe />}
+                {record.zverejnene ? "Stiahnuť zo zverejnenia" : "Zverejniť"}
               </Button>
             </div>
           )}
         </div>
       </div>
+      {(message || (office && contextParams.get("saved"))) && (
+        <p role="status" className="text-sm text-primary">
+          {message ||
+            (contextParams.get("saved") === "published"
+              ? "Dokument bol uložený a zverejnený. Verejný prehľad sa môže ešte aktualizovať."
+              : "Dokument bol uložený.")}
+        </p>
+      )}
+      {office && record.zverejnene && navigation?.citizenUrl && (
+        <div className="space-y-2">
+          <Button variant="outline" asChild>
+            <a
+              href={`${navigation.citizenUrl}/obcan/${agenda}/${id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Globe />
+              Otvoriť verejný dokument
+            </a>
+          </Button>
+          <p className="text-xs text-muted-foreground">
+            Zmeny sa vo verejnom prehľade zobrazia po spracovaní.
+          </p>
+        </div>
+      )}
       {actionError && <Failure error={actionError} />}
       {pending && (
         <Alert>
@@ -260,11 +312,19 @@ export function DocumentDetail({
           </AlertDescription>
         </Alert>
       )}
+      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+        <section className="min-w-0 rounded-lg border p-5 sm:p-6">
+          <h2 className="mb-5 text-xl font-semibold">Prehľad dokumentu</h2>
+          <DocumentSummary agenda={agenda} record={record} />
+        </section>
+        <div className="min-w-0 rounded-lg border p-5 sm:p-6">
+          <Attachments agenda={agenda} id={id} office={office} />
+        </div>
+      </div>
       <section className="rounded-lg border p-5 sm:p-6">
-        <h2 className="mb-6 text-xl font-semibold">Údaje dokumentu</h2>
-        <RecordFields agenda={agenda} record={record} />
+        <h2 className="mb-6 text-xl font-semibold">Ďalšie údaje dokumentu</h2>
+        <RecordFields agenda={agenda} record={record} belowSummary />
       </section>
-      <Attachments agenda={agenda} id={id} office={office} />
       {agenda !== "vzn" && (
         <section className="space-y-4">
           <div className="flex items-center justify-between">
@@ -281,9 +341,29 @@ export function DocumentDetail({
           ) : joined.data?.data.suvisiace_zaznamy.length ? (
             <>
               <p className="text-sm text-muted-foreground">
-                {joined.data.data.suvisiace_zaznamy.length} dokumentov v prepojenom prehľade.
-                Súvislosti vychádzajú z vybraných odkazov.
+                {countLabel(joined.data.data.suvisiace_zaznamy.length, [
+                  "súvisiaci dokument",
+                  "súvisiace dokumenty",
+                  "súvisiacich dokumentov",
+                ])}{" "}
+                v prepojenom prehľade. Súvislosti vychádzajú z vybraných odkazov.
               </p>
+              <ul
+                className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground"
+                aria-label="Súvislosti podľa agendy"
+              >
+                {[...new Set(joined.data.data.suvisiace_zaznamy.map((node) => node.typ))].map(
+                  (typ) => (
+                    <li key={typ}>
+                      {agendaFor(typ)?.title}:{" "}
+                      {
+                        joined.data!.data.suvisiace_zaznamy.filter((node) => node.typ === typ)
+                          .length
+                      }
+                    </li>
+                  ),
+                )}
+              </ul>
               <Accordion type="multiple" className="rounded-lg border px-4">
                 {joined.data.data.suvisiace_zaznamy.map((node: RecordNode) => (
                   <AccordionItem
@@ -356,6 +436,14 @@ export function DocumentDetail({
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+      {office && (
+        <div className="border-t pt-5">
+          <Button variant="ghost" className="text-destructive" onClick={() => setConfirm(true)}>
+            <Trash2 />
+            Vymazať dokument
+          </Button>
+        </div>
+      )}
       <AlertDialog open={confirm} onOpenChange={setConfirm}>
         <AlertDialogContent>
           <AlertDialogHeader>

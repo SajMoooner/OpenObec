@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import {
@@ -89,10 +88,10 @@ export function DocumentList({
         </div>
         {office && (
           <Button className="min-h-11" asChild>
-            <Link href={`/uradnik/${agenda}/novy?returnTo=${encodeURIComponent(returnTo)}`}>
+            <a href={`/uradnik/${agenda}/novy?returnTo=${encodeURIComponent(returnTo)}`}>
               <Plus />
               Pridať dokument
-            </Link>
+            </a>
           </Button>
         )}
       </div>

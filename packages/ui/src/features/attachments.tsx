@@ -79,11 +79,11 @@ export function Attachments({
       ) : error ? (
         <Failure error={error} retry={reload} />
       ) : data?.data.length ? (
-        <ul className="divide-y rounded-lg border">
+        <ul className="divide-y">
           {data.data.map((file) => (
-            <li key={file.id} className="flex flex-wrap items-center gap-3 p-4">
+            <li key={file.id} className="flex flex-wrap items-center gap-3 py-3">
               <FileText className="size-5 shrink-0 text-primary" />
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0 flex-1 basis-48">
                 <a
                   className="break-all text-sm font-medium text-primary underline-offset-4 hover:underline"
                   href={`/api/rest/v1${path}/${encodeURIComponent(file.id)}/download`}
@@ -91,11 +91,11 @@ export function Attachments({
                   {file.filename}
                 </a>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  {file.content_type} ·{" "}
+                  {attachmentType(file.content_type)} ·{" "}
                   {new Intl.NumberFormat("sk-SK", { maximumFractionDigits: 1 }).format(
                     file.size_bytes / 1024,
                   )}{" "}
-                  kB
+                  kB · Nahraté
                 </p>
               </div>
               <Button variant="outline" size="sm" asChild>
@@ -124,7 +124,7 @@ export function Attachments({
         <p className="text-sm text-muted-foreground">K dokumentu nie sú priložené žiadne súbory.</p>
       )}
       {office && (
-        <div className="space-y-3 rounded-lg border bg-muted/30 p-4">
+        <div className="space-y-3 border-t pt-4">
           <Label htmlFor="attachment-upload">Pridať prílohy</Label>
           <Input
             id="attachment-upload"
@@ -140,6 +140,19 @@ export function Attachments({
           <p className="text-xs text-muted-foreground">
             PDF, PNG alebo JPEG. Najviac 20 MiB na súbor, 10 aktívnych príloh na dokument.
           </p>
+          {files.length > 0 && (
+            <ul className="space-y-2 text-sm">
+              {files.map((file, index) => (
+                <li key={`${file.name}/${index}`} className="break-words">
+                  {file.name} · {attachmentType(file.type)} ·{" "}
+                  {new Intl.NumberFormat("sk-SK", { maximumFractionDigits: 1 }).format(
+                    file.size / 1024,
+                  )}{" "}
+                  kB · {uploadError ? "Nenahraté, skúste znova" : busy ? "Nahrávam…" : "Vybrané"}
+                </li>
+              ))}
+            </ul>
+          )}
           {files.length > 0 && (
             <Button size="sm" disabled={busy} onClick={upload}>
               {busy ? <LoaderCircle className="animate-spin" /> : <Upload />}Nahrať{" "}
@@ -183,5 +196,16 @@ export function Attachments({
         </AlertDialogContent>
       </AlertDialog>
     </section>
+  );
+}
+
+export function attachmentType(type: string) {
+  return (
+    (
+      { "application/pdf": "PDF", "image/png": "PNG", "image/jpeg": "JPEG" } as Record<
+        string,
+        string
+      >
+    )[type] ?? "Súbor"
   );
 }

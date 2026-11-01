@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Link2, Plus, X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   agendaFor,
+  api,
+  titleOf,
+  type DocumentRecord,
   inverseReferenceOwners,
   type AgendaSlug,
   type Reference,
@@ -50,6 +52,32 @@ export function ReferencePicker({
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [labels, setLabels] = useState<Record<string, string>>({});
+  const [unavailable, setUnavailable] = useState<string[]>([]);
+  const [labelAttempt, setLabelAttempt] = useState(0);
+  useEffect(() => {
+    const controller = new AbortController();
+    void Promise.allSettled(
+      value.map(async (reference) => {
+        const key = `${reference.typ}/${reference.id}`;
+        try {
+          const result = await api<{ data: DocumentRecord }>(
+            `/${reference.typ}/${encodeURIComponent(reference.id)}`,
+            { signal: controller.signal },
+          );
+          if (!controller.signal.aborted) {
+            setLabels((old) => ({
+              ...old,
+              [key]: `${result.data.cislo} · ${titleOf(result.data)}`,
+            }));
+            setUnavailable((old) => old.filter((item) => item !== key));
+          }
+        } catch {
+          if (!controller.signal.aborted) setUnavailable((old) => [...new Set([...old, key])]);
+        }
+      }),
+    );
+    return () => controller.abort();
+  }, [value, labelAttempt]);
   useEffect(() => {
     const timer = setTimeout(() => {
       setQuery(q.trim());
@@ -192,13 +220,23 @@ export function ReferencePicker({
           </DialogContent>
         </Dialog>
       </div>
+      {unavailable.some((key) => value.some((r) => `${r.typ}/${r.id}` === key)) && (
+        <Button type="button" variant="outline" onClick={() => setLabelAttempt((n) => n + 1)}>
+          Obnoviť názvy dokumentov
+        </Button>
+      )}
       {value.length ? (
         <ul className="space-y-2">
           {value.map((r) => (
             <li key={`${r.typ}/${r.id}`} className="flex items-center gap-3 rounded-md border p-3">
               <Link2 className="size-4 shrink-0 text-primary" />
               <div className="min-w-0 flex-1">
-                <p className="break-all text-sm">{labels[`${r.typ}/${r.id}`] ?? r.id}</p>
+                <p className="break-all text-sm">
+                  {labels[`${r.typ}/${r.id}`] ??
+                    (unavailable.includes(`${r.typ}/${r.id}`)
+                      ? "Názov dokumentu nie je dostupný"
+                      : "Načítavam názov dokumentu…")}
+                </p>
                 <Badge variant="outline" className="mt-1">
                   {agendaFor(r.typ)?.title}
                 </Badge>
@@ -207,7 +245,7 @@ export function ReferencePicker({
                 type="button"
                 variant="ghost"
                 size="icon"
-                aria-label={`Odobrať súvislosť ${r.id}`}
+                aria-label={`Odobrať súvislosť ${labels[`${r.typ}/${r.id}`] ?? agendaFor(r.typ)?.singular}`}
                 onClick={() => onChange(value.filter((x) => x.typ !== r.typ || x.id !== r.id))}
               >
                 <X />
@@ -237,20 +275,21 @@ export function InverseLinks({ agenda, id }: { agenda: AgendaSlug; id: string })
   if (!inverse.length) return null;
   return (
     <section className="space-y-3">
-      <h2 className="text-lg font-semibold">Spätné súvislosti</h2>
+      <h2 className="text-lg font-semibold">Dokumenty, ktoré odkazujú na tento záznam</h2>
       <p className="text-sm text-muted-foreground">
-        Tieto odkazy spravujú iné dokumenty. Ich zmenu vykonajte pri príslušnom dokumente.
+        Tieto súvislosti sú vybrané v iných dokumentoch. Ak ich chcete zmeniť, otvorte úpravu
+        príslušného dokumentu.
       </p>
       <ul className="space-y-2">
         {inverse.map((r) => (
           <li key={`${r.typ}/${r.id}`}>
-            <Link
+            <a
               className="text-sm text-primary underline-offset-4 hover:underline"
               href={`/uradnik/${r.typ}/${r.id}/upravit`}
             >
               {data?.data.nodes.find((n) => n.typ === r.typ && n.id === r.id)?.label ??
-                `${agendaFor(r.typ)?.title} · ${r.id}`}
-            </Link>
+                `${agendaFor(r.typ)?.title} · Názov dokumentu nie je dostupný`}
+            </a>
           </li>
         ))}
       </ul>
