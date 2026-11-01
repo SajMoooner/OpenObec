@@ -11,12 +11,20 @@ const formatter = new Intl.DateTimeFormat("sv-SE", {
 export function localBratislavaInput(value: unknown): string {
   if (typeof value !== "string" || !value) return "";
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "" : formatter.format(date).replace(" ", "T").slice(0, 16);
+  if (Number.isNaN(date.getTime())) return "";
+  const local = formatter.format(date).replace(" ", "T");
+  const fraction = String(date.getUTCMilliseconds()).padStart(3, "0").replace(/0+$/, "");
+  return fraction ? `${local}.${fraction}` : local.endsWith(":00") ? local.slice(0, 16) : local;
 }
-export function bratislavaInstant(value: string): string {
-  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(value))
+export function bratislavaInstant(value: string, original?: unknown): string {
+  // A local clock value cannot distinguish the two autumn overlap occurrences.
+  // Keep the server instant (including sub-millisecond precision) if it is unchanged.
+  if (typeof original === "string" && value && value === localBratislavaInput(original))
+    return original;
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{1,3})?)?$/.test(value))
     throw new Error("Zadajte platný dátum a čas.");
-  const normalized = value.length === 16 ? value + ":00" : value;
+  const [clock, fraction = ""] = value.split(".");
+  const normalized = clock.length === 16 ? clock + ":00" : clock;
   const wall = Date.parse(normalized + "Z");
   if (!Number.isFinite(wall)) throw new Error("Zadajte platný dátum a čas.");
   let instant = wall;
@@ -28,5 +36,5 @@ export function bratislavaInstant(value: string): string {
   }
   if (formatter.format(new Date(instant)).replace(" ", "T") !== normalized)
     throw new Error("Zadaný miestny čas v pásme Europe/Bratislava neexistuje. Vyberte iný čas.");
-  return new Date(instant).toISOString();
+  return new Date(instant + Number(fraction.padEnd(3, "0"))).toISOString();
 }

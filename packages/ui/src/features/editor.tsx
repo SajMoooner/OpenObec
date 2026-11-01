@@ -70,7 +70,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
     setBusy(true);
     let id = savedId;
     try {
-      const payload = toWritePayload(agenda, values);
+      const payload = toWritePayload(agenda, values, initial);
       payload.zverejnene = initial?.zverejnene ?? false;
       if (files.length > 10) throw new Error("Na dokument môžete pridať najviac 10 príloh.");
       for (const file of files)
@@ -214,6 +214,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
                             ? "datetime-local"
                             : "text"
                       }
+                      step={f.kind === "datetime" ? "0.001" : undefined}
                       inputMode={f.kind === "money" ? "decimal" : undefined}
                       maxLength={f.key === "cislo" ? 100 : f.key === "nazov" ? 500 : undefined}
                       value={String(values[f.key] ?? "")}

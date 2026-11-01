@@ -104,3 +104,96 @@ test("six explicit agendas preserve customer versus supplier", () => {
   assert.equal(AGENDAS.find((x) => x.slug === "faktury")?.party, "odberatel");
   assert.equal(AGENDAS.find((x) => x.slug === "dodavatelske-faktury")?.party, "dodavatel");
 });
+
+test("unrelated procurement edits preserve the original exact deadline through payload conversion", () => {
+  const original = { lehota_predkladania: "2026-10-25T00:30:45.123456Z" };
+  const values = {
+    cislo: "VO-EDIT",
+    nazov: "Oprava",
+    predmet: "Upravený predmet",
+    cpv: "45000000-7",
+    predpokladana_hodnota_bez_dph: "1000.00",
+    stav: "otvorene",
+    lehota_predkladania: "2026-10-25T02:30:45.123",
+    zverejnene: false,
+  };
+  assert.equal(
+    toWritePayload("verejne-obstaravanie", values, original).lehota_predkladania,
+    "2026-10-25T00:30:45.123456Z",
+  );
+  assert.equal(
+    toWritePayload(
+      "verejne-obstaravanie",
+      { ...values, lehota_predkladania: "2026-11-01T10:30:45.123" },
+      original,
+    ).lehota_predkladania,
+    "2026-11-01T09:30:45.123Z",
+  );
+});
+
+test("null error JSON uses the structured Slovak API fallback", async () => {
+  await assert.rejects(
+    () => api("/faktury", {}, async () => new Response("null", { status: 503 })),
+    (e: unknown) =>
+      e instanceof ApiError &&
+      e.status === 503 &&
+      e.code === "INTERNAL_ERROR" &&
+      e.message === "Požiadavku sa nepodarilo dokončiť." &&
+      e.details.length === 0,
+  );
+});
+test("malformed API error details cannot escape the declared shape", async () => {
+  for (const details of [
+    null,
+    "broken",
+    {},
+    [null],
+    [{ field: 42, code: "REQUIRED", message: "Invalid" }],
+  ]) {
+    await assert.rejects(
+      () =>
+        api(
+          "/faktury",
+          {},
+          async () =>
+            new Response(
+              JSON.stringify({
+                error: {
+                  code: "VALIDATION_ERROR",
+                  message: "Neplatné údaje",
+                  details,
+                  request_id: "req_test",
+                },
+              }),
+              { status: 422 },
+            ),
+        ),
+      (e: unknown) =>
+        e instanceof ApiError &&
+        e.code === "VALIDATION_ERROR" &&
+        e.message === "Neplatné údaje" &&
+        e.requestId === "req_test" &&
+        Array.isArray(e.details) &&
+        e.details.length === 0,
+    );
+  }
+});
+
+test("malformed API error scalar fields use typed fallbacks", async () => {
+  await assert.rejects(
+    () =>
+      api(
+        "/faktury",
+        {},
+        async () =>
+          new Response(JSON.stringify({ error: { code: 42, message: {}, request_id: [] } }), {
+            status: 422,
+          }),
+      ),
+    (e: unknown) =>
+      e instanceof ApiError &&
+      e.code === "INTERNAL_ERROR" &&
+      e.message === "Požiadavku sa nepodarilo dokončiť." &&
+      e.requestId === undefined,
+  );
+});

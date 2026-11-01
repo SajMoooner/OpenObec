@@ -102,17 +102,28 @@ export async function api<T = unknown>(
     );
   }
   if (!response.ok) {
-    const error = (
-      result as {
-        error?: { code: string; message: string; details?: FieldError[]; request_id?: string };
-      }
-    ).error;
+    const envelope = result !== null && typeof result === "object" ? result : {};
+    const candidate = "error" in envelope ? envelope.error : undefined;
+    const error = candidate !== null && typeof candidate === "object" ? candidate : {};
+    const details =
+      "details" in error && Array.isArray(error.details)
+        ? error.details.filter(
+            (detail): detail is FieldError =>
+              detail !== null &&
+              typeof detail === "object" &&
+              typeof detail.field === "string" &&
+              typeof detail.code === "string" &&
+              typeof detail.message === "string",
+          )
+        : [];
     throw new ApiError(
       response.status,
-      error?.code ?? "INTERNAL_ERROR",
-      error?.message ?? "Požiadavku sa nepodarilo dokončiť.",
-      error?.details ?? [],
-      error?.request_id,
+      "code" in error && typeof error.code === "string" ? error.code : "INTERNAL_ERROR",
+      "message" in error && typeof error.message === "string"
+        ? error.message
+        : "Požiadavku sa nepodarilo dokončiť.",
+      details,
+      "request_id" in error && typeof error.request_id === "string" ? error.request_id : undefined,
       Number(response.headers.get("Retry-After")) || undefined,
     );
   }

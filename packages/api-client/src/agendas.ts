@@ -158,6 +158,7 @@ export class FormValidationError extends Error {
 export function toWritePayload(
   slug: AgendaSlug,
   values: Record<string, unknown>,
+  original: Record<string, unknown> = {},
 ): Record<string, unknown> {
   const agenda = agendaFor(slug)!;
   const out: Record<string, unknown> = {};
@@ -188,7 +189,7 @@ export function toWritePayload(
     }
     if (f.kind === "datetime") {
       try {
-        value = bratislavaInstant(value);
+        value = bratislavaInstant(value, original[f.key]);
       } catch (e) {
         errors.push({
           field: f.key,
