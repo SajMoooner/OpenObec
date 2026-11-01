@@ -26,7 +26,7 @@ jobs:
       - run: scripts/dev/infra.sh up
       - run: python3 -m unittest discover -s tests/contracts -v
       - run: python3 -m unittest discover -s tests/runtime -v
-      - run: ./mvnw -B test package
+      - run: ./mvnw -B verify
       - run: pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build
       - run: scripts/dev/up.sh manual --skip-build
       - run: scripts/smoke/run.sh

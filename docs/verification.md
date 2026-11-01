@@ -23,6 +23,8 @@ Dátum: 1. 11. 2026. Overené na macOS s Java21 (Temurin21.0.9), Node26.3.1, pnp
 
 Browser skúšky overujú vytvorenie dokumentu, pripojenie skutočného PDF, výber súvisiaceho dokumentu, publikovanie, vyhľadanie občanom a zhodu stiahnutých bajtov. Pokrývajú aj editáciu, zrušenie publikovania, zachovanie formulára pri chybe uploadu alebo validácie, opakovanie uploadu bez duplikátu, čiastočný výpadok vyhľadávania, klávesnicu a mobilnú navigáciu. Ďalšie prípady overujú všetkých 21 odkazov marketingovej ukážky, čitateľné mobilné/tabuľkové zoznamy a medzery v responzívnom texte.
 
+Java výpisy obsahujú očakávané varovania pri úmyselných skúškach nedostupného brokera, neplatného DLQ topicu a prerušenej TCP prípojky. Výsledné počty zlyhaní a chýb zostali nulové; nejde o tvrdenie, že výpis testov je bez varovaní.
+
 ## Dáta, súbory a obnova
 
 Seed vytvoril 12 dokumentov v každej zo šiestich agend, dve vetvené siete súvislostí a skutočné čitateľné PDF. Opakovanie nemení hotové záznamy a zachováva používateľské úpravy aj zmazania. Native PDFKit potvrdil jednu stranu a čitateľný obsah súboru. SHA256 prvej prílohy je `2ff3a6f9653d871136835945d12111d94da30a4d25bc882b6f416184a6cdfabb`; po reštarte zostal rovnaký.

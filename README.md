@@ -40,7 +40,7 @@ Na spustenom stacku (pre frontend kontroly najprv `pnpm install --frozen-lockfil
 python3 -m venv .tools/venv
 .tools/venv/bin/pip install -r tests/integration/requirements.txt
 scripts/smoke/run.sh
-JAVA_HOME="$PWD/.tools/jdk-21.0.9+10/Contents/Home" ./mvnw -B test
+./mvnw -B verify
 pnpm test:e2e
 ```
 
