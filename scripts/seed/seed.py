@@ -84,13 +84,22 @@ def wait_projection(manifest, seconds=90):
         for agenda, identity in list(pending):
             try:
                 source = request('GET', agenda + '/' + identity)['data']
-                joined = request('GET', 'query/' + agenda + '/' + identity)
-                if (joined['projection']['status'] == 'ready' and joined['data']['root']['zaznam']['entity_version'] >= source['entity_version']):
-                    pending.remove((agenda, identity))
             except urllib.error.HTTPError as error:
                 if error.code == 404:
                     pending.remove((agenda, identity))
-                elif error.code not in (202, 503):
+                    continue
+                if error.code == 503:
+                    continue
+                raise
+            try:
+                joined = request('GET', 'query/' + agenda + '/' + identity)
+                root = joined['data']['root']['zaznam']
+                # Every live seed root must arrive, including the initial linked targets.
+                # Graph "pending" can persist after a user deletes a referenced target.
+                if root and root['entity_version'] >= source['entity_version']:
+                    pending.remove((agenda, identity))
+            except urllib.error.HTTPError as error:
+                if error.code not in (202, 404, 503):
                     raise
             except KeyError:
                 pass

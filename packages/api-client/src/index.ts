@@ -29,6 +29,18 @@ export interface Edge {
   to: Reference;
   owners: Reference[];
 }
+export function inverseReferenceOwners(edges: Edge[], root: Reference): Reference[] {
+  const isRoot = (reference: Reference) => reference.typ === root.typ && reference.id === root.id;
+  return edges
+    .filter((edge) => isRoot(edge.from) || isRoot(edge.to))
+    .flatMap((edge) =>
+      edge.owners.filter((owner) => owner.typ !== root.typ || owner.id !== root.id),
+    )
+    .filter(
+      (owner, index, all) =>
+        all.findIndex((other) => other.typ === owner.typ && other.id === owner.id) === index,
+    );
+}
 export interface Projection {
   status: "ready" | "pending";
   root_entity_version: number | null;

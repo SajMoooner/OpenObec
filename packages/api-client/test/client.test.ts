@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { ApiError, api, loadRelated, formatMoney } from "../src/index.ts";
+import { ApiError, api, loadRelated, formatMoney, inverseReferenceOwners } from "../src/index.ts";
+import type { Edge, Reference } from "../src/index.ts";
 import { AGENDAS, toWritePayload } from "../src/agendas.ts";
 
 test("preserves structured server errors", async () => {
@@ -195,5 +196,25 @@ test("malformed API error scalar fields use typed fallbacks", async () => {
       e.code === "INTERNAL_ERROR" &&
       e.message === "Požiadavku sa nepodarilo dokončiť." &&
       e.requestId === undefined,
+  );
+});
+
+test("inverse owners exclude neighbor-to-neighbor claims in a triangle", () => {
+  const a: Reference = { typ: "zmluvy", id: "a" };
+  const b: Reference = { typ: "objednavky", id: "b" };
+  const c: Reference = { typ: "faktury", id: "c" };
+  const edges: Edge[] = [
+    { from: a, to: b, owners: [a] },
+    { from: a, to: c, owners: [a] },
+    { from: b, to: c, owners: [b] },
+  ];
+  assert.deepEqual(inverseReferenceOwners(edges, a), []);
+  assert.deepEqual(
+    inverseReferenceOwners(
+      [...edges, { from: b, to: a, owners: [a, b] }, { from: a, to: b, owners: [b] }],
+      a,
+    ),
+    [b],
+    "genuine incoming owners appear once for either endpoint orientation",
   );
 });

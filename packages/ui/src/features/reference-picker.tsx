@@ -2,7 +2,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Link2, Plus, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { agendaFor, type AgendaSlug, type Reference } from "@openobec/api-client";
+import {
+  agendaFor,
+  inverseReferenceOwners,
+  type AgendaSlug,
+  type Reference,
+} from "@openobec/api-client";
 import { useResource } from "@openobec/ui/hooks/use-resource";
 import { Button } from "@openobec/ui/components/button";
 import { Input } from "@openobec/ui/components/input";
@@ -222,10 +227,7 @@ export function InverseLinks({ agenda, id }: { agenda: AgendaSlug; id: string })
   const { data, error } = useResource<{
     data: { nodes: Option[]; edges: { from: Reference; to: Reference; owners: Reference[] }[] };
   }>(`/${agenda}/${id}/suvislosti?hlbka=1`);
-  const inverse =
-    data?.data.edges
-      .flatMap((e) => e.owners.filter((o) => o.typ !== agenda || o.id !== id))
-      .filter((r, i, all) => all.findIndex((x) => x.typ === r.typ && x.id === r.id) === i) ?? [];
+  const inverse = inverseReferenceOwners(data?.data.edges ?? [], { typ: agenda, id });
   if (error)
     return (
       <p className="text-sm text-muted-foreground">
