@@ -43,9 +43,21 @@ PYWAIT
     for service in mongo-invoices mongo-supplier-invoices mongo-contracts mongo-orders mongo-procurement mongo-ordinances mongo-read; do
       "${compose[@]}" exec -T "$service" mongosh "mongodb://$service:27017/?directConnection=true" --quiet /opt/openobec/verify-transaction.js
     done
-    "$PYTHON" infra/mongo/verify-host.py
-    "$PYTHON" infra/kafka/verify.py
-    "$PYTHON" infra/rustfs/verify.py
+    # Resolve .env, shell overrides and defaults through the same Compose parser
+    # used for startup. Keep credentials in memory rather than shell output.
+    "$PYTHON" - "$ROOT/compose.yaml" <<'PYVERIFY'
+import json, os, subprocess, sys
+compose = ['docker', 'compose', '-p', 'openobec', '-f', sys.argv[1]]
+config = json.loads(subprocess.check_output(compose + ['config', '--format', 'json'], text=True))
+resolved = config['services']['rustfs-init']['environment']
+environment = os.environ.copy()
+for key in ('S3_ACCESS_KEY', 'S3_SECRET_KEY', 'S3_BUCKET'):
+ # Canonical Compose output doubles literal dollars so it can be re-imported.
+ # Undo that serialization escape once before passing the actual runtime value.
+ environment[key] = resolved[key].replace('$$', '$')
+for script in ('infra/mongo/verify-host.py', 'infra/kafka/verify.py', 'infra/rustfs/verify.py'):
+ subprocess.run([sys.executable, script], env=environment, check=True)
+PYVERIFY
     ;;
   status) "${compose[@]}" ps -a ;;
   logs) "${compose[@]}" logs --tail 100 ;;
