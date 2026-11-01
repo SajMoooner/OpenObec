@@ -1,0 +1,19 @@
+{
+  "name": "@openobec/api-client",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./agendas": "./src/agendas.ts",
+    "./server": "./src/server.ts",
+    "./schema": "./src/schema.d.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "26.6.6"
+  }
+}

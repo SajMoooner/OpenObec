@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T16:46:27.984543+00:00",
+  "title": "Design System: OpenObec",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "card-foreground": {
+        "role": "neutral",
+        "displayName": "Card Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "popover": {
+        "role": "neutral",
+        "displayName": "Popover",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "popover-foreground": {
+        "role": "neutral",
+        "displayName": "Popover Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "tonalRamp": [
+          "oklch(15% 0.0699 260.45)",
+          "oklch(26% 0.1122 260.45)",
+          "oklch(38% 0.1432 260.45)",
+          "oklch(50% 0.1540 260.45)",
+          "oklch(62% 0.1432 260.45)",
+          "oklch(74% 0.1122 260.45)",
+          "oklch(86% 0.0656 260.45)",
+          "oklch(95% 0.0241 260.45)"
+        ]
+      },
+      "primary-foreground": {
+        "role": "primary",
+        "displayName": "Primary Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Secondary",
+        "tonalRamp": [
+          "oklch(15% 0.0062 258.34)",
+          "oklch(26% 0.0100 258.34)",
+          "oklch(38% 0.0127 258.34)",
+          "oklch(50% 0.0137 258.34)",
+          "oklch(62% 0.0127 258.34)",
+          "oklch(74% 0.0100 258.34)",
+          "oklch(86% 0.0058 258.34)",
+          "oklch(95% 0.0021 258.34)"
+        ]
+      },
+      "secondary-foreground": {
+        "role": "secondary",
+        "displayName": "Secondary Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Muted Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0062 258.34)",
+          "oklch(26% 0.0100 258.34)",
+          "oklch(38% 0.0127 258.34)",
+          "oklch(50% 0.0137 258.34)",
+          "oklch(62% 0.0127 258.34)",
+          "oklch(74% 0.0100 258.34)",
+          "oklch(86% 0.0058 258.34)",
+          "oklch(95% 0.0021 258.34)"
+        ]
+      },
+      "accent-foreground": {
+        "role": "secondary",
+        "displayName": "Accent Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "destructive": {
+        "role": "error",
+        "displayName": "Destructive",
+        "tonalRamp": [
+          "oklch(15% 0.0726 22.91)",
+          "oklch(26% 0.1166 22.91)",
+          "oklch(38% 0.1488 22.91)",
+          "oklch(50% 0.1600 22.91)",
+          "oklch(62% 0.1488 22.91)",
+          "oklch(74% 0.1166 22.91)",
+          "oklch(86% 0.0681 22.91)",
+          "oklch(95% 0.0250 22.91)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Input",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "ring": {
+        "role": "primary",
+        "displayName": "Ring",
+        "tonalRamp": [
+          "oklch(15% 0.0726 260.60)",
+          "oklch(26% 0.1166 260.60)",
+          "oklch(38% 0.1488 260.60)",
+          "oklch(50% 0.1600 260.60)",
+          "oklch(62% 0.1488 260.60)",
+          "oklch(74% 0.1166 260.60)",
+          "oklch(86% 0.0681 260.60)",
+          "oklch(95% 0.0250 260.60)"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Sidebar",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "sidebar-foreground": {
+        "role": "neutral",
+        "displayName": "Sidebar Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "sidebar-primary": {
+        "role": "primary",
+        "displayName": "Sidebar Primary",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "sidebar-primary-foreground": {
+        "role": "primary",
+        "displayName": "Sidebar Primary Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0500 259.72)",
+          "oklch(26% 0.0803 259.72)",
+          "oklch(38% 0.1024 259.72)",
+          "oklch(50% 0.1102 259.72)",
+          "oklch(62% 0.1024 259.72)",
+          "oklch(74% 0.0803 259.72)",
+          "oklch(86% 0.0469 259.72)",
+          "oklch(95% 0.0172 259.72)"
+        ]
+      },
+      "sidebar-accent": {
+        "role": "secondary",
+        "displayName": "Sidebar Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0699 260.45)",
+          "oklch(26% 0.1122 260.45)",
+          "oklch(38% 0.1432 260.45)",
+          "oklch(50% 0.1540 260.45)",
+          "oklch(62% 0.1432 260.45)",
+          "oklch(74% 0.1122 260.45)",
+          "oklch(86% 0.0656 260.45)",
+          "oklch(95% 0.0241 260.45)"
+        ]
+      },
+      "sidebar-accent-foreground": {
+        "role": "secondary",
+        "displayName": "Sidebar Accent Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(62% 0.0000 89.88)",
+          "oklch(74% 0.0000 89.88)",
+          "oklch(86% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "sidebar-border": {
+        "role": "neutral",
+        "displayName": "Sidebar Border",
+        "tonalRamp": [
+          "oklch(15% 0.0699 260.45)",
+          "oklch(26% 0.1122 260.45)",
+          "oklch(38% 0.1432 260.45)",
+          "oklch(50% 0.1540 260.45)",
+          "oklch(62% 0.1432 260.45)",
+          "oklch(74% 0.1122 260.45)",
+          "oklch(86% 0.0656 260.45)",
+          "oklch(95% 0.0241 260.45)"
+        ]
+      },
+      "sidebar-ring": {
+        "role": "primary",
+        "displayName": "Sidebar Ring",
+        "tonalRamp": [
+          "oklch(15% 0.0488 259.05)",
+          "oklch(26% 0.0784 259.05)",
+          "oklch(38% 0.1000 259.05)",
+          "oklch(50% 0.1076 259.05)",
+          "oklch(62% 0.1000 259.05)",
+          "oklch(74% 0.0784 259.05)",
+          "oklch(86% 0.0458 259.05)",
+          "oklch(95% 0.0168 259.05)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Marketing headline only; mobile override documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "headline-wide": {
+        "displayName": "Headline Wide",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "title-section": {
+        "displayName": "Title Section",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "body-compact": {
+        "displayName": "Body Compact",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Observed shared typography role; see DESIGN.md hierarchy for weight and responsive variants."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-xs",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Stock Input and outline-button control shadow."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "Dropdown menu elevation."
+      },
+      {
+        "name": "shadow-lg",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Dialogs, Sheets and submenu elevation."
+      },
+      {
+        "name": "marketing-search-focus",
+        "value": "0 4px 18px -8px color-mix(in srgb, var(--primary) 55%, transparent)",
+        "purpose": "Marketing search focus-within only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default upstream Tailwind control transition."
+      },
+      {
+        "name": "sidebar-transition",
+        "value": "200ms linear",
+        "purpose": "Sidebar width, position, margin and opacity transitions."
+      },
+      {
+        "name": "marketing-search-transition",
+        "value": "180ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Marketing search box-shadow transition."
+      },
+      {
+        "name": "sheet-open",
+        "value": "500ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Stock Sheet open animation."
+      },
+      {
+        "name": "sheet-close",
+        "value": "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Stock Sheet close animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "marketing-mobile-max",
+        "value": "767px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">Zverejniť</button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:var(--primary,#0b4199);color:var(--primary-foreground,#fff);}.ds-button-primary:hover{background:color-mix(in srgb,var(--primary,#0b4199) 90%,transparent);}.ds-button-primary:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-button-primary:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Destructive Button",
+      "kind": "button",
+      "refersTo": "button-destructive",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-destructive\" type=\"button\">Vymazať</button>",
+      "css": ".ds-button-destructive{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:var(--destructive,#c3112b);color:var(--primary-foreground,#fff);}.ds-button-destructive:hover{background:color-mix(in srgb,var(--destructive,#c3112b) 90%,transparent);}.ds-button-destructive:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);box-shadow:0 0 0 3px color-mix(in srgb,var(--destructive,#c3112b) 20%,transparent);}.ds-button-destructive:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-outline\" type=\"button\">Zrušiť</button>",
+      "css": ".ds-button-outline{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:var(--background,#fff);color:var(--foreground,#072c66);border-color:var(--border,#e0e0e0);box-shadow:0 1px 2px 0 rgb(0 0 0 / .05);}.ds-button-outline:hover{background:var(--accent,#eff5fe);color:var(--accent-foreground,#072c66);}.ds-button-outline:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-button-outline:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Späť</button>",
+      "css": ".ds-button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:var(--secondary,#eff5fe);color:var(--secondary-foreground,#072c66);}.ds-button-secondary:hover{background:color-mix(in srgb,var(--secondary,#eff5fe) 80%,transparent);}.ds-button-secondary:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-button-secondary:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-ghost\" type=\"button\">Faktúry</button>",
+      "css": ".ds-button-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:transparent;color:var(--foreground,#072c66);}.ds-button-ghost:hover{background:var(--accent,#eff5fe);color:var(--accent-foreground,#072c66);}.ds-button-ghost:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-button-ghost:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Link Button",
+      "kind": "button",
+      "refersTo": "button-link",
+      "description": "Default-size genuine shadcn/ui variant translated to standalone CSS; application source retains Radix behavior.",
+      "html": "<button class=\"ds-button-link\" type=\"button\">Všetky výsledky</button>",
+      "css": ".ds-button-link{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:.5rem 1rem;border:1px solid transparent;border-radius:var(--radius-md,.5rem);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;line-height:1.25rem;font-weight:500;white-space:nowrap;text-decoration:none;cursor:pointer;transition:all 150ms cubic-bezier(.4,0,.2,1);background:transparent;color:var(--primary,#0b4199);text-underline-offset:4px;}.ds-button-link:hover{text-decoration:underline;}.ds-button-link:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-button-link:disabled{pointer-events:none;opacity:.5}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "text-input",
+      "description": "Stock field with explicit label, responsive text size and invalid/focus states.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-record-name\">Názov dokumentu</label><input class=\"ds-field\" id=\"ds-record-name\" placeholder=\"Názov dokumentu\" />",
+      "css": ".ds-field-label{display:flex;margin-bottom:.5rem;font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.875rem;font-weight:500;line-height:1;color:var(--foreground,#072c66)}.ds-field{height:2.25rem;width:100%;min-width:0;padding:.25rem .75rem;border:1px solid var(--input,#bdbdbd);border-radius:var(--radius-md,.5rem);background:transparent;color:var(--foreground,#072c66);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:1rem;line-height:1.5rem;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05);transition:color 150ms cubic-bezier(.4,0,.2,1),box-shadow 150ms cubic-bezier(.4,0,.2,1);caret-color:var(--primary,#0b4199)}.ds-field::placeholder{color:var(--muted-foreground,#616161)}.ds-field:focus-visible{outline:none;border-color:var(--ring,#126dff);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring,#126dff) 50%,transparent);}.ds-field[aria-invalid=true]{border-color:var(--destructive,#c3112b);box-shadow:0 0 0 3px color-mix(in srgb,var(--destructive,#c3112b) 20%,transparent)}.ds-field:disabled{pointer-events:none;cursor:not-allowed;opacity:.5}@media(min-width:48rem){.ds-field{font-size:.875rem;line-height:1.25rem}}"
+    },
+    {
+      "name": "Publication Badge",
+      "kind": "chip",
+      "refersTo": "badge-secondary",
+      "description": "Passive secondary Badge for published state; outline marks draft.",
+      "html": "<span class=\"ds-badge\">Zverejnené</span><span class=\"ds-badge ds-badge-outline\">Koncept</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;justify-content:center;gap:.25rem;margin-right:.5rem;padding:.125rem .5rem;border:1px solid transparent;border-radius:2147483647px;background:var(--secondary,#eff5fe);color:var(--secondary-foreground,#072c66);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);font-size:.75rem;line-height:1rem;font-weight:500;white-space:nowrap}.ds-badge-outline{background:transparent;border-color:var(--border,#e0e0e0);color:var(--foreground,#072c66)}"
+    },
+    {
+      "name": "Document Panel",
+      "kind": "card",
+      "refersTo": "document-panel",
+      "description": "Actual bordered section pattern, not an invented Card API. Passive container has no interaction state.",
+      "html": "<section class=\"ds-document-panel\"><h2 class=\"ds-panel-title\">Údaje dokumentu</h2><dl class=\"ds-panel-data\"><dt>Číslo dokumentu</dt><dd>DEMO-2026-01-001</dd></dl></section>",
+      "css": ".ds-document-panel{padding:1.25rem;border:1px solid var(--border,#e0e0e0);border-radius:var(--radius-lg,.625rem);background:var(--background,#fff);color:var(--foreground,#072c66);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);}.ds-panel-title{margin:0 0 1.5rem;font-size:1.25rem;line-height:1.75rem;font-weight:600}.ds-panel-data{margin:0;font-size:.875rem;line-height:1.5rem}.ds-panel-data dt{margin-bottom:.25rem;color:var(--muted-foreground,#616161)}.ds-panel-data dd{margin:0}@media(min-width:40rem){.ds-document-panel{padding:1.5rem}}"
+    },
+    {
+      "name": "Office Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "sidebar-item",
+      "description": "Navy sidebar with active item, hover field and keyboard ring. SVG is inline; routing belongs to the application.",
+      "html": "<nav class=\"ds-sidebar\" aria-label=\"Dokumenty\"><a class=\"ds-sidebar-item\" href=\"#faktury\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z\"/><path d=\"M14 2v6h6M8 13h8M8 17h8\"/></svg><span>Faktúry</span></a><a class=\"ds-sidebar-item\" href=\"#zmluvy\">Zmluvy</a></nav>",
+      "css": ".ds-sidebar{padding:.5rem;width:16rem;background:var(--sidebar,#072c66);color:var(--sidebar-foreground,#fff);font-family:var(--font-sans,Geist Sans, ui-sans-serif, system-ui, sans-serif);}.ds-sidebar-item{display:flex;align-items:center;gap:.5rem;height:2rem;padding:.5rem;border-radius:var(--radius-md,.5rem);color:inherit;font-size:.875rem;line-height:1.25rem;text-decoration:none;transition:width 150ms cubic-bezier(.4,0,.2,1),height 150ms cubic-bezier(.4,0,.2,1),padding 150ms cubic-bezier(.4,0,.2,1)}.ds-sidebar-item svg{width:1rem;height:1rem;flex-shrink:0}.ds-sidebar-item:hover,.ds-sidebar-item:active,.ds-sidebar-item[aria-current=page]{background:var(--sidebar-accent,#0b4199);color:var(--sidebar-accent-foreground,#fff)}.ds-sidebar-item[aria-current=page]{font-weight:500}.ds-sidebar-item:focus-visible{outline:none;box-shadow:0 0 0 2px var(--sidebar-ring,#88b3f6)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Standard shadcn/ui",
+    "overview": "OpenObec uses the user-selected standard shadcn/ui New York visual language: familiar controls, self-hosted Geist, white work surfaces and restrained blue emphasis. IDSK3 supplies colors only; it does not supply typography, components or spacing. The visual priority is readable Slovak document names, field labels and explicit publication state.\n\nThe marketing home has its own approved navy opening, raster civic panorama and overlapping document register. Those choices describe that surface; they are not a template for citizen searches, office lists or editors. Working portals remain conventional and task-first, with a navy office sidebar and pale-blue interaction states.",
+    "keyCharacteristics": [
+      "Genuine shadcn/ui controls and New York conventions.",
+      "One self-hosted Geist family across all three applications.",
+      "IDSK3 navy, action blue, white and neutral dividers.",
+      "Readable document information and visible status at narrow widths."
+    ],
+    "rules": [
+      {
+        "name": "The Colors Only Rule",
+        "body": "Use IDSK3 for the palette only. Keep typography, components and spacing in the approved shadcn/ui system.",
+        "section": "colors"
+      },
+      {
+        "name": "The Shared Typeface Rule",
+        "body": "Use the self-hosted Geist Sans family for headings, controls and body copy. Generated comp font-matcher metadata is not the implemented font authority.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Surface Rule",
+        "body": "Keep document panels flat with borders. Reserve the existing small control shadows and overlay elevation for their functional roles.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the shared semantic colors and genuine shadcn/ui components.",
+      "Do preserve readable document titles, explicit Koncept / Zverejnené labels and visible open actions on mobile.",
+      "Do use stock Lucide SVG icons with accessible names for icon-only actions.",
+      "Do keep the approved panorama and measured register composition specific to the marketing home."
+    ],
+    "donts": [
+      "Don't import IDSK typography, components or spacing.",
+      "Don't replace self-hosted Geist with the generated comp matcher’s Google Sans Flex candidate.",
+      "Don't turn the marketing home composition into a global page-composition rule.",
+      "Don't introduce decorative eyebrow labels or unsupported customer, saving or compliance claims."
+    ]
+  }
+}

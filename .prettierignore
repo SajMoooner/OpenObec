@@ -1,0 +1,4 @@
+**/.next/**
+**/node_modules/**
+packages/api-client/src/schema.d.ts
+**/next-env.d.ts

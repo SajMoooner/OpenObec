@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Potvrdené používateľom: tri samostatné aplikácie Next.js, komponenty shadcn/ui, fonty a farby IDSK. Backendové doménové služby, párovanie a Query API v Jave. Každá služba má vlastnú MongoDB databázu. RustFS ako S3 úložisko a Kafka ako MQ. Výber technológie API gateway používateľ delegoval.
+Potvrdené používateľom: tri samostatné aplikácie Next.js, komponenty shadcn/ui, výhradne farby IDSK3; písmo a ostatné štýly shadcn/ui. Backendové doménové služby, párovanie a Query API v Jave. Šesť doménových služieb má vlastnú MongoDB databázu; párovanie a Query API zdieľajú čítaciu databázu podľa následného schválenia používateľa. RustFS ako S3 úložisko a Kafka ako MQ. Výber technológie API gateway používateľ delegoval.
 
 ## Users
 
@@ -41,7 +41,7 @@ Tri samostatné portály v jednom repozitári. Úradník do dema vstúpi tlačid
 
 ## Brand Commitments
 
-Názov OpenObec. Rozhranie v slovenčine. Primárne komponenty shadcn/ui; písmo a farebná paleta podľa IDSK. Pre marketing používateľ zvolil najprv obrazový návrh a až potom jeho implementáciu; pracovné portály vznikajú priamo v kóde. Konkrétna kompozícia marketingu ešte nebola vybraná.
+Názov OpenObec. Rozhranie v slovenčine. Primárne komponenty shadcn/ui; výhradne farebná paleta IDSK3; písmo, rozostupy, komponenty a ostatné štýly podľa shadcn/ui. Pre marketing používateľ zvolil najprv obrazový návrh a až potom jeho implementáciu; pracovné portály vznikajú priamo v kóde. Schválená kompozícia marketingu používa tmavomodrý úvod, panorámu mesta a dominantný register dokumentov.
 
 ## Evidence on Hand
 
@@ -59,3 +59,9 @@ Názov OpenObec. Rozhranie v slovenčine. Primárne komponenty shadcn/ui; písmo
 3. Súvislosti vyplývajú z explicitného výberu, nie zo zhodného dodávateľa.
 4. Úspech potvrdeného zápisu nezávisí od okamžitej dostupnosti Kafka.
 5. Funkčné demo sa posudzuje priechodom od vytvorenia dokumentu po jeho zobrazenie občanovi.
+
+## Potvrdená zmena 1. 11. 2026
+
+Používateľ spresnil: frontend používa iba shadcn/ui; z IDSK3 sa preberajú výhradne farby. Pôvodná požiadavka na IDSK písmo Source Sans Pro je zrušená. Použije sa štandardné písmo a vizuálna báza shadcn/ui (Geist), nie IDSK komponenty, typografia ani rozostupy.
+
+Používateľ vybral klasickú produktovú stránku a ako kvalitatívnu referenciu štandardné ukážky shadcn/ui; z kompozícií zvolil variant s výrazným modrým úvodom a dominantným registrom (comp2.png).

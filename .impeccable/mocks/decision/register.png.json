@@ -1,0 +1,6 @@
+{
+  "prompt": "Edit only the typography and component styling of this OpenObec register webpage. The user requires ONLY shadcn/ui New York styling for everything except colors. Set every text element in Geist sans-serif, the standard shadcn font; use standard shadcn button, input, tab, table, badge, border, radius and spacing conventions. Keep IDSK3 colors only: navy #072c66, blue #126dff, pale blue #eff5fe, white. Preserve this exact register-led composition, all navigation and clear search, the synthetic Žilina label, rows and truthful price. No gradient text. Preserve the corrected footer 'Navrhovaná cena služby' and 'Lokálne demo s ukážkovými dátami'. Return the full landscape webpage with crisp text. No IDSK typography or IDSK components.",
+  "source": "built-in image_gen",
+  "approved": false,
+  "user_amendment": "shadcn/ui only; IDSK3 colors only, Geist typography"
+}

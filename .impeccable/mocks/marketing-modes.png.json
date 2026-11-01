@@ -1,0 +1,5 @@
+{
+  "prompt": "Edit only two factual UI details in the last OpenObec two-mode webpage mockup. In the sidebar, replace 'Zápisnice' with 'Dodávateľské faktúry' and replace 'Rôzne dokumenty' with 'VZN', preserving font size, icon style, spacing and all other links. In the table replace the column heading 'Zverejnené' with 'Stav' and each date in that last column with the word 'Zverejnené'. Keep the actual creation dates in the previous Dátum column unchanged. Preserve everything else: exact layout and composition, Geist typography, standard shadcn/ui styling, IDSK3 colors only, all synthetic data labels, headline, price and buttons. Full landscape image, crisp Slovak text.",
+  "source": "built-in image_gen",
+  "approved": false
+}

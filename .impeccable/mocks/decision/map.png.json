@@ -1,0 +1,6 @@
+{
+  "prompt": "Edit this OpenObec webpage mockup to follow the user's corrected frontend requirement. Use ONLY standard shadcn/ui New York visual language: Geist sans-serif typography everywhere, standard shadcn buttons, inputs, subtle borders, radii and spacing. IDSK3 contributes ONLY the existing colors (#126dff, #072c66, #eff5fe, white); do not use IDSK typography or components. Keep the exact document-map composition, all truthful Slovak copy, synthetic Žilina demo label, clear search and two demo actions. Make the headline solid colors, never gradient text. Preserve the rest of the screen and all record contents. Finished edge-to-edge landscape website mockup, crisp text.",
+  "source": "built-in image_gen",
+  "approved": false,
+  "user_amendment": "shadcn/ui only; IDSK3 colors only, Geist typography"
+}

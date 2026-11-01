@@ -1,0 +1,60 @@
+{
+  "title": "OpenObec – finálna kompozícia marketingu",
+  "question": "Zostáva štandard shadcn/ui a iba farby IDSK3. Môžete ponechať pôvodný vybraný návrh alebo zvoliť inú kompozíciu; tým potvrdíte obrazový podklad pre implementáciu.",
+  "options": [
+    {
+      "id": "original",
+      "kind": "assigned",
+      "label": "Ponechať pôvodný návrh",
+      "thesis": "Klasická svetlá produktová stránka s náhľadom registra.",
+      "palette": [
+        "#ffffff",
+        "#072c66",
+        "#126dff"
+      ],
+      "materials": [
+        "shadcn/ui",
+        "Geist"
+      ],
+      "viewport": "Ponuka a dve demo akcie nad veľkým náhľadom registra.",
+      "risk": "Známe, pokojné rozloženie.",
+      "comp": ".impeccable/mocks/decision/canon.png"
+    },
+    {
+      "id": "navy",
+      "kind": "dealt",
+      "label": "Výrazný modrý úvod",
+      "thesis": "Široký modrý úvod a prehľadný register na veľkej svetlej ploche.",
+      "palette": [
+        "#072c66",
+        "#ffffff",
+        "#126dff"
+      ],
+      "materials": [
+        "shadcn/ui",
+        "Geist"
+      ],
+      "viewport": "Modrý úvod nad dominantným vyhľadávaním a registrom.",
+      "risk": "Výraznejšia farebná plocha.",
+      "comp": ".impeccable/mocks/compositions/comp2.png"
+    },
+    {
+      "id": "modes",
+      "kind": "dealt",
+      "label": "Dva portály v jednom náhľade",
+      "thesis": "Dominantný register s prepínaním občianskej a úradníckej ukážky.",
+      "palette": [
+        "#ffffff",
+        "#072c66",
+        "#126dff"
+      ],
+      "materials": [
+        "shadcn/ui",
+        "Geist"
+      ],
+      "viewport": "Ponuka, dve demo akcie a veľký dvojrežimový produktový náhľad.",
+      "risk": "Hustejšia prvá obrazovka.",
+      "comp": ".impeccable/mocks/compositions/comp3.png"
+    }
+  ]
+}

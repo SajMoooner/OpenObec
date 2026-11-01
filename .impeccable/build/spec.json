@@ -1,0 +1,2301 @@
+{
+  "tool": "comp-spec",
+  "version": 1,
+  "createdAt": "2026-11-01T13:05:22.521Z",
+  "comp": ".impeccable/mocks/marketing-navy.png",
+  "warnings": [
+    "region skyline: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)",
+    "region register-panel: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region navigation-ground: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region hero-ground: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region offer-ground: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region next-section-start: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)"
+  ],
+  "uncoveredInkCells": [],
+  "compSize": {
+    "width": 1536,
+    "height": 1024
+  },
+  "aspect": 1.5,
+  "orientation": "landscape",
+  "palette": [
+    {
+      "hex": "#f6f8f8",
+      "coverage": 0.6312
+    },
+    {
+      "hex": "#08386a",
+      "coverage": 0.2948
+    },
+    {
+      "hex": "#5677a6",
+      "coverage": 0.044
+    },
+    {
+      "hex": "#0b2866",
+      "coverage": 0.0153
+    },
+    {
+      "hex": "#c0cce2",
+      "coverage": 0.0147
+    }
+  ],
+  "bands": [
+    {
+      "y": 0.0118,
+      "strength": 0.2307
+    },
+    {
+      "y": 0.0471,
+      "strength": 0.2457
+    },
+    {
+      "y": 0.1059,
+      "strength": 0.4577
+    },
+    {
+      "y": 0.1412,
+      "strength": 0.3231
+    },
+    {
+      "y": 0.1647,
+      "strength": 0.6455
+    },
+    {
+      "y": 0.2,
+      "strength": 0.4609
+    },
+    {
+      "y": 0.2471,
+      "strength": 0.2264
+    },
+    {
+      "y": 0.3059,
+      "strength": 0.4454
+    },
+    {
+      "y": 0.3529,
+      "strength": 0.613
+    },
+    {
+      "y": 0.3765,
+      "strength": 1
+    },
+    {
+      "y": 0.4118,
+      "strength": 0.2003
+    },
+    {
+      "y": 0.4471,
+      "strength": 0.2358
+    },
+    {
+      "y": 0.8,
+      "strength": 0.2562
+    },
+    {
+      "y": 0.8353,
+      "strength": 0.3996
+    },
+    {
+      "y": 0.8706,
+      "strength": 0.332
+    },
+    {
+      "y": 0.9882,
+      "strength": 0.2683
+    }
+  ],
+  "regions": [
+    {
+      "id": "masthead",
+      "kind": "text",
+      "note": "White OpenObec wordmark",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.0156,
+        "w": 0.0977,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 125,
+        "y": 16,
+        "w": 150,
+        "h": 32
+      },
+      "aspect": 4.6875,
+      "palette": [
+        {
+          "hex": "#09366c",
+          "coverage": 0.6937
+        },
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.1734
+        },
+        {
+          "hex": "#768daf",
+          "coverage": 0.0572
+        },
+        {
+          "hex": "#bac7d7",
+          "coverage": 0.0461
+        },
+        {
+          "hex": "#385c8a",
+          "coverage": 0.0295
+        }
+      ],
+      "detail": {
+        "energy": 42.7943
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 8,
+          "capHeightPx": 19.9,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.7276,
+          "advTall": 1.0287,
+          "advX": 0.6899,
+          "gap": 0.1004,
+          "xRatio": 0.719,
+          "stemW": 0.206,
+          "contrast": 1.0997,
+          "serif": null,
+          "densTall": 0.4947,
+          "densX": 0.6286,
+          "weight": 0.4947
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "nav-benefits",
+      "kind": "control",
+      "note": "Výhody navigation link",
+      "grid": null,
+      "box": {
+        "x": 0.7409,
+        "y": 0.0137,
+        "w": 0.0378,
+        "h": 0.0352
+      },
+      "px": {
+        "x": 1138,
+        "y": 14,
+        "w": 58,
+        "h": 36
+      },
+      "aspect": 1.6111,
+      "palette": [
+        {
+          "hex": "#09376b",
+          "coverage": 0.8819
+        },
+        {
+          "hex": "#eef3f6",
+          "coverage": 0.0422
+        },
+        {
+          "hex": "#587aa1",
+          "coverage": 0.038
+        },
+        {
+          "hex": "#385e95",
+          "coverage": 0.0211
+        },
+        {
+          "hex": "#94a8c4",
+          "coverage": 0.0169
+        }
+      ],
+      "detail": {
+        "energy": 11.2509
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "nav-contact",
+      "kind": "control",
+      "note": "Kontakt navigation link",
+      "grid": null,
+      "box": {
+        "x": 0.7897,
+        "y": 0.0137,
+        "w": 0.0397,
+        "h": 0.0352
+      },
+      "px": {
+        "x": 1213,
+        "y": 14,
+        "w": 61,
+        "h": 36
+      },
+      "aspect": 1.6944,
+      "palette": [
+        {
+          "hex": "#09386c",
+          "coverage": 0.8876
+        },
+        {
+          "hex": "#f4f5f8",
+          "coverage": 0.0442
+        },
+        {
+          "hex": "#5474a4",
+          "coverage": 0.0361
+        },
+        {
+          "hex": "#081458",
+          "coverage": 0.0161
+        },
+        {
+          "hex": "#a8b8d0",
+          "coverage": 0.0161
+        }
+      ],
+      "detail": {
+        "energy": 11.1347
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "nav-demo",
+      "kind": "control",
+      "note": "White Otvoriť demo button with small arrow",
+      "grid": null,
+      "box": {
+        "x": 0.8385,
+        "y": 0.0137,
+        "w": 0.0859,
+        "h": 0.0371
+      },
+      "px": {
+        "x": 1288,
+        "y": 14,
+        "w": 132,
+        "h": 38
+      },
+      "aspect": 3.4737,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.8407
+        },
+        {
+          "hex": "#9fadc8",
+          "coverage": 0.0842
+        },
+        {
+          "hex": "#0b164a",
+          "coverage": 0.0403
+        },
+        {
+          "hex": "#6b83aa",
+          "coverage": 0.0183
+        },
+        {
+          "hex": "#c6d6e8",
+          "coverage": 0.0165
+        }
+      ],
+      "detail": {
+        "energy": 27.7822
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "headline",
+      "kind": "text",
+      "note": "White two-line headline Dokumenty obce jednoducho dostupné.",
+      "grid": null,
+      "box": {
+        "x": 0.0794,
+        "y": 0.0859,
+        "w": 0.4036,
+        "h": 0.1133
+      },
+      "px": {
+        "x": 122,
+        "y": 88,
+        "w": 620,
+        "h": 116
+      },
+      "aspect": 5.3448,
+      "palette": [
+        {
+          "hex": "#08366b",
+          "coverage": 0.6492
+        },
+        {
+          "hex": "#f7f7f8",
+          "coverage": 0.3032
+        },
+        {
+          "hex": "#315585",
+          "coverage": 0.0232
+        },
+        {
+          "hex": "#5c7a9d",
+          "coverage": 0.014
+        },
+        {
+          "hex": "#b7c6d6",
+          "coverage": 0.0105
+        }
+      ],
+      "detail": {
+        "energy": 82.8333
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 31,
+          "capHeightPx": 43.7,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.7326,
+          "advTall": 0.7439,
+          "advX": 0.721,
+          "gap": 0.0679,
+          "xRatio": 0.725,
+          "stemW": 0.2361,
+          "contrast": 1.1469,
+          "serif": 0.9967,
+          "densTall": 0.6206,
+          "densX": 0.6788,
+          "weight": 0.6206
+        },
+        "widthClass": "wide",
+        "weightClass": "bold",
+        "chosen": {
+          "family": "Google Sans Flex",
+          "weight": 700,
+          "fontSizePx": 60,
+          "source": "index",
+          "fp": {
+            "lines": 1,
+            "glyphs": 13,
+            "capHeightPx": 44,
+            "inkIsDark": true,
+            "allCaps": false,
+            "advance": 0.75,
+            "advTall": 0.7614,
+            "advX": 0.7386,
+            "gap": 0.0909,
+            "xRatio": 0.7149,
+            "stemW": 0.2285,
+            "contrast": 1.1517,
+            "serif": 1,
+            "densTall": 0.5948,
+            "densX": 0.6792,
+            "weight": 0.5948
+          },
+          "stamp": "9bdd871d2e06"
+        }
+      }
+    },
+    {
+      "id": "intro",
+      "kind": "text",
+      "note": "Two-line white support text about citizens and officials",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.2246,
+        "w": 0.3158,
+        "h": 0.0566
+      },
+      "px": {
+        "x": 125,
+        "y": 230,
+        "w": 485,
+        "h": 58
+      },
+      "aspect": 8.3621,
+      "palette": [
+        {
+          "hex": "#09366c",
+          "coverage": 0.7888
+        },
+        {
+          "hex": "#dfe6f2",
+          "coverage": 0.1314
+        },
+        {
+          "hex": "#a6b8d4",
+          "coverage": 0.0354
+        },
+        {
+          "hex": "#456696",
+          "coverage": 0.0222
+        },
+        {
+          "hex": "#718bad",
+          "coverage": 0.0222
+        }
+      ],
+      "detail": {
+        "energy": 81.8137
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 54,
+          "capHeightPx": 19.7,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.629,
+          "advTall": 0.6039,
+          "advX": 0.6542,
+          "gap": 0.1258,
+          "xRatio": 0.7212,
+          "stemW": 0.1521,
+          "contrast": 1.0897,
+          "serif": 0.9363,
+          "densTall": 0.4609,
+          "densX": 0.5213,
+          "weight": 0.4609
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "citizen-demo",
+      "kind": "control",
+      "note": "Blue Občianske demo button with arrow",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.3047,
+        "w": 0.1432,
+        "h": 0.0479
+      },
+      "px": {
+        "x": 125,
+        "y": 312,
+        "w": 220,
+        "h": 49
+      },
+      "aspect": 4.4898,
+      "palette": [
+        {
+          "hex": "#0868f8",
+          "coverage": 0.8221
+        },
+        {
+          "hex": "#083675",
+          "coverage": 0.0684
+        },
+        {
+          "hex": "#083794",
+          "coverage": 0.0675
+        },
+        {
+          "hex": "#eff5f8",
+          "coverage": 0.0239
+        },
+        {
+          "hex": "#549ff8",
+          "coverage": 0.0181
+        }
+      ],
+      "detail": {
+        "energy": 17.7544
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "office-demo",
+      "kind": "control",
+      "note": "White Demo pre úradníka button with arrow",
+      "grid": null,
+      "box": {
+        "x": 0.2344,
+        "y": 0.3047,
+        "w": 0.1426,
+        "h": 0.0479
+      },
+      "px": {
+        "x": 360,
+        "y": 312,
+        "w": 219,
+        "h": 49
+      },
+      "aspect": 4.4694,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.8117
+        },
+        {
+          "hex": "#264e7e",
+          "coverage": 0.1255
+        },
+        {
+          "hex": "#798ab1",
+          "coverage": 0.0264
+        },
+        {
+          "hex": "#b7c0d4",
+          "coverage": 0.0223
+        },
+        {
+          "hex": "#0d2c69",
+          "coverage": 0.014
+        }
+      ],
+      "detail": {
+        "energy": 33.1472
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "skyline",
+      "kind": "plate",
+      "note": "Pale blue illustrated civic skyline, church, bridge and river on navy background; artwork bleeds at the right edge",
+      "grid": null,
+      "bleed": true,
+      "box": {
+        "x": 0.3913,
+        "y": 0.0752,
+        "w": 0.6087,
+        "h": 0.3086
+      },
+      "px": {
+        "x": 601,
+        "y": 77,
+        "w": 935,
+        "h": 316
+      },
+      "aspect": 2.9589,
+      "palette": [
+        {
+          "hex": "#09396a",
+          "coverage": 0.6441
+        },
+        {
+          "hex": "#5979a8",
+          "coverage": 0.2139
+        },
+        {
+          "hex": "#deeaf5",
+          "coverage": 0.0644
+        },
+        {
+          "hex": "#b0c4e3",
+          "coverage": 0.0394
+        },
+        {
+          "hex": "#0c2c6c",
+          "coverage": 0.0382
+        }
+      ],
+      "detail": {
+        "energy": 29.6287
+      },
+      "medium": "raster",
+      "plate": "assets/plates/skyline.png",
+      "text": null
+    },
+    {
+      "id": "register-panel",
+      "kind": "chrome",
+      "note": "White rounded interface container for semantic search and table",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.0612,
+        "y": 0.3818,
+        "w": 0.8783,
+        "h": 0.3535
+      },
+      "px": {
+        "x": 94,
+        "y": 391,
+        "w": 1349,
+        "h": 362
+      },
+      "aspect": 3.7265,
+      "palette": [
+        {
+          "hex": "#f6f7f8",
+          "coverage": 0.9689
+        },
+        {
+          "hex": "#0869f8",
+          "coverage": 0.0172
+        },
+        {
+          "hex": "#b0b5c5",
+          "coverage": 0.0066
+        },
+        {
+          "hex": "#717f91",
+          "coverage": 0.0043
+        },
+        {
+          "hex": "#646888",
+          "coverage": 0.003
+        }
+      ],
+      "detail": {
+        "energy": 12.0952
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": false
+      }
+    },
+    {
+      "id": "search-heading",
+      "kind": "text",
+      "note": "Vyhľadať dokumenty heading inside register panel",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0814,
+        "y": 0.4092,
+        "w": 0.2539,
+        "h": 0.0303
+      },
+      "px": {
+        "x": 125,
+        "y": 419,
+        "w": 390,
+        "h": 31
+      },
+      "aspect": 12.5806,
+      "palette": [
+        {
+          "hex": "#f7f7f8",
+          "coverage": 0.8202
+        },
+        {
+          "hex": "#091549",
+          "coverage": 0.1109
+        },
+        {
+          "hex": "#5b6d8c",
+          "coverage": 0.0254
+        },
+        {
+          "hex": "#949fb6",
+          "coverage": 0.0225
+        },
+        {
+          "hex": "#2d416c",
+          "coverage": 0.021
+        }
+      ],
+      "detail": {
+        "energy": 78.2759
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 18,
+          "capHeightPx": 19.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.681,
+          "advTall": 0.681,
+          "advX": 0.681,
+          "gap": 0.0786,
+          "xRatio": 0.7476,
+          "stemW": 0.2123,
+          "contrast": 1.1474,
+          "serif": null,
+          "densTall": 0.5696,
+          "densX": 0.6708,
+          "weight": 0.5696
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "sample-label",
+      "kind": "text",
+      "note": "Ukážkové dáta · Žilina label",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.8288,
+        "y": 0.415,
+        "w": 0.0957,
+        "h": 0.0195
+      },
+      "px": {
+        "x": 1273,
+        "y": 425,
+        "w": 147,
+        "h": 20
+      },
+      "aspect": 7.35,
+      "palette": [
+        {
+          "hex": "#f7f7f8",
+          "coverage": 0.8805
+        },
+        {
+          "hex": "#78809d",
+          "coverage": 0.0612
+        },
+        {
+          "hex": "#bbc1cf",
+          "coverage": 0.0583
+        }
+      ],
+      "detail": {
+        "energy": 32.3284
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 19,
+          "capHeightPx": 11.9,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.5582,
+          "advTall": 0.5442,
+          "advX": 0.5861,
+          "gap": 0.0837,
+          "xRatio": 0.6846,
+          "stemW": 0.1668,
+          "contrast": 1.2361,
+          "serif": null,
+          "densTall": 0.4912,
+          "densX": 0.5403,
+          "weight": 0.4912
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "search-input",
+      "kind": "control",
+      "note": "White search input with magnifying glass and placeholder",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0814,
+        "y": 0.4492,
+        "w": 0.7155,
+        "h": 0.0479
+      },
+      "px": {
+        "x": 125,
+        "y": 460,
+        "w": 1099,
+        "h": 49
+      },
+      "aspect": 22.4286,
+      "palette": [
+        {
+          "hex": "#f5f6f7",
+          "coverage": 0.9769
+        },
+        {
+          "hex": "#bec2cf",
+          "coverage": 0.013
+        },
+        {
+          "hex": "#979eb4",
+          "coverage": 0.0101
+        }
+      ],
+      "detail": {
+        "energy": 7.7811
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "search-button",
+      "kind": "control",
+      "note": "Blue Hľadať search button",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.8027,
+        "y": 0.4492,
+        "w": 0.1198,
+        "h": 0.0479
+      },
+      "px": {
+        "x": 1233,
+        "y": 460,
+        "w": 184,
+        "h": 49
+      },
+      "aspect": 3.7551,
+      "palette": [
+        {
+          "hex": "#0869f8",
+          "coverage": 0.8813
+        },
+        {
+          "hex": "#a1cbf8",
+          "coverage": 0.0722
+        },
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.0361
+        },
+        {
+          "hex": "#488df8",
+          "coverage": 0.0066
+        },
+        {
+          "hex": "#0848f8",
+          "coverage": 0.0038
+        }
+      ],
+      "detail": {
+        "energy": 11.4746
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "agenda-tabs",
+      "kind": "control",
+      "note": "Six agenda tabs with Faktúry active, underline only under active tab",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0807,
+        "y": 0.5117,
+        "w": 0.5176,
+        "h": 0.0342
+      },
+      "px": {
+        "x": 124,
+        "y": 524,
+        "w": 795,
+        "h": 35
+      },
+      "aspect": 22.7143,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.9329
+        },
+        {
+          "hex": "#bbc0cf",
+          "coverage": 0.0237
+        },
+        {
+          "hex": "#7f879d",
+          "coverage": 0.0203
+        },
+        {
+          "hex": "#58617f",
+          "coverage": 0.013
+        },
+        {
+          "hex": "#0954f8",
+          "coverage": 0.0101
+        }
+      ],
+      "detail": {
+        "energy": 23.6938
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "table-head",
+      "kind": "text",
+      "note": "Column labels Názov dokumentu, Agenda, Dátum, Detail",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0892,
+        "y": 0.5713,
+        "w": 0.7617,
+        "h": 0.0146
+      },
+      "px": {
+        "x": 137,
+        "y": 585,
+        "w": 1170,
+        "h": 15
+      },
+      "aspect": 78,
+      "palette": [
+        {
+          "hex": "#eef8f8",
+          "coverage": 0.9344
+        },
+        {
+          "hex": "#c1c8d7",
+          "coverage": 0.0308
+        },
+        {
+          "hex": "#818d9e",
+          "coverage": 0.0236
+        },
+        {
+          "hex": "#5d6584",
+          "coverage": 0.0113
+        }
+      ],
+      "detail": {
+        "energy": 7.3054
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 28,
+          "capHeightPx": 8.7,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.705,
+          "advTall": 0.6859,
+          "advX": 0.705,
+          "gap": 0.0762,
+          "xRatio": 0.72,
+          "stemW": 0.2313,
+          "contrast": 1.1597,
+          "serif": 0.3994,
+          "densTall": 0.6167,
+          "densX": 0.6808,
+          "weight": 0.6167
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "record-one",
+      "kind": "text",
+      "note": "First semantic record row Zmluva o dielo, Zmluvy and date",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6035,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "px": {
+        "x": 137,
+        "y": 618,
+        "w": 1172,
+        "h": 18
+      },
+      "aspect": 65.1111,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.9637
+        },
+        {
+          "hex": "#c7cada",
+          "coverage": 0.0181
+        },
+        {
+          "hex": "#5b657d",
+          "coverage": 0.0121
+        },
+        {
+          "hex": "#080b23",
+          "coverage": 0.0043
+        },
+        {
+          "hex": "#1058f8",
+          "coverage": 0.0017
+        }
+      ],
+      "detail": {
+        "energy": 9.6015
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 27,
+          "capHeightPx": 10.4,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.7053,
+          "advTall": 0.6412,
+          "advX": 0.7694,
+          "gap": 0.0962,
+          "xRatio": 0.7286,
+          "stemW": 0.2005,
+          "contrast": 1.1764,
+          "serif": 0.4113,
+          "densTall": 0.5092,
+          "densX": 0.5981,
+          "weight": 0.5092
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "record-two",
+      "kind": "text",
+      "note": "Second semantic record row Projektové práce, Objednávky and date",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6416,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "px": {
+        "x": 137,
+        "y": 657,
+        "w": 1172,
+        "h": 18
+      },
+      "aspect": 65.1111,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.965
+        },
+        {
+          "hex": "#b1b3c3",
+          "coverage": 0.0117
+        },
+        {
+          "hex": "#4f5a74",
+          "coverage": 0.0112
+        },
+        {
+          "hex": "#778397",
+          "coverage": 0.0065
+        },
+        {
+          "hex": "#171d3d",
+          "coverage": 0.0056
+        }
+      ],
+      "detail": {
+        "energy": 10.8953
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 29,
+          "capHeightPx": 10.4,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6582,
+          "advTall": 0.6742,
+          "advX": 0.6421,
+          "gap": 0.0963,
+          "xRatio": 0.725,
+          "stemW": 0.1855,
+          "contrast": 1.1038,
+          "serif": 1.6631,
+          "densTall": 0.4823,
+          "densX": 0.5422,
+          "weight": 0.4823
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "record-three",
+      "kind": "text",
+      "note": "Third semantic record row Údržba zelene, Faktúry and date",
+      "grid": null,
+      "parentId": "register-panel",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6787,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "px": {
+        "x": 137,
+        "y": 695,
+        "w": 1172,
+        "h": 18
+      },
+      "aspect": 65.1111,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.9583
+        },
+        {
+          "hex": "#b6bccb",
+          "coverage": 0.0165
+        },
+        {
+          "hex": "#576279",
+          "coverage": 0.0109
+        },
+        {
+          "hex": "#85899e",
+          "coverage": 0.01
+        },
+        {
+          "hex": "#c3deee",
+          "coverage": 0.0043
+        }
+      ],
+      "detail": {
+        "energy": 9.702
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 24,
+          "capHeightPx": 10.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6254,
+          "advTall": 0.6254,
+          "advX": 0.6254,
+          "gap": 0.0988,
+          "xRatio": 0.7132,
+          "stemW": 0.1898,
+          "contrast": 1.097,
+          "serif": 1.7019,
+          "densTall": 0.483,
+          "densX": 0.6203,
+          "weight": 0.483
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "price-title",
+      "kind": "text",
+      "note": "Navrhovaná cena služby heading",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.7959,
+        "w": 0.2591,
+        "h": 0.0293
+      },
+      "px": {
+        "x": 125,
+        "y": 815,
+        "w": 398,
+        "h": 30
+      },
+      "aspect": 13.2667,
+      "palette": [
+        {
+          "hex": "#f5f7f8",
+          "coverage": 0.6271
+        },
+        {
+          "hex": "#081643",
+          "coverage": 0.235
+        },
+        {
+          "hex": "#1e365d",
+          "coverage": 0.0663
+        },
+        {
+          "hex": "#bcc7d8",
+          "coverage": 0.0401
+        },
+        {
+          "hex": "#52668a",
+          "coverage": 0.0316
+        }
+      ],
+      "detail": {
+        "energy": 128.1155
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 20,
+          "capHeightPx": 24.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6511,
+          "advTall": 0.6511,
+          "advX": 0.6511,
+          "gap": 0.1221,
+          "xRatio": 0.7325,
+          "stemW": 0.2037,
+          "contrast": 1.1825,
+          "serif": null,
+          "densTall": 0.59,
+          "densX": 0.6432,
+          "weight": 0.59
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "price-copy",
+      "kind": "text",
+      "note": "Two-line plain service explanation; no unsupported security claim",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.8359,
+        "w": 0.2923,
+        "h": 0.0381
+      },
+      "px": {
+        "x": 125,
+        "y": 856,
+        "w": 449,
+        "h": 39
+      },
+      "aspect": 11.5128,
+      "palette": [
+        {
+          "hex": "#f3f7f8",
+          "coverage": 0.7533
+        },
+        {
+          "hex": "#657088",
+          "coverage": 0.1287
+        },
+        {
+          "hex": "#aab4c5",
+          "coverage": 0.1144
+        },
+        {
+          "hex": "#414866",
+          "coverage": 0.0036
+        }
+      ],
+      "detail": {
+        "energy": 59.088
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 88,
+          "capHeightPx": 12.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6352,
+          "advTall": 0.6352,
+          "advX": 0.6625,
+          "gap": 0.1104,
+          "xRatio": 0.7264,
+          "stemW": 0.1686,
+          "contrast": 1.0694,
+          "serif": 0.3445,
+          "densTall": 0.5082,
+          "densX": 0.5626,
+          "weight": 0.5082
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "price-value",
+      "kind": "text",
+      "note": "199 € / rok price",
+      "grid": null,
+      "box": {
+        "x": 0.0814,
+        "y": 0.8838,
+        "w": 0.1374,
+        "h": 0.0342
+      },
+      "px": {
+        "x": 125,
+        "y": 905,
+        "w": 211,
+        "h": 35
+      },
+      "aspect": 6.0286,
+      "palette": [
+        {
+          "hex": "#f5f8f8",
+          "coverage": 0.8095
+        },
+        {
+          "hex": "#0a61f7",
+          "coverage": 0.1003
+        },
+        {
+          "hex": "#081144",
+          "coverage": 0.0439
+        },
+        {
+          "hex": "#297df7",
+          "coverage": 0.0301
+        },
+        {
+          "hex": "#0c1e43",
+          "coverage": 0.0163
+        }
+      ],
+      "detail": {
+        "energy": 38.2907
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 7,
+          "capHeightPx": 24.9,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.7424,
+          "advTall": 0.7224,
+          "advX": 1.0835,
+          "gap": 0.321,
+          "xRatio": 0.6188,
+          "stemW": 0.199,
+          "contrast": 1.1147,
+          "serif": null,
+          "densTall": 0.5722,
+          "densX": 0.5901,
+          "weight": 0.5722
+        },
+        "widthClass": "wide",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "benefit-citizens-icon",
+      "kind": "chrome",
+      "note": "Small outline document icon on pale circular ground",
+      "grid": null,
+      "box": {
+        "x": 0.4421,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 679,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "aspect": 1,
+      "palette": [
+        {
+          "hex": "#eceff8",
+          "coverage": 0.9244
+        },
+        {
+          "hex": "#0a52f8",
+          "coverage": 0.0224
+        },
+        {
+          "hex": "#5a96f8",
+          "coverage": 0.0224
+        },
+        {
+          "hex": "#bdd8f8",
+          "coverage": 0.0168
+        },
+        {
+          "hex": "#256ef8",
+          "coverage": 0.014
+        }
+      ],
+      "detail": {
+        "energy": 4.3988
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "benefit-citizens-title",
+      "kind": "text",
+      "note": "Prehľad pre občanov heading",
+      "grid": null,
+      "box": {
+        "x": 0.4434,
+        "y": 0.832,
+        "w": 0.1426,
+        "h": 0.0186
+      },
+      "px": {
+        "x": 681,
+        "y": 852,
+        "w": 219,
+        "h": 19
+      },
+      "aspect": 11.5263,
+      "palette": [
+        {
+          "hex": "#f5f8f8",
+          "coverage": 0.8141
+        },
+        {
+          "hex": "#bdcadd",
+          "coverage": 0.0687
+        },
+        {
+          "hex": "#8b97b7",
+          "coverage": 0.0485
+        },
+        {
+          "hex": "#213362",
+          "coverage": 0.0404
+        },
+        {
+          "hex": "#080d3f",
+          "coverage": 0.0283
+        }
+      ],
+      "detail": {
+        "energy": 58.4802
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 16,
+          "capHeightPx": 11.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6914,
+          "advTall": 0.7214,
+          "advX": 0.6914,
+          "gap": 0.0902,
+          "xRatio": 0.7442,
+          "stemW": 0.2277,
+          "contrast": 1.1564,
+          "serif": 0.5091,
+          "densTall": 0.5983,
+          "densX": 0.6522,
+          "weight": 0.5983
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "benefit-citizens-copy",
+      "kind": "text",
+      "note": "Three lines of public document discovery support copy",
+      "grid": null,
+      "box": {
+        "x": 0.4434,
+        "y": 0.8584,
+        "w": 0.1465,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 681,
+        "y": 879,
+        "w": 225,
+        "h": 56
+      },
+      "aspect": 4.0179,
+      "palette": [
+        {
+          "hex": "#f4f7f8",
+          "coverage": 0.8126
+        },
+        {
+          "hex": "#b8c3d2",
+          "coverage": 0.0884
+        },
+        {
+          "hex": "#78839a",
+          "coverage": 0.073
+        },
+        {
+          "hex": "#545e7b",
+          "coverage": 0.026
+        }
+      ],
+      "detail": {
+        "energy": 36.6858
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 3,
+          "glyphs": 56,
+          "capHeightPx": 11.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6339,
+          "advTall": 0.594,
+          "advX": 0.6387,
+          "gap": 0.0891,
+          "xRatio": 0.7479,
+          "stemW": 0.1795,
+          "contrast": 1.1022,
+          "serif": 0.2838,
+          "densTall": 0.5313,
+          "densX": 0.5872,
+          "weight": 0.5313
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "benefit-office-icon",
+      "kind": "chrome",
+      "note": "Small outline people icon on pale circular ground",
+      "grid": null,
+      "box": {
+        "x": 0.6107,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 938,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "aspect": 1,
+      "palette": [
+        {
+          "hex": "#eceff8",
+          "coverage": 0.9302
+        },
+        {
+          "hex": "#084cf8",
+          "coverage": 0.0307
+        },
+        {
+          "hex": "#206cf8",
+          "coverage": 0.0223
+        },
+        {
+          "hex": "#5393f8",
+          "coverage": 0.0084
+        },
+        {
+          "hex": "#88adf8",
+          "coverage": 0.0084
+        }
+      ],
+      "detail": {
+        "energy": 4.7452
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "benefit-office-title",
+      "kind": "text",
+      "note": "Menej administratívy heading",
+      "grid": null,
+      "box": {
+        "x": 0.6113,
+        "y": 0.832,
+        "w": 0.1458,
+        "h": 0.0186
+      },
+      "px": {
+        "x": 939,
+        "y": 852,
+        "w": 224,
+        "h": 19
+      },
+      "aspect": 11.7895,
+      "palette": [
+        {
+          "hex": "#f4f8f8",
+          "coverage": 0.8119
+        },
+        {
+          "hex": "#a9b8cd",
+          "coverage": 0.0634
+        },
+        {
+          "hex": "#d5dcec",
+          "coverage": 0.0634
+        },
+        {
+          "hex": "#0c1744",
+          "coverage": 0.0356
+        },
+        {
+          "hex": "#374772",
+          "coverage": 0.0257
+        }
+      ],
+      "detail": {
+        "energy": 59.5211
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 18,
+          "capHeightPx": 11.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6885,
+          "advTall": 0.479,
+          "advX": 0.7035,
+          "gap": 0.0898,
+          "xRatio": 0.7423,
+          "stemW": 0.2163,
+          "contrast": 1.1615,
+          "serif": 0.5557,
+          "densTall": 0.6316,
+          "densX": 0.6654,
+          "weight": 0.6316
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "benefit-office-copy",
+      "kind": "text",
+      "note": "Two lines of staff evidence support copy",
+      "grid": null,
+      "box": {
+        "x": 0.6113,
+        "y": 0.8584,
+        "w": 0.1367,
+        "h": 0.0391
+      },
+      "px": {
+        "x": 939,
+        "y": 879,
+        "w": 210,
+        "h": 40
+      },
+      "aspect": 5.25,
+      "palette": [
+        {
+          "hex": "#f5f8f8",
+          "coverage": 0.8551
+        },
+        {
+          "hex": "#8c96aa",
+          "coverage": 0.0551
+        },
+        {
+          "hex": "#c6cede",
+          "coverage": 0.0459
+        },
+        {
+          "hex": "#626c87",
+          "coverage": 0.0418
+        },
+        {
+          "hex": "#304860",
+          "coverage": 0.002
+        }
+      ],
+      "detail": {
+        "energy": 32.2078
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 36,
+          "capHeightPx": 11,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6369,
+          "advTall": 0.5762,
+          "advX": 0.6369,
+          "gap": 0.091,
+          "xRatio": 0.7428,
+          "stemW": 0.1821,
+          "contrast": 1.0975,
+          "serif": 0.2707,
+          "densTall": 0.5355,
+          "densX": 0.578,
+          "weight": 0.5355
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "benefit-structure-icon",
+      "kind": "chrome",
+      "note": "Small outline shield icon on pale circular ground",
+      "grid": null,
+      "box": {
+        "x": 0.7793,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 1197,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "aspect": 1,
+      "palette": [
+        {
+          "hex": "#eceef8",
+          "coverage": 0.9391
+        },
+        {
+          "hex": "#084af8",
+          "coverage": 0.036
+        },
+        {
+          "hex": "#3873f8",
+          "coverage": 0.0083
+        },
+        {
+          "hex": "#7db3f8",
+          "coverage": 0.0083
+        },
+        {
+          "hex": "#b8d3f8",
+          "coverage": 0.0083
+        }
+      ],
+      "detail": {
+        "energy": 4.1463
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "benefit-structure-title",
+      "kind": "text",
+      "note": "Prehľadná štruktúra heading",
+      "grid": null,
+      "box": {
+        "x": 0.7793,
+        "y": 0.832,
+        "w": 0.1432,
+        "h": 0.0186
+      },
+      "px": {
+        "x": 1197,
+        "y": 852,
+        "w": 220,
+        "h": 19
+      },
+      "aspect": 11.5789,
+      "palette": [
+        {
+          "hex": "#f4f8f8",
+          "coverage": 0.8162
+        },
+        {
+          "hex": "#d4ddee",
+          "coverage": 0.0626
+        },
+        {
+          "hex": "#8798b7",
+          "coverage": 0.0525
+        },
+        {
+          "hex": "#a6b7cc",
+          "coverage": 0.0364
+        },
+        {
+          "hex": "#080d43",
+          "coverage": 0.0323
+        }
+      ],
+      "detail": {
+        "energy": 55.9964
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 15,
+          "capHeightPx": 11.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6587,
+          "advTall": 0.6587,
+          "advX": 0.6887,
+          "gap": 0.0898,
+          "xRatio": 0.7422,
+          "stemW": 0.2241,
+          "contrast": 1.2053,
+          "serif": 0.5363,
+          "densTall": 0.5775,
+          "densX": 0.6368,
+          "weight": 0.5775
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "benefit-structure-copy",
+      "kind": "text",
+      "note": "Three lines about clear agenda organization",
+      "grid": null,
+      "box": {
+        "x": 0.7793,
+        "y": 0.8584,
+        "w": 0.1491,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 1197,
+        "y": 879,
+        "w": 229,
+        "h": 56
+      },
+      "aspect": 4.0893,
+      "palette": [
+        {
+          "hex": "#f4f7f7",
+          "coverage": 0.8394
+        },
+        {
+          "hex": "#b2bdce",
+          "coverage": 0.0656
+        },
+        {
+          "hex": "#7d879c",
+          "coverage": 0.0602
+        },
+        {
+          "hex": "#565f7b",
+          "coverage": 0.0349
+        }
+      ],
+      "detail": {
+        "energy": 35.2311
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 3,
+          "glyphs": 53,
+          "capHeightPx": 11.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6332,
+          "advTall": 0.5735,
+          "advX": 0.6332,
+          "gap": 0.0905,
+          "xRatio": 0.7422,
+          "stemW": 0.1802,
+          "contrast": 1.1032,
+          "serif": 0.3526,
+          "densTall": 0.5294,
+          "densX": 0.5917,
+          "weight": 0.5294
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "navigation-ground",
+      "kind": "chrome",
+      "note": "Single solid navy navigation background spanning the screen",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 0.0752
+      },
+      "px": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 77
+      },
+      "aspect": 19.9481,
+      "palette": [
+        {
+          "hex": "#083868",
+          "coverage": 0.9417
+        },
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.0424
+        },
+        {
+          "hex": "#092868",
+          "coverage": 0.012
+        },
+        {
+          "hex": "#385888",
+          "coverage": 0.002
+        },
+        {
+          "hex": "#a8b8cd",
+          "coverage": 0.0019
+        }
+      ],
+      "detail": {
+        "energy": 15.8873
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": true
+      }
+    },
+    {
+      "id": "hero-ground",
+      "kind": "chrome",
+      "note": "Single solid navy hero background below navigation",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0.0752,
+        "w": 1,
+        "h": 0.3994
+      },
+      "px": {
+        "x": 0,
+        "y": 77,
+        "w": 1536,
+        "h": 409
+      },
+      "aspect": 3.7555,
+      "palette": [
+        {
+          "hex": "#08386a",
+          "coverage": 0.5561
+        },
+        {
+          "hex": "#f6f7f8",
+          "coverage": 0.2744
+        },
+        {
+          "hex": "#5879a8",
+          "coverage": 0.1086
+        },
+        {
+          "hex": "#0b2a69",
+          "coverage": 0.037
+        },
+        {
+          "hex": "#c0d0e7",
+          "coverage": 0.0239
+        }
+      ],
+      "detail": {
+        "energy": 45.6093
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": true
+      }
+    },
+    {
+      "id": "offer-ground",
+      "kind": "chrome",
+      "note": "Single pale blue service offer background",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0.7354,
+        "w": 1,
+        "h": 0.208
+      },
+      "px": {
+        "x": 0,
+        "y": 753,
+        "w": 1536,
+        "h": 213
+      },
+      "aspect": 7.2113,
+      "palette": [
+        {
+          "hex": "#f5f7f8",
+          "coverage": 0.9539
+        },
+        {
+          "hex": "#b3bfd0",
+          "coverage": 0.0151
+        },
+        {
+          "hex": "#091845",
+          "coverage": 0.0106
+        },
+        {
+          "hex": "#828ea6",
+          "coverage": 0.0102
+        },
+        {
+          "hex": "#5d6783",
+          "coverage": 0.0101
+        }
+      ],
+      "detail": {
+        "energy": 20.1386
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": false
+      }
+    },
+    {
+      "id": "next-section-start",
+      "kind": "chrome",
+      "note": "White beginning of the next workflow section at bottom of viewport",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0.9434,
+        "w": 1,
+        "h": 0.0566
+      },
+      "px": {
+        "x": 0,
+        "y": 966,
+        "w": 1536,
+        "h": 58
+      },
+      "aspect": 26.4828,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.9736
+        },
+        {
+          "hex": "#091849",
+          "coverage": 0.0156
+        },
+        {
+          "hex": "#b7c1cf",
+          "coverage": 0.007
+        },
+        {
+          "hex": "#596989",
+          "coverage": 0.0025
+        },
+        {
+          "hex": "#8188a1",
+          "coverage": 0.0013
+        }
+      ],
+      "detail": {
+        "energy": 15.7111
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    }
+  ],
+  "compSha256": "053607f9bff00913b2cfeb2284637401ab64f02518ee197deeb5d0d479b8b467",
+  "regionsSource": {
+    "path": ".impeccable/build/regions.json",
+    "sha256": "997263becca4a78934f71defa05c5ab6e063440042183fbc6db8b1ca4298db78"
+  }
+}

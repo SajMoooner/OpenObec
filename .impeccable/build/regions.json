@@ -1,0 +1,404 @@
+{
+  "regions": [
+    {
+      "id": "masthead",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 16,
+        "w": 150,
+        "h": 32
+      },
+      "note": "White OpenObec wordmark"
+    },
+    {
+      "id": "nav-benefits",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1138,
+        "y": 14,
+        "w": 58,
+        "h": 36
+      },
+      "note": "Výhody navigation link"
+    },
+    {
+      "id": "nav-contact",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1213,
+        "y": 14,
+        "w": 61,
+        "h": 36
+      },
+      "note": "Kontakt navigation link"
+    },
+    {
+      "id": "nav-demo",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1288,
+        "y": 14,
+        "w": 132,
+        "h": 38
+      },
+      "note": "White Otvoriť demo button with small arrow"
+    },
+    {
+      "id": "headline",
+      "kind": "text",
+      "pixelBox": {
+        "x": 122,
+        "y": 88,
+        "w": 620,
+        "h": 116
+      },
+      "note": "White two-line headline Dokumenty obce jednoducho dostupné."
+    },
+    {
+      "id": "intro",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 230,
+        "w": 485,
+        "h": 58
+      },
+      "note": "Two-line white support text about citizens and officials"
+    },
+    {
+      "id": "citizen-demo",
+      "kind": "control",
+      "pixelBox": {
+        "x": 125,
+        "y": 312,
+        "w": 220,
+        "h": 49
+      },
+      "note": "Blue Občianske demo button with arrow"
+    },
+    {
+      "id": "office-demo",
+      "kind": "control",
+      "pixelBox": {
+        "x": 360,
+        "y": 312,
+        "w": 219,
+        "h": 49
+      },
+      "note": "White Demo pre úradníka button with arrow"
+    },
+    {
+      "id": "skyline",
+      "kind": "plate",
+      "pixelBox": {
+        "x": 601,
+        "y": 77,
+        "w": 935,
+        "h": 316
+      },
+      "note": "Pale blue illustrated civic skyline, church, bridge and river on navy background; artwork bleeds at the right edge",
+      "bleed": true
+    },
+    {
+      "id": "register-panel",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 94,
+        "y": 391,
+        "w": 1349,
+        "h": 362
+      },
+      "note": "White rounded interface container for semantic search and table",
+      "container": true
+    },
+    {
+      "id": "search-heading",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 419,
+        "w": 390,
+        "h": 31
+      },
+      "note": "Vyhľadať dokumenty heading inside register panel",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "sample-label",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1273,
+        "y": 425,
+        "w": 147,
+        "h": 20
+      },
+      "note": "Ukážkové dáta · Žilina label",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "search-input",
+      "kind": "control",
+      "pixelBox": {
+        "x": 125,
+        "y": 460,
+        "w": 1099,
+        "h": 49
+      },
+      "note": "White search input with magnifying glass and placeholder",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "search-button",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1233,
+        "y": 460,
+        "w": 184,
+        "h": 49
+      },
+      "note": "Blue Hľadať search button",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "agenda-tabs",
+      "kind": "control",
+      "pixelBox": {
+        "x": 124,
+        "y": 524,
+        "w": 795,
+        "h": 35
+      },
+      "note": "Six agenda tabs with Faktúry active, underline only under active tab",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "table-head",
+      "kind": "text",
+      "pixelBox": {
+        "x": 137,
+        "y": 585,
+        "w": 1170,
+        "h": 15
+      },
+      "note": "Column labels Názov dokumentu, Agenda, Dátum, Detail",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "record-one",
+      "kind": "text",
+      "pixelBox": {
+        "x": 137,
+        "y": 618,
+        "w": 1172,
+        "h": 18
+      },
+      "note": "First semantic record row Zmluva o dielo, Zmluvy and date",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "record-two",
+      "kind": "text",
+      "pixelBox": {
+        "x": 137,
+        "y": 657,
+        "w": 1172,
+        "h": 18
+      },
+      "note": "Second semantic record row Projektové práce, Objednávky and date",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "record-three",
+      "kind": "text",
+      "pixelBox": {
+        "x": 137,
+        "y": 695,
+        "w": 1172,
+        "h": 18
+      },
+      "note": "Third semantic record row Údržba zelene, Faktúry and date",
+      "parentId": "register-panel"
+    },
+    {
+      "id": "price-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 815,
+        "w": 398,
+        "h": 30
+      },
+      "note": "Navrhovaná cena služby heading"
+    },
+    {
+      "id": "price-copy",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 856,
+        "w": 449,
+        "h": 39
+      },
+      "note": "Two-line plain service explanation; no unsupported security claim"
+    },
+    {
+      "id": "price-value",
+      "kind": "text",
+      "pixelBox": {
+        "x": 125,
+        "y": 905,
+        "w": 211,
+        "h": 35
+      },
+      "note": "199 € / rok price"
+    },
+    {
+      "id": "benefit-citizens-icon",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 679,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "note": "Small outline document icon on pale circular ground"
+    },
+    {
+      "id": "benefit-citizens-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 681,
+        "y": 852,
+        "w": 219,
+        "h": 19
+      },
+      "note": "Prehľad pre občanov heading"
+    },
+    {
+      "id": "benefit-citizens-copy",
+      "kind": "text",
+      "pixelBox": {
+        "x": 681,
+        "y": 879,
+        "w": 225,
+        "h": 56
+      },
+      "note": "Three lines of public document discovery support copy"
+    },
+    {
+      "id": "benefit-office-icon",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 938,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "note": "Small outline people icon on pale circular ground"
+    },
+    {
+      "id": "benefit-office-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 939,
+        "y": 852,
+        "w": 224,
+        "h": 19
+      },
+      "note": "Menej administratívy heading"
+    },
+    {
+      "id": "benefit-office-copy",
+      "kind": "text",
+      "pixelBox": {
+        "x": 939,
+        "y": 879,
+        "w": 210,
+        "h": 40
+      },
+      "note": "Two lines of staff evidence support copy"
+    },
+    {
+      "id": "benefit-structure-icon",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 1197,
+        "y": 786,
+        "w": 56,
+        "h": 56
+      },
+      "note": "Small outline shield icon on pale circular ground"
+    },
+    {
+      "id": "benefit-structure-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1197,
+        "y": 852,
+        "w": 220,
+        "h": 19
+      },
+      "note": "Prehľadná štruktúra heading"
+    },
+    {
+      "id": "benefit-structure-copy",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1197,
+        "y": 879,
+        "w": 229,
+        "h": 56
+      },
+      "note": "Three lines about clear agenda organization"
+    },
+    {
+      "id": "navigation-ground",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 77
+      },
+      "container": true,
+      "note": "Single solid navy navigation background spanning the screen"
+    },
+    {
+      "id": "hero-ground",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 77,
+        "w": 1536,
+        "h": 409
+      },
+      "container": true,
+      "note": "Single solid navy hero background below navigation"
+    },
+    {
+      "id": "offer-ground",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 753,
+        "w": 1536,
+        "h": 213
+      },
+      "container": true,
+      "note": "Single pale blue service offer background"
+    },
+    {
+      "id": "next-section-start",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 966,
+        "w": 1536,
+        "h": 58
+      },
+      "container": true,
+      "note": "White beginning of the next workflow section at bottom of viewport"
+    }
+  ]
+}

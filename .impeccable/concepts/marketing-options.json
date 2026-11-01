@@ -1,0 +1,228 @@
+{
+  "title": "OpenObec – smerovanie marketingu",
+  "question": "Vyber kompozíciu marketingu. Používa sa iba shadcn/ui; IDSK3 dodáva výhradne farby. Ukážkové dokumenty sú fiktívne.",
+  "options": [
+    {
+      "id": "map",
+      "kind": "assigned",
+      "label": "Mapa súvislostí",
+      "thesis": "Dokumenty mesta ako prehľadná sieť, v ktorej sa občan nestratí.",
+      "palette": [
+        "#072c66",
+        "#126dff",
+        "#ffffff",
+        "#eff5fe"
+      ],
+      "materials": [
+        "čisté plochy IDSK",
+        "shadcn/ui · Geist",
+        "živé dokumentové väzby"
+      ],
+      "viewport": "Vyhľadávanie nad veľkou ukážkou prepojených dokumentov Žiliny, s jasným vstupom do dema.",
+      "risk": "Prepojenia musia byť zrozumiteľné aj bez technických znalostí.",
+      "raised": [
+        {
+          "from": "Skladanie papiera",
+          "raise": "Každý krok zachová identitu jedného dokumentu."
+        },
+        {
+          "from": "Svetelná hala",
+          "raise": "Jedna dominantná plocha dáva ponuke jasnú hierarchiu."
+        },
+        {
+          "from": "Atramentová hladina",
+          "raise": "Celé rozhranie používa jeden súvislý jazyk."
+        },
+        {
+          "from": "Zvukové meradlá",
+          "raise": "Každá agenda má konzistentné označenie."
+        },
+        {
+          "from": "Mestský prospekt",
+          "raise": "Vizuálne ticho dáva priestor skutočnej ukážke."
+        },
+        {
+          "from": "Patentový výkres",
+          "raise": "Každá väzba má konkrétne a čitateľné konce."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/map.png"
+    },
+    {
+      "id": "register",
+      "kind": "pick",
+      "kicker": "ODPORÚČANIE IMPECCABLE",
+      "label": "Otvorený mestský register",
+      "thesis": "Prvá obrazovka priamo ukazuje, ako ľahko sa dá nájsť dokument.",
+      "palette": [
+        "#ffffff",
+        "#072c66",
+        "#0b4199",
+        "#eff5fe"
+      ],
+      "materials": [
+        "katalógové riadky",
+        "shadcn/ui · Geist",
+        "výrazné vyhľadávanie"
+      ],
+      "viewport": "Veľký vyhľadávací riadok pretína stránku a pokračuje ukážkou skutočne použiteľného registra.",
+      "risk": "Známa a účinná kompozícia môže pôsobiť menej osobito.",
+      "comp": ".impeccable/mocks/decision/register.png"
+    },
+    {
+      "id": "paper",
+      "kind": "challenger",
+      "catalogId": "paper-folds-pleats-deployable-orizuru-crane-sequence",
+      "label": "Skladanie dokumentu",
+      "verdict": "declined",
+      "thesis": "Od konceptu po verejný dokument v jednotlivých krokoch.",
+      "palette": [
+        "#072c66",
+        "#ffffff",
+        "#126dff"
+      ],
+      "materials": [
+        "vrstvy dokumentu",
+        "číslované kroky"
+      ],
+      "viewport": "Jeden dokument sa krokmi otvorí verejnosti.",
+      "case": "Menej identifikácie s každodennou prácou úradu aj menej jasné vyhľadávanie.",
+      "kept": "Zachovanie identity dokumentu naprieč krokmi.",
+      "risk": "Metafora môže zatieniť produkt."
+    },
+    {
+      "id": "light",
+      "kind": "challenger",
+      "catalogId": "light-shadow-caustics-indoor-weather-sun",
+      "label": "Svetelná hala",
+      "verdict": "declined",
+      "thesis": "Jedno miesto sprístupňuje mestské informácie.",
+      "palette": [
+        "#072c66",
+        "#126dff",
+        "#ffffff"
+      ],
+      "materials": [
+        "veľká farebná plocha",
+        "svetelný kontrast"
+      ],
+      "viewport": "Veľká modrá plocha a jedna ústredná akcia.",
+      "case": "Atmosféra vysvetľuje dokumenty menej presne a je vzdialenejšia práci úradu.",
+      "kept": "Jedna dominantná plocha.",
+      "risk": "Obraz bez zrozumiteľného produktu."
+    },
+    {
+      "id": "ink",
+      "kind": "challenger",
+      "catalogId": "medium-native-fluid-ink-basin",
+      "label": "Atramentová hladina",
+      "verdict": "declined",
+      "thesis": "Z roztrúsených údajov vzniká súvislý prehľad.",
+      "palette": [
+        "#072c66",
+        "#ffffff",
+        "#126dff"
+      ],
+      "materials": [
+        "atramentový pohyb",
+        "tichý text"
+      ],
+      "viewport": "Údaje sa stretávajú v jednej hladine.",
+      "case": "Tekutý obraz sťažuje orientáciu a nevystihuje istotu evidencie.",
+      "kept": "Jednotný súvislý vizuálny jazyk.",
+      "risk": "Efekt by predbehol použiteľnosť."
+    },
+    {
+      "id": "meter",
+      "kind": "challenger",
+      "catalogId": "signals-instruments-vu-meter-bridge",
+      "label": "Meradlá agend",
+      "verdict": "declined",
+      "thesis": "Všetky agendy pod jedným pohľadom.",
+      "palette": [
+        "#072c66",
+        "#ffffff",
+        "#126dff"
+      ],
+      "materials": [
+        "rovnaké stĺpce",
+        "značenie stavu"
+      ],
+      "viewport": "Rad šiestich agend vedľa seba.",
+      "case": "Meradlá nevysvetlia hľadanie ani vzťahy dokumentov a kultúrne sú vzdialené obci.",
+      "kept": "Konzistentné značenie agend.",
+      "risk": "Dashboard bez dôvodu na použitie."
+    },
+    {
+      "id": "prospectus",
+      "kind": "challenger",
+      "catalogId": "civic-bureau-prospectus-late-modern",
+      "label": "Mestský prospekt",
+      "verdict": "declined",
+      "thesis": "Otvorená samospráva s čistou digitálnou prezentáciou.",
+      "palette": [
+        "#ffffff",
+        "#072c66",
+        "#126dff"
+      ],
+      "materials": [
+        "široké pásy",
+        "výrazná typografia"
+      ],
+      "viewport": "Produkt na veľkej pokojnej ploche s jednou hlavnou akciou.",
+      "case": "Identifikácia s obcou je dobrá, ale nosná dekorácia vysvetľuje produkt menej než dokumentová sieť.",
+      "kept": "Pokoj a priestor pre ukážku produktu.",
+      "risk": "Všeobecný prospekt namiesto konkrétnej služby."
+    },
+    {
+      "id": "patent",
+      "kind": "challenger",
+      "catalogId": "notation-diagram-systems-patent-drawing-sheet",
+      "label": "Výkres väzieb",
+      "verdict": "declined",
+      "thesis": "Každý dokument má presné miesto a súvislosti.",
+      "palette": [
+        "#ffffff",
+        "#072c66",
+        "#126dff"
+      ],
+      "materials": [
+        "číslované väzby",
+        "technické čiary"
+      ],
+      "viewport": "Rozložená sieť označených dokumentov.",
+      "case": "Číslovanie je vzdialené občanovi a ponuku komplikuje technická metafora.",
+      "kept": "Presné čitateľné konce väzieb.",
+      "risk": "Technický diagram odradí občana."
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Klasická produktová stránka",
+    "thesis": "Známe rozloženie, vysvetlenie výhod a jasné demo.",
+    "palette": [
+      "#ffffff",
+      "#072c66",
+      "#126dff"
+    ],
+    "materials": [
+      "produktový náhľad",
+      "klasická navigácia"
+    ],
+    "viewport": "Úvodná ponuka, veľký produktový náhľad, nasledovaný výhodami.",
+    "risk": "Menej odlíšenia od iných digitálnych služieb.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}

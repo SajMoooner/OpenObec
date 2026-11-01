@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 3,
+  "stage": "components",
+  "id": "components",
+  "title": "Plan and asset review · apps/marketing/app/home/page.tsx",
+  "comp": {
+    "path": ".impeccable/mocks/marketing-navy.png",
+    "width": 1536,
+    "height": 1024
+  },
+  "specSha256": "b0fae66b27dfea660f596612aff6baaf9e73a3f20ac935d95363bc3e13bcd6ce",
+  "components": [
+    {
+      "id": "skyline",
+      "name": "Skyline",
+      "kind": "plate",
+      "role": "asset",
+      "box": {
+        "x": 0.3913,
+        "y": 0.0752,
+        "w": 0.6087,
+        "h": 0.3086
+      },
+      "note": "Pale blue illustrated civic skyline, church, bridge and river on navy background; artwork bleeds at the right edge",
+      "medium": "raster",
+      "preview": {
+        "kind": "image",
+        "path": "assets/plates/skyline.png"
+      },
+      "dependencies": []
+    },
+    {
+      "id": "benefit-citizens-icon",
+      "name": "Benefit citizens icon",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.4421,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "note": "Small outline document icon on pale circular ground",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "benefit-office-icon",
+      "name": "Benefit office icon",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.6107,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "note": "Small outline people icon on pale circular ground",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "benefit-structure-icon",
+      "name": "Benefit structure icon",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.7793,
+        "y": 0.7676,
+        "w": 0.0365,
+        "h": 0.0547
+      },
+      "note": "Small outline shield icon on pale circular ground",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    }
+  ],
+  "codeRegions": [
+    {
+      "id": "masthead",
+      "name": "Masthead",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.0156,
+        "w": 0.0977,
+        "h": 0.0313
+      },
+      "note": "White OpenObec wordmark"
+    },
+    {
+      "id": "nav-benefits",
+      "name": "Nav benefits",
+      "kind": "control",
+      "box": {
+        "x": 0.7409,
+        "y": 0.0137,
+        "w": 0.0378,
+        "h": 0.0352
+      },
+      "note": "Výhody navigation link"
+    },
+    {
+      "id": "nav-contact",
+      "name": "Nav contact",
+      "kind": "control",
+      "box": {
+        "x": 0.7897,
+        "y": 0.0137,
+        "w": 0.0397,
+        "h": 0.0352
+      },
+      "note": "Kontakt navigation link"
+    },
+    {
+      "id": "nav-demo",
+      "name": "Nav demo",
+      "kind": "control",
+      "box": {
+        "x": 0.8385,
+        "y": 0.0137,
+        "w": 0.0859,
+        "h": 0.0371
+      },
+      "note": "White Otvoriť demo button with small arrow"
+    },
+    {
+      "id": "headline",
+      "name": "Headline",
+      "kind": "text",
+      "box": {
+        "x": 0.0794,
+        "y": 0.0859,
+        "w": 0.4036,
+        "h": 0.1133
+      },
+      "note": "White two-line headline Dokumenty obce jednoducho dostupné."
+    },
+    {
+      "id": "intro",
+      "name": "Intro",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.2246,
+        "w": 0.3158,
+        "h": 0.0566
+      },
+      "note": "Two-line white support text about citizens and officials"
+    },
+    {
+      "id": "citizen-demo",
+      "name": "Citizen demo",
+      "kind": "control",
+      "box": {
+        "x": 0.0814,
+        "y": 0.3047,
+        "w": 0.1432,
+        "h": 0.0479
+      },
+      "note": "Blue Občianske demo button with arrow"
+    },
+    {
+      "id": "office-demo",
+      "name": "Office demo",
+      "kind": "control",
+      "box": {
+        "x": 0.2344,
+        "y": 0.3047,
+        "w": 0.1426,
+        "h": 0.0479
+      },
+      "note": "White Demo pre úradníka button with arrow"
+    },
+    {
+      "id": "register-panel",
+      "name": "Register panel",
+      "kind": "chrome",
+      "box": {
+        "x": 0.0612,
+        "y": 0.3818,
+        "w": 0.8783,
+        "h": 0.3535
+      },
+      "note": "White rounded interface container for semantic search and table"
+    },
+    {
+      "id": "search-heading",
+      "name": "Search heading",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.4092,
+        "w": 0.2539,
+        "h": 0.0303
+      },
+      "note": "Vyhľadať dokumenty heading inside register panel"
+    },
+    {
+      "id": "sample-label",
+      "name": "Sample label",
+      "kind": "text",
+      "box": {
+        "x": 0.8288,
+        "y": 0.415,
+        "w": 0.0957,
+        "h": 0.0195
+      },
+      "note": "Ukážkové dáta · Žilina label"
+    },
+    {
+      "id": "search-input",
+      "name": "Search input",
+      "kind": "control",
+      "box": {
+        "x": 0.0814,
+        "y": 0.4492,
+        "w": 0.7155,
+        "h": 0.0479
+      },
+      "note": "White search input with magnifying glass and placeholder"
+    },
+    {
+      "id": "search-button",
+      "name": "Search button",
+      "kind": "control",
+      "box": {
+        "x": 0.8027,
+        "y": 0.4492,
+        "w": 0.1198,
+        "h": 0.0479
+      },
+      "note": "Blue Hľadať search button"
+    },
+    {
+      "id": "agenda-tabs",
+      "name": "Agenda tabs",
+      "kind": "control",
+      "box": {
+        "x": 0.0807,
+        "y": 0.5117,
+        "w": 0.5176,
+        "h": 0.0342
+      },
+      "note": "Six agenda tabs with Faktúry active, underline only under active tab"
+    },
+    {
+      "id": "table-head",
+      "name": "Table head",
+      "kind": "text",
+      "box": {
+        "x": 0.0892,
+        "y": 0.5713,
+        "w": 0.7617,
+        "h": 0.0146
+      },
+      "note": "Column labels Názov dokumentu, Agenda, Dátum, Detail"
+    },
+    {
+      "id": "record-one",
+      "name": "Record one",
+      "kind": "text",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6035,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "note": "First semantic record row Zmluva o dielo, Zmluvy and date"
+    },
+    {
+      "id": "record-two",
+      "name": "Record two",
+      "kind": "text",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6416,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "note": "Second semantic record row Projektové práce, Objednávky and date"
+    },
+    {
+      "id": "record-three",
+      "name": "Record three",
+      "kind": "text",
+      "box": {
+        "x": 0.0892,
+        "y": 0.6787,
+        "w": 0.763,
+        "h": 0.0176
+      },
+      "note": "Third semantic record row Údržba zelene, Faktúry and date"
+    },
+    {
+      "id": "price-title",
+      "name": "Price title",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.7959,
+        "w": 0.2591,
+        "h": 0.0293
+      },
+      "note": "Navrhovaná cena služby heading"
+    },
+    {
+      "id": "price-copy",
+      "name": "Price copy",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.8359,
+        "w": 0.2923,
+        "h": 0.0381
+      },
+      "note": "Two-line plain service explanation; no unsupported security claim"
+    },
+    {
+      "id": "price-value",
+      "name": "Price value",
+      "kind": "text",
+      "box": {
+        "x": 0.0814,
+        "y": 0.8838,
+        "w": 0.1374,
+        "h": 0.0342
+      },
+      "note": "199 € / rok price"
+    },
+    {
+      "id": "benefit-citizens-title",
+      "name": "Benefit citizens title",
+      "kind": "text",
+      "box": {
+        "x": 0.4434,
+        "y": 0.832,
+        "w": 0.1426,
+        "h": 0.0186
+      },
+      "note": "Prehľad pre občanov heading"
+    },
+    {
+      "id": "benefit-citizens-copy",
+      "name": "Benefit citizens copy",
+      "kind": "text",
+      "box": {
+        "x": 0.4434,
+        "y": 0.8584,
+        "w": 0.1465,
+        "h": 0.0547
+      },
+      "note": "Three lines of public document discovery support copy"
+    },
+    {
+      "id": "benefit-office-title",
+      "name": "Benefit office title",
+      "kind": "text",
+      "box": {
+        "x": 0.6113,
+        "y": 0.832,
+        "w": 0.1458,
+        "h": 0.0186
+      },
+      "note": "Menej administratívy heading"
+    },
+    {
+      "id": "benefit-office-copy",
+      "name": "Benefit office copy",
+      "kind": "text",
+      "box": {
+        "x": 0.6113,
+        "y": 0.8584,
+        "w": 0.1367,
+        "h": 0.0391
+      },
+      "note": "Two lines of staff evidence support copy"
+    },
+    {
+      "id": "benefit-structure-title",
+      "name": "Benefit structure title",
+      "kind": "text",
+      "box": {
+        "x": 0.7793,
+        "y": 0.832,
+        "w": 0.1432,
+        "h": 0.0186
+      },
+      "note": "Prehľadná štruktúra heading"
+    },
+    {
+      "id": "benefit-structure-copy",
+      "name": "Benefit structure copy",
+      "kind": "text",
+      "box": {
+        "x": 0.7793,
+        "y": 0.8584,
+        "w": 0.1491,
+        "h": 0.0547
+      },
+      "note": "Three lines about clear agenda organization"
+    },
+    {
+      "id": "navigation-ground",
+      "name": "Navigation ground",
+      "kind": "chrome",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 0.0752
+      },
+      "note": "Single solid navy navigation background spanning the screen"
+    },
+    {
+      "id": "hero-ground",
+      "name": "Hero ground",
+      "kind": "chrome",
+      "box": {
+        "x": 0,
+        "y": 0.0752,
+        "w": 1,
+        "h": 0.3994
+      },
+      "note": "Single solid navy hero background below navigation"
+    },
+    {
+      "id": "offer-ground",
+      "name": "Offer ground",
+      "kind": "chrome",
+      "box": {
+        "x": 0,
+        "y": 0.7354,
+        "w": 1,
+        "h": 0.208
+      },
+      "note": "Single pale blue service offer background"
+    },
+    {
+      "id": "next-section-start",
+      "name": "Next section start",
+      "kind": "chrome",
+      "box": {
+        "x": 0,
+        "y": 0.9434,
+        "w": 1,
+        "h": 0.0566
+      },
+      "note": "White beginning of the next workflow section at bottom of viewport"
+    }
+  ]
+}
