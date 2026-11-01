@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check, FileSearch, Files, Link2, Paperclip, Eye } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { AGENDAS } from "@openobec/api-client";
 import { publicLinks } from "@openobec/api-client/server";
 import { Button } from "@openobec/ui/components/button";
@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@openobec/ui/components/accordion";
+import { ProductPreview } from "../components/product-preview";
 import { DemoLinks } from "../components/demo-links";
 const agendaDescriptions = [
   "Prehľad vystavených faktúr, odberateľov a vyúčtovaných súm.",
@@ -54,80 +55,44 @@ export function HomeSections() {
             Menej hľadania. Viac prehľadu.
           </h2>
           <p className="marketing-section-copy">
-            Faktúry na jednom portáli, zmluvy na inom a prílohy schované medzi odkazmi. OpenObec
-            dáva dokumentom spoločné miesto a občanom zrozumiteľnú cestu k informáciám.
+            Dva pohľady na jednu evidenciu: občan číta zverejnené dokumenty, úradník pripravuje
+            ďalšie.
           </p>
         </div>
-        <div className="mt-10 grid gap-10 border-y py-9 md:grid-cols-2 md:gap-16">
+        <div className="product-story mt-10">
           <div>
-            <FileSearch className="mb-4 size-7 text-primary" />
-            <h3 className="text-xl font-semibold">Občan nájde to, čo potrebuje</h3>
-            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">
-              Vyhľadá názov alebo číslo dokumentu, pozrie si jeho údaje a stiahne prílohu.
-              Súvislosti pomáhajú vidieť, ktoré záznamy patria k sebe.
+            <h3 className="text-2xl font-semibold tracking-tight">
+              Od zmluvy k jej prílohe a súvislostiam
+            </h3>
+            <p className="marketing-section-copy">
+              Pri obnove knižnice občan vidí, s kým obec uzavrela zmluvu, odkedy je účinná a aká je
+              suma s DPH. Z toho istého detailu stiahne PDF a prejde na prepojenú objednávku či
+              faktúru.
             </p>
-            <ul className="mt-5 space-y-3 text-sm">
-              {[
-                "Jedno vyhľadávanie naprieč šiestimi agendami",
-                "Údaje, súvislosti a prílohy pri dokumente",
-                "Verejný prístup bez registrácie",
-              ].map((text) => (
-                <li className="flex gap-3" key={text}>
-                  <Check className="size-4 shrink-0 text-primary" />
-                  {text}
-                </li>
-              ))}
-            </ul>
+            <Button asChild variant="outline" className="mt-6">
+              <a href={`${links.citizen}/obcan/zmluvy`}>
+                Preskúmať zmluvy <ArrowRight />
+              </a>
+            </Button>
           </div>
-          <div>
-            <Files className="mb-4 size-7 text-primary" />
-            <h3 className="text-xl font-semibold">Úradník má jasný pracovný postup</h3>
-            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">
-              Pripraví záznam, doplní údaje a prílohy a rozhodne, kedy ho zverejní. Koncept a
-              publikovaný dokument majú v prehľade vlastný stav.
-            </p>
-            <ul className="mt-5 space-y-3 text-sm">
-              {[
-                "Formuláre podľa konkrétnej agendy",
-                "Výber súvisiacich dokumentov a správa príloh",
-                "Úpravy, zverejnenie aj zrušenie publikovania",
-              ].map((text) => (
-                <li className="flex gap-3" key={text}>
-                  <Check className="size-4 shrink-0 text-primary" />
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ProductPreview role="citizen" />
         </div>
-        <div className="mt-9 grid gap-7 sm:grid-cols-3">
-          {[
-            {
-              icon: Link2,
-              title: "Dokumenty v súvislostiach",
-              text: "Prejdite od zmluvy k súvisiacej objednávke alebo faktúre.",
-            },
-            {
-              icon: Paperclip,
-              title: "Prílohy poruke",
-              text: "Údaje a skutočné súbory sú dostupné z jedného detailu.",
-            },
-            {
-              icon: Eye,
-              title: "Prehľadná štruktúra",
-              text: "Usporiadané podľa agend obce, s jasným a zrozumiteľným zobrazením.",
-            },
-          ].map((item) => (
-            <div key={item.title}>
-              <item.icon className="mb-3 size-5 text-primary" />
-              <h3 className="font-semibold">{item.title}</h3>
-              <p
-                className={`${item.icon === Eye ? "r-benefit-structure-copy " : ""}mt-2 text-sm leading-6 text-muted-foreground`}
-              >
-                {item.text}
-              </p>
-            </div>
-          ))}
+        <div className="product-story product-story-reverse mt-16 border-t pt-16">
+          <div>
+            <h3 className="text-2xl font-semibold tracking-tight">
+              Pokračujte tam, kde práca zostala
+            </h3>
+            <p className="marketing-section-copy">
+              Úradník po otvorení prehľadu rozlíši koncepty od zverejnených dokumentov. Rozpracovaný
+              záznam otvorí priamo, doplní prílohu a rozhodne o zverejnení.
+            </p>
+            <Button asChild variant="outline" className="mt-6">
+              <a href={`${links.office}/uradnik/prihlasenie`}>
+                Vyskúšať pracovný prehľad <ArrowRight />
+              </a>
+            </Button>
+          </div>
+          <ProductPreview role="office" />
         </div>
       </section>
       <section className="border-y bg-secondary" aria-labelledby="agendas-title">
@@ -218,8 +183,8 @@ export function HomeSections() {
                 Navrhovaná cena služby
               </h2>
               <p className="marketing-price-copy marketing-section-copy !text-foreground/75">
-                Moderné riešenie pre zverejňovanie a evidenciu dokumentov obce. Prehľadné a ľahko
-                použiteľné.
+                Jeden ročný paušál za evidenciu dokumentov a ich verejné sprístupnenie. Cena je
+                návrh, nie záväzná ponuka.
               </p>
               <p className="mt-6 text-5xl font-semibold tracking-tight">
                 <span className="text-primary">199 €</span>

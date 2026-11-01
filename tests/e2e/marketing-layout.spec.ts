@@ -34,3 +34,28 @@ test("homepage explains the product and answers practical questions", async ({ p
     .click();
   await expect(page.getByText(/V tomto deme je pripojenie iba simulované/)).toBeVisible();
 });
+
+for (const width of [390, 768, 1440]) {
+  for (const route of ["home", "vyhody", "demo", "kontakt"]) {
+    test(`${route} preserves readable bounded layout at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto(`http://127.0.0.1:3000/${route}`);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+        width,
+      );
+      await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+      for (const figure of await page.locator("main figure").all()) {
+        const bounds = (await figure.boundingBox())!;
+        expect(bounds.x).toBeGreaterThanOrEqual(0);
+        expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
+        expect(bounds.width).toBeGreaterThanOrEqual(300);
+      }
+      if (route === "kontakt") {
+        await expect(
+          page.getByText("Kontaktná adresa zatiaľ nie je nastavená.", { exact: false }),
+        ).toBeVisible();
+        await expect(page.locator("main form")).toHaveCount(0);
+      }
+    });
+  }
+}

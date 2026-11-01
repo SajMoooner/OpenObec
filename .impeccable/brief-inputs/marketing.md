@@ -10,8 +10,10 @@ OWN-WORLD: Standard shadcn/ui New York components and Geist. IDSK3 navy #072c66 
 
 STORY: The visitor sees the document problem, tries a real search that opens the citizen portal, then chooses either public reading or office publishing. Illustrative rows are explicitly synthetic; no invented customer, metric or legal claim.
 
-FIRST VIEWPORT: At1536x1024, navigation sits at the top, the two-line61px headline starts near x125/y95 with support and two actions below; the panorama spans the right61%. The white register begins near x94/y391, contains search, agenda tabs and three sample rows; the offer begins near y753. Common desktop widths scale fluidly, mobile stacks naturally.
+FIRST VIEWPORT: Current approved refinement (1 November 2026) uses a centered maximum 1280px container, 24px gutters and a headline capped at 56px. The navy opening preserves the civic panorama and overlapping working search/register. Mobile stacks naturally, with local scrolling only for agenda tabs and the sample table. The old comp pixel positions are historical evidence, not current layout constraints.
 
-FORM: Category standard chosen deliberately (canon), then navy composition selected. seed:bf2abb90da53d612. The font matcher ranked Google Sans Flex nearest, but user explicitly pinned shadcn; use Geist, measured candidate61px. Genuine comp defects corrected in semantic UI: remove decorative eyebrow labels, remove unsupported word “bezpečné”, align initial active agenda with displayed rows. All ordinary control styles remain shadcn.
+STORY DETAIL: Functional search → citizen contract screenshot and scenario → office overview screenshot and scenario → six differentiated agendas → three publication steps → proposed 199 €/year → FAQ → role demos. Benefits shows two concrete scenarios and domain distinctions. Demo provides both role previews and three-step paths. Contact states the unavailable contact channel honestly and leads into the working demo.
+
+FORM: Genuine shadcn/ui, Geist and IDSK3 colors only. Product screenshots are static figures with explicit synthetic-data captions, stable dimensions, useful alt text and provenance in `apps/marketing/public/previews/README.md`. They use owned current demo records; no template imagery, invented customers or external contact details. Secondary marketing pages share the same bounded grid, type rhythm and active navigation.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

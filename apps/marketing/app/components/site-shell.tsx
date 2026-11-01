@@ -1,14 +1,18 @@
+"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
 import {
   Sheet,
   SheetContent,
+  SheetClose,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@openobec/ui/components/sheet";
 export function MarketingHeader() {
+  const pathname = usePathname();
   return (
     <header className="bg-foreground text-background">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
@@ -16,14 +20,22 @@ export function MarketingHeader() {
           OpenObec
         </Link>
         <nav className="hidden items-center gap-8 text-sm sm:flex" aria-label="Hlavná navigácia">
-          <Link className="hover:underline" href="/vyhody">
+          <Link
+            className="underline-offset-4 hover:underline aria-[current=page]:underline"
+            aria-current={pathname === "/vyhody" ? "page" : undefined}
+            href="/vyhody"
+          >
             Výhody
           </Link>
-          <Link className="hover:underline" href="/kontakt">
+          <Link
+            className="underline-offset-4 hover:underline aria-[current=page]:underline"
+            aria-current={pathname === "/kontakt" ? "page" : undefined}
+            href="/kontakt"
+          >
             Kontakt
           </Link>
           <Button asChild variant="secondary">
-            <Link href="/demo">
+            <Link aria-current={pathname === "/demo" ? "page" : undefined} href="/demo">
               Otvoriť demo
               <ArrowRight />
             </Link>
@@ -44,22 +56,36 @@ export function MarketingHeader() {
             <SheetHeader>
               <SheetTitle>OpenObec</SheetTitle>
             </SheetHeader>
-            <nav className="grid gap-2 p-4">
-              <Button variant="ghost" asChild>
-                <Link href="/home">Úvod</Link>
-              </Button>
-              <Button variant="ghost" asChild>
-                <Link href="/vyhody">Výhody</Link>
-              </Button>
-              <Button variant="ghost" asChild>
-                <Link href="/kontakt">Kontakt</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/demo">
-                  Otvoriť demo
-                  <ArrowRight />
-                </Link>
-              </Button>
+            <nav className="grid gap-2 p-4" aria-label="Mobilná navigácia">
+              <SheetClose asChild>
+                <Button variant="ghost" asChild>
+                  <Link aria-current={pathname === "/home" ? "page" : undefined} href="/home">
+                    Úvod
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button variant="ghost" asChild>
+                  <Link aria-current={pathname === "/vyhody" ? "page" : undefined} href="/vyhody">
+                    Výhody
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button variant="ghost" asChild>
+                  <Link aria-current={pathname === "/kontakt" ? "page" : undefined} href="/kontakt">
+                    Kontakt
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild>
+                  <Link aria-current={pathname === "/demo" ? "page" : undefined} href="/demo">
+                    Otvoriť demo
+                    <ArrowRight />
+                  </Link>
+                </Button>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>

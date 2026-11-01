@@ -31,7 +31,7 @@ colors:
 typography:
   display:
     fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "3.90625cqw"
+    fontSize: "clamp(2.25rem, 4vw, 3.5rem)"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.025em"
@@ -208,7 +208,7 @@ Selection and scrollbars retain their additional base-stylesheet colors. Color m
 **Character:** clear and conventional. Hierarchy comes from size, weight and spacing, with sentence-case labels and slightly tightened headings. The installed font imports provide normal weights 400, 500, 600 and 700.
 
 ### Hierarchy
-- **Display:** the marketing headline uses the container-relative display token; at the approved reference width it resolves to about 60 px. Below the marketing breakpoint it becomes `clamp(30px, 8.7vw, 48px)` with a 1.08 line height. This is a surface-specific display treatment.
+- **Display:** marketing uses `clamp(2.25rem, 4vw, 3.5rem)` with a 1.08 line height. Secondary page titles use 2.25–3rem. Headlines remain bounded on wide monitors; the old container-scaled comp is historical, not the current geometry.
 - **Headline / Headline wide:** the ordinary page heading is the headline token; citizen home increases to headline-wide from the small breakpoint. Detail headings start one step smaller and grow to headline at that breakpoint.
 - **Title / Title section:** section headings and editor field-group titles; title-section also appears at medium weight in login and empty-state headings.
 - **Body:** ordinary descriptive copy. Longer prose in the implementation uses a 1.75 rem line height where space permits and a `max-w-prose` measure (65ch).
@@ -226,7 +226,7 @@ The small, medium and large breakpoints are recorded in the sidecar. Citizen nav
 
 Below the large breakpoint, document tables use a wide wrapping title/number column and a narrow 3 rem action column. Agenda, publication state and amount group beneath the title; desktop restores their separate columns and date. Preserve this grouping instead of squeezing names into narrow columns. Marketing tabs and its illustrative table retain local horizontal scrolling; that behavior is specific to the preview.
 
-The marketing home’s measured desktop composition scales within a 1536:1024 frame and uses container-relative type. At a maximum width of 767 px it switches to normal vertical flow, with 20 px gutters, stacked actions and the panorama beneath the introduction. The navy opening, overlapping register and offer/workflow sequence remain a marketing surface decision, not a global layout law. See its surface brief and source for the measured geometry.
+Marketing uses a centered maximum 80rem container with 1.5rem gutters. Its navy introduction and panorama lead into the overlapping functional search/register. The product story follows with two real, labeled screenshots of synthetic demo records, arranged beside short scenario copy and stacked below 1024px. Benefits and Demo reuse these previews; Contact states the actual project/contact limits. Sections use 4rem vertical spacing, reduced to 3rem on small screens. The approved refinement supersedes the historical 1536:1024 comp geometry without changing that archived evidence. No screenshot is presented as an interactive control.
 
 ## Elevation & Depth
 
@@ -274,7 +274,7 @@ Records preserve a linked title, muted number, agenda, amount, publication state
 - **Do** use the shared semantic colors and genuine shadcn/ui components.
 - **Do** preserve readable document titles, explicit Koncept / Zverejnené labels and visible open actions on mobile.
 - **Do** use stock Lucide SVG icons with accessible names for icon-only actions.
-- **Do** keep the approved panorama and measured register composition specific to the marketing home.
+- **Do** keep the approved panorama and bounded register composition specific to the marketing home.
 
 ### Don't:
 - **Don't** import IDSK typography, components or spacing.

@@ -1,96 +1,82 @@
-import { AGENDAS } from "@openobec/api-client";
-import { Check } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@openobec/ui/components/table";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@openobec/ui/components/button";
 import { MarketingHeader, MarketingFooter } from "../components/site-shell";
 import { DemoLinks } from "../components/demo-links";
+import { ProductPreview } from "../components/product-preview";
+import "../home/marketing.css";
 export const metadata = { title: "Výhody" };
 export default function Benefits() {
   return (
     <>
       <MarketingHeader />
-      <main className="mx-auto max-w-7xl space-y-16 px-6 py-12 sm:py-16">
+      <main className="marketing-container marketing-page">
         <section className="max-w-3xl">
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Dokumenty, v ktorých sa dá vyznať.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Povinné dokumenty bývajú roztrúsené medzi stránkami a portálmi. OpenObec ich spája do
-            prehľadnej evidencie s jednoduchou cestou od vytvorenia po zverejnenie.
+          <p className="marketing-section-copy text-lg">
+            Občan potrebuje odpoveď. Úradník potrebuje dokončiť záznam. OpenObec dáva každému
+            vlastný pohľad na spoločnú evidenciu.
           </p>
         </section>
-        <div className="grid gap-12 border-y py-10 md:grid-cols-2">
-          {[
-            {
-              title: "Občan nájde, čo hľadá",
-              items: [
-                "Vyhľadanie podľa názvu, čísla alebo kľúčového slova.",
-                "Prehľadné zoznamy podľa agendy.",
-                "Súvisiace faktúry, objednávky a zmluvy na jednom mieste.",
-                "Prílohy dostupné priamo pri zverejnenom dokumente.",
-              ],
-            },
-            {
-              title: "Úradník má poriadok v evidencii",
-              items: [
-                "Jedno miesto na vytvorenie a úpravu dokumentov.",
-                "Uloženie konceptu pred zverejnením.",
-                "Výber súvislostí a správa príloh.",
-                "Prehľad posledných zmien a záznamov v jednotlivých agendách.",
-              ],
-            },
-          ].map((group) => (
-            <section key={group.title}>
-              <h2 className="text-2xl font-semibold tracking-tight">{group.title}</h2>
-              <ul className="mt-6 space-y-4">
-                {group.items.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-6">
-                    <Check aria-hidden="true" className="mt-1 size-4 shrink-0 text-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold tracking-tight">Šesť agend, spoločný prehľad</h2>
-          <div className="rounded-lg border">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Agenda</TableHead>
-                  <TableHead>V ukážke môžete</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {AGENDAS.map((a) => (
-                  <TableRow key={a.slug}>
-                    <TableCell className="font-medium">{a.title}</TableCell>
-                    <TableCell>Vytvoriť koncept, pridať prílohy a zverejniť dokument</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </section>
-        <section className="grid gap-6 rounded-xl bg-secondary p-6 sm:p-8 md:grid-cols-2">
+        <section className="product-story">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Navrhovaná cena služby</h2>
-            <p className="mt-4 text-3xl font-semibold text-primary">
-              199 € <span className="text-lg font-normal text-foreground">/ rok</span>
+            <h2 className="marketing-section-title">Čo patrí k obnove knižnice?</h2>
+            <p className="marketing-section-copy">
+              Občan otvorí zmluvu, overí zmluvnú stranu, účinnosť a sumu s DPH. Znenie nájde v PDF
+              prílohe. Vybrané súvislosti ho dovedú k objednávke, faktúram a obstarávaniu.
+            </p>
+            <p className="marketing-section-copy">
+              Súvislosť je výslovne vybraný odkaz medzi dokumentmi; nevzniká iba preto, že majú
+              rovnakého dodávateľa.
             </p>
           </div>
-          <p className="max-w-prose self-center leading-7 text-foreground/80">
-            Ročný cenový návrh dopĺňa implementačný poplatok podľa rozsahu nasadenia. Jeho výška a
-            režim DPH zatiaľ nie sú určené.
-          </p>
+          <ProductPreview role="citizen" />
+        </section>
+        <section className="product-story product-story-reverse border-t pt-12">
+          <div>
+            <h2 className="marketing-section-title">Čo ešte treba doplniť pred zverejnením?</h2>
+            <p className="marketing-section-copy">
+              Úradník sa z prehľadu vráti do konceptu. Doplní údaje podľa agendy, priloží súbor a
+              uloží záznam. Až zverejnený dokument je dostupný občanom.
+            </p>
+            <p className="marketing-section-copy">
+              Pri obstarávaní sleduje lehotu ponúk a hodnotu bez DPH. Pri VZN dátum schválenia a
+              účinnosť; táto agenda sa vedie samostatne.
+            </p>
+          </div>
+          <ProductPreview role="office" />
+        </section>
+        <section className="grid gap-8 border-y py-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-semibold">Údaje podľa významu dokumentu</h2>
+            <p className="marketing-section-copy">
+              Odberateľské faktúry ukazujú odberateľa, dodávateľské faktúry dodávateľa. Objednávky
+              dopĺňajú dátum objednania, zmluvy účinnosť. Nemusíte hľadať význam v rovnakých
+              všeobecných stĺpcoch.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold">Verejný obsah aj rozpracovaná evidencia</h2>
+            <p className="marketing-section-copy">
+              Občan prezerá publikované dokumenty bez účtu. Úradník má aj koncepty, úpravy a správu
+              príloh. Demo umožňuje vyskúšať oba pohľady bez hesla.
+            </p>
+          </div>
+        </section>
+        <section className="flex flex-wrap items-center justify-between gap-6 rounded-xl bg-secondary p-6 sm:p-8">
+          <div>
+            <h2 className="text-2xl font-semibold">Navrhovaná cena služby: 199 € / rok</h2>
+            <p className="mt-3 max-w-prose leading-7 text-foreground/80">
+              Implementačný poplatok a režim DPH zatiaľ nie sú určené.
+            </p>
+          </div>
+          <Button asChild variant="outline">
+            <Link href="/home#cena">
+              Podrobnosti cenového návrhu <ArrowRight />
+            </Link>
+          </Button>
         </section>
         <DemoLinks />
       </main>

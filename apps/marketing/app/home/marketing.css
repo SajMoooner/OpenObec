@@ -100,3 +100,47 @@
 .bg-secondary .marketing-section-copy {
   color: color-mix(in srgb, var(--foreground) 75%, transparent);
 }
+
+.product-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 3rem;
+}
+.product-story h3 {
+  text-wrap: balance;
+}
+.product-story-reverse {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr);
+}
+.product-story-reverse > div {
+  order: 2;
+}
+.marketing-page {
+  padding-block: 3rem 5rem;
+}
+.marketing-page > * + * {
+  margin-top: 4rem;
+}
+.marketing-page h1 {
+  max-width: 22ch;
+  text-wrap: balance;
+}
+@media (max-width: 1023px) {
+  .product-story,
+  .product-story-reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .product-story-reverse > div {
+    order: 0;
+  }
+}
+@media (max-width: 639px) {
+  .marketing-page {
+    padding-block: 2.5rem 3rem;
+  }
+  .marketing-page > * + * {
+    margin-top: 3rem;
+  }
+}

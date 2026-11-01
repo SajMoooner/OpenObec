@@ -128,12 +128,7 @@ for (const [name, selector, text] of [
   [
     "price",
     ".marketing-price-copy",
-    "Moderné riešenie pre zverejňovanie a evidenciu dokumentov obce. Prehľadné a ľahko použiteľné.",
-  ],
-  [
-    "structure benefit",
-    ".r-benefit-structure-copy",
-    "Usporiadané podľa agend obce, s jasným a zrozumiteľným zobrazením.",
+    "Jeden ročný paušál za evidenciu dokumentov a ich verejné sprístupnenie. Cena je návrh, nie záväzná ponuka.",
   ],
 ] as const) {
   test(`mobile marketing ${name} preserves spaces when desktop line breaks disappear`, async ({
