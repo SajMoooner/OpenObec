@@ -1,0 +1,51 @@
+{
+  "captured_on": "2026-11-01",
+  "timezone": "Europe/Bratislava",
+  "note": "Read-only snapshots of user-supplied design Pages; source Pages were not edited.",
+  "sources": [
+    {
+      "title": "API Definiton",
+      "page_id": "page_770f55727c0081918bf54e26130bf30f",
+      "url": "https://chatgpt.com/space/page_770f55727c0081918bf54e26130bf30f",
+      "sequence": 254,
+      "path": "docs/references/2026-11-01/api-definition.md",
+      "blocks": 35,
+      "characters": 8367,
+      "sha256": "93d4db40fcfc865a8529c46fd78b3966472458eee113a55c17496acf896f2acf",
+      "bytes": 8805
+    },
+    {
+      "title": "API detail",
+      "page_id": "page_6ae6110469408191a2399b407bb11f3c",
+      "url": "https://chatgpt.com/space/page_6ae6110469408191a2399b407bb11f3c",
+      "sequence": 5,
+      "path": "docs/references/2026-11-01/api-detail.md",
+      "blocks": 316,
+      "characters": 91339,
+      "sha256": "1b850b6db21b5ac6a51b1f2c55dff9a170869b94a006b3cdaad4eaee12bf173e",
+      "bytes": 93764
+    },
+    {
+      "title": "Api sekvenčný diagram",
+      "page_id": "page_6ae612adfe2881919b1258940a2d1305",
+      "url": "https://chatgpt.com/space/page_6ae612adfe2881919b1258940a2d1305",
+      "sequence": 23,
+      "path": "docs/references/2026-11-01/api-sequences.md",
+      "blocks": 136,
+      "characters": 62474,
+      "sha256": "150170fad3db04f7cf5d842c2a5ff73120a1dddc78de5b1c3f6d3127e91e79b6",
+      "bytes": 64747
+    },
+    {
+      "title": "High level schéma",
+      "page_id": "page_5e88771846b08191bdd0f434aa0bfb85",
+      "url": "https://chatgpt.com/space/page_5e88771846b08191bdd0f434aa0bfb85",
+      "sequence": 8,
+      "path": "docs/references/2026-11-01/high-level.md",
+      "blocks": 31,
+      "characters": 9693,
+      "sha256": "edbcc850d99fbab31cff74d86ec7014460d4bfcb399a040feb3bd475a0f57cd8",
+      "bytes": 10283
+    }
+  ]
+}
