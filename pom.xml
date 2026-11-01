@@ -20,7 +20,17 @@
     <spring-cloud.version>2025.0.3</spring-cloud.version>
   </properties>
   <!-- Register each independently owned module when its directory is created. -->
-  <modules/>
+  <modules>
+    <module>libs/java/event-contracts</module>
+    <module>libs/java/file-storage</module>
+    <module>libs/java/common-api</module>
+    <module>services/invoices-service</module>
+    <module>services/supplier-invoices-service</module>
+    <module>services/contracts-service</module>
+    <module>services/orders-service</module>
+    <module>services/procurement-service</module>
+    <module>services/ordinances-service</module>
+  </modules>
   <dependencyManagement>
     <dependencies>
       <dependency>
