@@ -1,0 +1,16 @@
+.git
+.env
+.env.*
+!.env.example
+.tools
+.run
+.superpowers
+.impeccable
+**/.impeccable
+**/node_modules
+**/.next
+**/target
+**/test-results
+**/playwright-report
+OpenObec-*
+assets

@@ -20,6 +20,7 @@ class InfrastructureConfigurationTests(unittest.TestCase):
             (root/'scripts/dev').mkdir(parents=True)
             (root/'bin').mkdir()
             shutil.copy2(ROOT/'scripts/dev/infra.sh', root/'scripts/dev/infra.sh')
+            shutil.copy2(ROOT/'scripts/dev/docker_env.py', root/'scripts/dev/docker_env.py')
             shutil.copy2(ROOT/'compose.yaml', root/'compose.yaml')
             (root/'.env').write_text(dotenv)
             # Use actual Compose .env/config resolution; stub only engine/network actions.

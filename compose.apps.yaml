@@ -1,0 +1,497 @@
+# App overlay; infrastructure remains in compose.yaml.
+services:
+  invoices-service:
+    build:
+      context: .
+      dockerfile: services/invoices-service/Dockerfile
+    image: openobec/invoices-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8081'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_INVOICES_INTERNAL_URI:-mongodb://mongo-invoices:27017/openobec_invoices?replicaSet=rs-invoices}
+    ports:
+    - 127.0.0.1:8081:8081
+    depends_on:
+      mongo-invoices:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  supplier-invoices-service:
+    build:
+      context: .
+      dockerfile: services/supplier-invoices-service/Dockerfile
+    image: openobec/supplier-invoices-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8082'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_SUPPLIER_INVOICES_INTERNAL_URI:-mongodb://mongo-supplier-invoices:27017/openobec_supplier_invoices?replicaSet=rs-supplier-invoices}
+    ports:
+    - 127.0.0.1:8082:8082
+    depends_on:
+      mongo-supplier-invoices:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  contracts-service:
+    build:
+      context: .
+      dockerfile: services/contracts-service/Dockerfile
+    image: openobec/contracts-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8083'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_CONTRACTS_INTERNAL_URI:-mongodb://mongo-contracts:27017/openobec_contracts?replicaSet=rs-contracts}
+    ports:
+    - 127.0.0.1:8083:8083
+    depends_on:
+      mongo-contracts:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  orders-service:
+    build:
+      context: .
+      dockerfile: services/orders-service/Dockerfile
+    image: openobec/orders-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8084'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_ORDERS_INTERNAL_URI:-mongodb://mongo-orders:27017/openobec_orders?replicaSet=rs-orders}
+    ports:
+    - 127.0.0.1:8084:8084
+    depends_on:
+      mongo-orders:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  procurement-service:
+    build:
+      context: .
+      dockerfile: services/procurement-service/Dockerfile
+    image: openobec/procurement-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8085'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_PROCUREMENT_INTERNAL_URI:-mongodb://mongo-procurement:27017/openobec_procurement?replicaSet=rs-procurement}
+    ports:
+    - 127.0.0.1:8085:8085
+    depends_on:
+      mongo-procurement:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  ordinances-service:
+    build:
+      context: .
+      dockerfile: services/ordinances-service/Dockerfile
+    image: openobec/ordinances-service:demo
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      SERVER_PORT: '8086'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_ORDINANCES_INTERNAL_URI:-mongodb://mongo-ordinances:27017/openobec_ordinances?replicaSet=rs-ordinances}
+    ports:
+    - 127.0.0.1:8086:8086
+    depends_on:
+      mongo-ordinances:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      rustfs-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  query-api:
+    build:
+      context: .
+      dockerfile: services/query-api/Dockerfile
+    image: openobec/query-api:demo
+    restart: unless-stopped
+    mem_limit: 448m
+    environment:
+      SERVER_PORT: '8090'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_READ_INTERNAL_URI:-mongodb://mongo-read:27017/openobec_read?replicaSet=rs-read}
+      QUERY_CURSOR_SECRET: ${QUERY_CURSOR_SECRET:-openobec-local-cursor-key-change-outside-demo}
+      OPENOBEC_EVENTS_TOPIC: openobec.documents.v1
+      OPENOBEC_EVENTS_DLQ: openobec.documents.v1.dlq
+      PAIRING_CONSUMER_GROUP: openobec-pairing-v1
+    ports:
+    - 127.0.0.1:8090:8090
+    depends_on:
+      mongo-read:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  pairing-service:
+    build:
+      context: .
+      dockerfile: services/pairing-service/Dockerfile
+    image: openobec/pairing-service:demo
+    restart: unless-stopped
+    mem_limit: 448m
+    environment:
+      SERVER_PORT: '8091'
+      INVOICES_SERVICE_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_SERVICE_URL: http://supplier-invoices-service:8082
+      CONTRACTS_SERVICE_URL: http://contracts-service:8083
+      ORDERS_SERVICE_URL: http://orders-service:8084
+      PROCUREMENT_SERVICE_URL: http://procurement-service:8085
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_INTERNAL_BOOTSTRAP_SERVERS:-kafka:29092}
+      S3_ENDPOINT: ${S3_INTERNAL_ENDPOINT:-http://rustfs:9000}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+      MONGODB_URI: ${MONGODB_READ_INTERNAL_URI:-mongodb://mongo-read:27017/openobec_read?replicaSet=rs-read}
+      QUERY_CURSOR_SECRET: ${QUERY_CURSOR_SECRET:-openobec-local-cursor-key-change-outside-demo}
+      OPENOBEC_EVENTS_TOPIC: openobec.documents.v1
+      OPENOBEC_EVENTS_DLQ: openobec.documents.v1.dlq
+      PAIRING_CONSUMER_GROUP: openobec-pairing-v1
+    ports:
+    - 127.0.0.1:8091:8091
+    depends_on:
+      mongo-read:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  api-gateway:
+    build:
+      context: .
+      dockerfile: services/api-gateway/Dockerfile
+    image: openobec/api-gateway:demo
+    restart: unless-stopped
+    mem_limit: 320m
+    environment:
+      SERVER_PORT: '8080'
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--Xms32m -Xmx192m}
+      GATEWAY_RATE_LIMIT: ${GATEWAY_RATE_LIMIT:-1200}
+      INVOICES_URL: http://invoices-service:8081
+      SUPPLIER_INVOICES_URL: http://supplier-invoices-service:8082
+      CONTRACTS_URL: http://contracts-service:8083
+      ORDERS_URL: http://orders-service:8084
+      PROCUREMENT_URL: http://procurement-service:8085
+      ORDINANCES_URL: http://ordinances-service:8086
+      QUERY_URL: http://query-api:8090
+    ports:
+    - 127.0.0.1:8080:8080
+    depends_on:
+      invoices-service:
+        condition: service_healthy
+      supplier-invoices-service:
+        condition: service_healthy
+      contracts-service:
+        condition: service_healthy
+      orders-service:
+        condition: service_healthy
+      procurement-service:
+        condition: service_healthy
+      ordinances-service:
+        condition: service_healthy
+      query-api:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - bash
+      - /app/healthcheck.sh
+      interval: 15s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  marketing:
+    build:
+      context: .
+      dockerfile: apps/marketing/Dockerfile
+    image: openobec/marketing:demo
+    restart: unless-stopped
+    mem_limit: 320m
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: '3000'
+      API_INTERNAL_URL: ${API_DOCKER_URL:-http://api-gateway:8080}
+      MARKETING_PUBLIC_URL: ${MARKETING_URL:-http://localhost:3000}
+      CITIZEN_PUBLIC_URL: ${CITIZEN_URL:-http://localhost:3001}
+      OFFICE_PUBLIC_URL: ${OFFICE_URL:-http://localhost:3002}
+    ports:
+    - 127.0.0.1:3000:3000
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - node
+      - -e
+      - fetch('http://127.0.0.1:3000/',{signal:AbortSignal.timeout(4000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+  citizen:
+    build:
+      context: .
+      dockerfile: apps/citizen/Dockerfile
+    image: openobec/citizen:demo
+    restart: unless-stopped
+    mem_limit: 320m
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: '3001'
+      API_INTERNAL_URL: ${API_DOCKER_URL:-http://api-gateway:8080}
+      MARKETING_PUBLIC_URL: ${MARKETING_URL:-http://localhost:3000}
+      CITIZEN_PUBLIC_URL: ${CITIZEN_URL:-http://localhost:3001}
+      OFFICE_PUBLIC_URL: ${OFFICE_URL:-http://localhost:3002}
+    ports:
+    - 127.0.0.1:3001:3001
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - node
+      - -e
+      - fetch('http://127.0.0.1:3001/',{signal:AbortSignal.timeout(4000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+  office:
+    build:
+      context: .
+      dockerfile: apps/office/Dockerfile
+    image: openobec/office:demo
+    restart: unless-stopped
+    mem_limit: 320m
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: '3002'
+      API_INTERNAL_URL: ${API_DOCKER_URL:-http://api-gateway:8080}
+      MARKETING_PUBLIC_URL: ${MARKETING_URL:-http://localhost:3000}
+      CITIZEN_PUBLIC_URL: ${CITIZEN_URL:-http://localhost:3001}
+      OFFICE_PUBLIC_URL: ${OFFICE_URL:-http://localhost:3002}
+    ports:
+    - 127.0.0.1:3002:3002
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - node
+      - -e
+      - fetch('http://127.0.0.1:3002/',{signal:AbortSignal.timeout(4000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 15s

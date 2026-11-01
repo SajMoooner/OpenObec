@@ -24,12 +24,16 @@
     <module>libs/java/event-contracts</module>
     <module>libs/java/file-storage</module>
     <module>libs/java/common-api</module>
+    <module>libs/java/read-model</module>
+    <module>services/pairing-service</module>
+    <module>services/query-api</module>
     <module>services/invoices-service</module>
     <module>services/supplier-invoices-service</module>
     <module>services/contracts-service</module>
     <module>services/orders-service</module>
     <module>services/procurement-service</module>
     <module>services/ordinances-service</module>
+    <module>services/api-gateway</module>
   </modules>
   <dependencyManagement>
     <dependencies>

@@ -1,0 +1,37 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 2000
+            response-timeout: 60s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+openobec:
+  gateway:
+    rate-limit: ${GATEWAY_RATE_LIMIT:1200}
+  services:
+    faktury: ${INVOICES_URL:http://127.0.0.1:8081}
+    dodavatelske-faktury: ${SUPPLIER_INVOICES_URL:http://127.0.0.1:8082}
+    zmluvy: ${CONTRACTS_URL:http://127.0.0.1:8083}
+    objednavky: ${ORDERS_URL:http://127.0.0.1:8084}
+    verejne-obstaravanie: ${PROCUREMENT_URL:http://127.0.0.1:8085}
+    vzn: ${ORDINANCES_URL:http://127.0.0.1:8086}
+    query: ${QUERY_URL:http://127.0.0.1:8090}
+
+logging:
+  structured:
+    format:
+      console: ${LOGGING_STRUCTURED_FORMAT_CONSOLE:ecs}

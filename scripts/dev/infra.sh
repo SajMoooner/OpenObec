@@ -2,6 +2,9 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
+if [[ "${OPENOBEC_DOCKER_ENV_READY:-}" != '1' ]]; then
+  exec python3 "$ROOT/scripts/dev/docker_env.py" bash "$ROOT/scripts/dev/infra.sh" "$@"
+fi
 docker info >/dev/null 2>&1 || { echo 'Start Docker Desktop before running OpenObec.' >&2; exit 1; }
 compose=(docker compose -p openobec -f "$ROOT/compose.yaml")
 case "${1:-up}" in
