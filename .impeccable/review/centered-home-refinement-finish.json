@@ -1,0 +1,56 @@
+{
+  "kind": "current-ordinary-refinement",
+  "recorded_at": "2026-11-01T17:45:12.149161+00:00",
+  "scope": "User-directed centered homepage and added marketing information",
+  "user_authority": {
+    "quote_width": "ma byt tak na strede ako je ten komponen vyskušajte obe strany obce",
+    "quote_content": "pridaj tam vaic informácií na tu prvu uvodnu stránku",
+    "binding_brief": "apps/marketing/.impeccable/surfaces/apps-marketing-app-home-page-tsx.md",
+    "supersedes": "Old comp full-width geometry, coordinates and offer placement; retains navy, approved skyline, Geist and shadcn/IDSK3 colors."
+  },
+  "source_sha256": {
+    "apps/marketing/app/home/page.tsx": "c393ae6d12bbbfb4ffb92710b7d8945a05e4e20cd8b0845299eec000faac1858",
+    "apps/marketing/app/home/hero.tsx": "20650d779f092b8689ec076cdf582cdfc21426e50517b36a75c540af1929b3d8",
+    "apps/marketing/app/home/sections.tsx": "6a9c73d6c09c263b8b4853ecf97bcee785a99c6b70b1225faaf5aae8a4c41c47",
+    "apps/marketing/app/home/marketing.css": "95b1800dcc58f66168cb1bb15849d2a7d05600b4525155bfa80e8bffbd13eeca",
+    "apps/marketing/.impeccable/surfaces/apps-marketing-app-home-page-tsx.md": "43baa67368fe4141d55fe65d3cdcf9c40c8a8d185d2b93e43fdc9d6aa9671ea8"
+  },
+  "capture_sha256": {
+    ".impeccable/review/marketing-refined-desktop-top.png": "eab6538a4fd73a006076b47795f916f324d995595854fc8d8d9250fff7acd50a",
+    ".impeccable/review/marketing-refined-desktop.png": "78909c6a395f9c4cbca9a8fa8f02e6a03aa0c6f3359a57759d59eff3354ee4d0",
+    ".impeccable/review/marketing-refined-mobile-top.png": "efb4466d828cdb0c8011d1e589e8c1a916b878f52911317f6a0a5330c45df035",
+    ".impeccable/review/marketing-refined-mobile.png": "9f2ee419c70e7f62961881f255e88061b2842777a869c864b4dbbe7d007966cc",
+    ".impeccable/review/marketing-refined-tablet-top.png": "2ab0854fe88b81c7b9e555b54197fdd11a9c275175da24a48fc586682f5519c1",
+    ".impeccable/review/marketing-refined-tablet.png": "573f60f99d0ef0af862b54dc2318a67a2eda4a747b50fc3e402d1a755d842e12",
+    ".impeccable/review/marketing-refined-wide-top.png": "8731b0f976303858839f7e223077c6148ceb415f192729ad5262e81c2821276a",
+    ".impeccable/review/marketing-refined-wide.png": "51d1e74ece4aa7fe26babe5ee66eb889bee9517b0862e2638be8511f0b40e074"
+  },
+  "capture_manifest": ".impeccable/review/marketing-refined-manifest.json",
+  "current_code_review": "docs/reviews/task-7-review.md",
+  "current_visual_review": ".impeccable/review/marketing-refined-review.md",
+  "legacy_comp_verification": {
+    "state": ".impeccable/build/state.json",
+    "phase": "responsive",
+    "status": "open",
+    "measured_similarity_to_superseded_comp": 0.63,
+    "gate_passed": false,
+    "force_accepted": false,
+    "explanation": "Engine did not recognize the quoted Slovak user-directed spatial supersession. Its failed comparison and open phase are preserved; no forced pass, comp replacement or state closure is claimed.",
+    "preserved_snapshot": ".impeccable/review/legacy-comp-state.json"
+  },
+  "current_visual_disposition": "ship",
+  "actual_checks": {
+    "java": 148,
+    "contracts": 12,
+    "runtime": 6,
+    "client": 21,
+    "full_browser": 28,
+    "latest_copy_browser_subset": 18,
+    "live_smoke": 5,
+    "openapi_operations": 70,
+    "desktop_mobile_tablet_wide_fit": true,
+    "normal_up_ready": true,
+    "seed_documents": 72
+  },
+  "current_visual_scope": "Authoritative verdict pass on current ordinary refinement; historical responsive comparison remains open and is not claimed passed."
+}

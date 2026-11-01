@@ -1,23 +1,48 @@
-# Overenie úpravy portálov
+# Overenie finálnej úpravy OpenObec
 
-Základ úpravy: `4a3f798`. Schválený návrh: `docs/design/2026-11-01-portal-review/navrh.md`. Tento záznam sa priebežne dopĺňa; neoverené body nie sú výsledky.
+Rozsah od `625fc6d` (rovnaký produktový kód ako pôvodný `4a3f798`). Autorita: [schválený návrh](../../design/2026-11-01-portal-review/navrh.md) a [realizačný plán](../../superpowers/plans/2026-11-01-portal-refinement.md), vrátane následného rozhodnutia používateľa: snímky s animáciou na webe, video na GitHube, otvorený projekt pod MIT.
 
-## Dokončené kontroly
+## Výsledok implementácie
 
-- Task1 `c17055b`: 23 frontendových testov, 8 testov prehliadača, typová kontrola, lint a tri produkčné zostavenia prešli. Nezávislá kontrola schválila zhodu s návrhom aj kvalitu bez nálezov. Podrobnosti v `task-1-report.md` a `task-1-review.md`.
-- Manuálna kontrola aktuálneho občianskeho portálu cez natívne CUA: čitateľná úvodná stránka na desktope, VZN s doménovými dátumami bez sumy na mobile, viditeľné označenie Žilina/demo. Po oprave sa vyhľadávanie `knižnice` pri 390 × 844 zobrazilo bez výberu agend nad výsledkami, prvý výsledok mal y713,5 a stránka nepresahovala šírku.
+- Tri portály zachovávajú shadcn/ui, Geist a farby IDSK3. Spoločné tabuľky majú údaje podľa agendy, návrat zachová filtre, detail uprednostňuje prílohy a editor chráni rozpracovanú prácu.
+- Marketing má reálne obrazovky, konkrétne scenáre a tri animované kroky tej istej faktúry. Má manuálne prepínanie, pozastavenie a obmedzený pohyb; úvod nenačítava video.
+- Všetkých 72 pôvodných ukážkových identít a väzieb bolo zachovaných pri obnove realistických údajov a PDF. Následná používateľská úprava jednej faktúry zostala nedotknutá (71 záznamov zhodných s obnoveným základom + 1 upravený). Nová faktúra 0057 vznikla výhradne pre skutočnú ukážku; konečný počet je 73, z toho 24 konceptov / 49 zverejnených.
+- Záznam skutočného postupu má 39,24 s, VP9/WebM, 1280×800 a 3 458 209 bajtov. Zdrojový aj občiansky dokument majú rovnaké ID; autorovaný, zdrojový a občiansky PDF rovnaký SHA-256. [Video a pôvod](../../media/showcase/README.md).
+- README, MIT licencia, prispievanie a oznámenia tretích strán sú pripravené. GitHub publikácia nasleduje až po záverečnej kontrole.
 
-## Záverečná kontrola — zatiaľ čaká
+Všetkých 21 kontajnerov je spustených a hlási zdravý stav.
 
-- [ ] Task2 implementácia a nezávislá kontrola.
-- [ ] Task3 implementácia a nezávislá kontrola.
-- [ ] Aktuálne frontendové jednotkové testy, typy, lint, tri produkčné zostavenia.
-- [ ] Celá aktuálna sada testov prehliadača na čerstvom zostavení.
-- [ ] 44 hlavných ciest × 390/768/1440; široký marketing 2560/3440.
-- [ ] Vizuálna kontrola šablón vrátane dlhých názvov, prázdnych stavov a chýb.
-- [ ] Klávesnica, mobilná navigácia a prepojenie chýb so všetkými poľami šiestich formulárov.
-- [ ] Uloženie, príloha a zverejnenie vlastného testovacieho záznamu; ochrana neuložených zmien a návrat k filtrom.
-- [ ] Impeccable kontrola aktuálneho UI a pravdivý záznam finálneho stavu.
-- [ ] Záverečná kontrola rozsahu úpravy voči `4a3f798` a vyriešenie závažných nálezov.
+## Automatické overenie
 
-Staré obrazové porovnanie s pôvodným širokým marketingovým návrhom nie je podkladom prijatia tejto používateľom schválenej úpravy. Jeho historický stav sa nemení ani neoznačuje za úspešný.
+| Kontrola | Výsledok a rozsah |
+|---|---|
+| Celý prehliadač | 59/59 prešlo na finálnej aplikácii 413b520, 50,0 s, exit 0. [Úplný log](browser-suite.log). Príkaz `env -u NO_COLOR pnpm test:e2e` odstránil konflikt farieb v prostredí.|
+| Prenositeľnosť nového testu |Následne upravené hľadanie z lokálnej faktúry 0057 na štandardný zverejnený seed 0041; zmenený prípad 1/1 prešiel, nezávislá kontrola opravy schválená. Bez úpravy dát alebo oslabenia kontroly výsledku.|
+| Frontend | 23 jednotkových testov prešlo; typy a lint prešli na finálnom UI. Po poslednej úprave testu celý projektový `pnpm lint` opäť exit 0 bez varovaní.|
+| Produkčné zostavenia |Všetky 3 aplikácie prešli. Po zmene umiestnenia videa znovu zostavený marketing; občan/úradník ani spoločné jadro sa nemenili.|
+| Nové marketingové správanie | 28 marketingových/regresných kontrol a 4 zamerané skúšky vrátane obrázkov bez JS, klávesnice, redukovaného pohybu a pozastavenia mimo obrazovky/skrytej karty.|
+| Údaje a PDF | 6 runtime skúšok, existujúce integračné skúšky a 7 finálnych migračných prípadov; všetkých 72 PDF parsovaných, reprezentatívne PDF vizuálne overené. Vlastníctvo, opakovanie, prerušenie a cudzie úpravy testované. Podrobné presné behy v [task-4-report.md](task-4-report.md).|
+| Dokumentácia | 40 relatívnych odkazov/aktív,9 príkazov, 11 ciest a texty licencií overené. Nezmenené Java testy sa v tejto UI/dokumentačnej úprave neopakovali.|
+
+Nezávislé taskové kontroly 1–6 schválili zhodu a kvalitu. Neskoršie doplnené opravy majú vlastné záznamy. Varovanie izolovaného ESLint behu o detekcii Reactu sa pri plnom projektovom linte nevyskytlo; nepridávali sa kvôli nemu závislosti ani konfigurácia.
+
+## Skutočná kontrola rozhrania
+
+[Matica](native-route-matrix.json) obsahuje 44 obsahových trás × 390/768/1440 px = 132 jedinečných kombinácií. Skutočná šírka a cieľová cesta sa overili pri každej návšteve jednej karty. Všetky majú hlavný nadpis a dobehnuté načítanie, bez vodorovného presahu stránky/tabuľky či zobrazených chýb. Po používateľovej zmene bol nový úvod opäť skontrolovaný vo všetkých veľkostiach; nezmenené trasy neboli zbytočne opakované.
+
+Ďalších 8 pozorovaní pokrylo štyri marketingové stránky pri 2560/3440 px: obsah má maximálne 1280 px a je presne centrovaný v dostupnej šírke. Aktuálne snímky sú v priečinku [showcase](showcase/). Ide o pozorovania živých stránok a vybrané vizuálne snímky, nie 132 samostatných screenshotov.
+
+Všetkých 6 prázdnych formulárov zobrazilo 8/8/6/5/7/5 chýb, každú prepojenú s poľom; fokus prešiel na súhrn. Odkaz na chybné pole ostal nad spodným ovládaním. Overené prázdne hľadanie/reset, mobilné menu/Escape/návrat fokusu a nová ukážka: manuálna voľba, ArrowRight, automatický prechod a pauza. Konzola bez varovaní/chýb. Chybové API, čiastočné uloženie, história/návrat, presné termíny a publikovanie/PDF pokrývajú testy prehliadača.
+
+Skorší pokus s dvomi kartami mal neúplnú kontrolu skutočnej šírky; bol nahradený uvedenou overenou maticou. Historické video-prehrávačové skúšky sa neprezentujú ako konečné správanie úvodnej stránky.
+
+## Impeccable a vizuálna autorita
+
+Celý zmenený UI rozsah: [detektor](impeccable-detector.json), exit 0, jediná poradná poznámka k existujúcej farbe výberu textu `#c3d9f9` v nezmenenom globals.css. DESIGN.md túto farbu výslovne zachováva. Po následnej zmene na snímky bol zopakovaný iba dotknutý úvod: [detektor úvodu](impeccable-showcase-detector.json), exit 0, žiadne nálezy.
+
+Pôvodné obrazové porovnanie so širokým compom zostáva historicky otvorené a neúspešné (0,63); nebol použitý vynútený úspech ani zamenený comp. Novšia používateľská požiadavka schválila centrovaný marketing a potom screenshotovú animáciu. Súčasný záznam viaže prijatie na aktuálne zdroje, snímky a funkčné dôkazy; staré skóre sa neprepisuje.
+
+## Ešte pred odoslaním
+
+- [ ] Záverečná kontrola celého rozsahu a vyriešenie prípadných závažných nálezov.
+- [ ] Overený push do existujúceho GitHub repozitára, kontrola README/licencie/médií a pravdivý stav vzdialeného CI.

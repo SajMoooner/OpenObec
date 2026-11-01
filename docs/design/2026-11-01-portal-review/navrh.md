@@ -116,3 +116,9 @@ Používateľ následne požiadal o realisticky pôsobiace dáta namiesto názvo
 - Upraviť vlastné ukážkové dáta: prirodzené slovenské názvy dokumentov a fiktívnych organizácií, evidenčné čísla, rôzne primerané sumy, dátumy, stavy a obsah PDF. Zachovať identifikátory, väzby, rozpracované/zverejnené stavy a cudzie používateľské zmeny. Označenie ukážkového prostredia zostáva pravdivé; dáta nevydávať za oficiálne záznamy Žiliny.
 - Úvodný register na priloženom obrázku nahradiť krátkym videom reálneho priebehu: úradník otvorí portál a faktúry, vyplní faktúru, priloží PDF, zverejní ju; občan následne nájde rovnakú faktúru. Ponechať cestu do oboch portálov a funkčné vyhľadávanie v kompaktnejšej podobe.
 - Video má vlastné ovládanie prehrávania, statický úvodný obraz a textové vysvetlenie krokov. Bez zvuku alebo automatického prehrávania, ktoré by rušilo návštevníka. Záznam používa iba vlastné fiktívne údaje a skutočný lokálny pracovný postup.
+
+### Najnovšie spresnenie: snímky na webe, video na GitHube
+
+Používateľ následne výslovne nahradil video na úvodnej stránke požiadavkou na skutočné snímky platformy s peknou animáciou. Úvod teda ukazuje tri kroky tej istej faktúry: vyplnenie, zverejnenie a občiansky detail. Jemný prechod vysvetľuje postup; používateľ môže kroky prepnúť alebo pozastaviť. Automatické striedanie sa zastaví mimo obrazovky alebo na skrytej karte, obmedzenie pohybu je rešpektované. Úvodná stránka nenačítava video. Toto spresnenie je aktuálna vizuálna autorita pre ukážku.
+
+Dokončený záznam reálneho postupu zostáva v dokumentácii pre GitHub. Používateľ tiež schválil zverejnenie celého projektu do existujúceho verejného repozitára, zrozumiteľné README pre otvorený projekt a následne výslovne vybral licenciu MIT. Prípravu dokumentácie a overené odoslanie zachytáva Task6 realizačného plánu; nejde o nasadenie produkčných služieb.

@@ -1,0 +1,14 @@
+[
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/packages/ui/src/styles/globals.css",
+    "line": 85,
+    "snippet": "Undocumented color #c3d9f9 is outside DESIGN.md colors",
+    "advisory": true,
+    "ignoreValue": "#c3d9f9"
+  }
+]

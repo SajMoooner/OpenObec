@@ -1,0 +1,478 @@
+{
+  "method": "Controller CUA, one owned tab6, actual viewport and route asserted per navigation; transcription of observed aggregate output, not a replay script.",
+  "started_at": "2026-11-01T19:26:36.509Z",
+  "source_revision": "e20f6d0",
+  "status": "complete",
+  "route_widths": [
+    {
+      "path": "/obcan/home",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/faktury",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/dodavatelske-faktury",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/zmluvy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/objednavky",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/verejne-obstaravanie",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/vzn",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/obcan/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/prihlasenie",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/home",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/settings",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/faktury",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/faktury/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/dodavatelske-faktury",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/dodavatelske-faktury/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/zmluvy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/zmluvy/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/objednavky",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/objednavky/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/verejne-obstaravanie",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/verejne-obstaravanie/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/vzn",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/vzn/novy",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8/upravit",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/home",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/vyhody",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/demo",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    },
+    {
+      "path": "/kontakt",
+      "widths": [
+        390,
+        768,
+        1440
+      ]
+    }
+  ],
+  "unique_observations": 132,
+  "failed_checks": [],
+  "checks": [
+    "expected route",
+    "actual innerWidth",
+    "h1 present",
+    "page overflow absent",
+    "table overflow absent",
+    "rendered errors absent",
+    "loading complete"
+  ],
+  "validation": [
+    {
+      "agenda": "faktury",
+      "error_count": 8,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    },
+    {
+      "agenda": "dodavatelske-faktury",
+      "error_count": 8,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    },
+    {
+      "agenda": "zmluvy",
+      "error_count": 6,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    },
+    {
+      "agenda": "objednavky",
+      "error_count": 5,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    },
+    {
+      "agenda": "verejne-obstaravanie",
+      "error_count": 7,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    },
+    {
+      "agenda": "vzn",
+      "error_count": 5,
+      "all_descriptions_linked": true,
+      "focused_summary": true,
+      "overflow": false
+    }
+  ],
+  "additional": [
+    "Citizen zero-result state with reset; reset restores10recent rows/emptyquery",
+    "Mobile navigation Escape closes and restores trigger focus",
+    "VZN error-summary link focuses effective-date field y315.75–351.75 above sticky actions",
+    "Console warnings/errors empty"
+  ],
+  "supersedes": "Earlier two-tab sweep had only53unique route-width pairs; this one explicitly verified every actual viewport.",
+  "marketing_source": "413b520 screenshot sequence. Changed home rechecked after explicit user supersession at390/768/1440 and2560/3440; three actual1280pxPNG images loaded, zero video elements, zero pageoverflow.",
+  "wide": {
+    "widths": [
+      2560,
+      3440
+    ],
+    "paths": [
+      "/home",
+      "/vyhody",
+      "/demo",
+      "/kontakt"
+    ],
+    "observations": 8,
+    "all_content_max_width": 1280,
+    "all_center_offsets": 0,
+    "page_overflow": false
+  },
+  "historical_video": {
+    "duration": 39.24,
+    "resolution": [
+      1280,
+      800
+    ],
+    "readyState": 4,
+    "controls": true,
+    "autoplay": false,
+    "loop": false,
+    "sk_track_showing": true,
+    "keyboard_play_current_time": 9.5367,
+    "keyboard_pause_current_time": 26.6394,
+    "paused_after_space": true,
+    "media_error": null,
+    "scope": "Documentation video/historical homepage candidate only; no video remains on final homepage."
+  },
+  "showcase": {
+    "stages": 3,
+    "sources": [
+      "preparation.png",
+      "published.png",
+      "citizen.png"
+    ],
+    "manual_selection": true,
+    "keyboard_arrowright": true,
+    "automatic_advance_observed": true,
+    "pause_observed": true,
+    "home_video_elements": 0,
+    "native_widths": [
+      390,
+      768,
+      1440,
+      2560,
+      3440
+    ],
+    "all_images_loaded": true,
+    "reduced_motion_and_hidden_offscreen": "verified by focused browser tests in task5report"
+  }
+}
