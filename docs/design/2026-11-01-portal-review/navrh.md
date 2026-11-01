@@ -108,3 +108,11 @@ Toto poradie je implementačné odporúčanie. Návrh nemení backendové kontra
 - Stav dema, simulácia IS a navrhovaná cena zostávajú pravdivo označené.
 
 Podklad: [pozorovania referencií](references.md), nezávislé posúdenie dizajnu a oddelená kontrola rozhrania v tomto priečinku. Audit opisuje východiskový stav; realizáciu zachytáva plán `docs/superpowers/plans/2026-11-01-portal-refinement.md`.
+
+## Dodatočné požiadavky používateľa počas implementácie
+
+Používateľ následne požiadal o realisticky pôsobiace dáta namiesto názvov typu „syntetický záznam“ a o krátke showcase video v úvodnej prezentácii produktu. Rozšírenie je schválené priamo týmito požiadavkami.
+
+- Upraviť vlastné ukážkové dáta: prirodzené slovenské názvy dokumentov a fiktívnych organizácií, evidenčné čísla, rôzne primerané sumy, dátumy, stavy a obsah PDF. Zachovať identifikátory, väzby, rozpracované/zverejnené stavy a cudzie používateľské zmeny. Označenie ukážkového prostredia zostáva pravdivé; dáta nevydávať za oficiálne záznamy Žiliny.
+- Úvodný register na priloženom obrázku nahradiť krátkym videom reálneho priebehu: úradník otvorí portál a faktúry, vyplní faktúru, priloží PDF, zverejní ju; občan následne nájde rovnakú faktúru. Ponechať cestu do oboch portálov a funkčné vyhľadávanie v kompaktnejšej podobe.
+- Video má vlastné ovládanie prehrávania, statický úvodný obraz a textové vysvetlenie krokov. Bez zvuku alebo automatického prehrávania, ktoré by rušilo návštevníka. Záznam používa iba vlastné fiktívne údaje a skutočný lokálny pracovný postup.
