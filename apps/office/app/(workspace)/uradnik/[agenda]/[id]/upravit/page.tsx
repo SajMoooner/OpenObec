@@ -11,3 +11,8 @@ export default async function Edit({
   if (!def) notFound();
   return <EditorPage agenda={def.slug} id={id} />;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ agenda: string }> }) {
+  const { agenda } = await params;
+  return { title: "Úprava dokumentu · " + (agendaFor(agenda)?.title ?? "Dokumenty") };
+}

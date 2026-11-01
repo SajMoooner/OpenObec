@@ -7,3 +7,8 @@ export default async function Page({ params }: { params: Promise<{ agenda: strin
   if (!def) notFound();
   return <DocumentList agenda={def.slug} office />;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ agenda: string }> }) {
+  const { agenda } = await params;
+  return { title: "" + (agendaFor(agenda)?.title ?? "Dokumenty") };
+}

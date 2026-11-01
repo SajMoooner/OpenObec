@@ -11,3 +11,8 @@ export default async function Detail({
   if (!def) notFound();
   return <DocumentDetail agenda={def.slug} id={id} />;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ agenda: string }> }) {
+  const { agenda } = await params;
+  return { title: "Detail dokumentu · " + (agendaFor(agenda)?.title ?? "Dokumenty") };
+}

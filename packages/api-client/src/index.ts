@@ -208,3 +208,5 @@ export function titleOf(record: DocumentRecord): string {
 }
 
 export { localBratislavaInput, bratislavaInstant } from "./dates";
+
+export * from "./presentation";

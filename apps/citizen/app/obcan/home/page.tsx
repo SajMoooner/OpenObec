@@ -3,3 +3,5 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   const { q } = await searchParams;
   return <CitizenHome query={q ?? ""} />;
 }
+
+export const metadata = { title: "Dokumenty mesta Žilina" };

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   agendaFor,
@@ -18,22 +19,48 @@ import {
   SelectContent,
   SelectItem,
 } from "@openobec/ui/components/select";
-import { SearchBox, RecordsTable, Loading, Failure, Empty } from "./shared";
+import { countLabel, SearchBox, RecordsTable, Loading, Failure, Empty } from "./shared";
 export function DocumentList({
   agenda,
   office = false,
-  initialQuery = "",
 }: {
   agenda: AgendaSlug;
   office?: boolean;
   initialQuery?: string;
 }) {
   const def = agendaFor(agenda)!;
-  const [q, setQ] = useState(initialQuery);
-  const [query, setQuery] = useState(initialQuery);
-  const [page, setPage] = useState(1);
-  const [sort, setSort] = useState("-created_at");
-  const [state, setState] = useState(office ? "all" : "true");
+  const [draft, setDraft] = useState<{ url: string; value: string }>();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const query = searchParams.get("q") ?? "";
+  const rawPage = Number(searchParams.get("page"));
+  const page = Number.isSafeInteger(rawPage) && rawPage > 0 ? rawPage : 1;
+  const sorts = ["-created_at", "created_at", "-updated_at", "updated_at"];
+  const sort = sorts.includes(searchParams.get("sort") ?? "")
+    ? searchParams.get("sort")!
+    : "-created_at";
+  const state =
+    office && ["all", "true", "false"].includes(searchParams.get("state") ?? "")
+      ? searchParams.get("state")!
+      : office
+        ? "all"
+        : "true";
+  const navigate = (changes: Record<string, string>) => {
+    setDraft(undefined);
+    const next = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries(changes)) {
+      if (value) next.set(key, value);
+      else next.delete(key);
+    }
+    window.history.pushState(null, "", `${pathname}${next.size ? `?${next}` : ""}`);
+  };
+  const q = draft?.url === searchParams.toString() ? draft.value : query;
+  const setQ = (value: string) => setDraft({ url: searchParams.toString(), value });
+  const returnTo = `${pathname}${searchParams.size ? `?${searchParams}` : ""}`;
+  const reset = () => {
+    setDraft(undefined);
+    window.history.pushState(null, "", pathname);
+  };
   const params = new URLSearchParams({ q: query, page: String(page), page_size: "10", sort });
   if (state !== "all") params.set("zverejnene", state);
   const path = `${office || agenda === "vzn" ? "" : "/query"}/${agenda}?${params}`;
@@ -45,24 +72,24 @@ export function DocumentList({
     data?.data.map((r) =>
       "zaznam" in r ? (r as RecordNode) : { typ: agenda, zaznam: r as DocumentRecord },
     ) ?? [];
-  const change = (fn: () => void) => {
-    fn();
-    setPage(1);
-  };
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight">{def.title}</h1>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {agenda === "vzn" ? "Všeobecne záväzné nariadenia" : def.title}
+          </h1>
           <p className="mt-2 text-sm text-muted-foreground">
             {office
               ? "Evidencia, úprava a zverejňovanie dokumentov."
-              : "Zverejnené dokumenty mesta Žilina. Údaje v tomto deme sú ukážkové."}
+              : agenda === "faktury"
+                ? "Odberateľské faktúry mesta Žilina. Údaje v tomto deme sú ukážkové."
+                : "Zverejnené dokumenty mesta Žilina. Údaje v tomto deme sú ukážkové."}
           </p>
         </div>
         {office && (
-          <Button asChild>
-            <Link href={`/uradnik/${agenda}/novy`}>
+          <Button className="min-h-11" asChild>
+            <Link href={`/uradnik/${agenda}/novy?returnTo=${encodeURIComponent(returnTo)}`}>
               <Plus />
               Pridať dokument
             </Link>
@@ -71,12 +98,16 @@ export function DocumentList({
       </div>
       <div className="flex flex-col gap-3 lg:flex-row">
         <div className="flex-1">
-          <SearchBox value={q} onChange={setQ} onSearch={() => change(() => setQuery(q.trim()))} />
+          <SearchBox
+            value={q}
+            onChange={setQ}
+            onSearch={() => navigate({ q: q.trim(), page: "1" })}
+          />
         </div>
         <div className="flex flex-wrap gap-3">
           {office && (
-            <Select value={state} onValueChange={(v) => change(() => setState(v))}>
-              <SelectTrigger className="h-11 w-44" aria-label="Stav zverejnenia">
+            <Select value={state} onValueChange={(v) => navigate({ state: v, page: "1" })}>
+              <SelectTrigger className="h-11 min-h-11 w-44" aria-label="Stav zverejnenia">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -86,8 +117,8 @@ export function DocumentList({
               </SelectContent>
             </Select>
           )}
-          <Select value={sort} onValueChange={(v) => change(() => setSort(v))}>
-            <SelectTrigger className="h-11 w-52" aria-label="Zoradenie dokumentov">
+          <Select value={sort} onValueChange={(v) => navigate({ sort: v, page: "1" })}>
+            <SelectTrigger className="h-11 min-h-11 w-52" aria-label="Zoradenie dokumentov">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -99,6 +130,18 @@ export function DocumentList({
           </Select>
         </div>
       </div>
+      {(query || sort !== "-created_at" || (office && state !== "all")) && (
+        <Button variant="outline" className="min-h-11" onClick={reset}>
+          Zrušiť filtre
+        </Button>
+      )}
+      <p role="status" className="text-sm text-muted-foreground">
+        {loading
+          ? "Načítavam dokumenty…"
+          : error
+            ? "Počet dokumentov nie je dostupný."
+            : countLabel(data?.pagination.total ?? 0, ["dokument", "dokumenty", "dokumentov"])}
+      </p>
       {loading ? (
         <Loading />
       ) : error ? (
@@ -106,28 +149,39 @@ export function DocumentList({
       ) : nodes.length ? (
         <>
           <div className="overflow-hidden rounded-lg border">
-            <RecordsTable nodes={nodes} office={office} showAgenda={false} />
+            <RecordsTable
+              nodes={nodes}
+              agenda={def}
+              office={office}
+              showAgenda={false}
+              returnTo={returnTo}
+            />
           </div>
           <div className="flex flex-wrap items-center justify-between gap-4 text-sm">
             <span className="text-muted-foreground">
-              {data?.pagination.total} {query ? "výsledkov" : "dokumentov"} · strana {page} z{" "}
-              {data?.pagination.total_pages}
+              {countLabel(
+                data?.pagination.total ?? 0,
+                query
+                  ? ["výsledok", "výsledky", "výsledkov"]
+                  : ["dokument", "dokumenty", "dokumentov"],
+              )}{" "}
+              · strana {page} z {data?.pagination.total_pages}
             </span>
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                size="sm"
+                className="min-h-11"
                 disabled={page <= 1}
-                onClick={() => setPage((p) => p - 1)}
+                onClick={() => navigate({ page: String(page - 1) })}
               >
                 <ChevronLeft />
                 Predchádzajúca
               </Button>
               <Button
                 variant="outline"
-                size="sm"
+                className="min-h-11"
                 disabled={page >= (data?.pagination.total_pages ?? 0)}
-                onClick={() => setPage((p) => p + 1)}
+                onClick={() => navigate({ page: String(page + 1) })}
               >
                 Nasledujúca
                 <ChevronRight />
@@ -145,13 +199,7 @@ export function DocumentList({
                 ? "Začnite pridaním prvého dokumentu."
                 : "Zverejnené dokumenty sa zobrazia po spracovaní."
           }
-        >
-          {office && !query && (
-            <Button asChild>
-              <Link href={`/uradnik/${agenda}/novy`}>Pridať prvý dokument</Link>
-            </Button>
-          )}
-        </Empty>
+        ></Empty>
       )}
     </div>
   );

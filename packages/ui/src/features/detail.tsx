@@ -1,9 +1,10 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, Pencil, Globe, EyeOff, Trash2, RefreshCw } from "lucide-react";
 import {
+  safeReturnTo,
   agendaFor,
   api,
   loadRelated,
@@ -109,6 +110,11 @@ export function DocumentDetail({
   office?: boolean;
 }) {
   const router = useRouter();
+  const contextParams = useSearchParams();
+  const returnTo = safeReturnTo(
+    contextParams.get("returnTo"),
+    `/${office ? "uradnik" : "obcan"}/${agenda}`,
+  );
   const def = agendaFor(agenda)!;
   const source = useResource<{ data: DocumentRecord }>(
     office || agenda === "vzn" ? `/${agenda}/${encodeURIComponent(id)}` : null,
@@ -158,7 +164,7 @@ export function DocumentDetail({
     setActionError(undefined);
     try {
       await api(`/${agenda}/${id}/delete`, { method: "POST" });
-      router.push(`/uradnik/${agenda}`);
+      router.push(returnTo);
       router.refresh();
     } catch (e) {
       setActionError(e as Error);
@@ -190,7 +196,7 @@ export function DocumentDetail({
     <div className="space-y-8">
       <div>
         <Button variant="link" className="px-0" asChild>
-          <Link href={`/${prefix}/${agenda}`}>
+          <Link href={returnTo}>
             <ArrowLeft />
             {def.title}
           </Link>
@@ -209,7 +215,9 @@ export function DocumentDetail({
           {office && (
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" asChild>
-                <Link href={`/uradnik/${agenda}/${id}/upravit`}>
+                <Link
+                  href={`/uradnik/${agenda}/${id}/upravit?returnTo=${encodeURIComponent(returnTo)}`}
+                >
                   <Pencil />
                   Upraviť
                 </Link>
@@ -293,7 +301,9 @@ export function DocumentDetail({
                     <AccordionContent className="space-y-5">
                       <RecordFields agenda={node.typ} record={node.zaznam} />
                       <Button variant="outline" size="sm" asChild>
-                        <Link href={`/${prefix}/${node.typ}/${node.zaznam.id}`}>
+                        <Link
+                          href={`/${prefix}/${node.typ}/${node.zaznam.id}?returnTo=${encodeURIComponent(returnTo)}`}
+                        >
                           Otvoriť celý dokument
                           <ArrowRight />
                         </Link>

@@ -14,3 +14,8 @@ export default async function Page({
   const { q } = await searchParams;
   return <DocumentList agenda={def.slug} initialQuery={q ?? ""} />;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ agenda: string }> }) {
+  const { agenda } = await params;
+  return { title: "" + (agendaFor(agenda)?.title ?? "Dokumenty") };
+}

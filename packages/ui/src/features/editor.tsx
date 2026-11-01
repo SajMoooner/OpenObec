@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { ArrowLeft, Save, Globe, LoaderCircle } from "lucide-react";
 import {
+  safeReturnTo,
   agendaFor,
   api,
   toWritePayload,
@@ -42,6 +43,8 @@ export function EditorPage({ agenda, id }: { agenda: AgendaSlug; id?: string }) 
 
 function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: DocumentRecord }) {
   const router = useRouter();
+  const contextParams = useSearchParams();
+  const returnTo = safeReturnTo(contextParams.get("returnTo"), `/uradnik/${agenda}`);
   const def = agendaFor(agenda)!;
   const [values, setValues] = useState<Record<string, unknown>>(() => {
     const v: Record<string, unknown> = {
@@ -96,7 +99,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
           method: "POST",
           body: JSON.stringify({ zverejnene: true }),
         });
-      router.push(`/uradnik/${agenda}/${id}`);
+      router.push(`/uradnik/${agenda}/${id}?returnTo=${encodeURIComponent(returnTo)}`);
       router.refresh();
     } catch (e) {
       if (e instanceof ApiError || e instanceof FormValidationError) setDetails(e.details);
@@ -110,7 +113,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
         <Button variant="link" className="px-0" asChild>
-          <Link href={`/uradnik/${agenda}`}>
+          <Link href={returnTo}>
             <ArrowLeft />
             {def.title}
           </Link>
@@ -306,7 +309,7 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
               <p className="text-sm">
                 <Link
                   className="text-primary underline underline-offset-4"
-                  href={`/uradnik/${agenda}/${initial.id}`}
+                  href={`/uradnik/${agenda}/${initial.id}?returnTo=${encodeURIComponent(returnTo)}`}
                 >
                   Existujúce prílohy spravovať v detaile dokumentu
                 </Link>
@@ -316,7 +319,13 @@ function DocumentForm({ agenda, initial }: { agenda: AgendaSlug; initial?: Docum
           <Separator />
           <div className="flex flex-wrap items-center justify-between gap-3 pb-6">
             <Button type="button" variant="ghost" asChild>
-              <Link href={savedId ? `/uradnik/${agenda}/${savedId}` : `/uradnik/${agenda}`}>
+              <Link
+                href={
+                  savedId
+                    ? `/uradnik/${agenda}/${savedId}?returnTo=${encodeURIComponent(returnTo)}`
+                    : returnTo
+                }
+              >
                 Zrušiť
               </Link>
             </Button>

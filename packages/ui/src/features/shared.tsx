@@ -14,7 +14,16 @@ import {
   TableBody,
   TableCell,
 } from "@openobec/ui/components/table";
-import { agendaFor, formatDate, formatMoney, titleOf, type RecordNode } from "@openobec/api-client";
+import {
+  documentPresentation,
+  safeReturnTo,
+  type Agenda,
+  agendaFor,
+  formatDate,
+  formatMoney,
+  titleOf,
+  type RecordNode,
+} from "@openobec/api-client";
 export function Brand({ light = false }: { light?: boolean }) {
   return (
     <span
@@ -43,7 +52,7 @@ export function Failure({ error, retry }: { error: Error; retry?: () => void }) 
       <AlertDescription>
         <p>{error.message}</p>
         {retry && (
-          <Button variant="outline" size="sm" onClick={retry} className="mt-3">
+          <Button variant="outline" size="sm" onClick={retry} className="mt-3 min-h-11">
             <RefreshCw />
             Skúsiť znova
           </Button>
@@ -123,74 +132,156 @@ export function RecordsTable({
   nodes,
   office = false,
   showAgenda = true,
+  returnTo,
+  dateContext = "document",
+  agenda,
 }: {
   nodes: RecordNode[];
   office?: boolean;
   showAgenda?: boolean;
+  returnTo?: string;
+  dateContext?: "document" | "updated";
+  agenda?: Agenda;
 }) {
+  const single =
+    agenda ??
+    (nodes.length && nodes.every((n) => n.typ === nodes[0].typ)
+      ? agendaFor(nodes[0].typ)
+      : undefined);
+  const headings = single ? documentPresentation(single, {}) : undefined;
+  const money = !single || !!headings?.amount;
   return (
     <Table className="table-fixed lg:table-auto">
       <TableHeader>
         <TableRow>
           <TableHead>Dokument</TableHead>
           {showAgenda && <TableHead className="hidden lg:table-cell">Agenda</TableHead>}
-          <TableHead className="hidden lg:table-cell">Dátum</TableHead>
-          <TableHead className="hidden text-right lg:table-cell">Suma</TableHead>
-          {office && <TableHead className="hidden lg:table-cell">Stav</TableHead>}
-          <TableHead className="w-12 lg:w-auto">
+          {(!single || headings?.party) && (
+            <TableHead className="hidden lg:table-cell">
+              {headings?.party?.label ?? "Organizácia / stav obstarávania"}
+            </TableHead>
+          )}
+          <TableHead className="hidden lg:table-cell">
+            {dateContext === "updated"
+              ? "Naposledy upravené"
+              : (headings?.date.label ?? "Dátum dokumentu")}
+          </TableHead>
+          {money && (
+            <TableHead className="hidden text-right lg:table-cell">
+              {headings?.amount?.label ?? "Suma"}
+            </TableHead>
+          )}
+          {single?.slug === "vzn" && (
+            <TableHead className="hidden lg:table-cell">Dátum účinnosti</TableHead>
+          )}
+          {office && <TableHead className="hidden lg:table-cell">Zverejnenie</TableHead>}
+          <TableHead className="w-12">
             <span className="sr-only">Detail</span>
           </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {nodes.map(({ typ, zaznam: r }) => (
-          <TableRow key={`${typ}/${r.id}`}>
-            <TableCell className="whitespace-normal py-4 [overflow-wrap:anywhere] lg:max-w-xs lg:[overflow-wrap:normal]">
-              <Link
-                className="block font-medium text-primary underline-offset-4 lg:inline hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-ring"
-                href={`/${office ? "uradnik" : "obcan"}/${typ}/${r.id}`}
-              >
-                {titleOf(r)}
-              </Link>
-              <div className="mt-1 text-xs text-muted-foreground">{r.cislo}</div>
-              <div className="mt-2 flex flex-wrap items-center gap-2 lg:hidden">
-                {showAgenda && <Badge variant="outline">{agendaFor(typ)?.title}</Badge>}
-                {office && <Published value={r.zverejnene} />}
-                <span className="text-muted-foreground tabular-nums">
-                  <span className="sr-only">Suma: </span>
-                  {formatMoney(r.suma_s_dph ?? r.predpokladana_hodnota_bez_dph)}
-                </span>
-              </div>
-            </TableCell>
-            {showAgenda && (
-              <TableCell className="hidden lg:table-cell">
-                <Badge variant="outline">{agendaFor(typ)?.title}</Badge>
-              </TableCell>
-            )}
-            <TableCell className="hidden whitespace-nowrap text-muted-foreground lg:table-cell">
-              {formatDate(r.created_at)}
-            </TableCell>
-            <TableCell className="hidden text-right whitespace-nowrap tabular-nums lg:table-cell">
-              {formatMoney(r.suma_s_dph ?? r.predpokladana_hodnota_bez_dph)}
-            </TableCell>
-            {office && (
-              <TableCell className="hidden lg:table-cell">
-                <Published value={r.zverejnene} />
-              </TableCell>
-            )}
-            <TableCell>
-              <Button variant="ghost" size="icon" asChild>
+        {nodes.map(({ typ, zaznam: r }) => {
+          const presentation = documentPresentation(agendaFor(typ)!, r);
+          const date =
+            dateContext === "updated"
+              ? { label: "Naposledy upravené", value: r.updated_at }
+              : presentation.date;
+          const href =
+            `/${office ? "uradnik" : "obcan"}/${typ}/${r.id}` +
+            (returnTo
+              ? `?returnTo=${encodeURIComponent(safeReturnTo(returnTo, `/${office ? "uradnik" : "obcan"}/${typ}`))}`
+              : "");
+          return (
+            <TableRow key={`${typ}/${r.id}`}>
+              <TableCell className="whitespace-normal py-4 [overflow-wrap:anywhere] lg:max-w-xs">
                 <Link
-                  aria-label={`Otvoriť ${r.cislo}`}
-                  href={`/${office ? "uradnik" : "obcan"}/${typ}/${r.id}`}
+                  className="block min-h-11 content-center font-medium text-primary underline-offset-4 hover:underline"
+                  href={href}
                 >
-                  <ArrowRight />
+                  {titleOf(r)}
                 </Link>
-              </Button>
-            </TableCell>
-          </TableRow>
-        ))}
+                <div className="text-xs text-muted-foreground">{r.cislo}</div>
+                <div className="mt-2 space-y-1 text-sm lg:hidden">
+                  {showAgenda && <Badge variant="outline">{agendaFor(typ)?.title}</Badge>}
+                  {presentation.party && (
+                    <p>
+                      {presentation.party.label}: {presentation.party.value}
+                    </p>
+                  )}
+                  <p>
+                    {date.label}: {formatDate(date.value)}
+                  </p>
+                  {presentation.secondaryDate && (
+                    <p>
+                      {presentation.secondaryDate.label}:{" "}
+                      {formatDate(presentation.secondaryDate.value)}
+                    </p>
+                  )}
+                  {presentation.amount && (
+                    <p className="tabular-nums">
+                      {presentation.amount.label}: {formatMoney(presentation.amount.value)}
+                    </p>
+                  )}
+                  {office && <Published value={r.zverejnene} />}
+                </div>
+              </TableCell>
+              {showAgenda && (
+                <TableCell className="hidden lg:table-cell">
+                  <Badge variant="outline">{agendaFor(typ)?.title}</Badge>
+                </TableCell>
+              )}
+              {(!single || headings?.party) && (
+                <TableCell className="hidden whitespace-normal lg:table-cell">
+                  {!single && presentation.party && (
+                    <span className="block text-xs text-muted-foreground">
+                      {presentation.party.label}
+                    </span>
+                  )}
+                  {presentation.party?.value ?? "—"}
+                </TableCell>
+              )}
+              <TableCell className="hidden lg:table-cell">
+                {!single && (
+                  <span className="block text-xs text-muted-foreground">{date.label}</span>
+                )}
+                {formatDate(date.value)}
+              </TableCell>
+              {money && (
+                <TableCell className="hidden text-right tabular-nums lg:table-cell">
+                  {!single && presentation.amount && (
+                    <span className="block text-xs text-muted-foreground">
+                      {presentation.amount.label}
+                    </span>
+                  )}
+                  {presentation.amount ? formatMoney(presentation.amount.value) : "—"}
+                </TableCell>
+              )}
+              {single?.slug === "vzn" && (
+                <TableCell className="hidden lg:table-cell">
+                  {formatDate(presentation.secondaryDate?.value)}
+                </TableCell>
+              )}
+              {office && (
+                <TableCell className="hidden lg:table-cell">
+                  <Published value={r.zverejnene} />
+                </TableCell>
+              )}
+              <TableCell>
+                <Button variant="ghost" size="icon" className="size-11" asChild>
+                  <Link aria-label={`Otvoriť ${r.cislo}`} href={href}>
+                    <ArrowRight />
+                  </Link>
+                </Button>
+              </TableCell>
+            </TableRow>
+          );
+        })}
       </TableBody>
     </Table>
   );
+}
+
+export function countLabel(count: number, forms: [string, string, string]): string {
+  return `${count} ${forms[count === 1 ? 0 : count >= 2 && count <= 4 ? 1 : 2]}`;
 }

@@ -48,6 +48,7 @@ export function CitizenShell({
   children: React.ReactNode;
   marketingUrl: string;
 }) {
+  const path = usePathname();
   return (
     <>
       <a
@@ -60,6 +61,9 @@ export function CitizenShell({
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <Link href="/obcan/home" aria-label="OpenObec – úvod">
             <Brand />
+            <span className="mt-0.5 block text-xs text-muted-foreground md:hidden">
+              Žilina · demo
+            </span>
           </Link>
           <div className="hidden items-center gap-6 text-sm md:flex">
             <span className="text-muted-foreground">Žilina · ukážkové prostredie</span>
@@ -75,7 +79,7 @@ export function CitizenShell({
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="size-11 md:hidden"
                 aria-label="Otvoriť navigáciu"
               >
                 <Menu />
@@ -89,7 +93,18 @@ export function CitizenShell({
                 {AGENDAS.map((a) => (
                   <SheetClose key={a.slug} asChild>
                     <Button variant="ghost" className="justify-start" asChild>
-                      <Link href={`/obcan/${a.slug}`}>{a.title}</Link>
+                      <Link
+                        aria-current={
+                          path === `/obcan/${a.slug}` || path.startsWith(`/obcan/${a.slug}/`)
+                            ? "page"
+                            : undefined
+                        }
+                        className="min-h-11 aria-[current=page]:bg-accent aria-[current=page]:font-semibold"
+                        onNavigate={() => window.scrollTo(0, 0)}
+                        href={`/obcan/${a.slug}`}
+                      >
+                        {a.title}
+                      </Link>
                     </Button>
                   </SheetClose>
                 ))}
@@ -103,7 +118,18 @@ export function CitizenShell({
         >
           {AGENDAS.map((a) => (
             <Button key={a.slug} variant="ghost" size="sm" asChild>
-              <Link href={`/obcan/${a.slug}`}>{a.title}</Link>
+              <Link
+                aria-current={
+                  path === `/obcan/${a.slug}` || path.startsWith(`/obcan/${a.slug}/`)
+                    ? "page"
+                    : undefined
+                }
+                className="min-h-11 aria-[current=page]:bg-accent aria-[current=page]:font-semibold"
+                onNavigate={() => window.scrollTo(0, 0)}
+                href={`/obcan/${a.slug}`}
+              >
+                {a.title}
+              </Link>
             </Button>
           ))}
         </nav>
@@ -141,6 +167,9 @@ export function OfficeShell({
 }) {
   const path = usePathname();
   const router = useRouter();
+  const context =
+    AGENDAS.find((a) => path.startsWith(`/uradnik/${a.slug}`))?.title ??
+    (path.includes("settings") ? "Pripojenie mestského IS" : "Prehľad");
   const item = (href: string, title: string, Icon: typeof FileText) => (
     <SidebarMenuItem key={href}>
       <SidebarMenuButton
@@ -216,7 +245,14 @@ export function OfficeShell({
         <header className="flex h-16 shrink-0 items-center justify-between gap-3 border-b px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <SidebarTrigger />
-            <span className="text-sm font-medium">Pracovný portál</span>
+            <span className="text-sm font-medium">
+              {context}
+              {path.endsWith("/novy")
+                ? " · Nový dokument"
+                : path.endsWith("/upravit")
+                  ? " · Úprava dokumentu"
+                  : ""}
+            </span>
           </div>
           <span className="text-sm text-muted-foreground">Žilina · demo</span>
         </header>

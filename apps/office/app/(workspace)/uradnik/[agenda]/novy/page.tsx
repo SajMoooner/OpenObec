@@ -7,3 +7,8 @@ export default async function New({ params }: { params: Promise<{ agenda: string
   if (!def) notFound();
   return <EditorPage agenda={def.slug} />;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ agenda: string }> }) {
+  const { agenda } = await params;
+  return { title: "Nový dokument · " + (agendaFor(agenda)?.title ?? "Dokumenty") };
+}
