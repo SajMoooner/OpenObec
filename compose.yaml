@@ -1,0 +1,196 @@
+name: openobec
+
+x-mongo: &mongo
+  image: mongo:8.0.17@sha256:9814652e33f0cf8b9fddea8b46dfc9d8e19b130dcfdd7b510ca58bb0d40c8b71
+  restart: unless-stopped
+  mem_limit: 512m
+  healthcheck:
+    test: [CMD, mongosh, --quiet, /opt/openobec/ready.js]
+    interval: 5s
+    timeout: 10s
+    retries: 30
+    start_period: 15s
+  logging: &logging
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: "3"
+
+services:
+  mongo-invoices:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-invoices, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-invoices
+      REPLICA_HOST: mongo-invoices
+    ports: ["127.0.0.1:27017:27017"]
+    volumes:
+      - mongo-invoices-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-supplier-invoices:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-supplier-invoices, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-supplier-invoices
+      REPLICA_HOST: mongo-supplier-invoices
+    ports: ["127.0.0.1:27018:27017"]
+    volumes:
+      - mongo-supplier-invoices-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-contracts:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-contracts, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-contracts
+      REPLICA_HOST: mongo-contracts
+    ports: ["127.0.0.1:27019:27017"]
+    volumes:
+      - mongo-contracts-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-orders:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-orders, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-orders
+      REPLICA_HOST: mongo-orders
+    ports: ["127.0.0.1:27020:27017"]
+    volumes:
+      - mongo-orders-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-procurement:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-procurement, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-procurement
+      REPLICA_HOST: mongo-procurement
+    ports: ["127.0.0.1:27021:27017"]
+    volumes:
+      - mongo-procurement-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-ordinances:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-ordinances, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-ordinances
+      REPLICA_HOST: mongo-ordinances
+    ports: ["127.0.0.1:27022:27017"]
+    volumes:
+      - mongo-ordinances-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+  mongo-read:
+    <<: *mongo
+    command: [mongod, --bind_ip_all, --replSet, rs-read, --wiredTigerCacheSizeGB, "0.25"]
+    environment:
+      REPLICA_SET: rs-read
+      REPLICA_HOST: mongo-read
+    ports: ["127.0.0.1:27023:27017"]
+    volumes:
+      - mongo-read-data:/data/db
+      - ./infra/mongo:/opt/openobec:ro
+
+  kafka:
+    image: apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40
+    restart: unless-stopped
+    mem_limit: 768m
+    ports: ["127.0.0.1:9092:9092"]
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: INTERNAL://:29092,EXTERNAL://:9092,CONTROLLER://:29093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_LOG_RETENTION_HOURS: 168
+      KAFKA_LOG_RETENTION_BYTES: 134217728
+      KAFKA_LOG_SEGMENT_BYTES: 33554432
+      KAFKA_HEAP_OPTS: -Xms128m -Xmx384m
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    volumes: [kafka-data:/var/lib/kafka/data]
+    healthcheck:
+      test: [CMD-SHELL, "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka:29092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 15s
+      retries: 20
+      start_period: 20s
+    logging: *logging
+
+  kafka-init:
+    image: apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40
+    mem_limit: 256m
+    depends_on:
+      kafka: {condition: service_healthy}
+    environment:
+      KAFKA_HEAP_OPTS: -Xms32m -Xmx128m
+    entrypoint: [/bin/sh, /opt/openobec/init.sh]
+    volumes: [./infra/kafka:/opt/openobec:ro]
+    restart: "no"
+    logging: *logging
+
+  rustfs-permissions:
+    image: alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+    user: "0:0"
+    mem_limit: 32m
+    entrypoint: [/bin/sh, -ec, "chown 10001:10001 /data /logs"]
+    volumes: [rustfs-data:/data, rustfs-logs:/logs]
+    restart: "no"
+    logging: *logging
+
+  rustfs:
+    image: rustfs/rustfs:1.0.0-alpha.78@sha256:888058cdf07939d1bae56235a07ac96354db8cae948aa38ba818919a4039923f
+    user: "10001:10001"
+    restart: unless-stopped
+    mem_limit: 768m
+    depends_on:
+      rustfs-permissions: {condition: service_completed_successfully}
+    ports: ["127.0.0.1:9000:9000", "127.0.0.1:9001:9001"]
+    environment:
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: 0.0.0.0:9000
+      RUSTFS_CONSOLE_ENABLE: "true"
+      RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
+      RUSTFS_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      RUSTFS_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      RUSTFS_OBS_LOG_DIRECTORY: /logs
+      RUSTFS_OBS_LOGGER_LEVEL: warn
+    volumes: [rustfs-data:/data, rustfs-logs:/logs]
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS http://localhost:9000/health >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 15s
+    logging: *logging
+
+  rustfs-init:
+    image: amazon/aws-cli:2.31.30@sha256:77c27e51823293d52691a13e87f6942a4b483e87de3f49d68c25dc271f3528b1
+    mem_limit: 256m
+    depends_on:
+      rustfs: {condition: service_healthy}
+    environment:
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-openobec-demo}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-openobec-local-demo-secret}
+      S3_BUCKET: ${S3_BUCKET:-openobec-documents}
+    entrypoint: [/bin/sh, /opt/openobec/init.sh]
+    volumes: [./infra/rustfs:/opt/openobec:ro]
+    restart: "no"
+    logging: *logging
+
+volumes:
+  mongo-invoices-data:
+  mongo-supplier-invoices-data:
+  mongo-contracts-data:
+  mongo-orders-data:
+  mongo-procurement-data:
+  mongo-ordinances-data:
+  mongo-read-data:
+  kafka-data:
+  rustfs-data:
+  rustfs-logs:
