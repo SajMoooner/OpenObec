@@ -284,12 +284,16 @@ public class RecordStore {
               s.commitTransaction();
               return result;
             } catch (MongoException e) {
-              if (e.hasErrorLabel(MongoException.UNKNOWN_TRANSACTION_COMMIT_RESULT_LABEL)
-                  && commit < 2) continue;
+              if (e.hasErrorLabel(MongoException.UNKNOWN_TRANSACTION_COMMIT_RESULT_LABEL)) {
+                if (commit < 2) continue;
+                throw new IndeterminateCommitException(e);
+              }
               throw e;
             }
           }
         } catch (RuntimeException e) {
+          // A commit may already be durable: neither abort nor replay establishes otherwise.
+          if (e instanceof IndeterminateCommitException) throw e;
           try {
             if (s.hasActiveTransaction()) s.abortTransaction();
           } catch (Exception ignored) {

@@ -117,6 +117,45 @@ public class AttachmentStore {
               store.database().getCollection("attachments").insertOne(s, metadata);
               return publicMetadata(metadata);
             });
+      } catch (IndeterminateCommitException unknown) {
+        // The stable file ID and object key identify this exact attempted upload. Only a
+        // primary majority read can positively reconcile a committed metadata row here.
+        try {
+          Document committed =
+              store
+                  .database()
+                  .getCollection("attachments")
+                  .withReadPreference(com.mongodb.ReadPreference.primary())
+                  .withReadConcern(com.mongodb.ReadConcern.MAJORITY)
+                  .find(
+                      and(
+                          eq("_id", fid),
+                          eq("obec_id", "zilina"),
+                          eq("document_id", id),
+                          eq("object_key", key)))
+                  .first();
+          if (committed != null) return publicMetadata(committed);
+        } catch (RuntimeException reconciliationFailure) {
+          unknown.addSuppressed(reconciliationFailure);
+        }
+        // Absence or an unavailable check does not prove an abort. Retain the bytes and
+        // durable identity for a later authoritative metadata check; never schedule deletion.
+        try {
+          store
+              .database()
+              .getCollection("attachment_reconciliation")
+              .insertOne(
+                  new Document("_id", fid)
+                      .append("file_id", fid)
+                      .append("document_id", id)
+                      .append("obec_id", "zilina")
+                      .append("object_key", key)
+                      .append("status", "commit_indeterminate")
+                      .append("created_at", Date.from(Instant.now())));
+        } catch (RuntimeException recordingFailure) {
+          unknown.addSuppressed(recordingFailure);
+        }
+        throw unknown;
       } catch (RuntimeException failure) {
         try {
           storage.remove(key);

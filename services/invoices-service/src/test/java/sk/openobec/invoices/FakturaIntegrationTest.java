@@ -497,4 +497,139 @@ class FakturaIntegrationTest {
             .get("data", Document.class);
     assertEquals(List.of(), tombstone.get("suvisiace_zaznamy"));
   }
+
+  @Test
+  void trailingSecondRootRejectsCreateWithoutMutation() throws Exception {
+    assertTrailingInputRejected(" {\"entity_version\":99}", true);
+  }
+
+  @Test
+  void trailingSecondRootRejectsUpdateWithoutMutation() throws Exception {
+    assertTrailingInputRejected(" {\"entity_version\":99}", false);
+  }
+
+  @Test
+  void trailingInvalidTextRejectsCreateWithoutMutation() throws Exception {
+    assertTrailingInputRejected(" trailing-invalid-text", true);
+  }
+
+  @Test
+  void trailingInvalidTextRejectsUpdateWithoutMutation() throws Exception {
+    assertTrailingInputRejected(" trailing-invalid-text", false);
+  }
+
+  private void assertTrailingInputRejected(String trailing, boolean creating) throws Exception {
+    var database = mongo.getDatabase(DB);
+    if (creating) {
+      var payload = valid();
+      long documents = database.getCollection("documents").countDocuments();
+      long outbox = database.getCollection("outbox").countDocuments();
+      var response = req("POST", base(), payload.toString() + trailing);
+      assertAll(
+          () -> assertEquals(400, response.statusCode(), response.body()),
+          () -> assertEquals(documents, database.getCollection("documents").countDocuments()),
+          () -> assertEquals(outbox, database.getCollection("outbox").countDocuments()));
+    } else {
+      String id = create();
+      var before = database.getCollection("documents").find(Filters.eq("id", id)).first();
+      long outbox =
+          database.getCollection("outbox").countDocuments(Filters.eq("event.entity_id", id));
+      var response =
+          req(
+              "POST",
+              base() + "/" + id + "/update",
+              "{\"predmet\":\"Must not commit\"}" + trailing);
+      assertAll(
+          () -> assertEquals(400, response.statusCode(), response.body()),
+          () ->
+              assertEquals(
+                  before, database.getCollection("documents").find(Filters.eq("id", id)).first()),
+          () ->
+              assertEquals(
+                  outbox,
+                  database
+                      .getCollection("outbox")
+                      .countDocuments(Filters.eq("event.entity_id", id))));
+    }
+  }
+
+  @Autowired sk.openobec.files.S3Storage storage;
+
+  @Test
+  void realCommittedAttachmentRetainsBytesWhenCommitAcknowledgementStaysUnknown() throws Exception {
+    String id = create();
+    var commits = new java.util.concurrent.atomic.AtomicInteger();
+    var aborts = new java.util.concurrent.atomic.AtomicInteger();
+    MongoClient unknownAcknowledgement =
+        (MongoClient)
+            java.lang.reflect.Proxy.newProxyInstance(
+                MongoClient.class.getClassLoader(),
+                new Class<?>[] {MongoClient.class},
+                (proxy, method, args) -> {
+                  try {
+                    Object result = method.invoke(mongo, args);
+                    if (!method.getName().equals("startSession")) return result;
+                    ClientSession real = (ClientSession) result;
+                    return java.lang.reflect.Proxy.newProxyInstance(
+                        ClientSession.class.getClassLoader(),
+                        new Class<?>[] {ClientSession.class},
+                        (session, call, parameters) -> {
+                          try {
+                            if (call.getName().equals("commitTransaction")) {
+                              if (commits.getAndIncrement() == 0) real.commitTransaction();
+                              var unknown =
+                                  new com.mongodb.MongoException(
+                                      "Committed; acknowledgement unavailable");
+                              unknown.addLabel(
+                                  com.mongodb.MongoException
+                                      .UNKNOWN_TRANSACTION_COMMIT_RESULT_LABEL);
+                              throw unknown;
+                            }
+                            if (call.getName().equals("abortTransaction")) aborts.incrementAndGet();
+                            return call.invoke(real, parameters);
+                          } catch (java.lang.reflect.InvocationTargetException invocation) {
+                            throw invocation.getCause();
+                          }
+                        });
+                  } catch (java.lang.reflect.InvocationTargetException invocation) {
+                    throw invocation.getCause();
+                  }
+                });
+    try (var references = new ReferenceValidator(Map.of())) {
+      var faultyStore =
+          new RecordStore(
+              unknownAcknowledgement, repository.database(), new FakturaDefinition(), references);
+      var attachments = new AttachmentStore(faultyStore, storage);
+      byte[] bytes = "%PDF-1.7\nCommitted attachment".getBytes(StandardCharsets.UTF_8);
+      Document result = null;
+      RuntimeException failure = null;
+      try {
+        result =
+            attachments.upload(
+                id,
+                new org.springframework.mock.web.MockMultipartFile(
+                    "file", "committed.pdf", "application/pdf", bytes));
+      } catch (RuntimeException error) {
+        failure = error;
+      }
+      var row =
+          mongo
+              .getDatabase(DB)
+              .getCollection("attachments")
+              .find(Filters.eq("document_id", id))
+              .first();
+      assertNotNull(row, "Metadata really committed before acknowledgement fault");
+      try (var stream =
+          assertDoesNotThrow(
+              () -> storage.get(row.getString("object_key")),
+              "Referenced bytes must survive an indeterminate commit")) {
+        assertArrayEquals(bytes, stream.readAllBytes());
+      }
+      assertNull(failure, "Stable file ID must reconcile to authoritative committed metadata");
+      assertNotNull(result);
+      assertEquals(row.getString("id"), result.getString("id"));
+      assertEquals(3, commits.get());
+      assertEquals(0, aborts.get(), "An unknown commit cannot be treated as an abort");
+    }
+  }
 }

@@ -91,7 +91,7 @@ For rebuild, capture Kafka starting offsets before requesting all five independe
 
 ## Private attachment storage
 
-`AttachmentStore` streams upload to a bounded temporary file while hashing SHA-256, checks PDF/PNG/JPEG signatures and MIME, then streams the file to private S3. The owning Mongo transaction serializes changes on the parent and enforces at most ten active attachments. Parent deletion races conflict and retry, so an upload cannot commit against a deleted parent. S3 objects are removed after metadata failure; failed compensation is recorded in `storage_cleanup`. Download never exposes object keys or credentials. Logical deletion retains blobs for audit; service READMEs document orphan reconciliation.
+`AttachmentStore` streams upload to a bounded temporary file while hashing SHA-256, checks PDF/PNG/JPEG signatures and MIME, then streams the file to private S3. The owning Mongo transaction serializes changes on the parent and enforces at most ten active attachments. Parent deletion races conflict and retry, so an upload cannot commit against a deleted parent. S3 objects are removed after a confirmed metadata failure; failed compensation is recorded in `storage_cleanup`. A commit whose acknowledgement remains unknown is never treated as an abort: the stable file ID and object key are reconciled against primary/majority attachment metadata. Confirmed metadata returns success while retaining its bytes. An unresolved outcome returns503, retains bytes and records `attachment_reconciliation` identity for a later authoritative check; it never schedules blob deletion. Download never exposes object keys or credentials. Logical deletion retains blobs for audit; service READMEs document orphan reconciliation.
 
 ## Verification
 

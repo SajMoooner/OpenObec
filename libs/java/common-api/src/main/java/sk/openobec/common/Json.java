@@ -13,6 +13,7 @@ public final class Json {
         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         .disable(MapperFeature.ALLOW_COERCION_OF_SCALARS)
         .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
         .build();
   }
 }
