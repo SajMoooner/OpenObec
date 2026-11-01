@@ -1,11 +1,15 @@
-package sk.openobec.query;
+package sk.openobec.read.fixtures;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.*;
 import sk.openobec.common.Json;
 
-class TestEvents {
-  static ObjectNode event(String type, String id, int version, boolean deleted, String... refs) {
+/** Full valid five-agenda snapshots shared only by read-side integration tests. */
+public final class DocumentEvents {
+  private DocumentEvents() {}
+
+  public static ObjectNode event(
+      String type, String id, int version, boolean deleted, String... refs) {
     var d = Json.mapper().createObjectNode();
     d.put("id", id)
         .put("obec_id", "zilina")

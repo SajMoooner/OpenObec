@@ -1,7 +1,7 @@
 package sk.openobec.pairing;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sk.openobec.pairing.TestEvents.event;
+import static sk.openobec.read.fixtures.DocumentEvents.event;
 
 import com.mongodb.client.MongoClient;
 import java.time.*;

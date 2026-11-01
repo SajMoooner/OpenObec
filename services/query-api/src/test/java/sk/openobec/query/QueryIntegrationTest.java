@@ -1,7 +1,7 @@
 package sk.openobec.query;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sk.openobec.query.TestEvents.event;
+import static sk.openobec.read.fixtures.DocumentEvents.event;
 
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.*;
@@ -213,6 +213,32 @@ class QueryIntegrationTest {
     put(event("zmluvy", "late", 1, false));
     assertEquals(
         "ready", body(get("/rest/v1/query/faktury/a")).path("projection").path("status").asText());
+  }
+
+  @Test
+  void summaryCountsMissingClaimsOnDepthBoundaryWithoutExpandingIt() throws Exception {
+    put(event("faktury", "a", 1, false, "zmluvy", "b"));
+    put(event("zmluvy", "b", 1, false, "objednavky", "missing", "verejne-obstaravanie", "beyond"));
+    put(event("verejne-obstaravanie", "beyond", 1, false));
+    var response = get("/rest/v1/faktury/a/suvislosti?hlbka=1");
+    assertEquals(200, response.statusCode());
+    var summary = body(response).path("data");
+    assertEquals(2, summary.path("nodes").size(), "boundary nodes must not expand");
+    assertEquals(1, summary.path("edges").size());
+    assertFalse(summary.path("truncated").asBoolean());
+    assertEquals("pending", summary.path("projection").path("status").asText());
+    assertEquals(1, summary.path("projection").path("unresolved_references_count").asInt());
+    var joined = body(get("/rest/v1/query/faktury/a"));
+    assertEquals(2, joined.path("data").path("suvisiace_zaznamy").size());
+    assertEquals(
+        summary.path("projection").path("status"), joined.path("projection").path("status"));
+    assertEquals(1, joined.path("projection").path("unresolved_references_count").asInt());
+    put(event("objednavky", "missing", 1, false));
+    var resolved = body(get("/rest/v1/faktury/a/suvislosti?hlbka=1")).path("data");
+    assertEquals(2, resolved.path("nodes").size());
+    assertEquals(1, resolved.path("edges").size());
+    assertEquals("ready", resolved.path("projection").path("status").asText());
+    assertEquals(0, resolved.path("projection").path("unresolved_references_count").asInt());
   }
 
   @Test

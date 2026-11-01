@@ -275,12 +275,12 @@ public final class QueryService {
       var node = queue.remove();
       Ref from = node.getKey();
       int distance = node.getValue();
-      if (distance >= depth) continue;
       unresolved +=
           store
               .db()
               .getCollection("pending_references")
               .countDocuments(s, obj("generation", gen, "source", from.key()));
+      if (distance >= depth) continue;
       var links =
           store
               .db()
