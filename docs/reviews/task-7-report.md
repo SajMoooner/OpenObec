@@ -1,0 +1,17 @@
+# Task7 — bounded and expanded marketing homepage
+
+User directly requested centered width matching lower demo section and richer marketing content with shadcn template inspiration. Specification/requirements task-7-brief.md + docs/superpowers/specs/2026-11-01-marketing-refinement.md. Base5f24195.
+
+Controllerinline implementation: removed viewport-proportional absolute layout from page import and replaced with natural grid/flex, shared1280pxmaxwidth/24pxsidepadding, headlineclamp36–56px. Reused genuine MarketingHeader, existing shadcnButton/Input/Tabs/Table/Accordion, selfhostedGeist, IDsK3colors and exact approvedskylineasset. No newworld/asset/dependency. Originalcompidentityretained but its unboundedwidth/coordinates supersededby explicituserinstruction recordedinsurfacebrief.
+
+Home nowincludes concisehero+twofunctionalCTA, preservedhonest3rowregister andall21agendaactions, problem/personabenefits,ownlinks/attachments/readabilitybenefits,sixagenda descriptions linkingrealpublishedagendas,three-stepworkflow,proposed199EUR/yearwithsetup/DPHunknown,6practicalFAQanswers,finaltwodemos. No inventedcustomerlogos/stats/contacts/legalclaims/realISpromise. FAQexplicitlysimulatedIS,localdemolabeled. BodycopyoriginalSlovak. Inspiration fromcreatorprimarysources https://github.com/shadcnstore/shadcn-dashboard-landing-template#-landing-page-template andhttps://www.shadcnblocks.com/templates; no copiedtemplatecode/assets.
+
+New tests marketing-layout.spec.ts firstRED3fail (original2152+/widepreviewwidth, absentnewcontent). Firsttestdraft mistakenlywaitedfornewclass beforegeometryassert; correctedtosameexistingdemotitleandreranREDbeforeproductionedit. Finalfocused3GREEN2.0s checks2560/3440pxboundedcenteredpreview/commonedges/fontcap;productheadingsandactualFAQexpansion. Existingmarketingpreviewmobileorderingand21links/whitespace regressionsremaincovering.
+
+Finaltypes/lint(fullworkspace)PASS /tmp/openobec-final-{typecheck,lint}.log; all3hostNextbuildsPASS /tmp/openobec-final-next-build.log; all3Dockerfrontendimagesbuilt/currenthealthy /tmp/openobec-final-next-{docker,up}.log. AlloriginalsourceUIbusinessbehaviorunchanged. Parentfullbrowser/smoke/capturefollowbelow. Initial4viewportcapture390/768/1440/3440 bodyfits,nopageerrors in marketing-refined-manifest.json. Parentopeneddesktop/mobiletopimages; commonboundedhierarchyconfirmed. Newscopedlayoutdetect[]beforeedits; originalfulldetectornotrerun.
+
+Impeccablefinish requiresfreshscopedmarketingreview andcurrentbuildstate; DESIGN/sidecarpreservedasordinaryextension, latestlocaldisplayandlayoutauthorityissurfacebrief. No globaldesignrewrite. Task7codequality/specandvisualgatepending.
+
+Finalfullsuitecurrent:148Java/12contracts/6runtime/21client/28browser34.4s/5liveHTTP7.381s/all70schemasGREEN; current32canonicalcapturesfromscripts/dev/capture-ui.mjs. Aninitialparallelverificationrunobserved503fromtwoautomaticallyrestartedowners and23/28pass; all21returnedhealthy, realownerGET200, no sourcechange, serializedfullsuite28/28pass. Restartcauseunconfirmed(no retaineddockerevent); nofixinferred. No reset/dataoverwrite. All3finalDockerfrontendscurrent.
+
+Completion: sourceSPEC/QUALITYAPPROVED, oneMinorwordcorrected/confirmed. FreshvisualverdictSHIPafter13source/capturehashesindependentlymatched; oldcompresponsiveOPEN63preservedandexplicitlynon-currentauthority. Currentrefinementrecord .impeccable/review/current-refinement-finish.json. Final21client/28browser24.4s/5smoke7.483s/all70GREEN;normalupready72;21healthy,memory4.44GiB. No furtherrequireduserwork; no falseoldnumericpass.

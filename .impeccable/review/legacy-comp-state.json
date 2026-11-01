@@ -1,0 +1,644 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-11-01T12:32:56.101Z",
+  "comp": ".impeccable/mocks/marketing-navy.png",
+  "direction": "seed:bf2abb90da53d612",
+  "breakpoint": "1536x1024",
+  "artifact": "apps/marketing/app/home/page.tsx",
+  "phase": "responsive",
+  "phases": {
+    "comps": {
+      "status": "closed",
+      "openedAt": "2026-11-01T12:32:56.101Z",
+      "closedAt": "2026-11-01T12:56:34.406Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "3 comps, 1 approved",
+        "approved": ".impeccable/mocks/marketing-navy.png",
+        "at": "2026-11-01T12:56:34.406Z"
+      },
+      "forced": null
+    },
+    "spec": {
+      "status": "closed",
+      "openedAt": "2026-11-01T12:56:34.417Z",
+      "closedAt": "2026-11-01T13:10:31.109Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "35 regions, 1 plates, 18 text regions measured",
+        "at": "2026-11-01T13:10:31.109Z"
+      },
+      "forced": null
+    },
+    "plates": {
+      "status": "closed",
+      "openedAt": "2026-11-01T13:10:31.109Z",
+      "closedAt": "2026-11-01T13:38:24.574Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "1/1 plates",
+        "at": "2026-11-01T13:38:24.563Z"
+      },
+      "forced": null
+    },
+    "hero": {
+      "status": "closed",
+      "openedAt": "2026-11-01T13:38:24.574Z",
+      "closedAt": "2026-11-01T13:50:17.414Z",
+      "attempts": 3,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "hero 85% (match)",
+        "score": 0.8541,
+        "verdict": "match",
+        "report": ".impeccable/review/diff/hero/report.json",
+        "sideBySide": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/.impeccable/review/diff/hero/side-by-side.png",
+        "advisories": [
+          "(advisory, above the 72% bar; fix in the polish pass before responsive) 5 readings:",
+          "  text nav-demo: letter-spacing is tighter than the comp's (gap 0.029 vs 0.061 of the cap height); set letter-spacing to open it by about 0px",
+          "  text benefit-citizens-copy: letter-spacing is wider than the comp's (gap 0.134 vs 0.089 of the cap height); set letter-spacing to close it by about 0px",
+          "  text benefit-office-title: letter-spacing is wider than the comp's (gap 0.135 vs 0.090 of the cap height); set letter-spacing to close it by about 1px",
+          "  text benefit-office-copy: letter-spacing is wider than the comp's (gap 0.151 vs 0.091 of the cap height); set letter-spacing to close it by about 1px",
+          "  text benefit-structure-title: letter-spacing is wider than the comp's (gap 0.135 vs 0.090 of the cap height); set letter-spacing to close it by about 1px"
+        ],
+        "regionVerdicts": {
+          "masthead": "drift",
+          "nav-benefits": "drift",
+          "nav-contact": "drift",
+          "nav-demo": "drift",
+          "headline": "drift",
+          "intro": "drift",
+          "citizen-demo": "drift",
+          "office-demo": "drift",
+          "skyline": "drift",
+          "register-panel": "match",
+          "search-heading": "drift",
+          "sample-label": "drift",
+          "search-input": "match",
+          "search-button": "drift",
+          "agenda-tabs": "match",
+          "table-head": "match",
+          "record-one": "match",
+          "record-two": "match",
+          "record-three": "match",
+          "price-title": "drift",
+          "price-copy": "drift",
+          "price-value": "drift",
+          "benefit-citizens-icon": "drift",
+          "benefit-citizens-title": "drift",
+          "benefit-citizens-copy": "drift",
+          "benefit-office-icon": "drift",
+          "benefit-office-title": "drift",
+          "benefit-office-copy": "drift",
+          "benefit-structure-icon": "drift",
+          "benefit-structure-title": "drift",
+          "benefit-structure-copy": "drift",
+          "navigation-ground": "match",
+          "hero-ground": "drift",
+          "offer-ground": "drift",
+          "next-section-start": "drift"
+        },
+        "at": "2026-11-01T13:50:17.402Z"
+      },
+      "forced": null,
+      "readingsSeen": {
+        "text nav-demo: letter-spacing is wider than the comp's (gap 0.117 vs 0.061 of the cap height); set letter-spacing to close it by about 1px": 2,
+        "text citizen-demo: letter-spacing is wider than the comp's (gap 0.114 vs 0.058 of the cap height); set letter-spacing to close it by about 1px": 2,
+        "text benefit-citizens-copy: letter-spacing is wider than the comp's (gap 0.135 vs 0.089 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text benefit-office-title: letter-spacing is wider than the comp's (gap 0.135 vs 0.090 of the cap height); set letter-spacing to close it by about 1px": 3,
+        "text benefit-structure-title: letter-spacing is wider than the comp's (gap 0.135 vs 0.090 of the cap height); set letter-spacing to close it by about 1px": 3,
+        "text price-value: ink is #0a4999 in the build, #0a61f7 in the comp; use the comp's colour": 1,
+        "text benefit-citizens-copy: letter-spacing is wider than the comp's (gap 0.134 vs 0.089 of the cap height); set letter-spacing to close it by about 0px": 2,
+        "text benefit-office-copy: letter-spacing is wider than the comp's (gap 0.151 vs 0.091 of the cap height); set letter-spacing to close it by about 1px": 2,
+        "text nav-demo: letter-spacing is tighter than the comp's (gap 0.029 vs 0.061 of the cap height); set letter-spacing to open it by about 0px": 1
+      },
+      "records": 1,
+      "history": [
+        {
+          "at": "2026-11-01T13:43:21.234Z",
+          "score": 0.8414,
+          "worstIds": [
+            "citizen-demo",
+            "search-button",
+            "benefit-structure-copy"
+          ],
+          "blockingReasons": [
+            "region next-section-start is missing (detail 0%, structure 99%): the comp shows material the build does not",
+            "region intro (text) is contradicted (structure 60%, detail added 11%): the composition of this text region differs from the comp; re-derive it from the spec box",
+            "region citizen-demo (control) is contradicted (structure 73%, detail added 9%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "region search-button (control) is contradicted (structure 83%, detail added 4%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "region price-value (text) is contradicted (structure 58%, detail added 21%): the composition of this text region differs from the comp; re-derive it from the spec box",
+            "region benefit-structure-copy (text) is contradicted (structure 44%, detail added 36%): the composition of this text region differs from the comp; re-derive it from the spec box",
+            "control nav-demo drifts to 61% (structure 69%, color 51%): open .impeccable/review/diff/hero/regions/nav-demo.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+            "control office-demo drifts to 59% (structure 71%, color 53%): open .impeccable/review/diff/hero/regions/office-demo.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "regionVerdicts": {
+            "masthead": "drift",
+            "nav-benefits": "drift",
+            "nav-contact": "drift",
+            "nav-demo": "drift",
+            "headline": "drift",
+            "intro": "contradicted",
+            "citizen-demo": "contradicted",
+            "office-demo": "drift",
+            "skyline": "drift",
+            "register-panel": "match",
+            "search-heading": "drift",
+            "sample-label": "drift",
+            "search-input": "match",
+            "search-button": "contradicted",
+            "agenda-tabs": "match",
+            "table-head": "match",
+            "record-one": "match",
+            "record-two": "match",
+            "record-three": "match",
+            "price-title": "drift",
+            "price-copy": "drift",
+            "price-value": "contradicted",
+            "benefit-citizens-icon": "drift",
+            "benefit-citizens-title": "drift",
+            "benefit-citizens-copy": "drift",
+            "benefit-office-icon": "drift",
+            "benefit-office-title": "drift",
+            "benefit-office-copy": "drift",
+            "benefit-structure-icon": "drift",
+            "benefit-structure-title": "drift",
+            "benefit-structure-copy": "contradicted",
+            "navigation-ground": "drift",
+            "hero-ground": "match",
+            "offer-ground": "drift",
+            "next-section-start": "missing"
+          },
+          "artifactHash": "7769f460c01d"
+        },
+        {
+          "at": "2026-11-01T13:48:40.138Z",
+          "score": 0.8505,
+          "worstIds": [
+            "office-demo",
+            "intro",
+            "nav-demo"
+          ],
+          "blockingReasons": [
+            "region intro (text) is contradicted (structure 60%, detail added 14%): the composition of this text region differs from the comp; re-derive it from the spec box",
+            "control nav-demo drifts to 61% (structure 69%, color 51%): open .impeccable/review/diff/hero/regions/nav-demo.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+            "control office-demo drifts to 59% (structure 71%, color 53%): open .impeccable/review/diff/hero/regions/office-demo.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "regionVerdicts": {
+            "masthead": "drift",
+            "nav-benefits": "drift",
+            "nav-contact": "drift",
+            "nav-demo": "drift",
+            "headline": "drift",
+            "intro": "contradicted",
+            "citizen-demo": "drift",
+            "office-demo": "drift",
+            "skyline": "drift",
+            "register-panel": "match",
+            "search-heading": "drift",
+            "sample-label": "drift",
+            "search-input": "match",
+            "search-button": "drift",
+            "agenda-tabs": "match",
+            "table-head": "match",
+            "record-one": "match",
+            "record-two": "match",
+            "record-three": "match",
+            "price-title": "drift",
+            "price-copy": "drift",
+            "price-value": "drift",
+            "benefit-citizens-icon": "drift",
+            "benefit-citizens-title": "drift",
+            "benefit-citizens-copy": "drift",
+            "benefit-office-icon": "drift",
+            "benefit-office-title": "drift",
+            "benefit-office-copy": "drift",
+            "benefit-structure-icon": "drift",
+            "benefit-structure-title": "drift",
+            "benefit-structure-copy": "drift",
+            "navigation-ground": "drift",
+            "hero-ground": "drift",
+            "offer-ground": "drift",
+            "next-section-start": "drift"
+          },
+          "artifactHash": "7769f460c01d"
+        },
+        {
+          "at": "2026-11-01T13:50:17.414Z",
+          "score": 0.8541,
+          "worstIds": [],
+          "blockingReasons": [],
+          "regionVerdicts": {
+            "masthead": "drift",
+            "nav-benefits": "drift",
+            "nav-contact": "drift",
+            "nav-demo": "drift",
+            "headline": "drift",
+            "intro": "drift",
+            "citizen-demo": "drift",
+            "office-demo": "drift",
+            "skyline": "drift",
+            "register-panel": "match",
+            "search-heading": "drift",
+            "sample-label": "drift",
+            "search-input": "match",
+            "search-button": "drift",
+            "agenda-tabs": "match",
+            "table-head": "match",
+            "record-one": "match",
+            "record-two": "match",
+            "record-three": "match",
+            "price-title": "drift",
+            "price-copy": "drift",
+            "price-value": "drift",
+            "benefit-citizens-icon": "drift",
+            "benefit-citizens-title": "drift",
+            "benefit-citizens-copy": "drift",
+            "benefit-office-icon": "drift",
+            "benefit-office-title": "drift",
+            "benefit-office-copy": "drift",
+            "benefit-structure-icon": "drift",
+            "benefit-structure-title": "drift",
+            "benefit-structure-copy": "drift",
+            "navigation-ground": "match",
+            "hero-ground": "drift",
+            "offer-ground": "drift",
+            "next-section-start": "drift"
+          },
+          "artifactHash": "7769f460c01d"
+        }
+      ]
+    },
+    "sections": {
+      "status": "closed",
+      "openedAt": "2026-11-01T13:50:17.414Z",
+      "closedAt": "2026-11-01T13:56:22.596Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-11-01T13:56:22.596Z"
+      },
+      "forced": null
+    },
+    "motion": {
+      "status": "closed",
+      "openedAt": "2026-11-01T13:56:22.596Z",
+      "closedAt": "2026-11-01T13:58:53.860Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-11-01T13:58:53.860Z"
+      },
+      "forced": null
+    },
+    "responsive": {
+      "status": "open",
+      "openedAt": "2026-11-01T13:58:53.860Z",
+      "closedAt": null,
+      "attempts": 6,
+      "notes": [
+        {
+          "at": "2026-11-01T17:45:12.179Z",
+          "text": "The latest user request explicitly supersedes the old full-width coordinates and offer placement. Current bounded marketing refinement is reviewed against the amended surface brief. Old responsive comparison remains OPEN at63%, not passed; old finish hash is historical. Current exact source/capture hashes and honest legacy limitation: .impeccable/review/current-refinement-finish.json."
+        }
+      ],
+      "gate": {
+        "ok": false,
+        "reasons": [
+          "the desktop capture (1440x4024; its first viewport, the top 1536x1024 rows at the comp's width, is compared) scores 63% against the comp, under 65%: the first viewport does not survive a common desktop width. The hero passed at 1536x1024; the layout must hold from ~1280 up, not only at the comp's exact width (grid columns in fr / minmax, not fixed px that overflow and wrap).",
+          "at desktop width, region citizen-demo is missing",
+          "at desktop width, region office-demo is missing",
+          "at desktop width, region table-head is missing",
+          "at desktop width, region record-three is missing",
+          "at desktop width, region price-title is missing",
+          "at desktop width, region price-copy is missing",
+          "at desktop width, region benefit-citizens-icon is missing",
+          "at desktop width, region benefit-citizens-copy is missing",
+          "at desktop width, region benefit-office-icon is missing",
+          "at desktop width, region benefit-office-title is missing",
+          "at desktop width, region benefit-office-copy is missing",
+          "at desktop width, region benefit-structure-icon is missing",
+          "at desktop width, region benefit-structure-title is missing",
+          "at desktop width, region benefit-structure-copy is missing",
+          "at desktop width, region offer-ground is missing",
+          "at desktop width, region next-section-start is displaced, not missing: it renders about 40px higher and 60px to the right than in the comp, and 96% of it stays inside the 1440x960 first viewport. Restore it into the first viewport: size what sits above it in proportion to the viewport (the comp's own ratios), not with fixed px or a px floor that grows it at this width.",
+          "at desktop width, region intro (text) is contradicted (structure 45%)",
+          "at desktop width, region search-button (control) is contradicted (structure 49%)",
+          "at desktop width, region price-value (text) is contradicted (structure 26%)"
+        ],
+        "regionReasons": {
+          "citizen-demo": [
+            "at desktop width, region citizen-demo is missing"
+          ],
+          "office-demo": [
+            "at desktop width, region office-demo is missing"
+          ],
+          "table-head": [
+            "at desktop width, region table-head is missing"
+          ],
+          "record-three": [
+            "at desktop width, region record-three is missing"
+          ],
+          "price-title": [
+            "at desktop width, region price-title is missing"
+          ],
+          "price-copy": [
+            "at desktop width, region price-copy is missing"
+          ],
+          "benefit-citizens-icon": [
+            "at desktop width, region benefit-citizens-icon is missing"
+          ],
+          "benefit-citizens-copy": [
+            "at desktop width, region benefit-citizens-copy is missing"
+          ],
+          "benefit-office-icon": [
+            "at desktop width, region benefit-office-icon is missing"
+          ],
+          "benefit-office-title": [
+            "at desktop width, region benefit-office-title is missing"
+          ],
+          "benefit-office-copy": [
+            "at desktop width, region benefit-office-copy is missing"
+          ],
+          "benefit-structure-icon": [
+            "at desktop width, region benefit-structure-icon is missing"
+          ],
+          "benefit-structure-title": [
+            "at desktop width, region benefit-structure-title is missing"
+          ],
+          "benefit-structure-copy": [
+            "at desktop width, region benefit-structure-copy is missing"
+          ],
+          "offer-ground": [
+            "at desktop width, region offer-ground is missing"
+          ],
+          "next-section-start": [
+            "at desktop width, region next-section-start is displaced, not missing: it renders about 40px higher and 60px to the right than in the comp, and 96% of it stays inside the 1440x960 first viewport. Restore it into the first viewport: size what sits above it in proportion to the viewport (the comp's own ratios), not with fixed px or a px floor that grows it at this width."
+          ],
+          "intro": [
+            "at desktop width, region intro (text) is contradicted (structure 45%)"
+          ],
+          "search-button": [
+            "at desktop width, region search-button (control) is contradicted (structure 49%)"
+          ],
+          "price-value": [
+            "at desktop width, region price-value (text) is contradicted (structure 26%)"
+          ]
+        },
+        "summary": "desktop 63% (drift)",
+        "score": 0.63,
+        "verdict": "drift",
+        "report": ".impeccable/review/diff/desktop/report.json",
+        "sideBySide": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/.impeccable/review/diff/desktop/side-by-side.png",
+        "worst": [
+          "citizen-demo missing 22%",
+          "search-button contradicted 26%",
+          "office-demo missing 35%"
+        ],
+        "worstIds": [
+          "citizen-demo",
+          "search-button",
+          "office-demo"
+        ],
+        "worstCrops": [
+          {
+            "id": "citizen-demo",
+            "verdict": "missing",
+            "score": {
+              "overall": 0.2209,
+              "structure": 0.4328,
+              "color": 0.0746,
+              "colorIntersection": 0.012,
+              "paletteMatch": 0.1083,
+              "detail": 0,
+              "detailRaw": 0.0934,
+              "detailAdded": 0.3333,
+              "bands": 0.28
+            },
+            "file": ".impeccable/review/diff/desktop/regions/citizen-demo.png"
+          },
+          {
+            "id": "search-button",
+            "verdict": "contradicted",
+            "score": {
+              "overall": 0.264,
+              "structure": 0.4931,
+              "color": 0.0543,
+              "colorIntersection": 0.0278,
+              "paletteMatch": 0.0686,
+              "detail": 0.1152,
+              "detailRaw": 0.2298,
+              "detailAdded": 0.2292,
+              "bands": 0.38
+            },
+            "file": ".impeccable/review/diff/desktop/regions/search-button.png"
+          },
+          {
+            "id": "office-demo",
+            "verdict": "missing",
+            "score": {
+              "overall": 0.3475,
+              "structure": 0.317,
+              "color": 0.5398,
+              "colorIntersection": 0.0655,
+              "paletteMatch": 0.7953,
+              "detail": 0.0798,
+              "detailRaw": 0.1683,
+              "detailAdded": 0.1771,
+              "bands": 0.3371
+            },
+            "file": ".impeccable/review/diff/desktop/regions/office-demo.png"
+          }
+        ],
+        "advisories": [
+          "(advisory, still inside the first viewport) at desktop width, region masthead sits about 11px lower and 18px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region nav-benefits sits about 10px lower and 37px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region nav-contact sits about 10px lower and 30px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region nav-demo sits about 10px lower and 7px to the right than in the comp",
+          "(advisory) at desktop width, plate skyline renders but not at its comp box (structure 43%): size and position it to the spec box",
+          "(advisory, still inside the first viewport) at desktop width, region sample-label sits about 68px lower and 22px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region search-input sits about 70px lower and 10px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region agenda-tabs sits about 78px lower and 62px to the right than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region benefit-citizens-title sits about 71px higher and 28px to the left than in the comp",
+          "(advisory, still inside the first viewport) at desktop width, region navigation-ground sits about 10px lower than in the comp"
+        ],
+        "regionVerdicts": {
+          "masthead": "drift",
+          "nav-benefits": "drift",
+          "nav-contact": "drift",
+          "nav-demo": "drift",
+          "headline": "drift",
+          "intro": "contradicted",
+          "citizen-demo": "missing",
+          "office-demo": "missing",
+          "skyline": "drift",
+          "register-panel": "drift",
+          "search-heading": "drift",
+          "sample-label": "drift",
+          "search-input": "drift",
+          "search-button": "contradicted",
+          "agenda-tabs": "drift",
+          "table-head": "missing",
+          "record-one": "drift",
+          "record-two": "drift",
+          "record-three": "missing",
+          "price-title": "missing",
+          "price-copy": "missing",
+          "price-value": "contradicted",
+          "benefit-citizens-icon": "missing",
+          "benefit-citizens-title": "drift",
+          "benefit-citizens-copy": "missing",
+          "benefit-office-icon": "missing",
+          "benefit-office-title": "missing",
+          "benefit-office-copy": "missing",
+          "benefit-structure-icon": "missing",
+          "benefit-structure-title": "missing",
+          "benefit-structure-copy": "missing",
+          "navigation-ground": "drift",
+          "hero-ground": "drift",
+          "offer-ground": "missing",
+          "next-section-start": "displaced"
+        },
+        "at": "2026-11-01T17:39:35.924Z"
+      },
+      "forced": null,
+      "history": [
+        {
+          "at": "2026-11-01T13:59:01.603Z",
+          "score": 0.8557,
+          "worstIds": [],
+          "blockingReasons": []
+        },
+        {
+          "at": "2026-11-01T16:42:02.035Z",
+          "score": 0.8553,
+          "worstIds": [],
+          "blockingReasons": []
+        },
+        {
+          "at": "2026-11-01T17:00:37.887Z",
+          "score": 0.8553,
+          "worstIds": [],
+          "blockingReasons": []
+        },
+        {
+          "at": "2026-11-01T17:30:41.824Z",
+          "score": 0.63,
+          "worstIds": [
+            "citizen-demo",
+            "search-button",
+            "office-demo"
+          ],
+          "blockingReasons": [
+            "the desktop capture (1440x4024; its first viewport, the top 1536x1024 rows at the comp's width, is compared) scores 63% against the comp, under 65%: the first viewport does not survive a common desktop width. The hero passed at 1536x1024; the layout must hold from ~1280 up, not only at the comp's exact width (grid columns in fr / minmax, not fixed px that overflow and wrap).",
+            "at desktop width, region citizen-demo is missing",
+            "at desktop width, region office-demo is missing",
+            "at desktop width, region table-head is missing",
+            "at desktop width, region record-three is missing",
+            "at desktop width, region price-title is missing",
+            "at desktop width, region price-copy is missing",
+            "at desktop width, region benefit-citizens-icon is missing",
+            "at desktop width, region benefit-citizens-copy is missing",
+            "at desktop width, region benefit-office-icon is missing",
+            "at desktop width, region benefit-office-title is missing",
+            "at desktop width, region benefit-office-copy is missing",
+            "at desktop width, region benefit-structure-icon is missing",
+            "at desktop width, region benefit-structure-title is missing",
+            "at desktop width, region benefit-structure-copy is missing",
+            "at desktop width, region offer-ground is missing",
+            "at desktop width, region next-section-start is displaced, not missing: it renders about 40px higher and 60px to the right than in the comp, and 96% of it stays inside the 1440x960 first viewport. Restore it into the first viewport: size what sits above it in proportion to the viewport (the comp's own ratios), not with fixed px or a px floor that grows it at this width.",
+            "at desktop width, region intro (text) is contradicted (structure 45%)",
+            "at desktop width, region search-button (control) is contradicted (structure 49%)",
+            "at desktop width, region price-value (text) is contradicted (structure 26%)"
+          ]
+        }
+      ]
+    },
+    "review": {
+      "status": "closed",
+      "openedAt": "2026-11-01T17:00:37.887Z",
+      "closedAt": "2026-11-01T17:00:37.954Z",
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": {
+    "disposition": "ship",
+    "at": "2026-11-01T17:00:37.946Z",
+    "phaseAtFinish": "review",
+    "artifactInputsSha256": "754bd4298febff08f976fac1a39b8f968eadfc1faf713484da4770995384c3ce",
+    "artifactSha256": "a90ca4c0863a019efcec64a7fe98f8f5f0457bbd342251f454bea0175482b78f"
+  },
+  "decisionComp": ".impeccable/mocks/decision/canon.png",
+  "sessionId": "01a196e7-089a-7f41-b118-0a7c34cc4cf9",
+  "plates": {
+    "skyline": {
+      "id": "skyline",
+      "file": "assets/plates/skyline.png",
+      "status": "ok",
+      "assetHash": "aa7c2fbb9892a441ed285df9f9ee7676d3b01ceb0cde69490ff723fc71b361aa",
+      "regionHash": "12c638c648658864285da45f8db7c5f17fa079c7e9f1a5a3a25311d261edf1c1",
+      "referenceHash": "ff810a8b201dca55d86e2c2678d053b6f9d7163a373bab814bdf762f9c6ba52a",
+      "reference": {
+        "policy": "plate-reference-v2",
+        "excludedPixels": 16878,
+        "totalPixels": 295460,
+        "remainingPixels": 278582,
+        "excludedFraction": 0.05712448385568267,
+        "fullyExcluded": false,
+        "regions": [
+          {
+            "id": "headline",
+            "kind": "text",
+            "cropPx": {
+              "x": 0,
+              "y": 11,
+              "w": 141,
+              "h": 116
+            },
+            "pixels": 16356
+          },
+          {
+            "id": "intro",
+            "kind": "text",
+            "cropPx": {
+              "x": 0,
+              "y": 153,
+              "w": 9,
+              "h": 58
+            },
+            "pixels": 522
+          }
+        ],
+        "ignoredContainers": [
+          "register-panel",
+          "hero-ground"
+        ]
+      },
+      "compHash": "0908efe650f0affdf1e6c5e2212c3bed40b194b27eb7e6714c268c2416ef8cce",
+      "size": "2172x724",
+      "score": 0.7736
+    }
+  },
+  "responsiveInputSha256": "754bd4298febff08f976fac1a39b8f968eadfc1faf713484da4770995384c3ce"
+}

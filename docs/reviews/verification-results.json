@@ -1,0 +1,45 @@
+{
+  "java": {
+    "tests": 148,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log": "/tmp/openobec-final-java.log"
+  },
+  "contracts": {
+    "tests": 12,
+    "log": "/tmp/openobec-final-contracts.log"
+  },
+  "runtime": {
+    "tests": 6,
+    "log": "/tmp/openobec-final-runtime.log"
+  },
+  "client": {
+    "tests": 21,
+    "log": "/tmp/openobec-final-client.log"
+  },
+  "browser": {
+    "tests": 28,
+    "seconds": 24.4,
+    "log": "/tmp/openobec-final-browser.log"
+  },
+  "smoke": {
+    "tests": 5,
+    "operations": 70,
+    "seconds": 7.483,
+    "log": "/tmp/openobec-final-smoke.log"
+  },
+  "production_builds": {
+    "apps": 3,
+    "log": "/tmp/openobec-final-next-build.log"
+  },
+  "persistence_proof": {
+    "documents_unchanged": 72,
+    "pdf_sha256": "2ff3a6f9653d871136835945d12111d94da30a4d25bc882b6f416184a6cdfabb",
+    "signed_cursor_survives_restart": true
+  },
+  "remote_ci": "not run",
+  "destructive_reset": "not run",
+  "current_marketing_finish": ".impeccable/review/current-refinement-finish.json",
+  "legacy_comp_gate": "responsive open,0.63 against supersededgeometry"
+}

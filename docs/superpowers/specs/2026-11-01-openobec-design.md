@@ -1,7 +1,7 @@
 # OpenObec – realizačný návrh funkčného dema pre Žilinu
 
 Dátum: 1. 11. 2026
-Stav: schválené používateľom 1. 11. 2026; implementácia prebieha.
+Stav: schválené používateľom 1. 11. 2026; implementované a lokálne overené; výsledky sú v `docs/verification.md`.
 
 **Následné záväzné spresnenie používateľa:** frontend používa iba shadcn/ui. Z IDSK3 sa preberajú výhradne farby; písmo Source Sans Pro a ďalšie IDSK štýly sa nepoužijú. Všetky staršie zmienky o IDSK typografii v tomto dokumente sú týmto spresnením nahradené štandardnou typografiou shadcn/ui (Geist). Architektúra a funkčný rozsah zostávajú schválené.
 

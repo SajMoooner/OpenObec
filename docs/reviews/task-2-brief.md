@@ -1,0 +1,12 @@
+### Task 2: Six independent domain APIs, transactions and files
+
+**Files:** `services/{invoices-service,supplier-invoices-service,contracts-service,orders-service,procurement-service,ordinances-service}/`, `libs/java/{common-api,event-contracts,file-storage}/`, domain-specific tests; root Maven module registration only.
+
+**Interfaces:** REST exact source `/rest/v1/{agenda}` paths. Shared `ApiException(status,code,message,details)` and error envelope; document events use the approved JSON fields and complete `data` snapshot including `deleted` and version. Persist domain records in collection `documents` with Slovak JSON field names, IDs and `deleted_at`; outbox has nested `event` (full envelope), `published_at`, lease/retry metadata. API-only fields remain source-compatible. Services use `MONGODB_URI`, `KAFKA_BOOTSTRAP_SERVERS`, `S3_ENDPOINT`, `S3_ACCESS_KEY`, `S3_SECRET_KEY`, `S3_BUCKET`, `SERVER_PORT`; common municipality config fixed to `zilina`. Publish `openobec.documents.v1`. VZN has no public version/references or Kafka projection. Internal `/internal/v1/export` returns paginated consistent versioned exports including tombstones for rebuild; not routed by gateway.
+
+- [ ] Write failing tests for six field schemas: decimal exact sum, date ordering, nullable fields, unknown/read-only fields, replacement counterparty, selective patch, duplicate number even after delete, allowed reference matrix and unchanged invalid legacy links.
+- [ ] Run focused Maven tests red, then implement typed domain DTO/validation, repositories, controllers and technical shared libraries. Domain behavior must remain in each service; shared mechanics may be extracted without a universal business CRUD schema.
+- [ ] Write failing integration tests for transaction rollback, optimistic version increments and outbox commit atomicity; implement Mongo transaction/CAS and leased outbox publisher.
+- [ ] Implement reference validation through owner detail HTTP only, with timeout and bounded concurrency, INVALID_REFERENCE versus DEPENDENCY_UNAVAILABLE distinction.
+- [ ] Write file tests for PDF/PNG/JPEG signatures, 20 MiB, 10 active files, digest, unsafe names, deleted parent, S3/DB compensation. Implement four separate attachment operations per agenda and private S3 streaming.
+- [ ] Add individual Dockerfiles, manual wrappers and READMEs; run unit + real Mongo/S3 integration tests, report exact results, commit only task files.

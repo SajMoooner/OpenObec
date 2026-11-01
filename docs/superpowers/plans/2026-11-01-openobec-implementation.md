@@ -107,4 +107,8 @@ Reuse the current checkout on `codex/openobec-demo`; no new worktree is needed. 
 - [x] Write failing recovery test covering export, concurrent event replay and deleted records; implement rebuild command and fault recovery procedure.
 - [x] Write Playwright tests for create + PDF + publish + citizen search, linked edit, unpublish, error retention and mobile navigation; run against whole stack.
 - [x] Verify Kafka outage/recovery, unknown reference 503 rollback, S3 failure retention, all 70 operation contract fixtures, >100 graph pagination, persistence after ordinary restart, host Java connection and all Docker images.
-- [ ] Run one fresh whole-branch code review, fix Important/Critical findings with reproducing tests, document exact checks and resource use. Update every README with tested commands; final commit, keep branch for user review without merge/push.
+- [x] Run one fresh whole-branch code review, fix Important/Critical findings with reproducing tests, document exact checks and resource use. Update every README with tested commands; final commit, keep branch for user review without merge/push.
+
+## Následná používateľská úprava
+
+Stredová marketingová titulná stránka a rozšírený obsah podľa [spresnenia](../specs/2026-11-01-marketing-refinement.md) sú implementované a nezávisle posúdené. Aktuálna vizuálna kontrola: ship. Historické porovnanie so súradnicami pôvodného obrázka ostáva otvorené a nie je vydávané za úspešnú kontrolu novej kompozície.

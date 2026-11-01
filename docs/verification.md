@@ -9,12 +9,12 @@ Dátum: 1. 11. 2026. Overené na macOS s Java21 (Temurin21.0.9), Node26.3.1, pnp
 | Celý Java reaktor, `./mvnw -B verify` | 148 testov, 0 chýb, 0 zlyhaní, 0 preskočených |
 | Finálne cielené testy gateway | 8 úspešných; zahŕňajú jediné odoslanie POST pri TCP chybe a práve jednu hlavičku request ID |
 | Schémy a konfigurácia, `python3 -m unittest discover -s tests/contracts -v` | 12 úspešných |
-| Vlastníctvo a životný cyklus ručných procesov, `python3 -m unittest discover -s tests/runtime -v` | 2 úspešné; skutočný Node proces, otvorenie a uvoľnenie portu |
+| Vlastníctvo a životný cyklus ručných procesov, `python3 -m unittest discover -s tests/runtime -v` | 6 úspešných; skutočný Node proces, otvorenie a uvoľnenie portu |
 | `pnpm typecheck`, `pnpm lint` | Bez chýb |
-| `pnpm test:frontend` | 20 úspešných: presné sumy, dátumy/DST, formuláre, chyby API, úplné načítanie súvislostí |
+| `pnpm test:frontend` | 21 úspešných: presné sumy, dátumy/DST, formuláre, chyby API, úplné načítanie súvislostí |
 | `pnpm build` | Všetky tri samostatné produkčné aplikácie zostavené |
-| `pnpm test:e2e` proti Docker stacku | 25 úspešných, 24,4 s |
-| `scripts/smoke/run.sh` | 4 úspešné živé HTTP skúšky; všetkých 70 operácií podľa OpenAPI |
+| `pnpm test:e2e` proti Docker stacku | 28 úspešných, 24,4 s |
+| `scripts/smoke/run.sh` | 5 úspešných živých HTTP skúšok; všetkých 70 operácií podľa OpenAPI |
 | `tests/integration/faults.py -v` v ručnom režime | 1 úspešná koordinovaná skúška, 45,265 s |
 | `tests/integration/recovery.py -v` v ručnom režime | 1 úspešná skúška obnovy, 5,876 s; 83 exportovaných záznamov, 2 prehrané udalosti |
 | Ručný produkčný štart | 9 Java procesov a 3 portály, skutočné API a súbory; browser postupy úspešné |
@@ -35,9 +35,9 @@ Obnova použila skutočné HTTP exporty vlastníkov, zachytila Kafka offsety pre
 
 ## Vzhľad a prostredie
 
-Tri portály používajú skutočné shadcn/ui komponenty, lokálne písmo Geist a výhradne farby z IDSK3. Marketing vychádza zo schváleného obrazového návrhu a schválenej rastrovanej panorámy. Impeccable kontrola zahŕňa 28 snímok trás pre desktop a mobil plus 4 rozbalené detaily. Všetky štandardné snímky majú HTTP200, nulové chyby či varovania prehliadača a šírku dokumentu v rámci obrazovky. Detector sa spustil raz a vrátil prázdny zoznam. Samostatná záverečná vizuálna kontrola a schválenie sú v `.impeccable/review/finish-review.md`.
+Tri portály používajú skutočné shadcn/ui komponenty, lokálne písmo Geist a výhradne farby z IDSK3. Marketing vychádza zo schváleného obrazového návrhu a schválenej rastrovanej panorámy. Impeccable kontrola zahŕňa 28 snímok trás pre desktop a mobil plus 4 rozbalené detaily. Všetky štandardné snímky majú HTTP200, nulové chyby či varovania prehliadača a šírku dokumentu v rámci obrazovky. Detector sa spustil raz a vrátil prázdny zoznam. Pôvodná záverečná kontrola je v `.impeccable/review/finish-review.md`; následnú požadovanú marketingovú úpravu schvaľuje aktuálny verdict v `.impeccable/review/marketing-refined-review.md`. Nový obsah má max1280px, typografiu obmedzenú na36–56px a samostatné snímky390/768/1440/3440px. Testy výslovne kontrolujú stredovú šírku pri2560/3440px a funkčné FAQ. Pôvodné geometrické porovnanie Impeccable ostáva otvorené na63% voči prekonaným súradniciam; jeho výsledok sa nemenil na úspech. Záznam aktuálneho vizuálneho schválenia a13 overených zdrojových/obrazových hashov je v `.impeccable/review/current-refinement-finish.json`.
 
-Docker mal pridelených 8GiB pamäte. Po skúškach spotrebovali iba OpenObec kontajnery približne 2,9GiB (predtým 2,7GiB); ide o pokojový odber, nie maximum počas zostavovania alebo záťažovej skúšky. Pre kompletné lokálne demo je vhodné ponechať Dockeru 8GiB. Nemerala sa vysoká dostupnosť ani produkčná priepustnosť.
+Docker mal pridelených 8GiB pamäte. Po skúškach spotrebovali iba OpenObec kontajnery približne 4,4GiB (skoršie merania2,7–2,9GiB); ide o bodové meranie po akceptačných skúškach, nie maximum počas zostavovania alebo záťažovej skúšky. Pre kompletné lokálne demo je vhodné ponechať Dockeru 8GiB. Nemerala sa vysoká dostupnosť ani produkčná priepustnosť.
 
 ## Opakovanie a dôkazy
 
@@ -46,3 +46,9 @@ Príkazy sú v [hlavnom návode](../README.md) a [prevádzkovom postupe](runbook
 Lokálne dôkazy sú v ignorovanom `.run/`: `contract-fixtures.json`, `seed-manifest.json`, `fault-acceptance.json`, `rebuild-acceptance.json`, `persistence-proof.json`, `request-identity-proof.json`, `docker-status-final.json` a `docker-resources-final.jsonl`. Dočasné skúšobné dokumenty sa logicky mažú iba cez ich vlastné API. Bežný štart ani testy nemažú zväzky alebo históriu Kafka; deštruktívny reset sa počas implementácie nespustil.
 
 Reálne prihlásenie, napojenie mestského IS, externé registre a inteligentné vyhľadávanie sú mimo schváleného rozsahu.
+
+## Záverečné posúdenie
+
+Celý pôvodný projekt a jedna opravná vlna boli nezávisle schválené; [finálny report](reviews/final-review.md). Opravy overili zachovanie zmazaného cieľa pri opakovanom štarte, správne spätné súvislosti aj rozlíšenie siedmich cieľov gateway. Následná marketingová úprava má vlastný [schválený report](reviews/task-7-review.md). Bežný `scripts/dev/up.sh docker --skip-build` bol na finálnej verzii znovu úspešný, seedready72 a21 zdravých služieb. Po poslednej úprave textu prešlo18marketingových regresií aj celý aktuálny beh28browserových,21klientskych a5živých HTTP skúšok.
+
+Jeden súbežný beh buildov/Java/browser skúšok zachytil dočasné503 pri dvoch automaticky reštartovaných vlastníkoch. Príčina reštartu nebola potvrdená; nevydáva sa za opravenú programovú chybu. Po návrate všetkých služieb a bez súbežných buildov prešla celá sada; aktuálne je všetkých21služieb zdravých.

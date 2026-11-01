@@ -1,0 +1,34 @@
+# Task 2 review
+
+**Final spec verdict: compliant within reviewed Task 2 scope.**
+**Final task quality: Approved after fix round 1 (`2cf0577`).** No remaining important/critical findings in the reviewed scope. The original review below is retained as history.
+
+Reviewed the task brief/report and the complete 7,002-line `9c70873..0d8c962` diff in bounded, untruncated sections. Scope is only Task 2; frontend, working-tree controller work, Query/pairing implementation and other tasks are excluded. Consulted the source contracts and approved design sections 6/7/8/10 for concrete validation, chronology and failure-path questions. Did not rerun the reported 108 Java / 48 live / 12 contract checks or mutate running infrastructure.
+
+Strengths:
+
+- All 54 owning operations are concrete, with Slovak field names and source wrappers, six independent default databases, concrete domain DTOs/definitions, and the correct allowed-reference matrices. VZN has no public version, references, events or export.
+- Selective patches and complete counterparty replacement are implemented correctly. Validation checks the merged result, exact BigDecimal sums, nullable dates, types and server fields. Wider amounts retain exact strings when Decimal128 cannot represent them.
+- Local snapshot/majority transactions couple document, version, audit and outbox. Conflict retries reread and reapply the original patch. Parent-document writes serialize attachment counts and parent deletion against uploads. Reference checks use only new pairs and bounded owner HTTP calls.
+- Kafka acknowledgement precedes marking delivery; leases and retry metadata are durable. Private streamed S3 access, signatures, digest, 20 MiB and ten-file limits are implemented. Five immutable versioned exports include tombstones and normalize absent legacy reference arrays.
+
+Initial important findings (both resolved in fix round 1):
+
+1. **[P1] Do not delete a blob after an indeterminate metadata commit.** `libs/java/common-api/src/main/java/sk/openobec/common/AttachmentStore.java:120` (especially line 122), together with `RecordStore.java:286`. After three commit attempts, `transaction()` propagates `UnknownTransactionCommitResult`. That outcome can mean Mongo committed the attachment successfully but the acknowledgements were lost. The upload catch handles it as a confirmed metadata failure and unconditionally removes the S3 object. The committed active attachment then remains listable while its download permanently fails; the orphan inventory will not find the missing object because it inventories unreferenced S3 objects. An attempted abort after an unknown result does not establish that an already committed transaction was rolled back. Preserve the blob on an indeterminate commit, distinguish this outcome from a confirmed abort, and reconcile using the stable attachment ID plus an authoritative commit/metadata check. Add focused fault coverage where commit succeeds but its acknowledgement stays unknown; assert that referenced bytes are retained. The current rollback/compensation tests only reject metadata before commit and do not cover this path.
+
+2. **[P2] Reject trailing content before applying a JSON mutation.** `libs/java/common-api/src/main/java/sk/openobec/common/Json.java:15`. The mapper leaves `FAIL_ON_TRAILING_TOKENS` disabled, and the create/update controllers deserialize a `JsonNode` with the standard MVC reader. Consequently, a valid first object followed by another JSON value or garbage is accepted as the first object. For example, an update body `{"predmet":"Zmena"} {"entity_version":99}` can commit and return 200 instead of the required malformed-JSON 400. This also silently ignores server/unknown fields in the second object. Enable complete-input validation at the HTTP JSON boundary and add focused HTTP regressions for both a second root value and trailing invalid text, verifying no document/version/outbox mutation. Read-only inspection of the installed Jackson 2.21.4 bytecode confirmed the feature defaults false and end-of-input verification is conditional on it; Spring Web 6.2.19 directly calls the configured ObjectReader. Existing malformed-body coverage only submits an incomplete first object (`{`).
+
+The implementation report is thorough, but its “no known functional failure remains” conclusion does not cover these two paths. No additional material minor findings.
+
+The retained shared-topic fixtures and eleven synthetic S3 orphan candidates are disclosed limitations, not hidden successes. I did not retry the rejected shared-topic cleanup. Capturing fresh offsets and rebuilding a new read generation from authoritative exports is consistent with the approved recovery design; its execution/activation remains the controller’s responsibility and is not certified by this Task 2 review.
+
+## Scoped re-review of `0d8c962..2cf0577`
+
+**P1: ADDRESSED. P2: ADDRESSED. Task quality gate: Approved.**
+
+Read the complete 322-line fix package and the appended implementation report. The re-review is restricted to the two findings and regressions introduced by their fixes. No new material issue was found in this diff.
+
+- P1: `RecordStore.transaction()` converts exhausted unknown commit acknowledgements into a distinct exception and bypasses abort/replay. `AttachmentStore` catches that outcome before generic compensation, retains the blob, and checks the stable attachment ID, municipality, parent and exact object key with a primary/majority read. A matching committed row returns success. An absent/unavailable check returns503 while retaining bytes and best-effort recording reconciliation identity; it never falls through to blob deletion. Confirmed metadata failure still compensates. The focused test actually commits Mongo metadata before faulting acknowledgements, verifies all three attempts and zero explicit aborts, reads exact retained S3 bytes, and verifies stable-ID success reconciliation. This directly covers the original data-loss path.
+- P2: `FAIL_ON_TRAILING_TOKENS` is enabled in the shared mapper used by MVC. Four focused HTTP cases cover second roots and invalid suffixes independently for create and update, assert400, and verify unchanged documents/version and outbox. The setting also remains compatible with the existing DTO tree conversion and owner response decoding.
+
+Read-only evidence checks confirmed the supplied logs: RED5/5 assertion failures, focused GREEN6/6 passing (including confirmed-failure compensation), full reactor113 passing with BUILD SUCCESS, and the reported contract12/12. No tests were rerun and no infrastructure was changed. The unresolved-commit reconciliation record is deliberately best effort when Mongo itself remains unavailable; retained bytes plus the existing orphan-recovery procedure preserve the approved failure guarantee.

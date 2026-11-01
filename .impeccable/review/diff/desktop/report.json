@@ -1,26 +1,26 @@
 {
   "tool": "comp-diff",
   "version": 1,
-  "createdAt": "2026-11-01T17:00:37.588Z",
+  "createdAt": "2026-11-01T17:39:34.721Z",
   "label": "desktop",
   "comp": ".impeccable/mocks/marketing-navy.png",
   "build": ".impeccable/review/desktop.png",
   "spec": ".impeccable/build/spec.json",
   "compSize": "1536x1024",
-  "buildSize": "1440x1781",
+  "buildSize": "1440x4024",
   "align": "top",
-  "overall": 0.8553,
-  "verdict": "match",
+  "overall": 0.63,
+  "verdict": "drift",
   "scores": {
-    "overall": 0.8553,
-    "structure": 0.9141,
-    "color": 0.6528,
-    "colorIntersection": 0.473,
-    "paletteMatch": 0.7496,
-    "detail": 0.8887,
-    "detailRaw": 0.8939,
-    "detailAdded": 0.0104,
-    "bands": 1
+    "overall": 0.63,
+    "structure": 0.5569,
+    "color": 0.7705,
+    "colorIntersection": 0.5788,
+    "paletteMatch": 0.8737,
+    "detail": 0.4841,
+    "detailRaw": 0.5466,
+    "detailAdded": 0.125,
+    "bands": 0.8095
   },
   "palette": {
     "comp": [
@@ -51,28 +51,28 @@
     ],
     "build": [
       {
-        "hex": "#f2f8f8",
-        "coverage": 0.6351
+        "hex": "#f7f8f8",
+        "coverage": 0.6221
       },
       {
         "hex": "#082868",
-        "coverage": 0.3018
+        "coverage": 0.3441
       },
       {
-        "hex": "#8abff8",
-        "coverage": 0.0212
+        "hex": "#084da0",
+        "coverage": 0.0119
       },
       {
-        "hex": "#0852a9",
-        "coverage": 0.0176
+        "hex": "#93a3ba",
+        "coverage": 0.008
       },
       {
-        "hex": "#bbcce0",
-        "coverage": 0.013
+        "hex": "#cad1dc",
+        "coverage": 0.0077
       },
       {
-        "hex": "#1868f8",
-        "coverage": 0.0114
+        "hex": "#8bc0f8",
+        "coverage": 0.0062
       }
     ]
   },
@@ -85,15 +85,15 @@
       "h": 0.0313,
       "kind": "text",
       "score": {
-        "overall": 0.6092,
-        "structure": 0.5004,
-        "color": 0.5984,
-        "colorIntersection": 0.355,
-        "paletteMatch": 0.7295,
-        "detail": 0.7293,
-        "detailRaw": 0.7814,
-        "detailAdded": 0.1042,
-        "bands": 1
+        "overall": 0.3143,
+        "structure": 0.3994,
+        "color": 0.2984,
+        "colorIntersection": 0.1067,
+        "paletteMatch": 0.4016,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
       "verdict": "drift",
       "inkBox": {
@@ -103,16 +103,19 @@
           "w": 140,
           "h": 27
         },
-        "build": {
-          "x": 1,
-          "y": 5,
-          "w": 133,
-          "h": 25
-        }
+        "build": null
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -18.0,
+        "dy": 11.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "nav-benefits",
@@ -122,15 +125,15 @@
       "h": 0.0352,
       "kind": "control",
       "score": {
-        "overall": 0.6738,
-        "structure": 0.8037,
-        "color": 0.4885,
-        "colorIntersection": 0.1054,
-        "paletteMatch": 0.6947,
-        "detail": 0.7056,
-        "detailRaw": 0.7108,
-        "detailAdded": 0.0104,
-        "bands": 1
+        "overall": 0.452,
+        "structure": 0.7681,
+        "color": 0.3038,
+        "colorIntersection": 0.0536,
+        "paletteMatch": 0.4386,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
       "verdict": "drift",
       "inkBox": {
@@ -140,16 +143,19 @@
           "w": 45,
           "h": 13
         },
-        "build": {
-          "x": 5,
-          "y": 12,
-          "w": 49,
-          "h": 13
-        }
+        "build": null
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -37.0,
+        "dy": 10.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "nav-contact",
@@ -159,15 +165,15 @@
       "h": 0.0352,
       "kind": "control",
       "score": {
-        "overall": 0.6701,
-        "structure": 0.7753,
-        "color": 0.5395,
-        "colorIntersection": 0.1004,
-        "paletteMatch": 0.7759,
-        "detail": 0.6621,
-        "detailRaw": 0.6934,
-        "detailAdded": 0.0625,
-        "bands": 0.85
+        "overall": 0.4576,
+        "structure": 0.772,
+        "color": 0.3149,
+        "colorIntersection": 0.0376,
+        "paletteMatch": 0.4642,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
       "verdict": "drift",
       "inkBox": {
@@ -177,16 +183,19 @@
           "w": 45,
           "h": 10
         },
-        "build": {
-          "x": 6,
-          "y": 12,
-          "w": 50,
-          "h": 11
-        }
+        "build": null
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -30.0,
+        "dy": 10.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "nav-demo",
@@ -196,15 +205,15 @@
       "h": 0.0371,
       "kind": "control",
       "score": {
-        "overall": 0.7458,
-        "structure": 0.7008,
-        "color": 0.9035,
-        "colorIntersection": 0.862,
-        "paletteMatch": 0.9258,
-        "detail": 0.571,
-        "detailRaw": 0.571,
+        "overall": 0.1013,
+        "structure": 0.2127,
+        "color": 0.016,
+        "colorIntersection": 0.0032,
+        "paletteMatch": 0.0229,
+        "detail": 0,
+        "detailRaw": 0,
         "detailAdded": 0,
-        "bands": 0.8667
+        "bands": 0.4
       },
       "verdict": "drift",
       "inkBox": {
@@ -214,16 +223,19 @@
           "w": 132,
           "h": 38
         },
-        "build": {
-          "x": 0,
-          "y": 0,
-          "w": 132,
-          "h": 38
-        }
+        "build": null
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": 7.0,
+        "dy": 10.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "headline",
@@ -233,15 +245,15 @@
       "h": 0.1133,
       "kind": "text",
       "score": {
-        "overall": 0.7833,
-        "structure": 0.8098,
-        "color": 0.615,
-        "colorIntersection": 0.3551,
-        "paletteMatch": 0.7549,
-        "detail": 0.915,
-        "detailRaw": 0.9202,
-        "detailAdded": 0.0104,
-        "bands": 0.8744
+        "overall": 0.5623,
+        "structure": 0.5488,
+        "color": 0.6318,
+        "colorIntersection": 0.3566,
+        "paletteMatch": 0.7799,
+        "detail": 0.6017,
+        "detailRaw": 0.6694,
+        "detailAdded": 0.1354,
+        "bands": 0.3974
       },
       "verdict": "drift",
       "inkBox": {
@@ -253,12 +265,12 @@
         },
         "build": {
           "x": 0,
-          "y": 8,
-          "w": 620,
-          "h": 108
+          "y": 0,
+          "w": 615,
+          "h": 115
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
       "rawVerdict": "drift"
     },
@@ -270,17 +282,17 @@
       "h": 0.0566,
       "kind": "text",
       "score": {
-        "overall": 0.7382,
-        "structure": 0.821,
-        "color": 0.555,
-        "colorIntersection": 0.304,
-        "paletteMatch": 0.6901,
-        "detail": 0.8196,
-        "detailRaw": 0.8404,
-        "detailAdded": 0.0417,
-        "bands": 0.6607
+        "overall": 0.3933,
+        "structure": 0.4536,
+        "color": 0.4845,
+        "colorIntersection": 0.1846,
+        "paletteMatch": 0.646,
+        "detail": 0.1191,
+        "detailRaw": 0.2076,
+        "detailAdded": 0.1771,
+        "bands": 0.275
       },
-      "verdict": "drift",
+      "verdict": "contradicted",
       "inkBox": {
         "comp": {
           "x": 1,
@@ -289,15 +301,17 @@
           "h": 55
         },
         "build": {
-          "x": 2,
-          "y": 4,
-          "w": 471,
-          "h": 54
+          "x": 0,
+          "y": 10,
+          "w": 485,
+          "h": 18
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region intro (text) is contradicted (structure 45%)"
+      ],
+      "rawVerdict": "contradicted"
     },
     {
       "id": "citizen-demo",
@@ -307,17 +321,17 @@
       "h": 0.0479,
       "kind": "control",
       "score": {
-        "overall": 0.7917,
-        "structure": 0.9417,
-        "color": 0.5971,
-        "colorIntersection": 0.0676,
-        "paletteMatch": 0.8822,
-        "detail": 0.7946,
-        "detailRaw": 0.7946,
-        "detailAdded": 0,
-        "bands": 1
+        "overall": 0.2209,
+        "structure": 0.4328,
+        "color": 0.0746,
+        "colorIntersection": 0.012,
+        "paletteMatch": 0.1083,
+        "detail": 0,
+        "detailRaw": 0.0934,
+        "detailAdded": 0.3333,
+        "bands": 0.28
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 2,
@@ -326,15 +340,17 @@
           "h": 48
         },
         "build": {
-          "x": 0,
+          "x": 3,
           "y": 0,
-          "w": 220,
-          "h": 49
+          "w": 217,
+          "h": 30
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region citizen-demo is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "office-demo",
@@ -344,17 +360,17 @@
       "h": 0.0479,
       "kind": "control",
       "score": {
-        "overall": 0.8609,
-        "structure": 0.8727,
-        "color": 0.9217,
-        "colorIntersection": 0.872,
-        "paletteMatch": 0.9485,
-        "detail": 0.7281,
-        "detailRaw": 0.7385,
-        "detailAdded": 0.0208,
-        "bands": 1
+        "overall": 0.3475,
+        "structure": 0.317,
+        "color": 0.5398,
+        "colorIntersection": 0.0655,
+        "paletteMatch": 0.7953,
+        "detail": 0.0798,
+        "detailRaw": 0.1683,
+        "detailAdded": 0.1771,
+        "bands": 0.3371
       },
-      "verdict": "match",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -365,13 +381,15 @@
         "build": {
           "x": 0,
           "y": 0,
-          "w": 219,
-          "h": 49
+          "w": 135,
+          "h": 30
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "match"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region office-demo is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "skyline",
@@ -381,15 +399,15 @@
       "h": 0.3086,
       "kind": "plate",
       "score": {
-        "overall": 0.6912,
-        "structure": 0.7944,
-        "color": 0.2981,
-        "colorIntersection": 0.1047,
-        "paletteMatch": 0.4022,
-        "detail": 0.79,
-        "detailRaw": 0.8056,
-        "detailAdded": 0.0313,
-        "bands": 0.76
+        "overall": 0.37,
+        "structure": 0.4319,
+        "color": 0.4029,
+        "colorIntersection": 0.0824,
+        "paletteMatch": 0.5755,
+        "detail": 0.3113,
+        "detailRaw": 0.353,
+        "detailAdded": 0.0833,
+        "bands": 0.5167
       },
       "verdict": "drift",
       "inkBox": {
@@ -401,14 +419,15 @@
         },
         "build": {
           "x": 0,
-          "y": 18,
-          "w": 935,
-          "h": 298
+          "y": 48,
+          "w": 824,
+          "h": 181
         }
       },
-      "blocking": false,
+      "verdictReason": "current plate passed asset validation and renders at desktop width away from its comp box",
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "register-panel",
@@ -418,17 +437,17 @@
       "h": 0.3535,
       "kind": "chrome",
       "score": {
-        "overall": 0.8827,
-        "structure": 0.9144,
-        "color": 0.9644,
-        "colorIntersection": 0.9252,
-        "paletteMatch": 0.9855,
-        "detail": 0.7518,
-        "detailRaw": 0.8039,
-        "detailAdded": 0.1042,
-        "bands": 0.8909
+        "overall": 0.692,
+        "structure": 0.7021,
+        "color": 0.9279,
+        "colorIntersection": 0.8692,
+        "paletteMatch": 0.9595,
+        "detail": 0.4288,
+        "detailRaw": 0.5746,
+        "detailAdded": 0.2917,
+        "bands": 0.7143
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -440,12 +459,12 @@
           "x": 0,
           "y": 0,
           "w": 1349,
-          "h": 318
+          "h": 340
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "drift"
     },
     {
       "id": "search-heading",
@@ -455,15 +474,15 @@
       "h": 0.0303,
       "kind": "text",
       "score": {
-        "overall": 0.6924,
-        "structure": 0.6552,
-        "color": 0.8615,
-        "colorIntersection": 0.7849,
-        "paletteMatch": 0.9027,
-        "detail": 0.6822,
-        "detailRaw": 0.7499,
-        "detailAdded": 0.1354,
-        "bands": 0.4714
+        "overall": 0.7203,
+        "structure": 0.8115,
+        "color": 0.8818,
+        "colorIntersection": 0.816,
+        "paletteMatch": 0.9172,
+        "detail": 0.3162,
+        "detailRaw": 0.4152,
+        "detailAdded": 0.1979,
+        "bands": 0.4667
       },
       "verdict": "drift",
       "inkBox": {
@@ -474,13 +493,13 @@
           "h": 25
         },
         "build": {
-          "x": 1,
-          "y": 4,
-          "w": 275,
-          "h": 25
+          "x": 17,
+          "y": 11,
+          "w": 255,
+          "h": 20
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
       "rawVerdict": "drift"
     },
@@ -492,14 +511,14 @@
       "h": 0.0195,
       "kind": "text",
       "score": {
-        "overall": 0.5987,
-        "structure": 0.5876,
-        "color": 0.9048,
-        "colorIntersection": 0.7919,
-        "paletteMatch": 0.9656,
-        "detail": 0.5245,
-        "detailRaw": 0.5922,
-        "detailAdded": 0.1354,
+        "overall": 0.5351,
+        "structure": 0.6348,
+        "color": 0.8707,
+        "colorIntersection": 0.7676,
+        "paletteMatch": 0.9262,
+        "detail": 0,
+        "detailRaw": 0.008,
+        "detailAdded": 0.2708,
         "bands": 0
       },
       "verdict": "drift",
@@ -511,15 +530,23 @@
           "h": 12
         },
         "build": {
-          "x": 6,
-          "y": 1,
-          "w": 141,
-          "h": 13
+          "x": 0,
+          "y": 11,
+          "w": 120,
+          "h": 9
         }
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -22.0,
+        "dy": 68.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "search-input",
@@ -529,17 +556,17 @@
       "h": 0.0479,
       "kind": "control",
       "score": {
-        "overall": 0.9405,
-        "structure": 0.9886,
-        "color": 0.9412,
-        "colorIntersection": 0.8969,
-        "paletteMatch": 0.965,
-        "detail": 0.8312,
-        "detailRaw": 0.8573,
-        "detailAdded": 0.0521,
+        "overall": 0.7618,
+        "structure": 0.9699,
+        "color": 0.9296,
+        "colorIntersection": 0.8856,
+        "paletteMatch": 0.9533,
+        "detail": 0,
+        "detailRaw": 0.1285,
+        "detailAdded": 0.3021,
         "bands": 0.6
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 15,
@@ -548,15 +575,23 @@
           "h": 18
         },
         "build": {
-          "x": 18,
-          "y": 15,
-          "w": 404,
-          "h": 19
+          "x": 17,
+          "y": 20,
+          "w": 1082,
+          "h": 29
         }
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -10.0,
+        "dy": 70.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "missing"
     },
     {
       "id": "search-button",
@@ -566,17 +601,17 @@
       "h": 0.0479,
       "kind": "control",
       "score": {
-        "overall": 0.7328,
-        "structure": 0.9152,
-        "color": 0.6192,
-        "colorIntersection": 0.0391,
-        "paletteMatch": 0.9316,
-        "detail": 0.5209,
-        "detailRaw": 0.5417,
-        "detailAdded": 0.0417,
-        "bands": 1
+        "overall": 0.264,
+        "structure": 0.4931,
+        "color": 0.0543,
+        "colorIntersection": 0.0278,
+        "paletteMatch": 0.0686,
+        "detail": 0.1152,
+        "detailRaw": 0.2298,
+        "detailAdded": 0.2292,
+        "bands": 0.38
       },
-      "verdict": "drift",
+      "verdict": "contradicted",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -586,14 +621,16 @@
         },
         "build": {
           "x": 0,
-          "y": 0,
-          "w": 184,
-          "h": 49
+          "y": 19,
+          "w": 161,
+          "h": 30
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region search-button (control) is contradicted (structure 49%)"
+      ],
+      "rawVerdict": "contradicted"
     },
     {
       "id": "agenda-tabs",
@@ -603,17 +640,17 @@
       "h": 0.0342,
       "kind": "control",
       "score": {
-        "overall": 0.8221,
-        "structure": 0.8578,
-        "color": 0.9223,
-        "colorIntersection": 0.848,
-        "paletteMatch": 0.9622,
-        "detail": 0.5664,
-        "detailRaw": 0.6237,
-        "detailAdded": 0.1146,
-        "bands": 1
+        "overall": 0.7232,
+        "structure": 0.8818,
+        "color": 0.9133,
+        "colorIntersection": 0.8459,
+        "paletteMatch": 0.9496,
+        "detail": 0.0336,
+        "detailRaw": 0.0336,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -622,15 +659,23 @@
           "h": 25
         },
         "build": {
-          "x": 1,
-          "y": 10,
-          "w": 787,
-          "h": 24
+          "x": 83,
+          "y": 33,
+          "w": 712,
+          "h": 2
         }
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": 62.0,
+        "dy": 78.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "missing"
     },
     {
       "id": "table-head",
@@ -640,17 +685,17 @@
       "h": 0.0146,
       "kind": "text",
       "score": {
-        "overall": 0.8748,
-        "structure": 0.9665,
-        "color": 0.8011,
-        "colorIntersection": 0.6077,
-        "paletteMatch": 0.9053,
-        "detail": 0.6083,
-        "detailRaw": 0.6812,
-        "detailAdded": 0.1458,
+        "overall": 0.7252,
+        "structure": 0.9274,
+        "color": 0.646,
+        "colorIntersection": 0.3466,
+        "paletteMatch": 0.8073,
+        "detail": 0,
+        "detailRaw": 0.0248,
+        "detailAdded": 0.0625,
         "bands": 1
       },
-      "verdict": "match",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 2,
@@ -658,16 +703,13 @@
           "w": 1164,
           "h": 11
         },
-        "build": {
-          "x": 2,
-          "y": 0,
-          "w": 1168,
-          "h": 12
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "match"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region table-head is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "record-one",
@@ -677,17 +719,17 @@
       "h": 0.0176,
       "kind": "text",
       "score": {
-        "overall": 0.8556,
-        "structure": 0.9422,
-        "color": 0.9647,
-        "colorIntersection": 0.9424,
-        "paletteMatch": 0.9767,
-        "detail": 0.6887,
-        "detailRaw": 0.6939,
-        "detailAdded": 0.0104,
-        "bands": 0.4
+        "overall": 0.593,
+        "structure": 0.8262,
+        "color": 0.5081,
+        "colorIntersection": 0.0186,
+        "paletteMatch": 0.7717,
+        "detail": 0.352,
+        "detailRaw": 0.4614,
+        "detailAdded": 0.2188,
+        "bands": 0
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 1,
@@ -696,15 +738,15 @@
           "h": 14
         },
         "build": {
-          "x": 1,
-          "y": 1,
-          "w": 1171,
-          "h": 13
+          "x": 14,
+          "y": 0,
+          "w": 1042,
+          "h": 14
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "drift"
     },
     {
       "id": "record-two",
@@ -714,17 +756,17 @@
       "h": 0.0176,
       "kind": "text",
       "score": {
-        "overall": 0.8722,
-        "structure": 0.9369,
-        "color": 0.9595,
-        "colorIntersection": 0.9278,
-        "paletteMatch": 0.9765,
-        "detail": 0.6258,
-        "detailRaw": 0.6362,
-        "detailAdded": 0.0208,
-        "bands": 0.7
+        "overall": 0.7409,
+        "structure": 0.8872,
+        "color": 0.9663,
+        "colorIntersection": 0.9391,
+        "paletteMatch": 0.9809,
+        "detail": 0.1045,
+        "detailRaw": 0.1826,
+        "detailAdded": 0.1563,
+        "bands": 0.4
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 2,
@@ -733,15 +775,15 @@
           "h": 15
         },
         "build": {
-          "x": 2,
-          "y": 0,
-          "w": 1170,
-          "h": 13
+          "x": 14,
+          "y": 10,
+          "w": 1055,
+          "h": 8
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "drift"
     },
     {
       "id": "record-three",
@@ -751,17 +793,17 @@
       "h": 0.0176,
       "kind": "text",
       "score": {
-        "overall": 0.8114,
-        "structure": 0.943,
-        "color": 0.9661,
-        "colorIntersection": 0.946,
-        "paletteMatch": 0.9769,
-        "detail": 0.656,
-        "detailRaw": 0.6716,
-        "detailAdded": 0.0313,
+        "overall": 0.6919,
+        "structure": 0.9074,
+        "color": 0.9328,
+        "colorIntersection": 0.8931,
+        "paletteMatch": 0.9542,
+        "detail": 0.0332,
+        "detailRaw": 0.0645,
+        "detailAdded": 0.0625,
         "bands": 0
       },
-      "verdict": "match",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 2,
@@ -769,16 +811,13 @@
           "w": 1169,
           "h": 15
         },
-        "build": {
-          "x": 2,
-          "y": 0,
-          "w": 1170,
-          "h": 14
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "match"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region record-three is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "price-title",
@@ -788,17 +827,17 @@
       "h": 0.0293,
       "kind": "text",
       "score": {
-        "overall": 0.5087,
-        "structure": 0.4556,
-        "color": 0.5402,
-        "colorIntersection": 0.2379,
-        "paletteMatch": 0.7031,
-        "detail": 0.6392,
-        "detailRaw": 0.7069,
-        "detailAdded": 0.1354,
-        "bands": 0.5
+        "overall": 0.4602,
+        "structure": 0.5284,
+        "color": 0.5484,
+        "colorIntersection": 0.4526,
+        "paletteMatch": 0.6,
+        "detail": 0.026,
+        "detailRaw": 0.026,
+        "detailAdded": 0,
+        "bands": 0.55
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 3,
@@ -806,16 +845,13 @@
           "w": 383,
           "h": 29
         },
-        "build": {
-          "x": 2,
-          "y": 4,
-          "w": 396,
-          "h": 26
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region price-title is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "price-copy",
@@ -825,17 +861,17 @@
       "h": 0.0381,
       "kind": "text",
       "score": {
-        "overall": 0.6621,
-        "structure": 0.7421,
-        "color": 0.6125,
-        "colorIntersection": 0.2789,
-        "paletteMatch": 0.7922,
-        "detail": 0.5461,
-        "detailRaw": 0.6503,
-        "detailAdded": 0.2083,
-        "bands": 0.56
+        "overall": 0.56,
+        "structure": 0.7165,
+        "color": 0.647,
+        "colorIntersection": 0.5438,
+        "paletteMatch": 0.7026,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 1,
@@ -843,16 +879,13 @@
           "w": 440,
           "h": 37
         },
-        "build": {
-          "x": 1,
-          "y": 3,
-          "w": 386,
-          "h": 36
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region price-copy is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "price-value",
@@ -862,17 +895,17 @@
       "h": 0.0342,
       "kind": "text",
       "score": {
-        "overall": 0.5883,
-        "structure": 0.6099,
-        "color": 0.5867,
-        "colorIntersection": 0.1944,
-        "paletteMatch": 0.7979,
-        "detail": 0.6278,
-        "detailRaw": 0.7371,
-        "detailAdded": 0.2188,
-        "bands": 0.425
+        "overall": 0.4481,
+        "structure": 0.2553,
+        "color": 0.7348,
+        "colorIntersection": 0.6085,
+        "paletteMatch": 0.8028,
+        "detail": 0.5137,
+        "detailRaw": 0.696,
+        "detailAdded": 0.3646,
+        "bands": 0.5972
       },
-      "verdict": "drift",
+      "verdict": "contradicted",
       "inkBox": {
         "comp": {
           "x": 3,
@@ -881,15 +914,17 @@
           "h": 27
         },
         "build": {
-          "x": 1,
-          "y": 4,
-          "w": 182,
-          "h": 31
+          "x": 0,
+          "y": 0,
+          "w": 209,
+          "h": 33
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region price-value (text) is contradicted (structure 26%)"
+      ],
+      "rawVerdict": "contradicted"
     },
     {
       "id": "benefit-citizens-icon",
@@ -899,17 +934,17 @@
       "h": 0.0547,
       "kind": "chrome",
       "score": {
-        "overall": 0.73,
-        "structure": 0.8955,
-        "color": 0.4841,
-        "colorIntersection": 0.1135,
-        "paletteMatch": 0.6837,
-        "detail": 0.8822,
-        "detailRaw": 0.9083,
-        "detailAdded": 0.0521,
-        "bands": 0.5
+        "overall": 0.5037,
+        "structure": 0.8546,
+        "color": 0.5503,
+        "colorIntersection": 0.2666,
+        "paletteMatch": 0.7031,
+        "detail": 0.0282,
+        "detailRaw": 0.0282,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 19,
@@ -917,16 +952,13 @@
           "w": 20,
           "h": 24
         },
-        "build": {
-          "x": 18,
-          "y": 16,
-          "w": 21,
-          "h": 25
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-citizens-icon is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-citizens-title",
@@ -936,14 +968,14 @@
       "h": 0.0186,
       "kind": "text",
       "score": {
-        "overall": 0.5562,
-        "structure": 0.5991,
-        "color": 0.5997,
-        "colorIntersection": 0.26,
-        "paletteMatch": 0.7826,
-        "detail": 0.4451,
-        "detailRaw": 0.5336,
-        "detailAdded": 0.1771,
+        "overall": 0.5816,
+        "structure": 0.7295,
+        "color": 0.7076,
+        "colorIntersection": 0.5864,
+        "paletteMatch": 0.7729,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
         "bands": 0.4
       },
       "verdict": "drift",
@@ -954,16 +986,19 @@
           "w": 146,
           "h": 15
         },
-        "build": {
-          "x": 1,
-          "y": 3,
-          "w": 161,
-          "h": 15
-        }
+        "build": null
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": -28.0,
+        "dy": -71.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "drift"
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-citizens-copy",
@@ -973,17 +1008,17 @@
       "h": 0.0547,
       "kind": "text",
       "score": {
-        "overall": 0.6024,
-        "structure": 0.5611,
-        "color": 0.6319,
-        "colorIntersection": 0.2794,
-        "paletteMatch": 0.8216,
-        "detail": 0.5085,
-        "detailRaw": 0.597,
-        "detailAdded": 0.1771,
-        "bands": 0.8762
+        "overall": 0.5062,
+        "structure": 0.5743,
+        "color": 0.7163,
+        "colorIntersection": 0.5992,
+        "paletteMatch": 0.7794,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 1,
@@ -991,16 +1026,13 @@
           "w": 161,
           "h": 54
         },
-        "build": {
-          "x": 0,
-          "y": 4,
-          "w": 216,
-          "h": 52
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-citizens-copy is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-office-icon",
@@ -1010,17 +1042,17 @@
       "h": 0.0547,
       "kind": "chrome",
       "score": {
-        "overall": 0.6885,
-        "structure": 0.8229,
-        "color": 0.4866,
-        "colorIntersection": 0.1161,
-        "paletteMatch": 0.6861,
-        "detail": 0.5155,
-        "detailRaw": 0.5572,
-        "detailAdded": 0.0833,
-        "bands": 1
+        "overall": 0.5062,
+        "structure": 0.8559,
+        "color": 0.5662,
+        "colorIntersection": 0.2883,
+        "paletteMatch": 0.7158,
+        "detail": 0.0203,
+        "detailRaw": 0.0203,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 11,
@@ -1028,16 +1060,13 @@
           "w": 24,
           "h": 20
         },
-        "build": {
-          "x": 15,
-          "y": 17,
-          "w": 25,
-          "h": 22
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-office-icon is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-office-title",
@@ -1047,17 +1076,17 @@
       "h": 0.0186,
       "kind": "text",
       "score": {
-        "overall": 0.5645,
-        "structure": 0.6133,
-        "color": 0.6033,
-        "colorIntersection": 0.2652,
-        "paletteMatch": 0.7853,
-        "detail": 0.4735,
-        "detailRaw": 0.5516,
-        "detailAdded": 0.1563,
-        "bands": 0.36
+        "overall": 0.5804,
+        "structure": 0.7272,
+        "color": 0.7071,
+        "colorIntersection": 0.5616,
+        "paletteMatch": 0.7855,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -1065,16 +1094,13 @@
           "w": 147,
           "h": 15
         },
-        "build": {
-          "x": 1,
-          "y": 3,
-          "w": 162,
-          "h": 15
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-office-title is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-office-copy",
@@ -1084,17 +1110,17 @@
       "h": 0.0391,
       "kind": "text",
       "score": {
-        "overall": 0.5299,
-        "structure": 0.5493,
-        "color": 0.6142,
-        "colorIntersection": 0.249,
-        "paletteMatch": 0.8108,
-        "detail": 0.4137,
-        "detailRaw": 0.57,
-        "detailAdded": 0.3125,
-        "bands": 0.3964
+        "overall": 0.5545,
+        "structure": 0.6466,
+        "color": 0.765,
+        "colorIntersection": 0.6414,
+        "paletteMatch": 0.8315,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -1102,16 +1128,13 @@
           "w": 153,
           "h": 34
         },
-        "build": {
-          "x": 1,
-          "y": 4,
-          "w": 195,
-          "h": 33
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-office-copy is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-structure-icon",
@@ -1121,17 +1144,17 @@
       "h": 0.0547,
       "kind": "chrome",
       "score": {
-        "overall": 0.6977,
-        "structure": 0.9026,
-        "color": 0.4695,
-        "colorIntersection": 0.0829,
-        "paletteMatch": 0.6777,
-        "detail": 0.4578,
-        "detailRaw": 0.4943,
-        "detailAdded": 0.0729,
+        "overall": 0.6008,
+        "structure": 0.8711,
+        "color": 0.56,
+        "colorIntersection": 0.2742,
+        "paletteMatch": 0.7138,
+        "detail": 0.0237,
+        "detailRaw": 0.0237,
+        "detailAdded": 0,
         "bands": 1
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 14,
@@ -1139,16 +1162,13 @@
           "w": 21,
           "h": 24
         },
-        "build": {
-          "x": 18,
-          "y": 16,
-          "w": 20,
-          "h": 24
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-structure-icon is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-structure-title",
@@ -1158,17 +1178,17 @@
       "h": 0.0186,
       "kind": "text",
       "score": {
-        "overall": 0.5592,
-        "structure": 0.5982,
-        "color": 0.5974,
-        "colorIntersection": 0.2664,
-        "paletteMatch": 0.7756,
-        "detail": 0.4713,
-        "detailRaw": 0.5442,
-        "detailAdded": 0.1458,
+        "overall": 0.592,
+        "structure": 0.7455,
+        "color": 0.717,
+        "colorIntersection": 0.5836,
+        "paletteMatch": 0.7888,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
         "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -1176,16 +1196,13 @@
           "w": 138,
           "h": 12
         },
-        "build": {
-          "x": 1,
-          "y": 3,
-          "w": 159,
-          "h": 13
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-structure-title is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "benefit-structure-copy",
@@ -1195,17 +1212,17 @@
       "h": 0.0547,
       "kind": "text",
       "score": {
-        "overall": 0.6299,
-        "structure": 0.6131,
-        "color": 0.6178,
-        "colorIntersection": 0.2531,
-        "paletteMatch": 0.8141,
-        "detail": 0.5334,
-        "detailRaw": 0.6427,
-        "detailAdded": 0.2188,
-        "bands": 0.8889
+        "overall": 0.5115,
+        "structure": 0.5738,
+        "color": 0.7382,
+        "colorIntersection": 0.627,
+        "paletteMatch": 0.7981,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -1213,16 +1230,13 @@
           "w": 211,
           "h": 51
         },
-        "build": {
-          "x": 1,
-          "y": 4,
-          "w": 223,
-          "h": 50
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region benefit-structure-copy is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "navigation-ground",
@@ -1232,17 +1246,17 @@
       "h": 0.0752,
       "kind": "chrome",
       "score": {
-        "overall": 0.8045,
-        "structure": 0.9883,
-        "color": 0.5212,
-        "colorIntersection": 0.0567,
-        "paletteMatch": 0.7713,
-        "detail": 0.8331,
-        "detailRaw": 0.8331,
-        "detailAdded": 0,
-        "bands": 0.8
+        "overall": 0.4735,
+        "structure": 0.9815,
+        "color": 0.2798,
+        "colorIntersection": 0.0069,
+        "paletteMatch": 0.4268,
+        "detail": 0,
+        "detailRaw": 0.0016,
+        "detailAdded": 0.0208,
+        "bands": 0.4
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 125,
@@ -1251,15 +1265,23 @@
           "h": 38
         },
         "build": {
-          "x": 126,
-          "y": 14,
-          "w": 1294,
-          "h": 39
+          "x": 1283,
+          "y": 0,
+          "w": 139,
+          "h": 2
         }
       },
-      "blocking": false,
+      "verdictReason": "present, displaced inside the first viewport",
+      "displacement": {
+        "dx": 0.0,
+        "dy": 10.0,
+        "visible": 1,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "missing"
     },
     {
       "id": "hero-ground",
@@ -1269,17 +1291,17 @@
       "h": 0.3994,
       "kind": "chrome",
       "score": {
-        "overall": 0.8279,
-        "structure": 0.9105,
-        "color": 0.6065,
-        "colorIntersection": 0.323,
-        "paletteMatch": 0.7592,
-        "detail": 0.8784,
-        "detailRaw": 0.8993,
-        "detailAdded": 0.0417,
-        "bands": 0.92
+        "overall": 0.6115,
+        "structure": 0.5621,
+        "color": 0.5917,
+        "colorIntersection": 0.2979,
+        "paletteMatch": 0.7499,
+        "detail": 0.5719,
+        "detailRaw": 0.6083,
+        "detailAdded": 0.0729,
+        "bands": 0.826
       },
-      "verdict": "match",
+      "verdict": "drift",
       "inkBox": {
         "comp": {
           "x": 0,
@@ -1288,15 +1310,15 @@
           "h": 391
         },
         "build": {
-          "x": 94,
-          "y": 18,
-          "w": 1442,
-          "h": 391
+          "x": 0,
+          "y": 10,
+          "w": 1536,
+          "h": 399
         }
       },
-      "blocking": false,
+      "blocking": null,
       "blockingReasons": [],
-      "rawVerdict": "match"
+      "rawVerdict": "drift"
     },
     {
       "id": "offer-ground",
@@ -1306,17 +1328,17 @@
       "h": 0.208,
       "kind": "chrome",
       "score": {
-        "overall": 0.7851,
-        "structure": 0.9275,
-        "color": 0.5885,
-        "colorIntersection": 0.1862,
-        "paletteMatch": 0.805,
-        "detail": 0.7821,
-        "detailRaw": 0.8082,
-        "detailAdded": 0.0521,
-        "bands": 0.7857
+        "overall": 0.4889,
+        "structure": 0.7313,
+        "color": 0.8863,
+        "colorIntersection": 0.7776,
+        "paletteMatch": 0.9448,
+        "detail": 0.0454,
+        "detailRaw": 0.1183,
+        "detailAdded": 0.1458,
+        "bands": 0
       },
-      "verdict": "drift",
+      "verdict": "missing",
       "inkBox": {
         "comp": {
           "x": 126,
@@ -1325,15 +1347,17 @@
           "h": 146
         },
         "build": {
-          "x": 126,
-          "y": 49,
-          "w": 1295,
-          "h": 139
+          "x": 114,
+          "y": 11,
+          "w": 1092,
+          "h": 174
         }
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region offer-ground is missing"
+      ],
+      "rawVerdict": "missing"
     },
     {
       "id": "next-section-start",
@@ -1343,17 +1367,17 @@
       "h": 0.0566,
       "kind": "chrome",
       "score": {
-        "overall": 0.7161,
-        "structure": 0.9595,
-        "color": 0.9787,
-        "colorIntersection": 0.963,
-        "paletteMatch": 0.9872,
-        "detail": 0.5426,
-        "detailRaw": 0.5738,
-        "detailAdded": 0.0625,
-        "bands": 0
+        "overall": 0.6435,
+        "structure": 0.993,
+        "color": 0.9437,
+        "colorIntersection": 0.9093,
+        "paletteMatch": 0.9623,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
       },
-      "verdict": "drift",
+      "verdict": "displaced",
       "inkBox": {
         "comp": {
           "x": 126,
@@ -1361,16 +1385,21 @@
           "w": 1144,
           "h": 39
         },
-        "build": {
-          "x": 139,
-          "y": 33,
-          "w": 1176,
-          "h": 25
-        }
+        "build": null
       },
-      "blocking": false,
-      "blockingReasons": [],
-      "rawVerdict": "drift"
+      "verdictReason": "present, but displaced past the first viewport",
+      "displacement": {
+        "dx": 60.0,
+        "dy": -40.0,
+        "visible": 0.958,
+        "inferred": false,
+        "unit": "capture px"
+      },
+      "blocking": true,
+      "blockingReasons": [
+        "at desktop width, region next-section-start is displaced, not missing: it renders about 40px higher and 60px to the right than in the comp, and 96% of it stays inside the 1440x960 first viewport. Restore it into the first viewport: size what sits above it in proportion to the viewport (the comp's own ratios), not with fixed px or a px floor that grows it at this width."
+      ],
+      "rawVerdict": "missing"
     }
   ],
   "files": {
@@ -1417,10 +1446,44 @@
   "interpretation": "responsive-gate",
   "measurementsAvailable": true,
   "gate": {
-    "ok": true,
-    "reasons": [],
-    "advisories": [],
-    "unscopedReasons": []
+    "ok": false,
+    "reasons": [
+      "the desktop capture (1440x4024; its first viewport, the top 1536x1024 rows at the comp's width, is compared) scores 63% against the comp, under 65%: the first viewport does not survive a common desktop width. The hero passed at 1536x1024; the layout must hold from ~1280 up, not only at the comp's exact width (grid columns in fr / minmax, not fixed px that overflow and wrap).",
+      "at desktop width, region citizen-demo is missing",
+      "at desktop width, region office-demo is missing",
+      "at desktop width, region table-head is missing",
+      "at desktop width, region record-three is missing",
+      "at desktop width, region price-title is missing",
+      "at desktop width, region price-copy is missing",
+      "at desktop width, region benefit-citizens-icon is missing",
+      "at desktop width, region benefit-citizens-copy is missing",
+      "at desktop width, region benefit-office-icon is missing",
+      "at desktop width, region benefit-office-title is missing",
+      "at desktop width, region benefit-office-copy is missing",
+      "at desktop width, region benefit-structure-icon is missing",
+      "at desktop width, region benefit-structure-title is missing",
+      "at desktop width, region benefit-structure-copy is missing",
+      "at desktop width, region offer-ground is missing",
+      "at desktop width, region next-section-start is displaced, not missing: it renders about 40px higher and 60px to the right than in the comp, and 96% of it stays inside the 1440x960 first viewport. Restore it into the first viewport: size what sits above it in proportion to the viewport (the comp's own ratios), not with fixed px or a px floor that grows it at this width.",
+      "at desktop width, region intro (text) is contradicted (structure 45%)",
+      "at desktop width, region search-button (control) is contradicted (structure 49%)",
+      "at desktop width, region price-value (text) is contradicted (structure 26%)"
+    ],
+    "advisories": [
+      "(advisory, still inside the first viewport) at desktop width, region masthead sits about 11px lower and 18px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region nav-benefits sits about 10px lower and 37px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region nav-contact sits about 10px lower and 30px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region nav-demo sits about 10px lower and 7px to the right than in the comp",
+      "(advisory) at desktop width, plate skyline renders but not at its comp box (structure 43%): size and position it to the spec box",
+      "(advisory, still inside the first viewport) at desktop width, region sample-label sits about 68px lower and 22px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region search-input sits about 70px lower and 10px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region agenda-tabs sits about 78px lower and 62px to the right than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region benefit-citizens-title sits about 71px higher and 28px to the left than in the comp",
+      "(advisory, still inside the first viewport) at desktop width, region navigation-ground sits about 10px lower than in the comp"
+    ],
+    "unscopedReasons": [
+      "the desktop capture (1440x4024; its first viewport, the top 1536x1024 rows at the comp's width, is compared) scores 63% against the comp, under 65%: the first viewport does not survive a common desktop width. The hero passed at 1536x1024; the layout must hold from ~1280 up, not only at the comp's exact width (grid columns in fr / minmax, not fixed px that overflow and wrap)."
+    ]
   },
   "rawReport": ".impeccable/review/diff/desktop/raw-report.json"
 }

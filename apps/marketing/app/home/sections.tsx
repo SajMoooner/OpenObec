@@ -15,7 +15,7 @@ const agendaDescriptions = [
   "Prijaté faktúry s údajmi o dodávateľovi, sumách a súvislostiach.",
   "Zmluvné strany, predmet, platnosť aj priložené znenie zmluvy.",
   "Čo obec objednala, u koho a za akú cenu.",
-  "Predmet zákazky, postup, predpokladaná hodnota a lehota ponúk.",
+  "Predmet zákazky, stav, predpokladaná hodnota a lehota ponúk.",
   "Všeobecne záväzné nariadenia prehľadne na jednom mieste.",
 ];
 const questions = [
