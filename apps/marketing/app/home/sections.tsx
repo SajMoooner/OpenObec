@@ -1,39 +1,296 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, FileSearch, Files, Link2, Paperclip, Eye } from "lucide-react";
+import { AGENDAS } from "@openobec/api-client";
+import { publicLinks } from "@openobec/api-client/server";
 import { Button } from "@openobec/ui/components/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@openobec/ui/components/accordion";
 import { DemoLinks } from "../components/demo-links";
+const agendaDescriptions = [
+  "Prehľad vystavených faktúr, odberateľov a vyúčtovaných súm.",
+  "Prijaté faktúry s údajmi o dodávateľovi, sumách a súvislostiach.",
+  "Zmluvné strany, predmet, platnosť aj priložené znenie zmluvy.",
+  "Čo obec objednala, u koho a za akú cenu.",
+  "Predmet zákazky, postup, predpokladaná hodnota a lehota ponúk.",
+  "Všeobecne záväzné nariadenia prehľadne na jednom mieste.",
+];
+const questions = [
+  [
+    "Pre koho je OpenObec určená?",
+    "Pre obce a mestá, ktoré chcú zjednodušiť evidenciu a sprístupniť dokumenty občanom. Úradník pracuje v pracovnom portáli, občan vo verejnom prehľade.",
+  ],
+  [
+    "Musí sa občan prihlásiť?",
+    "Nie. Publikované dokumenty, ich údaje a prílohy si občan môže prezerať bez účtu. Koncepty zostávajú mimo občianskeho portálu.",
+  ],
+  [
+    "Ako spolu súvisia dokumenty?",
+    "Úradník vyberá súvislosti priamo pri dokumente. Pri finančných a obstarávacích agendách tak môžete prejsť napríklad zo zmluvy k objednávke či faktúre. VZN sa vedú samostatne.",
+  ],
+  [
+    "Aké prílohy možno pridať?",
+    "PDF, PNG alebo JPEG, najviac 10 príloh k dokumentu a do 20 MiB na súbor. Občan si prílohu publikovaného dokumentu môže stiahnuť.",
+  ],
+  [
+    "Dá sa OpenObec prepojiť s informačným systémom obce?",
+    "Prepojenie s mestským IS patrí do plánovaného smerovania produktu. V tomto deme je pripojenie iba simulované; skutočný prenos dát z IS ani externých registrov nie je zapojený.",
+  ],
+  [
+    "Čo znamená cena 199 € ročne?",
+    "Je to navrhovaný ročný paušál produktu. Implementačný poplatok a režim DPH zatiaľ nie sú určené. Táto stránka slúži na predstavenie a vyskúšanie produktu, neobsahuje objednávku ani platbu.",
+  ],
+];
 export function HomeSections() {
+  const links = publicLinks();
   return (
     <>
-      <section aria-labelledby="workflow-title" className="marketing-workflow-body">
-        <p className="max-w-prose leading-7 text-muted-foreground">
-          Od rozpracovaného záznamu po dokument dostupný občanom. Údaje aj prílohy spravujete v
-          jednej evidencii.
-        </p>
-        <ol className="grid gap-8 sm:grid-cols-3">
+      <section className="marketing-container marketing-section" aria-labelledby="benefits-title">
+        <div className="max-w-3xl">
+          <h2 id="benefits-title" className="marketing-section-title">
+            Menej hľadania. Viac prehľadu.
+          </h2>
+          <p className="marketing-section-copy">
+            Faktúry na jednom portáli, zmluvy na inom a prílohy schované medzi odkazmi. OpenObec
+            dáva dokumentom spoločné miesto a občanom zrozumiteľnú cestu k informáciám.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-10 border-y py-9 md:grid-cols-2 md:gap-16">
+          <div>
+            <FileSearch className="mb-4 size-7 text-primary" />
+            <h3 className="text-xl font-semibold">Občan nájde to, čo potrebuje</h3>
+            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">
+              Vyhľadá názov alebo číslo dokumentu, pozrie si jeho údaje a stiahne prílohu.
+              Súvislosti pomáhajú vidieť, ktoré záznamy patria k sebe.
+            </p>
+            <ul className="mt-5 space-y-3 text-sm">
+              {[
+                "Jedno vyhľadávanie naprieč šiestimi agendami",
+                "Údaje, súvislosti a prílohy pri dokumente",
+                "Verejný prístup bez registrácie",
+              ].map((text) => (
+                <li className="flex gap-3" key={text}>
+                  <Check className="size-4 shrink-0 text-primary" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Files className="mb-4 size-7 text-primary" />
+            <h3 className="text-xl font-semibold">Úradník má jasný pracovný postup</h3>
+            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">
+              Pripraví záznam, doplní údaje a prílohy a rozhodne, kedy ho zverejní. Koncept a
+              publikovaný dokument majú v prehľade vlastný stav.
+            </p>
+            <ul className="mt-5 space-y-3 text-sm">
+              {[
+                "Formuláre podľa konkrétnej agendy",
+                "Výber súvisiacich dokumentov a správa príloh",
+                "Úpravy, zverejnenie aj zrušenie publikovania",
+              ].map((text) => (
+                <li className="flex gap-3" key={text}>
+                  <Check className="size-4 shrink-0 text-primary" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-9 grid gap-7 sm:grid-cols-3">
           {[
             {
-              title: "Vyberte dokument",
-              text: "Zvoľte jednu zo šiestich agend a vytvorte nový záznam.",
+              icon: Link2,
+              title: "Dokumenty v súvislostiach",
+              text: "Prejdite od zmluvy k súvisiacej objednávke alebo faktúre.",
             },
             {
-              title: "Doplňte údaje",
-              text: "Vyplňte potrebné polia, vyberte súvislosti a priložte súbor.",
+              icon: Paperclip,
+              title: "Prílohy poruke",
+              text: "Údaje a skutočné súbory sú dostupné z jedného detailu.",
             },
-            { title: "Zverejnite", text: "Hotový dokument sprístupnite v občianskom portáli." },
-          ].map((step) => (
-            <li key={step.title}>
-              <h3 className="font-semibold">{step.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.text}</p>
-            </li>
+            {
+              icon: Eye,
+              title: "Prehľadná štruktúra",
+              text: "Usporiadané podľa agend obce, s jasným a zrozumiteľným zobrazením.",
+            },
+          ].map((item) => (
+            <div key={item.title}>
+              <item.icon className="mb-3 size-5 text-primary" />
+              <h3 className="font-semibold">{item.title}</h3>
+              <p
+                className={`${item.icon === Eye ? "r-benefit-structure-copy " : ""}mt-2 text-sm leading-6 text-muted-foreground`}
+              >
+                {item.text}
+              </p>
+            </div>
           ))}
-        </ol>
+        </div>
       </section>
-      <section className="mx-auto max-w-7xl space-y-8 px-6 py-16 sm:py-20">
-        <div className="flex flex-wrap items-end justify-between gap-5">
+      <section className="border-y bg-secondary" aria-labelledby="agendas-title">
+        <div className="marketing-container marketing-section">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 id="agendas-title" className="marketing-section-title">
+                Šesť agend na jednom mieste
+              </h2>
+              <p className="marketing-section-copy">
+                Od faktúr a zmlúv až po pravidlá obce. Každá agenda má vlastné údaje, jednotný
+                spôsob prezerania a priestor pre prílohy.
+              </p>
+            </div>
+            <Button asChild variant="outline">
+              <Link href="/vyhody">
+                Pozrieť všetky výhody
+                <ArrowRight />
+              </Link>
+            </Button>
+          </div>
+          <dl className="mt-9 grid gap-x-12 md:grid-cols-2">
+            {AGENDAS.map((a, i) => (
+              <div className="border-t border-foreground/15 py-6" key={a.slug}>
+                <dt>
+                  <a
+                    className="group inline-flex items-center gap-2 font-semibold underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
+                    href={`${links.citizen}/obcan/${a.slug}`}
+                  >
+                    {a.title}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </dt>
+                <dd className="mt-2 max-w-prose text-sm leading-6 text-foreground/75">
+                  {agendaDescriptions[i]}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+      <section
+        id="postup"
+        className="marketing-container marketing-section"
+        aria-labelledby="workflow-title"
+      >
+        <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+          <div>
+            <h2 id="workflow-title" className="marketing-section-title">
+              Jednoduché v 3 krokoch
+            </h2>
+            <p className="marketing-section-copy">
+              Od rozpracovaného záznamu po dokument dostupný občanom. Údaje aj prílohy spravujete v
+              jednej evidencii.
+            </p>
+          </div>
+          <ol className="grid gap-7 sm:grid-cols-3">
+            {[
+              {
+                title: "Vyberte dokument",
+                text: "Zvoľte jednu zo šiestich agend a vytvorte nový záznam.",
+              },
+              {
+                title: "Doplňte údaje",
+                text: "Vyplňte potrebné polia, vyberte súvislosti a priložte súbor.",
+              },
+              { title: "Zverejnite", text: "Hotový dokument sprístupnite v občianskom portáli." },
+            ].map((step, i) => (
+              <li key={step.title}>
+                <span
+                  className="mb-5 flex size-10 items-center justify-center rounded-full bg-secondary font-semibold text-primary"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <h3 className="font-semibold">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+      <section id="cena" className="border-y bg-secondary" aria-labelledby="offer-title">
+        <div className="marketing-container marketing-section">
+          <div className="grid items-start gap-10 lg:grid-cols-2">
+            <div>
+              <h2 id="offer-title" className="marketing-section-title">
+                Navrhovaná cena služby
+              </h2>
+              <p className="marketing-price-copy marketing-section-copy !text-foreground/75">
+                Moderné riešenie pre zverejňovanie a evidenciu dokumentov obce. Prehľadné a ľahko
+                použiteľné.
+              </p>
+              <p className="mt-6 text-5xl font-semibold tracking-tight">
+                <span className="text-primary">199 €</span>
+                <span className="text-2xl"> / rok</span>
+              </p>
+              <p className="mt-4 max-w-lg text-sm leading-6 text-foreground/75">
+                Návrh ročného paušálu. Implementačný poplatok a DPH zatiaľ nie sú určené.
+              </p>
+              <Button asChild className="mt-6">
+                <Link href="/demo">
+                  Najprv si OpenObec vyskúšajte
+                  <ArrowRight />
+                </Link>
+              </Button>
+            </div>
+            <div className="rounded-xl border bg-background p-6 sm:p-8">
+              <h3 className="text-xl font-semibold">Čo si môžete v deme vyskúšať</h3>
+              <ul className="mt-6 space-y-4">
+                {[
+                  "Verejný portál pre občanov",
+                  "Pracovný portál a šesť agend",
+                  "Záznamy s údajmi a súborovými prílohami",
+                  "Explicitne vybrané súvislosti dokumentov",
+                  "Celý postup od konceptu po zverejnenie",
+                ].map((text) => (
+                  <li key={text} className="flex gap-3 text-sm leading-6">
+                    <Check className="mt-1 size-4 shrink-0 text-primary" />
+                    {text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="otazky"
+        className="marketing-container marketing-section"
+        aria-labelledby="faq-title"
+      >
+        <div className="grid gap-9 lg:grid-cols-[1fr_2fr]">
+          <div>
+            <h2 id="faq-title" className="marketing-section-title">
+              Časté otázky
+            </h2>
+            <p className="marketing-section-copy">
+              Čo OpenObec dnes vie a čo patrí do ďalšieho rozvoja.
+            </p>
+          </div>
+          <Accordion type="single" collapsible>
+            {questions.map(([q, a], i) => (
+              <AccordionItem key={q} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left">{q}</AccordionTrigger>
+                <AccordionContent className="max-w-prose leading-7 text-muted-foreground">
+                  {a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+      <section
+        className="marketing-container marketing-section border-t"
+        aria-labelledby="demo-title"
+      >
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight">Vyskúšajte obe strany obce</h2>
-            <p className="mt-4 leading-7 text-muted-foreground">
+            <h2 id="demo-title" className="marketing-section-title">
+              Vyskúšajte obe strany obce
+            </h2>
+            <p className="marketing-section-copy">
               Ukážkové dokumenty Žiliny vám priblížia vyhľadávanie aj publikovanie. Všetky údaje a
               organizácie sú fiktívne.
             </p>

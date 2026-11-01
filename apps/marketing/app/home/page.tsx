@@ -2,7 +2,6 @@ import { publicLinks } from "@openobec/api-client/server";
 import { MarketingHero } from "./hero";
 import { HomeSections } from "./sections";
 import { MarketingFooter } from "../components/site-shell";
-import "./hero-geometry.css";
 import "./marketing.css";
 export const dynamic = "force-dynamic";
 export default function MarketingHome() {

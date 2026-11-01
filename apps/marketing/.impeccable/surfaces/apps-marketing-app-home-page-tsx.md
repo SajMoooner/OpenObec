@@ -22,3 +22,11 @@ FIRST VIEWPORT: At1536x1024, navigation sits at the top, the two-line61px headli
 FORM: Category standard chosen deliberately (canon), then navy composition selected. seed:bf2abb90da53d612. The font matcher ranked Google Sans Flex nearest, but user explicitly pinned shadcn; use Geist, measured candidate61px. Genuine comp defects corrected in semantic UI: remove decorative eyebrow labels, remove unsupported word “bezpečné”, align initial active agenda with displayed rows. All ordinary control styles remain shadcn.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Záväzné spresnenie používateľa – užší marketingový úvod
+
+Používateľ po vyskúšaní žiada: „ma byt tak na strede ako je ten komponen vyskušajte obe strany obce“ a „pridaj tam vaic informácií na tu prvu uvodnu stránku“. Táto novšia požiadavka nahrádza absolútne súradnice a škálovanie pôvodného compu. Pôvodný obraz ostáva referenciou pre identitu (navy, panorama, register), nie autoritou pre šírku ani počet sekcií.
+
+Spatial thesis: jeden stredový stĺpec max1280px vrátane24px bočných okrajov, spoločné hrany navigácie, úvodu, registra aj spodných sekcií. Nadpis clamp36–56px, žiadne zväčšovanie celej stránky podľa šírky monitora. Čítacia cesta: čo produkt rieši → funkčná ukážka → prínosy pre oba typy používateľa → agendy → postup → navrhovaná cena → FAQ → obe demá. Pozadia môžu byť celoplošné; obsah zostáva ohraničený. Mobil skladá stĺpce, stockshadcn taby/tabuľka majú lokálny posun; jadrovépoliaobčan/úradník sa nemenia.
+
+Ide o rozšírenie existujúceho sveta, bez nových farieb, fontov alebo aktív. DESIGN.md/sidecar sa zachovajú; miestna displayveľkosť a rozloženie sa riadia týmto novším surfacebriefom. Inšpirácia štruktúrou: ShadcnStore landingtemplate a Shadcnblocks SaaS landing/pricing/FAQ; kód a texty sú vlastné, obrázok je pôvodne schválený.

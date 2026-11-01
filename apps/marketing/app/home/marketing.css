@@ -1,541 +1,102 @@
-.marketing-opening {
-  overflow: visible;
-  container-type: inline-size;
-  color: var(--foreground);
-  background: var(--background);
-}
-.navy-ground {
-  background: var(--foreground);
-}
-.offer-ground {
-  background: var(--secondary);
-}
-.register-panel {
-  background: var(--background);
-  border-radius: var(--radius);
-}
-.skyline img {
+.marketing-container {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
-.marketing-opening a {
-  text-underline-offset: 0.25em;
-}
-.marketing-brand {
-  color: var(--background);
-  font-size: 1.823cqw;
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-}
-.marketing-nav-link {
-  display: flex;
+.marketing-hero-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2rem;
   align-items: center;
-  justify-content: center;
-  color: var(--background);
-  font-size: 0.912cqw;
-}
-.marketing-nav-link:hover {
-  text-decoration: underline;
-}
-.marketing-demo {
-  font-size: 0.846cqw;
-  padding: 0 0.78cqw;
-}
-.marketing-demo svg {
-  width: 1.04cqw;
-  height: 1.04cqw;
+  padding-block: 3rem 6rem;
 }
 .marketing-headline {
-  color: var(--background);
-  font-size: 3.90625cqw;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1;
-  white-space: nowrap;
-}
-.marketing-intro {
-  color: var(--background);
-  font-size: 1.823cqw;
-  line-height: 1.14;
-  letter-spacing: 0;
-  white-space: nowrap;
-}
-.marketing-action {
-  font-size: 1.04cqw;
-  padding: 0 1.3cqw;
-}
-.marketing-action svg {
-  width: 1.3cqw;
-  height: 1.3cqw;
-}
-.marketing-search-heading {
-  font-size: 1.758cqw;
-  line-height: 1.15;
-  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.025em;
 }
-.marketing-sample {
-  font-size: 0.91cqw;
-  line-height: 1.4;
-  color: color-mix(in srgb, var(--foreground) 70%, var(--background));
-  white-space: nowrap;
-  text-align: right;
+.marketing-skyline {
+  width: 100%;
+  height: auto;
 }
-.marketing-search {
-  display: flex;
-  align-items: center;
+.marketing-register-wrap {
+  position: relative;
+  margin-top: -3rem;
 }
-.marketing-search > svg {
-  position: absolute;
-  left: 1cqw;
-  width: 1.43cqw;
-  height: 1.43cqw;
-  color: color-mix(in srgb, var(--foreground) 60%, var(--background));
-  pointer-events: none;
-}
-.marketing-search input {
-  height: 100%;
-  font-size: 0.977cqw;
-  padding-left: 3.25cqw;
-  border-color: color-mix(in srgb, var(--foreground) 20%, var(--background));
-  box-shadow: none;
-}
-.marketing-search input::placeholder {
-  color: color-mix(in srgb, var(--foreground) 65%, var(--background));
+.marketing-register {
+  min-width: 0;
 }
 .marketing-tabs {
-  width: 84%;
-  border-bottom: 1px solid var(--secondary);
+  overflow-x: auto;
 }
 .marketing-tabs [data-slot="tabs-list"] {
-  height: 100%;
-  padding: 0;
-  gap: 1cqw;
-}
-.marketing-tabs [data-slot="tabs-trigger"] {
-  font-size: 0.91cqw;
-  padding: 0 1.1cqw;
-  color: color-mix(in srgb, var(--foreground) 80%, var(--background));
-}
-.marketing-tabs [data-state="active"] {
-  color: var(--primary);
-}
-.marketing-tabs [data-state="active"]::after {
-  background: var(--primary);
-  bottom: -1px;
-}
-.marketing-table {
-  position: absolute;
-  left: 8.14%;
-  top: 56.05%;
-  width: 84.1%;
+  width: max-content;
+  min-width: 100%;
+  justify-content: flex-start;
 }
 .marketing-table table {
-  font-size: 0.9115cqw;
+  min-width: 40rem;
+}
+.marketing-table th:first-child {
+  width: 40%;
 }
 .marketing-table thead {
   background: var(--secondary);
 }
-.marketing-table th {
-  height: 2.083cqw;
-  font-size: 0.78125cqw;
-  font-weight: 500;
-}
-.marketing-table td {
-  height: 2.5cqw;
-  padding-top: 0.3cqw;
-  padding-bottom: 0.3cqw;
-}
 .marketing-table th,
 .marketing-table td {
-  padding-left: 0.85cqw;
-  padding-right: 0.85cqw;
+  padding-block: 0.8rem;
 }
-.marketing-table th:first-child {
-  width: 44.4%;
-}
-.marketing-table th:nth-child(2) {
-  width: 22.4%;
-}
-.marketing-table th:nth-child(3) {
-  width: 22%;
-}
-.marketing-table tr {
-  border-color: var(--secondary);
-}
-.marketing-price-title {
-  font-size: 2.2786cqw;
-  line-height: 1.05;
-  font-weight: 700;
-  letter-spacing: -0.035em;
+.marketing-table td:last-child {
   white-space: nowrap;
 }
-.marketing-price-copy {
-  font-size: 1.107cqw;
-  line-height: 1.25;
-  color: color-mix(in srgb, var(--foreground) 80%, var(--background));
-  white-space: nowrap;
+.marketing-section {
+  padding-block: 4rem;
 }
-.marketing-price {
-  font-size: 2.344cqw;
-  line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  white-space: nowrap;
-}
-.marketing-price span {
-  color: var(--ring);
-}
-.marketing-benefit-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--ring) 10%, var(--background));
-  color: var(--primary);
-}
-.marketing-benefit-icon svg {
-  width: 1.7cqw;
-  height: 1.7cqw;
-}
-.marketing-benefit-title {
-  font-size: 1.042cqw;
+.marketing-section-title {
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
   line-height: 1.2;
   font-weight: 600;
-  white-space: nowrap;
-}
-.marketing-benefit-copy {
-  font-size: 0.9766cqw;
-  line-height: 1.28;
-  color: color-mix(in srgb, var(--foreground) 80%, var(--background));
-}
-
-.marketing-action[data-variant="default"] {
-  background: color-mix(in srgb, var(--ring) 95%, var(--foreground));
-}
-.marketing-action[data-variant="default"]:hover {
-  background: var(--primary);
-}
-.marketing-workflow-start {
-  display: flex;
-  padding-inline: 8.14%;
-  justify-content: space-between;
-}
-.marketing-workflow-start h2 {
-  font-size: 2.2786cqw;
-  line-height: 1.1;
-  font-weight: 700;
   letter-spacing: -0.025em;
-  padding-top: 2.6cqw;
+  text-wrap: balance;
 }
-.marketing-workflow-start ol {
-  display: flex;
-  justify-content: space-around;
-  width: 47%;
-  padding-top: 1.04cqw;
+.marketing-section-copy {
+  max-width: 65ch;
+  margin-top: 1rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
 }
-.marketing-workflow-start li > span:first-child {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.125cqw;
-  height: 3.125cqw;
-  border-radius: 50%;
-  background: var(--secondary);
-  color: var(--primary);
-  font-size: 1.04cqw;
-  font-weight: 600;
+@media (max-width: 1023px) {
+  .marketing-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+  .marketing-skyline {
+    max-width: 36rem;
+    justify-self: end;
+  }
 }
-.marketing-intro {
-  font-size: 1.758cqw;
-  letter-spacing: -0.01em;
-  color: var(--secondary);
-}
-.marketing-demo,
-.marketing-action {
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.marketing-demo,
-.marketing-action[data-variant="secondary"] {
-  background: var(--background);
-}
-.marketing-demo svg,
-.marketing-action[data-variant="secondary"] svg {
-  color: var(--ring);
-}
-
-.marketing-workflow-body {
-  display: grid;
-  grid-template-columns: 40% 57%;
-  gap: 3%;
-  padding: 1.6rem 8.14% 2rem;
-}
-.marketing-search {
-  border-radius: var(--radius-md);
-  transition: box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.marketing-search:focus-within {
-  box-shadow: 0 4px 18px -8px color-mix(in srgb, var(--primary) 55%, transparent);
+@media (max-width: 639px) {
+  .marketing-hero-layout {
+    padding-bottom: 5rem;
+  }
+  .marketing-skyline {
+    max-height: 9rem;
+    object-fit: contain;
+  }
+  .marketing-section {
+    padding-block: 3rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marketing-opening * {
-    transition: none !important;
+  .marketing-tabs * {
+    transition: none;
   }
 }
-@media (max-width: 767px) {
-  .marketing-opening {
-    display: flex;
-    flex-direction: column;
-    aspect-ratio: auto;
-    overflow: visible;
-  }
-  .marketing-opening :is([class^="r-"], [class*=" r-"]) {
-    position: static;
-    inset: auto;
-    width: auto;
-    height: auto;
-  }
-  .marketing-opening > .navy-ground,
-  .marketing-opening > .offer-ground,
-  .marketing-opening > .register-panel {
-    display: none;
-  }
-  .marketing-opening > header {
-    order: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px;
-    background: var(--foreground);
-  }
-  .marketing-brand {
-    font-size: 25px;
-  }
-  .marketing-opening header nav {
-    display: flex;
-  }
-  .marketing-nav-link {
-    display: none;
-  }
-  .marketing-demo {
-    height: 40px !important;
-    font-size: 13px;
-    padding: 0 12px;
-  }
-  .marketing-demo svg {
-    width: 16px;
-    height: 16px;
-  }
-  .marketing-opening > section[aria-labelledby="headline"] {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-    padding: 20px 20px 24px;
-    background: var(--foreground);
-  }
-  .marketing-headline {
-    font-size: clamp(30px, 8.7vw, 48px);
-    line-height: 1.08;
-    white-space: normal;
-    margin: 0 0 4px;
-  }
-  .marketing-intro {
-    font-size: 18px;
-    line-height: 1.5;
-    white-space: normal;
-    margin-bottom: 8px;
-  }
-  .marketing-intro br {
-    display: none;
-  }
-  .marketing-action {
-    min-height: 44px;
-    font-size: 16px;
-    padding: 0 16px;
-  }
-  .marketing-action svg {
-    width: 18px;
-    height: 18px;
-  }
-  .marketing-opening > .skyline {
-    order: 3;
-    height: 170px;
-    background: var(--foreground);
-  }
-  .skyline img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .marketing-opening > section[aria-labelledby="register-title"] {
-    order: 4;
-    padding: 28px 20px;
-    min-width: 0;
-  }
-  .marketing-search-heading {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-  .marketing-sample {
-    margin-top: 10px;
-    font-size: 13px;
-    text-align: left;
-  }
-  .marketing-opening form {
-    display: grid;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .marketing-opening .marketing-search {
-    position: relative;
-    width: 100%;
-    height: 48px !important;
-  }
-  .marketing-search input {
-    font-size: 16px;
-    padding-left: 42px;
-  }
-  .marketing-search > svg {
-    left: 12px;
-    width: 20px;
-    height: 20px;
-  }
-  .marketing-tabs {
-    margin-top: 22px;
-    width: 100% !important;
-    overflow-x: auto;
-  }
-  .marketing-tabs [data-slot="tabs-list"] {
-    min-width: 800px;
-    height: 42px;
-    gap: 8px;
-  }
-  .marketing-tabs [data-slot="tabs-trigger"] {
-    font-size: 14px;
-    padding: 0 12px;
-  }
-  .marketing-table {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-    min-width: 0;
-  }
-  .marketing-table table {
-    min-width: 620px;
-    font-size: 14px;
-  }
-  .marketing-table th {
-    height: 36px;
-    font-size: 12px;
-  }
-  .marketing-table td {
-    height: 44px;
-    padding-block: 10px;
-  }
-  .marketing-table th,
-  .marketing-table td {
-    padding-inline: 12px;
-  }
-  .marketing-opening > section[aria-labelledby="offer-title"] {
-    order: 5;
-    display: grid;
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 8px 16px;
-    padding: 28px 20px 32px;
-    background: var(--secondary);
-  }
-  .marketing-price-title {
-    grid-column: 1/-1;
-    font-size: 25px;
-    line-height: 1.2;
-    white-space: normal;
-  }
-  .marketing-price-copy {
-    grid-column: 1/-1;
-    margin-top: 4px;
-    font-size: 15px;
-    line-height: 1.5;
-    white-space: normal;
-  }
-  .marketing-price-copy br {
-    display: none;
-  }
-  .marketing-price {
-    grid-column: 1/-1;
-    margin: 8px 0 18px;
-    font-size: 32px;
-  }
-  .marketing-benefit-icon {
-    grid-column: 1;
-    grid-row: span 2;
-    width: 44px !important;
-    height: 44px !important;
-    margin-top: 10px;
-  }
-  .marketing-benefit-icon svg {
-    width: 23px;
-    height: 23px;
-  }
-  .marketing-benefit-title {
-    grid-column: 2;
-    margin-top: 10px;
-    font-size: 16px;
-    line-height: 1.4;
-    white-space: normal;
-  }
-  .marketing-benefit-copy {
-    grid-column: 2;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  .marketing-benefit-copy br {
-    display: none;
-  }
-  .marketing-opening > .marketing-workflow-start {
-    order: 6;
-    padding: 32px 20px 0;
-  }
-  .marketing-workflow-start h2 {
-    padding: 0;
-    font-size: 26px;
-    line-height: 1.2;
-  }
-  .marketing-workflow-start ol {
-    display: none;
-  }
-  .marketing-workflow-body {
-    display: block;
-    padding: 20px;
-  }
-  .marketing-workflow-body > p {
-    margin-bottom: 28px;
-  }
-  .marketing-workflow-body ol {
-    grid-template-columns: 1fr;
-    counter-reset: step;
-  }
-  .marketing-workflow-body li {
-    counter-increment: step;
-  }
-  .marketing-workflow-body li:before {
-    content: counter(step);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: var(--secondary);
-    border-radius: 50%;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
+
+.bg-secondary .marketing-section-copy {
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
 }
