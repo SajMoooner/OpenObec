@@ -1,0 +1,22 @@
+{
+  "owner": "OpenObec Task 5 publication showcase",
+  "run": "2026-11-01T19-36-37-574Z",
+  "number": "FV/2026/0057",
+  "payload": {
+    "cislo": "FV/2026/0057",
+    "predmet": "Prenájom sály na komunitné podujatie",
+    "odberatel": {
+      "nazov": "Spolok Rodinná lúka"
+    },
+    "datum_vystavenia": "2026-11-02",
+    "datum_splatnosti": "2026-12-02",
+    "suma_bez_dph": "245.50",
+    "suma_dph": "56.47",
+    "suma_s_dph": "301.97",
+    "mena": "EUR",
+    "zverejnene": true
+  },
+  "createdId": "fak_d0f2b5d6-7a8a-422e-a71f-c5698c32aae4",
+  "pdfSha256": "472a316ee2868bd85f50e2fe329dfc447bb840702fe9992af45073060824b149",
+  "cleanup": "Keep published. Only this createdId is owned by this recording; never modify any seed record."
+}

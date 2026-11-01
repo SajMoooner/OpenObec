@@ -1,0 +1,11 @@
+[libvpx-vp9 @ 0x97c800380] v1.14.1
+Input #0, matroska,webm, from 'apps/marketing/public/showcase/publication.webm':
+  Metadata:
+    creation_time   : 2026-11-01T19:36:38.039000Z
+    ENCODER         : Lavf61.1.100
+  Duration: 00:00:39.24, start: 0.000000, bitrate: 705 kb/s
+  Stream #0:0(eng): Video: vp9 (libvpx-vp9) (Profile 0), yuv420p(tv, progressive), 1280x800, SAR 1:1 DAR 8:5, 25 fps, 25 tbr, 1k tbn (default)
+      Metadata:
+        ENCODER         : Lavc61.3.100 libvpx-vp9
+        DURATION        : 00:00:39.240000000
+At least one output file must be specified

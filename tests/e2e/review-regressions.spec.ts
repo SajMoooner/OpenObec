@@ -3,58 +3,7 @@ import { test, expect } from "@playwright/test";
 const marketing = "http://127.0.0.1:3000";
 const citizen = "http://127.0.0.1:3001";
 const office = "http://127.0.0.1:3002";
-const agendas = [
-  ["Všetky", null],
-  ["Faktúry", "faktury"],
-  ["Dodávateľské faktúry", "dodavatelske-faktury"],
-  ["Zmluvy", "zmluvy"],
-  ["Objednávky", "objednavky"],
-  ["Verejné obstarávanie", "verejne-obstaravanie"],
-  ["VZN", "vzn"],
-] as const;
-
-// A fabricated title query must not turn any of the three preview actions into empty results.
-for (const [tab, agenda] of agendas) {
-  test(`marketing preview ${tab} opens populated published agendas from all three rows`, async ({
-    page,
-    request,
-  }) => {
-    for (let index = 0; index < 3; index++) {
-      await page.goto(`${marketing}/home`);
-      await page.getByRole("tab", { name: tab, exact: true }).click();
-      const rows = page.locator(".marketing-table tbody tr");
-      await expect(rows).toHaveCount(3);
-      const action = rows.nth(index).getByRole("link");
-      await action.click();
-      await expect(page).toHaveURL(/http:\/\/(?:localhost|127\.0\.0\.1):3001\/obcan\//);
-      const destination = new URL(page.url());
-      const slug = destination.pathname.split("/")[2];
-      if (agenda) expect(slug).toBe(agenda);
-      const apiPath = slug === "vzn" ? "/vzn" : `/query/${slug}`;
-      const params = new URLSearchParams({
-        zverejnene: "true",
-        page_size: "1",
-        q: destination.searchParams.get("q") ?? "",
-      });
-      const response = await request.get(`${citizen}/api/rest/v1${apiPath}?${params}`);
-      expect(response.ok()).toBe(true);
-      const result = await response.json();
-      expect(
-        result.pagination.total,
-        `preview row ${index + 1} must lead to actual records`,
-      ).toBeGreaterThan(0);
-      const published = result.data[0].zaznam ?? result.data[0];
-      expect(published.zverejnene).toBe(true);
-      const record = page.locator(`main tbody a[href^="/obcan/${slug}/"]`).first();
-      await expect(record).toBeVisible();
-      await page.goto(`${marketing}/home`);
-      await page.getByRole("tab", { name: tab, exact: true }).click();
-      await expect(
-        page.locator(".marketing-table tbody tr").nth(index).getByRole("link"),
-      ).toHaveText(/Otvoriť agendu/);
-    }
-  });
-}
+// The user-directed animated real screenshots supersedes the illustrative table and its agenda tabs.
 
 // Separate narrow columns must not squeeze titles or place the state/open control off screen.
 for (const [name, url, isOffice, hasAgenda, width] of [

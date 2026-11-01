@@ -1,10 +1,12 @@
 import { test, expect } from "@playwright/test";
-test("marketing fits mobile and keeps its document preview above the offer", async ({ page }) => {
+test("marketing fits mobile and keeps its publication screenshots above the offer", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("http://127.0.0.1:3000/home");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Dokumenty obce");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-  const preview = await page.locator(".marketing-table").boundingBox();
+  const preview = await page.locator(".publication-showcase").boundingBox();
   const offer = await page.locator('section[aria-labelledby="offer-title"]').boundingBox();
   expect(preview).not.toBeNull();
   expect(offer).not.toBeNull();
@@ -53,12 +55,11 @@ test("mobile navigation closes after selecting a page and identifies the current
   ).toHaveAttribute("aria-current", "page");
 });
 
-test("marketing search submits the user's query to the selected agenda", async ({ page }) => {
+test("marketing search submits the user's query to the public register", async ({ page }) => {
   await page.goto("http://127.0.0.1:3000/home");
-  await page.getByRole("tab", { name: "Zmluvy", exact: true }).click();
   await page.getByRole("searchbox").fill("knižnice");
   await page.getByRole("button", { name: "Hľadať", exact: true }).click();
-  await expect(page).toHaveURL(/:3001\/obcan\/zmluvy\?q=/);
+  await expect(page).toHaveURL(/:3001\/obcan\/home\?q=/);
   expect(new URL(page.url()).searchParams.get("q")).toBe("knižnice");
   await expect(page.getByRole("searchbox")).toHaveValue("knižnice");
 });

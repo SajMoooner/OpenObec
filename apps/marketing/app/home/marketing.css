@@ -28,29 +28,43 @@
 .marketing-register {
   min-width: 0;
 }
-.marketing-tabs {
-  overflow-x: auto;
-}
-.marketing-tabs [data-slot="tabs-list"] {
-  width: max-content;
-  min-width: 100%;
-  justify-content: flex-start;
-}
-.marketing-table table {
-  min-width: 40rem;
-}
-.marketing-table th:first-child {
-  width: 40%;
-}
-.marketing-table thead {
+.publication-frame {
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
   background: var(--secondary);
 }
-.marketing-table th,
-.marketing-table td {
-  padding-block: 0.8rem;
+.publication-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
-.marketing-table td:last-child {
-  white-space: nowrap;
+[data-state="active"] > .publication-frame .publication-image {
+  animation: publication-reveal 280ms ease-out;
+}
+.publication-caption {
+  min-height: 4.5rem;
+}
+@keyframes publication-reveal {
+  from {
+    opacity: 0.65;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 640px) {
+  .publication-caption {
+    min-height: 3rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-state="active"] > .publication-frame .publication-image {
+    animation: none;
+  }
 }
 .marketing-section {
   padding-block: 4rem;
@@ -92,7 +106,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marketing-tabs * {
+  .marketing-register * {
     transition: none;
   }
 }

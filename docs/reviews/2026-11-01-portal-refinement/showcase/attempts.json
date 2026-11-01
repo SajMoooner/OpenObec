@@ -1,0 +1,111 @@
+[
+  {
+    "owner": "OpenObec Task 5 publication showcase",
+    "run": "2026-11-01T19-32-41-184Z",
+    "number": "FV/2026/0053",
+    "payload": {
+      "cislo": "FV/2026/0053",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka"
+      },
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "mena": "EUR",
+      "zverejnene": true
+    },
+    "createdId": null,
+    "cleanup": "Keep published: linked by provenance. Delete only the exact createdId after verifying this payload and PDF hash; never touch seed records."
+  },
+  {
+    "owner": "OpenObec Task 5 publication showcase",
+    "run": "2026-11-01T19-33-07-600Z",
+    "number": "FV/2026/0054",
+    "payload": {
+      "cislo": "FV/2026/0054",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka"
+      },
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "mena": "EUR",
+      "zverejnene": true
+    },
+    "createdId": "fak_a0bae993-1aa4-405e-9e54-11763832d535",
+    "pdfSha256": "b929570621f534d58ae4aff512f7e999f2d2142dde1383a56299855ca505bbcd",
+    "cleanup": "Removed only verified owned record after proof extractor failed; seed records unchanged."
+  },
+  {
+    "owner": "OpenObec Task 5 publication showcase",
+    "run": "2026-11-01T19-31-36-048Z",
+    "number": "FV/2026/0053",
+    "payload": {
+      "cislo": "FV/2026/0053",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka"
+      },
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "mena": "EUR",
+      "zverejnene": true
+    },
+    "createdId": "fak_5bf431a8-e5bb-419a-b948-c2e0f786f710",
+    "pdfSha256": "0a8c4d55d73ecd325a5d380bda5d753dd3e6eb65a6a4beed8f985fe224ada15d",
+    "cleanup": "Failed capture removed only this verified owned record; no seed record changed."
+  },
+  {
+    "owner": "OpenObec Task 5 publication showcase",
+    "run": "2026-11-01T19-35-28-189Z",
+    "number": "FV/2026/0056",
+    "payload": {
+      "cislo": "FV/2026/0056",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka"
+      },
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "mena": "EUR",
+      "zverejnene": true
+    },
+    "createdId": "fak_916a4dbe-3b39-45ea-b032-5bf4e8ef075b",
+    "pdfSha256": "e9df7539f830b7f3abf52a25db3214c56574ef8fee96b3be02ff2a91cd419b83",
+    "cleanup": "Removed only verified owned record for top-to-bottom recording refinement; seed records unchanged."
+  },
+  {
+    "owner": "OpenObec Task 5 publication showcase",
+    "run": "2026-11-01T19-34-05-392Z",
+    "number": "FV/2026/0055",
+    "payload": {
+      "cislo": "FV/2026/0055",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka"
+      },
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "mena": "EUR",
+      "zverejnene": true
+    },
+    "createdId": "fak_163600a6-eb6e-4b2a-b1c4-780d7e870d71",
+    "pdfSha256": "b17839ff5a537555549a6e387ecb5635ced21139e277920da7098e638d2caf47",
+    "cleanup": "Removed only verified owned record after incompatible encoder produced no video. Seed records unchanged."
+  }
+]

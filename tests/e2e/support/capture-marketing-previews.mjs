@@ -1,6 +1,9 @@
 // Run deliberately after confirming the local dataset contains only owned demo records.
 // Does not create or modify records. Review both images and update provenance before commit.
 import { chromium, expect } from "@playwright/test";
+import { mkdir } from "node:fs/promises";
+const output = process.env.PREVIEW_OUTPUT ?? "apps/marketing/public/previews";
+await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   executablePath:
     process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -29,7 +32,14 @@ try {
       )
       .waitFor();
     if (name === "office-overview") {
-      await expect(page.locator("main dl dd")).toHaveText(["72", "24", "48"]);
+      // All 18 agenda/state requests must resolve before capturing honest totals.
+      // They can legitimately change when users or the showcase add records.
+      await expect(page.locator("main dl dd")).toHaveText([
+        /^\d[\d\s]*$/,
+        /^\d[\d\s]*$/,
+        /^\d[\d\s]*$/,
+      ]);
+      await expect(page.locator('main [role="alert"]')).toHaveCount(0);
       await expect(page.getByText(/zo 6 agend ·/)).toHaveCount(0);
     } else {
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(
@@ -39,7 +49,7 @@ try {
       await expect(page.getByText("zmluvy-01.pdf", { exact: true })).toBeVisible();
     }
     await page.evaluate(() => document.fonts.ready);
-    await page.screenshot({ path: `apps/marketing/public/previews/${name}.png` });
+    await page.screenshot({ path: `${output}/${name}.png` });
   }
 } finally {
   await browser.close();

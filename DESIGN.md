@@ -167,7 +167,7 @@ components:
 
 OpenObec uses the user-selected standard shadcn/ui New York visual language: familiar controls, self-hosted Geist, white work surfaces and restrained blue emphasis. IDSK3 supplies colors only; it does not supply typography, components or spacing. The visual priority is readable Slovak document names, field labels and explicit publication state.
 
-The marketing home has its own approved navy opening, raster civic panorama and overlapping document register. Those choices describe that surface; they are not a template for citizen searches, office lists or editors. Working portals remain conventional and task-first, with a navy office sidebar and pale-blue interaction states.
+The marketing home has its own approved navy opening, raster civic panorama and overlapping sequence of real product screenshots and compact document search. Those choices describe that surface; they are not a template for citizen searches, office lists or editors. Working portals remain conventional and task-first, with a navy office sidebar and pale-blue interaction states.
 
 **Key Characteristics:**
 - Genuine shadcn/ui controls and New York conventions.
@@ -224,9 +224,9 @@ The shared spacing vocabulary follows the existing quarter-rem utility scale in 
 
 The small, medium and large breakpoints are recorded in the sidecar. Citizen navigation moves into a Sheet below medium. The office sidebar is 16 rem on desktop, 18 rem in its mobile Sheet and 3 rem when icon-collapsed. Agenda grids change column count with available width; this is a task-dependent layout rather than a universal card grid.
 
-Below the large breakpoint, document tables use a wide wrapping title/number column and a narrow 3 rem action column. Agenda, publication state and amount group beneath the title; desktop restores their separate columns and date. Preserve this grouping instead of squeezing names into narrow columns. Marketing tabs and its illustrative table retain local horizontal scrolling; that behavior is specific to the preview.
+Below the large breakpoint, document tables use a wide wrapping title/number column and a narrow 3 rem action column. Agenda, publication state and amount group beneath the title; desktop restores their separate columns and date. Preserve this grouping instead of squeezing names into narrow columns. Marketing uses three real captures of the same invoice: its filled form, published office detail and citizen detail. Installed shadcn Tabs select the stages, with concise role-specific captions and a visible play/pause control. A stable 8:5 frame uses a gentle 280ms opacity/6px transition. Automatic advance has a six-second cadence, pauses offscreen or in a hidden document, and starts static for reduced motion; manual selection stops it. The completed video lives in documentation for GitHub and is not requested by the homepage.
 
-Marketing uses a centered maximum 80rem container with 1.5rem gutters. Its navy introduction and panorama lead into the overlapping functional search/register. The product story follows with two real, labeled screenshots of synthetic demo records, arranged beside short scenario copy and stacked below 1024px. Benefits and Demo reuse these previews; Contact states the actual project/contact limits. Sections use 4rem vertical spacing, reduced to 3rem on small screens. The approved refinement supersedes the historical 1536:1024 comp geometry without changing that archived evidence. No screenshot is presented as an interactive control.
+Marketing uses a centered maximum 80rem container with 1.5rem gutters. Its navy introduction and panorama lead into the overlapping publication showcase and compact functional search. The product story follows with two real, labeled screenshots of synthetic demo records, arranged beside short scenario copy and stacked below 1024px. Benefits and Demo reuse these previews; Contact states the actual project/contact limits. Sections use 4rem vertical spacing, reduced to 3rem on small screens. The approved refinement supersedes the historical 1536:1024 comp geometry without changing that archived evidence. No screenshot is presented as an interactive control.
 
 ## Elevation & Depth
 
@@ -274,7 +274,7 @@ Records preserve a linked title, muted number, agenda, amount, publication state
 - **Do** use the shared semantic colors and genuine shadcn/ui components.
 - **Do** preserve readable document titles, explicit Koncept / Zverejnené labels and visible open actions on mobile.
 - **Do** use stock Lucide SVG icons with accessible names for icon-only actions.
-- **Do** keep the approved panorama and bounded register composition specific to the marketing home.
+- **Do** keep the approved panorama and bounded publication showcase composition specific to the marketing home.
 
 ### Don't:
 - **Don't** import IDSK typography, components or spacing.

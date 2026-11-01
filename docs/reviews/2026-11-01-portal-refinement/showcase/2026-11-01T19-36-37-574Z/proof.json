@@ -1,0 +1,119 @@
+{
+  "id": "fak_d0f2b5d6-7a8a-422e-a71f-c5698c32aae4",
+  "source": {
+    "data": {
+      "cislo": "FV/2026/0057",
+      "predmet": "Prenájom sály na komunitné podujatie",
+      "datum_vystavenia": "2026-11-02",
+      "datum_splatnosti": "2026-12-02",
+      "suma_bez_dph": "245.50",
+      "suma_dph": "56.47",
+      "suma_s_dph": "301.97",
+      "odberatel": {
+        "nazov": "Spolok Rodinná lúka",
+        "ico": null
+      },
+      "mena": "EUR",
+      "suvisiace_zaznamy": [],
+      "zverejnene": true,
+      "id": "fak_d0f2b5d6-7a8a-422e-a71f-c5698c32aae4",
+      "obec_id": "zilina",
+      "created_at": "2026-11-01T19:36:54.489537918Z",
+      "entity_version": 2,
+      "updated_at": "2026-11-01T19:36:54.533677210Z"
+    }
+  },
+  "publicRecord": {
+    "data": {
+      "root": {
+        "typ": "faktury",
+        "zaznam": {
+          "cislo": "FV/2026/0057",
+          "predmet": "Prenájom sály na komunitné podujatie",
+          "datum_vystavenia": "2026-11-02",
+          "datum_splatnosti": "2026-12-02",
+          "suma_bez_dph": "245.50",
+          "suma_dph": "56.47",
+          "suma_s_dph": "301.97",
+          "odberatel": {
+            "nazov": "Spolok Rodinná lúka",
+            "ico": null
+          },
+          "mena": "EUR",
+          "suvisiace_zaznamy": [],
+          "zverejnene": true,
+          "id": "fak_d0f2b5d6-7a8a-422e-a71f-c5698c32aae4",
+          "obec_id": "zilina",
+          "created_at": "2026-11-01T19:36:54.489537918Z",
+          "entity_version": 2,
+          "updated_at": "2026-11-01T19:36:54.533677210Z"
+        }
+      },
+      "suvisiace_zaznamy": [],
+      "vazby": [],
+      "pagination": {
+        "related_page_size": 100,
+        "total": 0,
+        "next_cursor": null,
+        "complete": true
+      }
+    },
+    "projection": {
+      "status": "ready",
+      "root_entity_version": 2,
+      "as_of": "2026-11-01T19:36:54.574Z",
+      "unresolved_references_count": 0
+    }
+  },
+  "attachments": {
+    "data": [
+      {
+        "id": "file_2aae9bfc-56a1-4a9b-a4a3-e118811bf9ca",
+        "filename": "faktura-0057.pdf",
+        "content_type": "application/pdf",
+        "size_bytes": 52999,
+        "sha256": "472a316ee2868bd85f50e2fe329dfc447bb840702fe9992af45073060824b149",
+        "created_at": "2026-11-01T19:36:54.510595835Z"
+      }
+    ]
+  },
+  "sourcePdfSha256": "472a316ee2868bd85f50e2fe329dfc447bb840702fe9992af45073060824b149",
+  "publicPdfSha256": "472a316ee2868bd85f50e2fe329dfc447bb840702fe9992af45073060824b149",
+  "fixturePdfSha256": "472a316ee2868bd85f50e2fe329dfc447bb840702fe9992af45073060824b149",
+  "citizenUrl": "http://127.0.0.1:3001/obcan/faktury/fak_d0f2b5d6-7a8a-422e-a71f-c5698c32aae4?returnTo=%2Fobcan%2Fhome%3Fq%3DFV%252F2026%252F0057",
+  "stages": [
+    {
+      "name": "01-entry",
+      "seconds": 0.062
+    },
+    {
+      "name": "02-invoices",
+      "seconds": 2.142
+    },
+    {
+      "name": "03-invoice-fields",
+      "seconds": 7.66
+    },
+    {
+      "name": "03b-dates-customer",
+      "seconds": 11.112
+    },
+    {
+      "name": "04-pdf-upload",
+      "seconds": 13.177
+    },
+    {
+      "name": "05-published",
+      "seconds": 16.36
+    },
+    {
+      "name": "06-public-search",
+      "seconds": 19.541
+    },
+    {
+      "name": "07-public-detail",
+      "seconds": 22.393
+    }
+  ],
+  "elapsedSeconds": 25.759
+}

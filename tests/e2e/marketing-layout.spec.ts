@@ -3,7 +3,7 @@ for (const width of [2560, 3440]) {
   test(`marketing content remains centered and bounded at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1100 });
     await page.goto("http://127.0.0.1:3000/home");
-    const preview = await page.locator(".marketing-table").boundingBox();
+    const preview = await page.locator(".publication-frame:visible").boundingBox();
     expect(preview).not.toBeNull();
     expect(preview!.width).toBeLessThanOrEqual(1280);
     expect(Math.abs(preview!.x + preview!.width / 2 - width / 2)).toBeLessThan(2);

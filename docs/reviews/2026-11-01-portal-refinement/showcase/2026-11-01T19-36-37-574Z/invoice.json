@@ -1,0 +1,14 @@
+{
+  "cislo": "FV/2026/0057",
+  "predmet": "Prenájom sály na komunitné podujatie",
+  "odberatel": {
+    "nazov": "Spolok Rodinná lúka"
+  },
+  "datum_vystavenia": "2026-11-02",
+  "datum_splatnosti": "2026-12-02",
+  "suma_bez_dph": "245.50",
+  "suma_dph": "56.47",
+  "suma_s_dph": "301.97",
+  "mena": "EUR",
+  "zverejnene": true
+}

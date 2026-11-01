@@ -1,0 +1,25 @@
+{
+  "codec": "VP9",
+  "container": "WebM",
+  "durationSeconds": 39.24,
+  "width": 1280,
+  "height": 800,
+  "fps": 25,
+  "bytes": 3458209,
+  "sha256": "7b0f5878176adaa2537c7d38293c4183d9b30e1e67b888aeca10ef773f39d569",
+  "audio": false,
+  "continuous": true,
+  "nativePlayback": {
+    "browser": "Google Chrome",
+    "durationSeconds": 39.24,
+    "width": 1280,
+    "height": 800,
+    "playAdvancedSeconds": 3.2662,
+    "keyboardPauseSeconds": 15.6747,
+    "endedSeconds": 39.24,
+    "captionsLanguage": "sk",
+    "captionsMode": "showing",
+    "autoplay": false,
+    "loop": false
+  }
+}
