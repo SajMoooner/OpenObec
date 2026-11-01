@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Two-pass, API-only synthetic seed. Existing owned records are never rewritten."""
+"""Two-pass, API-only fictional municipal seed. Existing owned records are never rewritten."""
 import argparse
 import hashlib
 import json
@@ -9,6 +9,9 @@ import time
 import urllib.error
 import urllib.request
 import uuid
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from realistic import catalog, document_path, VERSION
 
 ROOT = Path(__file__).resolve().parents[2]
 AGENDAS = ('faktury', 'dodavatelske-faktury', 'zmluvy', 'objednavky', 'verejne-obstaravanie', 'vzn')
@@ -52,7 +55,7 @@ def upload(path, blob, filename='synteticky-dokument.pdf'):
     return request('POST', path + '/prilohy', body, 'multipart/form-data; boundary=' + boundary)
 
 
-def payload(agenda, index, prefix='DEMO-2026'):
+def legacy_payload(agenda, index, prefix='DEMO-2026'):
     row = {'cislo': f'{prefix}-{AGENDAS.index(agenda) + 1:02d}-{index + 1:03d}',
            'predmet': ['Obnova mestskej knižnice', 'Výsadba stromov v parku', 'Údržba verejného osvetlenia', 'Oprava chodníkov'][index % 4] + f' – syntetický záznam {index + 1}',
            'zverejnene': index % 3 != 2}
@@ -68,6 +71,10 @@ def payload(agenda, index, prefix='DEMO-2026'):
     else:
         row.update(nazov=f'Syntetické VZN {index + 1}', datum_schvalenia='2026-09-01', datum_ucinnosti='2026-10-01')
     return row
+
+
+def payload(agenda, index, prefix='DEMO-2026'):
+    return catalog(agenda, index, prefix)
 
 
 def save(path, manifest):
@@ -145,11 +152,13 @@ def seed(path, prefix='DEMO-2026', count=12):
                 current = request('POST', target + '/update', {'suvisiace_zaznamy': refs})['data']
                 row['baseline_updated_at'] = current['updated_at']
                 save(path, manifest)
-            blob = pdf_bytes(row['cislo'])
+            blob = document_path(agenda, index).read_bytes() if prefix == 'DEMO-2026' else pdf_bytes(row['cislo'])
             files = request('GET', target + '/prilohy')['data']
             if not any(f['sha256'] == hashlib.sha256(blob).hexdigest() for f in files):
-                upload(target, blob)
+                upload(target, blob, document_path(agenda, index).name if prefix == 'DEMO-2026' else 'synteticky-dokument.pdf')
             row['state'] = 'complete'
+            row['content_version'] = VERSION
+            row['source_baseline'] = request('GET', target)['data']
             save(path, manifest)
     wait_projection(manifest)
     return manifest
@@ -160,9 +169,17 @@ def main():
     parser.add_argument('--manifest', type=Path, default=ROOT / '.run/seed-manifest.json')
     parser.add_argument('--prefix', default='DEMO-2026')
     parser.add_argument('--count', type=int, default=12)
+    parser.add_argument('--refresh-realistic', action='store_true', help='Preview controlled migration of manifest-owned legacy fixtures')
+    parser.add_argument('--apply', action='store_true', help='Apply the explicit refresh after ownership checks')
     args = parser.parse_args()
     if not 1 <= args.count <= 12:
         parser.error('count must be 1..12')
+    if args.refresh_realistic:
+        from refresh import refresh
+        print(json.dumps(refresh(args.manifest, apply=args.apply), ensure_ascii=False))
+        return
+    if args.apply:
+        parser.error('--apply requires --refresh-realistic')
     manifest = seed(args.manifest, args.prefix, args.count)
     print(json.dumps({'seed': 'ready', 'records': {a: len(r) for a, r in manifest['records'].items()}, 'manifest': str(args.manifest)}))
 

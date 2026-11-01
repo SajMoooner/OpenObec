@@ -18,9 +18,7 @@ test("guided demos expose real role destinations and static product images", asy
     await expect(steps.locator("li")).toHaveCount(3);
   await expect(page.locator("main figure")).toHaveCount(2);
   for (const figure of await page.locator("main figure").all()) {
-    await expect(figure.locator("figcaption")).toContainText(
-      "Snímka aplikácie so syntetickými údajmi",
-    );
+    await expect(figure.locator("figcaption")).toContainText("Snímka ukážkového prostredia");
     await expect(figure.getByRole("button")).toHaveCount(0);
     const img = figure.locator("img");
     await img.scrollIntoViewIfNeeded();

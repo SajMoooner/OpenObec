@@ -96,7 +96,9 @@ for (const [name, url, isOffice, hasAgenda, width] of [
       const primary = documentCell.getByRole("link").first();
       await expect(primary).toBeVisible();
       expect((await primary.boundingBox())!.width).toBeGreaterThanOrEqual(190);
-      await expect(documentCell.getByText(/DEMO-2026-/)).toBeVisible();
+      await expect(
+        documentCell.getByText(/(?:FV|DF|ZM|OBJ|VO)\/2026\/\d{4}|\d+\/2026/),
+      ).toBeVisible();
       const action = row.getByRole("link", { name: /^Otvoriť / });
       await action.scrollIntoViewIfNeeded();
       const actionBox = (await action.boundingBox())!;

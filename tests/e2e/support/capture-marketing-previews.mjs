@@ -1,6 +1,6 @@
 // Run deliberately after confirming the local dataset contains only owned demo records.
 // Does not create or modify records. Review both images and update provenance before commit.
-import { chromium } from "@playwright/test";
+import { chromium, expect } from "@playwright/test";
 const browser = await chromium.launch({
   executablePath:
     process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -28,6 +28,16 @@ try {
         { exact: true },
       )
       .waitFor();
+    if (name === "office-overview") {
+      await expect(page.locator("main dl dd")).toHaveText(["72", "24", "48"]);
+      await expect(page.getByText(/zo 6 agend ·/)).toHaveCount(0);
+    } else {
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+        "Obnova interiéru mestskej knižnice",
+      );
+      await expect(page.getByText("4 súvisiace dokumenty", { exact: false })).toBeVisible();
+      await expect(page.getByText("zmluvy-01.pdf", { exact: true })).toBeVisible();
+    }
     await page.evaluate(() => document.fonts.ready);
     await page.screenshot({ path: `apps/marketing/public/previews/${name}.png` });
   }

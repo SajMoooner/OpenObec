@@ -1,10 +1,16 @@
 # OpenObec product previews
 
-Captured 2026-11-01 from the locally running production frontend at source version `2265a3a97151a249968bcab303122af0e2c53ea0` (approved Task 2). Owned OpenObec UI and controlled synthetic seeded records only; no external template assets or user-authored records.
+Captured 2026-11-01 from the local production citizen/office frontend at `15f669ebd92b55a76d4972acd263551ba372dc4f`, after the authorized Task 4 `realistic-2026-v1` migration of 72 owned IDs. Authored fictional municipal examples only: no external template assets, real transactions or user-authored documents.
 
-- `citizen-contract.png`: http://127.0.0.1:3001/obcan/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885. Synthetic library contract, PDF and four relations.
-- `office-overview.png`: http://127.0.0.1:3002/uradnik/home. Demo cookie, 72 total / 24 draft / 48 published records. Visible rows explicitly marked synthetic.
+- `citizen-contract.png`: http://127.0.0.1:3001/obcan/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885. Published library refurbishment contract `ZM/2026/0034`, fictional contractor, 22 694,48 EUR, matching PDF and four resolved related documents.
+- `office-overview.png`: http://127.0.0.1:3002/uradnik/home. Demo cookie; fully loaded 72 total / 24 concepts / 48 published, 12 records per agenda, readable document numbers and natural titles.
 
-Chromium / installed Google Chrome, viewport 1440×1040, device scale 1, viewport screenshots without image edits. Captured with Playwright after page content loaded. Checked visually against live routes. Original PNGs total approximately 227 KB, delivered through Next Image with stable dimensions and responsive sizing. ProductPreview captions explain that these are static application images with synthetic data. Counts are illustrative fixture state, not customer metrics. Refresh screenshots and this version record when product UI changes.
+Chromium / installed Google Chrome, viewport 1440×1040, device scale 1; original viewport captures without image edits. Checked both images visually. The capture script now waits for the exact complete dashboard totals and loaded contract/PDF/relations, avoiding a partial loading screenshot. Only the 72 manifest-owned IDs were present at capture time, verified through all six source APIs after disposable-test cleanup. The global application demo disclosure and small fictional PDF footer remain explicit. Captions identify a static example environment; counts describe fixtures, not customer metrics.
 
-Reproduce from repository root: `node tests/e2e/support/capture-marketing-previews.mjs` (set CHROME_PATH if needed). Task 4 handoff: user subsequently requested realistic fictional names/numbers/files instead of explicitly synthetic record names. After its ID-preserving dataset migration, regenerate both images, inspect them, update alt descriptions if needed and replace the source version/date above. Current Task 3 assets remain an honest capture of the current fixture state until then.
+Reproduce from repository root with the local stack ready and only these owned examples live:
+
+```sh
+node tests/e2e/support/capture-marketing-previews.mjs
+```
+
+Set `CHROME_PATH` if needed. The source UI commit above plus Task 4 catalog version identify the captured state; this README and images ship in the same Task 4 commit. Refresh images and provenance together when UI or owned data changes.

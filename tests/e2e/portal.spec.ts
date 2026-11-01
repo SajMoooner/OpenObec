@@ -31,7 +31,7 @@ test("občanovi ostanú dostupné výsledky pri výpadku jednej agendy", async (
       }),
     }),
   );
-  await page.goto("/obcan/home?q=DEMO-2026");
+  await page.goto("/obcan/home?q=knižnice");
   await expect(page.getByText(/Nie sú dostupné všetky agendy: Objednávky/)).toBeVisible();
   await expect(page.locator('main a[href^="/obcan/faktury/fak_"]').first()).toBeVisible();
   await page.unroute("**/api/rest/v1/query/objednavky?**");
@@ -48,7 +48,7 @@ test("občan vyhľadá dokumenty klávesnicou cez odkaz na preskočenie navigác
   await page.keyboard.press("Tab");
   const search = page.getByRole("searchbox", { name: "Vyhľadať dokumenty" });
   await expect(search).toBeFocused();
-  await search.fill("DEMO-2026");
+  await search.fill("knižnice");
   await page.keyboard.press("Enter");
-  await expect(page.getByRole("heading", { name: "Výsledky pre „DEMO-2026“" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Výsledky pre „knižnice“" })).toBeVisible();
 });
