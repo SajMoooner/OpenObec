@@ -1,0 +1,103 @@
+Method: dual-agent (A: /root/portal_design_review · B: /root/portal_evidence_review)
+
+# OpenObec — posúdenie dizajnu a použiteľnosti
+
+1. 11. 2026 · verzia `4a3f798` · tri portály.
+
+## Hlavné odporúčanie
+
+OpenObec má súdržný základ a vlastný kontext: modrú identitu, Žilinu, šesť agend a súvislosti medzi dokumentmi. Konvenčné shadcn/ui ovládanie mu sedí. Profesionálnejší výsledok dosiahneme presnejším obsahom, lepším usporiadaním detailov a plynulejšou prácou medzi obrazovkami. Nové písmo, ďalšia komponentová knižnica ani výrazné efekty nie sú potrebné.
+
+Odporúčam zachovať Geist, farby IDSK3, užší centrovaný marketing a navy identitu. Marketing má výraznejšie ukázať skutočnú aplikáciu; občan má rýchlejšie nájsť súbor a pochopiť súvislosti; úradník má jednoduchšie pokračovať v rozpracovanej práci a rozumieť výsledku uloženia.
+
+## Odborné hodnotenie
+
+Stupnica 0–4. Ide o heuristické posúdenie, nie meranie spokojnosti skutočných používateľov.
+
+| Oblasť | Marketing | Občan | Úradník |
+| --- | ---: | ---: | ---: |
+| Viditeľnosť stavu | 3 | 3 | 3 |
+| Zrozumiteľný jazyk a význam údajov | 3 | 2 | 3 |
+| Kontrola a návrat používateľa | 3 | 2 | 2 |
+| Konzistentnosť | 3 | 3 | 3 |
+| Predchádzanie chybám | 3 | 3 | 2 |
+| Orientácia bez zapamätávania | 3 | 2 | 2 |
+| Efektívnosť práce | — | 2 | 2 |
+| Vizuálna hierarchia a striedmosť | 3 | 3 | 3 |
+| Zotavenie po chybe | 3 | 3 | 3 |
+| Pomoc pri úlohe | 2 | 1 | 2 |
+| **Spolu** | **26/36** | **24/40** | **25/40** |
+
+Marketingové pracovné akcelerátory nie sú hodnotené; ostatné oblasti sú hodnotené vo všetkých troch portáloch. Súčet pre archiváciu spoločného cieľa je 75/116, s vynechanou marketingovou heuristikou 7. Nie je vhodné ho zamieňať s jedným štandardným skóre /40.
+
+## Čo zachovať
+
+1. Skutočné shadcn komponenty, jednotný Geist a obmedzenú paletu. Dnešné ovládanie je predvídateľné a mobilné názvy sa zalamujú.
+2. Poctivé označenie dema, ukážkových údajov a simulácie mestského IS.
+3. Načítavacie stavy, opakovanie po chybe, textové stavy Koncept/Zverejnené, potvrdenie vymazania a zachovanie uloženého záznamu pri chybe nahrávania.
+
+## Päť priorít
+
+### P1 — Presný význam údajov v zoznamoch
+
+Spoločný stĺpec „Dátum“ zobrazuje čas vytvorenia záznamu, zatiaľ čo občan potrebuje dátum dokumentu. Pod „Suma“ sa mieša suma s DPH s predpokladanou hodnotou obstarávania bez DPH. VZN má prázdnu peňažnú hodnotu a mobil dátum vôbec neukazuje.
+
+**Úprava:** spoločný štýl tabuľky, ale odlišné hlavné údaje podľa agendy: vystavenie/odberateľ pri faktúrach, dodávateľ pri prijatých faktúrach, účinnosť pri zmluvách a VZN, lehota a stav pri obstarávaní. V prehľade posledných zmien zobraziť čas úpravy. „Naposledy zverejnené“ premenovať podľa reálne dostupných dát. Na mobile ponechať hlavný dátum. Impeccable: `clarify`, `layout`.
+
+### P1 — Zachovanie kontextu a čitateľné súvislosti
+
+Naživo potvrdené: po otvorení nájdenej zmluvy a návrate sa vyhľadávanie stratí. Existujúce väzby v editore sa zobrazujú internými identifikátormi namiesto názvu a čísla.
+
+**Úprava:** uchovať hľadanie, stránku, stav a zoradenie pri návrate. Pridať jednoznačné zrušenie filtrov. Väzby zobraziť názvom, číslom a agendou. Impeccable: `harden`, `clarify`.
+
+### P1 — Jasnejšie uloženie a publikovanie
+
+Editor nemá ochranu neuložených zmien. Pri živom skúšaní prechod do inej agendy zahodil zadanú hodnotu bez upozornenia. Cesta k existujúcim prílohám takisto opúšťa formulár. Pri úprave už publikovaného dokumentu nie je dosah uloženia dostatočne výrazný. Po publikovaní sa dominantnou akciou stáva stiahnutie zo zverejnenia.
+
+**Úprava:** viditeľný stav a identita dokumentu, ochrana rozpracovanej práce, vysvetlenie účinku tlačidla a jednoznačné potvrdenie výsledku. Po publikovaní uprednostniť kontrolu občianskeho detailu; zrušenie publikovania ponechať ako sekundárnu akciu. Impeccable: `harden`, `onboard`.
+
+### P2 — Hierarchia detailu a príloh
+
+Hlavička a veľký panel opakujú číslo a titul. Všetky polia majú podobnú váhu, prílohy sa na mobile dostávajú hlboko pod úvod. MIME označenie `application/pdf` je zbytočne technické.
+
+**Úprava:** súhrn 2–4 dôležitých údajov, prílohy blízko úvodu, potom úplné údaje a súvisiace dokumenty. Typ súboru pomenovať „PDF“. Súvislosti ponechať ako čitateľné rozbaľovacie riadky. Impeccable: `layout`, `distill`.
+
+### P2 — Marketing má viac ukazovať a menej opakovať
+
+Home a Výhody opakujú podobné prínosy. Tabuľka výhod má šesť rovnakých vysvetlení. Kontakt je pravdivý, ale návštevník na ňom kontakt nenájde.
+
+**Úprava:** ukázať konkrétny postup v oboch portáloch. Výhody rozvinúť cez príklady jednotlivých agend; demo doplniť krátkym scenárom skúšania. Kontaktnú cestu dokončiť až so skutočným kontaktom, dovtedy jasne pomenovať dostupné informácie a cestu do dema. Impeccable: `distill`, `clarify`.
+
+## Ako použiť referencie
+
+- **Marketing:** z [Prodexy](https://www.shadcn.io/demos/prodexa) ukážky funkcií na rozhraní, z [Kinta](https://kinto-nextjs-template.vercel.app/) pokojný rytmus a postupné vysvetľovanie produktu. Zachovať vlastnú modrú identitu a Geist.
+- **Občan:** zo [Scalar dokumentácie](https://scalar-nextjs-template.vercel.app/docs) jasné členenie, čitateľné plochy a orientáciu. Vyhľadávanie zostáva hlavnou úlohou verejného portálu.
+- **Úradník:** z [Admin zoznamu](https://shadcnblocks-admin.vercel.app/payment-processor/invoice-list-2) usporiadanie filtrov, údajov a akcií. Prehľad doplniť konceptmi a ich pokračovaním; čísla vychádzajú z celých výsledkov API, nie z prvej stránky.
+
+Podrobný návrh pre všetky stránky, šesť agend a stavy je v [návrhu úprav](navrh.md). Vlastné pozorovania šablón sú v [prehľade referencií](references.md).
+
+## Nároky na používateľa
+
+- Zástupca obce potrebuje vidieť prínos a vyskúšať jeden jasný scenár; opakované vysvetlenia a kontakt bez kontaktu oslabujú záver tejto cesty.
+- Občan bez znalosti evidencie potrebuje vysvetlenie VZN a oboch fakturačných agend. Na mobile má dostať súbor aj významný dátum bez otvárania ďalších obrazoviek.
+- Úradník potrebuje poznať vybrané súvislosti, bezpečne opustiť rozpracovaný formulár a vidieť konkrétny výsledok publikovania.
+
+Kognitívna záťaž je mierna, miestami vyššia v editore: marketing 2, občan 3, úradník 3 slabé body z ôsmich kontrolovaných princípov. Samotný počet šiestich agend nie je chyba; treba ich zrozumiteľne pomenovať. Najväčšie straty istoty vznikajú pri návrate k výsledkom a pred/po zverejnení.
+
+## Menšie dokončovacie úpravy
+
+Aktívna agenda aj v občianskej navigácii; pohodlné mobilné akcie; presné skloňovanie počtov; názov karty prehliadača podľa agendy a dokumentu; nadpis chyby podľa akcie namiesto univerzálneho načítavania; informácia o deme v mobilnej hlavičke; read-only hodnoty simulácie ako údaje. Pri povinnom stave obstarávania doplniť programové prepojenie ovládača na jeho chybový text, ktoré na rozdiel od ostatných polí chýba. Nové serverové filtre, hromadné operácie, reálne integrácie, kontaktovanie a história publikovania zostávajú samostatnými funkčnými návrhmi.
+
+## Nezávislé technické a živé podklady
+
+Kontrola B pokryla všetkých 44 konkrétnych obsahových trás pri 1440, 768 a 390 px: 132 načítaných kombinácií stránky a veľkosti, bez horizontálneho presahu celej stránky. Ide o kontrolu živého obsahu a rozmerov; nie 132 samostatných vizuálnych snímok. Vybrané reprezentatívne stavy boli posúdené aj zo snímok. Šesť prázdnych formulárov správne zablokovalo uloženie, zobrazilo chyby pri poliach a presunulo fokus na chybový súhrn; výber stavu obstarávania má uvedenú medzeru v programovom prepojení chyby. Základné ovládanie navigácie, vyhľadávania, výberu súvislostí a zrušenia potvrdenia vymazania klávesnicou fungovalo.
+
+B nezávisle potvrdilo stratu hľadania aj neuložených zmien. Pri mobilnom globálnom hľadaní jedinej zmluvy sa zhoda objavila až pod dvoma prázdnymi skupinami; prvý nájdený dokument bol približne 1119 px od vrchu stránky. To podporuje zhutnenie výsledkov. Mobilné menu a akcia otvorenia dokumentu majú 36 × 36 px; odporúčanie väčšej dotykovej plochy je zlepšenie pohodlia, nie tvrdenie o automatickom nesplnení normy.
+
+Automatický detektor bol spustený raz nad `apps`. Vrátil **jednu poradnú poznámku** `design-system-font-size` v `apps/marketing/app/home/marketing.css:15`: horná hodnota nadpisu 56 px nie je v staršom `DESIGN.md`. Novší schválený brief však túto hodnotu výslovne určuje. Poznámku preto neberieme ako chybu vzhľadu a nadpis nevraciame k starej geometrii. Detektor nie je náhradou za analýzu zdieľaných komponentov v `packages/ui`, ktorú vykonali obe posúdenia. Úmyselné nedostupnosti služieb, úspešné zápisy, nahrávanie súborov a právne/bezpečnostné vlastnosti neboli súčasťou tejto dizajnovej kontroly.
+
+## Rozhodnutie pre ďalší krok
+
+Odporúčaný rozsah je **vizuálna úprava spolu s malými zlepšeniami existujúceho ovládania**: presné tabuľky, zachovanie hľadania, čitateľné väzby a bezpečný editor. Užší variant je **iba vizuálna úprava**, ktorá tieto preukázané bariéry ponechá. Väčšie nové funkcie nie sú na tento posun potrebné.
+
+Najprv spoločné vzory a pracovné portály, potom marketing s ich kvalitnými ukážkami a záverečná kontrola `polish`. Žiadna z týchto produktových úprav sa počas analýzy nevykonala.

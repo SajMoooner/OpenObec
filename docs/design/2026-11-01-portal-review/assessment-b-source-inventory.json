@@ -1,0 +1,170 @@
+[
+  {
+    "path": "DESIGN.md",
+    "sha256": "d79d6575246eb266b3d58e61ffe623ea5cd137dcd9983ae5f55a24e06505cefd"
+  },
+  {
+    "path": "apps/citizen/app/error.tsx",
+    "sha256": "9510be937707afa76e5f4f65729074c8a66f25b86cc3df52c619069ecb48d941"
+  },
+  {
+    "path": "apps/citizen/app/not-found.tsx",
+    "sha256": "7a4a72cd427fb04e166943b4cad5f6667666cdc9b0379d819d9a4e66249bd033"
+  },
+  {
+    "path": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+    "sha256": "60b0ba884309f9854d7690f0f6953eadd627e5bc4a9c0ba5fbfbab71fdffc134"
+  },
+  {
+    "path": "apps/citizen/app/obcan/[agenda]/page.tsx",
+    "sha256": "20e261d37dd925c7a9ef56eef8466a7c5bc342b366d6d1995eb593e02b54f744"
+  },
+  {
+    "path": "apps/citizen/app/obcan/home/page.tsx",
+    "sha256": "d926c17e0c2fc40d4c4510788b5bc5ad3305a0ed0d21da7aad0e8ee3a9fbc87d"
+  },
+  {
+    "path": "apps/citizen/app/page.tsx",
+    "sha256": "c7dc5606249349238f4ad6609656c4e9a6a30ca6a387a94a82eb01f5ca0b9204"
+  },
+  {
+    "path": "apps/marketing/app/components/site-shell.tsx",
+    "sha256": "0c7240694b425f238a515372e7b1fd1cb47e3bc2ad12753906dc1a35a8485dd1"
+  },
+  {
+    "path": "apps/marketing/app/demo/page.tsx",
+    "sha256": "ec1e02fed169cd85ad23e3b54fa5897040014ac99d543fed477efb13c254cfbc"
+  },
+  {
+    "path": "apps/marketing/app/error.tsx",
+    "sha256": "9510be937707afa76e5f4f65729074c8a66f25b86cc3df52c619069ecb48d941"
+  },
+  {
+    "path": "apps/marketing/app/home/hero.tsx",
+    "sha256": "20650d779f092b8689ec076cdf582cdfc21426e50517b36a75c540af1929b3d8"
+  },
+  {
+    "path": "apps/marketing/app/home/marketing.css",
+    "sha256": "95b1800dcc58f66168cb1bb15849d2a7d05600b4525155bfa80e8bffbd13eeca"
+  },
+  {
+    "path": "apps/marketing/app/home/page.tsx",
+    "sha256": "c393ae6d12bbbfb4ffb92710b7d8945a05e4e20cd8b0845299eec000faac1858"
+  },
+  {
+    "path": "apps/marketing/app/home/sections.tsx",
+    "sha256": "6a9c73d6c09c263b8b4853ecf97bcee785a99c6b70b1225faaf5aae8a4c41c47"
+  },
+  {
+    "path": "apps/marketing/app/kontakt/page.tsx",
+    "sha256": "5b966a335814c3d2051e0c130445f6b72b36716651ca07817c0e41fdd12020f6"
+  },
+  {
+    "path": "apps/marketing/app/not-found.tsx",
+    "sha256": "7a4a72cd427fb04e166943b4cad5f6667666cdc9b0379d819d9a4e66249bd033"
+  },
+  {
+    "path": "apps/marketing/app/page.tsx",
+    "sha256": "46acadce9ae51be1615be085b7946a0a567a4eefa4de104101f93ad83cb11df6"
+  },
+  {
+    "path": "apps/marketing/app/vyhody/page.tsx",
+    "sha256": "ec07d0d0b0254b5aa63baeef4b5079c70e8dbabb531f356d17f1a44953e4e277"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+    "sha256": "a818fb8043a039669f90cc7223a3a2000bec8cfbe199f3b765079552b62f3c45"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+    "sha256": "a113e9a768b5eea9c4ea0d278ae59c3f423673531eb61ea9e9976afcd98f94e0"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+    "sha256": "bd73323c703188e0e6f561dd03bb53bc41baa90d344ed5486e33a763c470ab81"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+    "sha256": "fcef943db9a252043487ca61d6f0ba91850d2f7434e876345098a1bcf26954b8"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/home/page.tsx",
+    "sha256": "accf830e7bdca73b8cb98cf10bd1f866c987d0ae0f22edbfd5a69f51a450efcd"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/layout.tsx",
+    "sha256": "b0f6a81ac87d997657749c6f2dce46bd1b96f1bcbee18f451e6da08c049b31e2"
+  },
+  {
+    "path": "apps/office/app/(workspace)/uradnik/settings/page.tsx",
+    "sha256": "6a5a0dceac0046a5c4ab59150ad603929b04b1e741db81f3268e8a2b2e349d0d"
+  },
+  {
+    "path": "apps/office/app/error.tsx",
+    "sha256": "9510be937707afa76e5f4f65729074c8a66f25b86cc3df52c619069ecb48d941"
+  },
+  {
+    "path": "apps/office/app/not-found.tsx",
+    "sha256": "7a4a72cd427fb04e166943b4cad5f6667666cdc9b0379d819d9a4e66249bd033"
+  },
+  {
+    "path": "apps/office/app/page.tsx",
+    "sha256": "f9d1e309fc3dede35843e7d9a1f36dde68d1379b50debd693dd95af522a26d03"
+  },
+  {
+    "path": "apps/office/app/uradnik/prihlasenie/page.tsx",
+    "sha256": "9c241dd4b2747f28c781fb306a1000279a0c1defc04c012d13f0708e16338254"
+  },
+  {
+    "path": "packages/api-client/src/agendas.ts",
+    "sha256": "ce0d584c8e79be67c31eb916ed066d44ea0dbba16ad248846d2e171993c718a2"
+  },
+  {
+    "path": "packages/ui/src/features/attachments.tsx",
+    "sha256": "023f10a76d4a9c6d982a95bb0d45826731a4dc39ff30d9c1cf0799a48b2865d6"
+  },
+  {
+    "path": "packages/ui/src/features/citizen.tsx",
+    "sha256": "9181c71a23148f60907f88a0caf323603e292be4f1ae060cee8a32515dd032e7"
+  },
+  {
+    "path": "packages/ui/src/features/dashboard.tsx",
+    "sha256": "9e5d03478f38fd4acba938b7c25e8b3945ceadc0291c6cd7b684e584d9fb69e0"
+  },
+  {
+    "path": "packages/ui/src/features/detail.tsx",
+    "sha256": "77121897460c42f01c4ea6dbaf91d2e4ac15906dd77b0cf55aae0a93f35d9ee0"
+  },
+  {
+    "path": "packages/ui/src/features/editor.tsx",
+    "sha256": "8df83a59a3eabb978c09c1be31d556c5441694166071576f7e3e2e845f13d411"
+  },
+  {
+    "path": "packages/ui/src/features/list.tsx",
+    "sha256": "c59b4f47b296fea8d1f11652672123a21116e163fa7314395763b5b9b18b01d6"
+  },
+  {
+    "path": "packages/ui/src/features/login.tsx",
+    "sha256": "15502452dd12e3f1161169cf3369a5e64c5a984458e011a97af1cd63e58dc154"
+  },
+  {
+    "path": "packages/ui/src/features/reference-picker.tsx",
+    "sha256": "fe123572e5e85a04a9d8790b47be1874dd405ea76d2522cdf98a4596a9d8131c"
+  },
+  {
+    "path": "packages/ui/src/features/settings.tsx",
+    "sha256": "bd885b87073056edbb9058c2666d58a47736a5bfb3a699c0c6b9328b22228d54"
+  },
+  {
+    "path": "packages/ui/src/features/shared.tsx",
+    "sha256": "97c01ef212d486e6e273f9961c0c12b9ec030501c5cf18cfac8b013069d39f7e"
+  },
+  {
+    "path": "packages/ui/src/features/shell.tsx",
+    "sha256": "207a83d9a0ae0e122cdb9b2003e533e6417a659c05da5dbd4ae0da78225030ad"
+  },
+  {
+    "path": "packages/ui/src/styles/globals.css",
+    "sha256": "23415839d9cdfe24782413158dee1d2949a65975d2b87d4827c03965b48f9d81"
+  }
+]

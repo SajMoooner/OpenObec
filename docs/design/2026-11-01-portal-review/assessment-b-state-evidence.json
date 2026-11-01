@@ -1,0 +1,162 @@
+{
+  "blankForms": [
+    {
+      "agenda": "faktury",
+      "url": "http://127.0.0.1:3002/uradnik/faktury/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 8,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": []
+    },
+    {
+      "agenda": "dodavatelske-faktury",
+      "url": "http://127.0.0.1:3002/uradnik/dodavatelske-faktury/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 8,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": []
+    },
+    {
+      "agenda": "zmluvy",
+      "url": "http://127.0.0.1:3002/uradnik/zmluvy/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 6,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": []
+    },
+    {
+      "agenda": "objednavky",
+      "url": "http://127.0.0.1:3002/uradnik/objednavky/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 5,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": []
+    },
+    {
+      "agenda": "verejne-obstaravanie",
+      "url": "http://127.0.0.1:3002/uradnik/verejne-obstaravanie/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 7,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": [
+        "stav"
+      ]
+    },
+    {
+      "agenda": "vzn",
+      "url": "http://127.0.0.1:3002/uradnik/vzn/novy",
+      "viewport": [
+        390,
+        844
+      ],
+      "emptySubmitBlockedLocally": true,
+      "invalidFields": 5,
+      "focusedElement": "form-error",
+      "pageOverflow": false,
+      "missingErrorDescriptionAssociation": []
+    }
+  ],
+  "keyboard": {
+    "citizenSearchEnter": "passed",
+    "citizenMobileNavigationEnterEscape": "passed, focus returns to trigger",
+    "officeMobileNavigationEnter": "passed, closes on route navigation",
+    "referencePickerEnterEscape": "passed",
+    "deleteConfirmationEnterCancel": "passed, cancel initially focused",
+    "settingsSimulationEnter": "passed"
+  },
+  "search": {
+    "query": "DEMO-2026-01-001",
+    "filteredCount": 1,
+    "urlAfterSubmit": "http://127.0.0.1:3001/obcan/faktury",
+    "returnViaDetailAgendaLink": {
+      "query": "",
+      "count": 8
+    },
+    "emptyQueryTest": "nenajditelny-vyraz-xyz",
+    "emptyState": "Nenašli sa žiadne výsledky; Skúste kratší výraz alebo iné číslo dokumentu.",
+    "dedicatedResetControl": false
+  },
+  "crossPortalSearch": {
+    "query": "DEMO-2026-03-001",
+    "destination": "http://localhost:3001/obcan/home?q=DEMO-2026-03-001",
+    "groups": {
+      "Faktúry": 0,
+      "Dodávateľské faktúry": 0,
+      "Zmluvy": 1,
+      "Objednávky": 0,
+      "Verejné obstarávanie": 0,
+      "VZN": 0
+    },
+    "viewport": [
+      390,
+      844
+    ],
+    "firstMatchingRecordY": 1118.5
+  },
+  "unsavedForm": {
+    "route": "/uradnik/faktury/novy",
+    "input": "Evidenčné číslo",
+    "temporaryTestValue": "B-REVIEW-UNSAVED",
+    "navigation": "mobile menu -> Objednávky",
+    "jsDialog": false,
+    "alertDialogCount": 0,
+    "valueOnReturn": ""
+  },
+  "mobileTargets": {
+    "citizenMenu": [
+      36,
+      36
+    ],
+    "recordOpenArrow": [
+      36,
+      36
+    ],
+    "sortSelect": [
+      208,
+      36
+    ],
+    "searchButton": [
+      48,
+      44
+    ]
+  },
+  "console": {
+    "beforeIntentionalErrorTesting": {
+      "warn": 0,
+      "error": 0
+    },
+    "note": "Read native tab dev logs after main 132-route coverage; no errors were deliberately induced."
+  },
+  "cleanup": {
+    "viewportReset": true,
+    "createdTabClosed": true,
+    "critiqueLiveServerStarted": false,
+    "overlayInjected": false,
+    "productFilesEdited": false
+  }
+}

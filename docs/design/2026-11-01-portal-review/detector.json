@@ -1,0 +1,17 @@
+[
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/apps/marketing/app/home/marketing.css",
+    "line": 15,
+    "snippet": "font-size: clamp(2.25rem, 4vw, 3.5rem) has fluid endpoint 3.5rem off the DESIGN.md type ramp",
+    "advisory": true,
+    "ignoreValue": "3.5rem",
+    "importedBy": [
+      "page.tsx"
+    ]
+  }
+]

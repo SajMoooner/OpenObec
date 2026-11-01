@@ -1,0 +1,2555 @@
+{
+  "schemaVersion": 1,
+  "assessment": "B",
+  "target": "apps",
+  "createdAt": "2026-11-01T18:23:57.023726+00:00",
+  "measurementWindowUTC": {
+    "start": "2026-11-01T18:15:34.723Z",
+    "end": "2026-11-01T18:17:41.522Z"
+  },
+  "coverage": {
+    "concreteMainRoutes": 44,
+    "marketing": 4,
+    "citizen": 13,
+    "office": 27,
+    "renderedPageTemplates": 14,
+    "viewportSizes": [
+      [
+        1440,
+        960
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "uniqueLiveRouteViewportChecks": 132,
+    "rawObservations": 133,
+    "rawObservationNote": "One contract detail was initially loading and rechecked; latest fully loaded observation is used.",
+    "horizontalPageOverflowFailures": 0,
+    "sourceOnlyMainRoutes": 0,
+    "blankFormValidationCases": 6
+  },
+  "provenance": "Route list from current app source and record[0] of each agenda in .run/seed-manifest.json. Measurements transferred from native CUA Chrome read-only DOM results. No CLI/browser automation was used.",
+  "routes": [
+    {
+      "portal": "marketing",
+      "family": "home",
+      "agenda": null,
+      "path": "/home",
+      "url": "http://127.0.0.1:3000/home",
+      "routeSource": "apps/marketing/app/home/page.tsx",
+      "sharedSources": [
+        "apps/marketing/app/components/site-shell.tsx",
+        "apps/marketing/app/home/hero.tsx",
+        "apps/marketing/app/home/sections.tsx",
+        "apps/marketing/app/home/marketing.css"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 4024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 5044,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 7059,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "marketing",
+      "family": "benefits",
+      "agenda": null,
+      "path": "/vyhody",
+      "url": "http://127.0.0.1:3000/vyhody",
+      "routeSource": "apps/marketing/app/vyhody/page.tsx",
+      "sharedSources": [
+        "apps/marketing/app/components/site-shell.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1781,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1916,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 2789,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "marketing",
+      "family": "contact",
+      "agenda": null,
+      "path": "/kontakt",
+      "url": "http://127.0.0.1:3000/kontakt",
+      "routeSource": "apps/marketing/app/kontakt/page.tsx",
+      "sharedSources": [
+        "apps/marketing/app/components/site-shell.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "scrollHeight": 960,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1312,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "marketing",
+      "family": "demo",
+      "agenda": null,
+      "path": "/demo",
+      "url": "http://127.0.0.1:3000/demo",
+      "routeSource": "apps/marketing/app/demo/page.tsx",
+      "sharedSources": [
+        "apps/marketing/app/components/site-shell.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "scrollHeight": 960,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1256,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "home",
+      "agenda": null,
+      "path": "/obcan/home",
+      "url": "http://127.0.0.1:3001/obcan/home",
+      "routeSource": "apps/citizen/app/obcan/home/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/citizen.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1423,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1767,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 2096,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "marketing search cross-portal with exact seeded document number; 6 agenda result groups"
+      ]
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "faktury",
+      "path": "/obcan/faktury",
+      "url": "http://127.0.0.1:3001/obcan/faktury",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1535,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "empty search; keyboard search; filtered result -> detail -> list; mobile navigation Enter/Escape and focus return"
+      ]
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "faktury",
+      "path": "/obcan/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "url": "http://127.0.0.1:3001/obcan/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1639,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1623,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1910,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "dodavatelske-faktury",
+      "path": "/obcan/dodavatelske-faktury",
+      "url": "http://127.0.0.1:3001/obcan/dodavatelske-faktury",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1535,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "dodavatelske-faktury",
+      "path": "/obcan/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "url": "http://127.0.0.1:3001/obcan/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1639,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1623,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1910,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "zmluvy",
+      "path": "/obcan/zmluvy",
+      "url": "http://127.0.0.1:3001/obcan/zmluvy",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1535,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "zmluvy",
+      "path": "/obcan/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "url": "http://127.0.0.1:3001/obcan/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1571,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1555,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1842,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "objednavky",
+      "path": "/obcan/objednavky",
+      "url": "http://127.0.0.1:3001/obcan/objednavky",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1535,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "objednavky",
+      "path": "/obcan/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "url": "http://127.0.0.1:3001/obcan/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1571,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1555,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1774,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "verejne-obstaravanie",
+      "path": "/obcan/verejne-obstaravanie",
+      "url": "http://127.0.0.1:3001/obcan/verejne-obstaravanie",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1535,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "verejne-obstaravanie",
+      "path": "/obcan/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "url": "http://127.0.0.1:3001/obcan/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1503,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1511,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1866,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "list",
+      "agenda": "vzn",
+      "path": "/obcan/vzn",
+      "url": "http://127.0.0.1:3001/obcan/vzn",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1091,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1347,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1415,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "citizen",
+      "family": "detail",
+      "agenda": "vzn",
+      "path": "/obcan/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "url": "http://127.0.0.1:3001/obcan/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "routeSource": "apps/citizen/app/obcan/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shell.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1062,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1046,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1203,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "login",
+      "agenda": null,
+      "path": "/uradnik/prihlasenie",
+      "url": "http://127.0.0.1:3002/uradnik/prihlasenie",
+      "routeSource": "apps/office/app/uradnik/prihlasenie/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/login.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "scrollHeight": 960,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "scrollHeight": 844,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "dashboard",
+      "agenda": null,
+      "path": "/uradnik/home",
+      "url": "http://127.0.0.1:3002/uradnik/home",
+      "routeSource": "apps/office/app/(workspace)/uradnik/home/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/dashboard.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1258,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1695,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1903,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 0,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "settings",
+      "agenda": null,
+      "path": "/uradnik/settings",
+      "url": "http://127.0.0.1:3002/uradnik/settings",
+      "routeSource": "apps/office/app/(workspace)/uradnik/settings/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/settings.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "scrollHeight": 960,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 1
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 1
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "scrollHeight": 844,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 2,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 1
+        }
+      ],
+      "interactionStateCoverage": [
+        "simulation warning and keyboard-triggered simulation completion; no real connection"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "faktury",
+      "path": "/uradnik/faktury",
+      "url": "http://127.0.0.1:3002/uradnik/faktury",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1723,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "faktury",
+      "path": "/uradnik/faktury/novy",
+      "url": "http://127.0.0.1:3002/uradnik/faktury/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1342,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1410,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1696,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request",
+        "typed one unsaved test value; switched agenda via mobile menu; returned with empty value"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "faktury",
+      "path": "/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "url": "http://127.0.0.1:3002/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1653,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1763,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 2008,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "delete confirmation opened with Enter and cancelled; no deletion"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "faktury",
+      "path": "/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/faktury/fak_f6add3d7-9a2f-4420-8a63-6615bf5f1f9a/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1502,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1614,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1854,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "dodavatelske-faktury",
+      "path": "/uradnik/dodavatelske-faktury",
+      "url": "http://127.0.0.1:3002/uradnik/dodavatelske-faktury",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1723,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "dodavatelske-faktury",
+      "path": "/uradnik/dodavatelske-faktury/novy",
+      "url": "http://127.0.0.1:3002/uradnik/dodavatelske-faktury/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1342,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1410,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1716,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "dodavatelske-faktury",
+      "path": "/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "url": "http://127.0.0.1:3002/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1653,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1763,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 2008,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "dodavatelske-faktury",
+      "path": "/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/dodavatelske-faktury/dfak_61757cf2-0e97-4991-81df-e90c6ebb7de9/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1502,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1614,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1874,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 10,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "zmluvy",
+      "path": "/uradnik/zmluvy",
+      "url": "http://127.0.0.1:3002/uradnik/zmluvy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1723,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "zmluvy",
+      "path": "/uradnik/zmluvy/novy",
+      "url": "http://127.0.0.1:3002/uradnik/zmluvy/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1264,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1332,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1618,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "zmluvy",
+      "path": "/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "url": "http://127.0.0.1:3002/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1585,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1695,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1940,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "zmluvy",
+      "path": "/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/zmluvy/zml_df1176d5-248d-40fd-b737-4d2f78b1b885/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1588,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1636,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1956,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 9,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "existing relation labels; picker opened with Enter and dismissed with Escape, without selection changes"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "objednavky",
+      "path": "/uradnik/objednavky",
+      "url": "http://127.0.0.1:3002/uradnik/objednavky",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1723,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "objednavky",
+      "path": "/uradnik/objednavky/novy",
+      "url": "http://127.0.0.1:3002/uradnik/objednavky/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1264,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1332,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1540,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "objednavky",
+      "path": "/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "url": "http://127.0.0.1:3002/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1585,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1695,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1872,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "objednavky",
+      "path": "/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/objednavky/obj_edab1949-9a6b-4039-9250-65607c257867/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1424,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1536,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1698,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "verejne-obstaravanie",
+      "path": "/uradnik/verejne-obstaravanie",
+      "url": "http://127.0.0.1:3002/uradnik/verejne-obstaravanie",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1723,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "verejne-obstaravanie",
+      "path": "/uradnik/verejne-obstaravanie/novy",
+      "url": "http://127.0.0.1:3002/uradnik/verejne-obstaravanie/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1129,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1211,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1511,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "verejne-obstaravanie",
+      "path": "/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "url": "http://127.0.0.1:3002/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1517,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1671,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1964,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "verejne-obstaravanie",
+      "path": "/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/verejne-obstaravanie/vo_f00f9a3f-222f-41af-ab58-efacceaa9bcf/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1289,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1415,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1669,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 8,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "list",
+      "agenda": "vzn",
+      "path": "/uradnik/vzn",
+      "url": "http://127.0.0.1:3002/uradnik/vzn",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/list.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1111,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1531,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1563,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 3,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "new",
+      "agenda": "vzn",
+      "path": "/uradnik/vzn/novy",
+      "url": "http://127.0.0.1:3002/uradnik/vzn/novy",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/novy/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "scrollHeight": 960,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1160,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": [
+        "blank required-field validation at 390px, local validation prevents request"
+      ]
+    },
+    {
+      "portal": "office",
+      "family": "detail",
+      "agenda": "vzn",
+      "path": "/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "url": "http://127.0.0.1:3002/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/detail.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 1076,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 753,
+          "scrollWidth": 753,
+          "scrollHeight": 1128,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1301,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 1,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    },
+    {
+      "portal": "office",
+      "family": "edit",
+      "agenda": "vzn",
+      "path": "/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8/upravit",
+      "url": "http://127.0.0.1:3002/uradnik/vzn/vzn_6605828d-e155-4263-b975-ef32f1445de8/upravit",
+      "routeSource": "apps/office/app/(workspace)/uradnik/[agenda]/[id]/upravit/page.tsx",
+      "sharedSources": [
+        "packages/ui/src/features/editor.tsx",
+        "packages/ui/src/features/shared.tsx"
+      ],
+      "sourceReviewed": true,
+      "liveChecks": [
+        {
+          "viewportWidth": 1440,
+          "viewportHeight": 960,
+          "clientWidth": 1425,
+          "scrollWidth": 1425,
+          "scrollHeight": 984,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 768,
+          "viewportHeight": 1024,
+          "clientWidth": 768,
+          "scrollWidth": 768,
+          "scrollHeight": 1024,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        },
+        {
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "scrollHeight": 1146,
+          "pageHorizontalOverflow": false,
+          "h1Count": 1,
+          "fieldCount": 7,
+          "method": "native CUA Chrome navigation + AX state + read-only DOM",
+          "loaded": true,
+          "expectedAlertCount": 0
+        }
+      ],
+      "interactionStateCoverage": []
+    }
+  ],
+  "ancillarySourceOnly": [
+    {
+      "source": "apps/marketing/app/page.tsx",
+      "kind": "root redirect",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/marketing/app/not-found.tsx",
+      "kind": "not-found UI",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/marketing/app/error.tsx",
+      "kind": "route error boundary",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/citizen/app/page.tsx",
+      "kind": "root redirect",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/citizen/app/not-found.tsx",
+      "kind": "not-found UI",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/citizen/app/error.tsx",
+      "kind": "route error boundary",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/office/app/page.tsx",
+      "kind": "root redirect",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/office/app/not-found.tsx",
+      "kind": "not-found UI",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/office/app/error.tsx",
+      "kind": "route error boundary",
+      "coverage": "source only; not counted among 44 main routes"
+    },
+    {
+      "source": "apps/office/app/(workspace)/uradnik/layout.tsx",
+      "kind": "missing-demo-cookie redirect to login",
+      "coverage": "source only; browser used an existing demo session without altering it"
+    }
+  ],
+  "limitations": [
+    "Normal states at all 132 route/viewports were inspected using AX/DOM. Fresh visual screenshots were taken only at representative mobile states, not 132 screenshots.",
+    "Generic error boundaries, partial-service failures, projection delays, unauthenticated redirect, real uploads and successful saves/publish/delete were not induced.",
+    "Only citizen invoice empty-results and search-return flows were interacted with; sibling lists share the reviewed implementation.",
+    "No user data was created, updated, published, unpublished or deleted.",
+    "No screen reader or 200% zoom session was performed; keyboard and DOM accessibility evidence do not establish full compliance.",
+    "Native screenshots were displayed in the tool transcript; this artifact does not claim newly saved raster files."
+  ]
+}

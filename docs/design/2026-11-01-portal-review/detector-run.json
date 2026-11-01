@@ -1,0 +1,9 @@
+{
+  "command": "/Users/simonochotnicky/.codex/skills/impeccable/scripts/impeccable detect --json apps",
+  "target": "apps",
+  "started_by": "assessment-b",
+  "finished_at": "2026-11-01T18:14:25.150315+00:00",
+  "exit_code": 0,
+  "stdout_path": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/docs/design/2026-11-01-portal-review/detector.json",
+  "stderr_path": "/Users/simonochotnicky/Desktop/Projekty/OpenObec/docs/design/2026-11-01-portal-review/detector-stderr.txt"
+}
