@@ -4,7 +4,7 @@ Lokálne demo evidencie a zverejňovania dokumentov mesta Žilina. Tri samostatn
 
 ## Spustenie
 
-Potrebujete Docker s Compose v2. Pre ručný režim aj Java 21, Node.js 26 a pnpm 11.25.0. Konfiguráciu skopírujte z `.env.example` do `.env`. Lokálny JDK v `.tools/jdk-21.0.9+10/Contents/Home` sa použije automaticky, ak nie je nastavené `JAVA_HOME`.
+Potrebujete Docker s Compose v2 a Python 3.9 alebo novší (spúšťacie skripty a seed používajú štandardnú knižnicu). Pre ručný režim aj Java 21, Node.js 26 a pnpm 11.25.0. Dockeru odporúčame prideliť 8GiB pamäte. Konfiguráciu skopírujte z `.env.example` do `.env`. Lokálny JDK v `.tools/jdk-21.0.9+10/Contents/Home` sa použije automaticky, ak nie je nastavené `JAVA_HOME`.
 
 ```sh
 cp .env.example .env
@@ -20,7 +20,7 @@ Používajte naraz jeden režim. Príkaz zostaví aplikácie, počká na ich pri
 | Úvodná stránka | [localhost:3000](http://localhost:3000) |
 | Portál občana | [localhost:3001](http://localhost:3001) |
 | Portál úradníka | [localhost:3002](http://localhost:3002) |
-| API gateway | [localhost:8080](http://localhost:8080/rest/v1/faktury) |
+| API gateway | [localhost:8080](http://localhost:8080/actuator/health) |
 
 Každá API požiadavka vyžaduje `X-Obec-Id: zilina`. Zdrojové služby majú porty 8081–8086, Query 8090 a pairing 8091. Predvolené portály volajú skutočnú gateway; úložisko aj databázy sú súkromné. Podrobnosti a nastavenia: [prevádzkový postup](docs/runbook.md), [OpenAPI so 70 operáciami](contracts/openapi.yaml), [produktový kontext](PRODUCT.md).
 
@@ -34,7 +34,7 @@ Bežné vypnutie zachová všetky zväzky. Deštruktívny reset je samostatný `
 
 ## Overenie
 
-Na spustenom stacku:
+Na spustenom stacku (pre frontend kontroly najprv `pnpm install --frozen-lockfile` a `pnpm exec playwright install chromium`):
 
 ```sh
 python3 -m venv .tools/venv
@@ -50,6 +50,8 @@ Koordinované skúšky výpadkov a obnovy sa spúšťajú samostatne podľa [run
 
 ## Návrh a orientácia
 
+- [Výsledky overenia a spotreba pamäte](docs/verification.md)
+- [Vizuálny systém](DESIGN.md)
 - [Realizačný návrh](docs/superpowers/specs/2026-11-01-openobec-design.md)
 - [Analýza podkladov a mapa pôvodných 46 operácií](docs/analysis/2026-11-01-source-review.md)
 - [Pôvod vstupných dokumentov](docs/references/2026-11-01/manifest.json)
