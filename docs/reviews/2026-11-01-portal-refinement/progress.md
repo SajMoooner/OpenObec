@@ -108,3 +108,7 @@ Remote run41406073384/e65d6a9 proves init repair, Java/frontend verification and
 Seed throttling implementation COMPLETEaaeb130, basee65d6a9. Gatewayhighestprecedence429 rejects before dispatch; same-buffer retries safe only for explicit429. At most3attempts, validRetry-After0..60 seconds/date,1/2second fallback, maximum120seconds intentional wait; network/5xx/body-read failures never retried, terminal originalHTTPError preserved.8focused/27runtime/12contracts/8offline refresh tests passed. Review /root/review_ci_seed_throttling running. No API limit/config/data/UI changes.
 
 Seed throttling review CLEANaaeb130 by /root/review_ci_seed_throttling: spec/qualityPASS, no findings. Explicit predispatch429 safety confirmed; reviewer also ran focused8/8. Ready for next atomic push and actual whole-CI proof.
+
+Run41408422911/d994d7f passed all real infra/startup/Java/frontend/smoke checks; browser67/69passed. Two test-only strict-locator ambiguities atworkflow-ux231/429 saw both success paragraph and transient Loading status. Narrow test selector repair required; no runtime or fixture changes. CI failure is directRED evidence.
+
+CI status-selector repair COMPLETE29b4e7a, based994d7f: two qualified success-message locators only; all scenario assertions retained.69testcollection/projectlint/strictTS/format pass; disposable realbrowser harness confirms old ambiguity, fixed presence and negative missing/duplicate behavior. Review /root/review_ci_status_selectors spec/qualityPASS zero findings. Next fresh complete CI required; no application changes.

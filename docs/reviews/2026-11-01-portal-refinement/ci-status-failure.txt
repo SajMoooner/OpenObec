@@ -1,0 +1,10 @@
+Run: https://github.com/SajMoooner/OpenObec/actions/runs/41408422911
+Revision:d994d7f
+Focused excerpt.
+
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9912993Z     Expected substring: "Dokument bol uložený"
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9913425Z     Error: strict mode violation: getByRole('status') resolved to 2 elements:
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9938963Z     Expected substring: "stiahnutý zo zverejnenia"
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9939324Z     Error: strict mode violation: getByRole('status') resolved to 2 elements:
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9949281Z   2 failed
+demo	Run pnpm test:e2e	2026-11-02T07:53:28.9951228Z   67 passed (1.4m)
