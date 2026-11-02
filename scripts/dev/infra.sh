@@ -28,17 +28,7 @@ PY
     "${compose[@]}" up -d --wait --wait-timeout 240 \
       mongo-invoices mongo-supplier-invoices mongo-contracts mongo-orders \
       mongo-procurement mongo-ordinances mongo-read kafka rustfs
-    python3 - "$ROOT/compose.yaml" <<'PYWAIT'
-import json, subprocess, sys
-compose = ['docker', 'compose', '-p', 'openobec', '-f', sys.argv[1]]
-subprocess.run(compose + ['wait', 'kafka-init', 'rustfs-init'], check=True, timeout=240)
-raw = subprocess.check_output(compose + ['ps', '-a', '--format', 'json', 'kafka-init', 'rustfs-init'], text=True).strip()
-rows = json.loads(raw) if raw.startswith('[') else [json.loads(x) for x in raw.splitlines() if x]
-assert len(rows) == 2, 'Both infrastructure init jobs must exist'
-for row in rows:
- if row['State'] != 'exited' or row['ExitCode'] != 0:
-  sys.exit(f"Infrastructure init failed: {row['Service']} (exit {row['ExitCode']})")
-PYWAIT
+    python3 "$ROOT/scripts/dev/wait_init.py" "$ROOT/compose.yaml"
     ;;
   down) "${compose[@]}" down ;; # Named volumes deliberately survive.
   verify)
