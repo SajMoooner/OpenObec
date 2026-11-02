@@ -1,0 +1,32 @@
+$ tsx --test packages/api-client/test/*.test.ts
+✔ preserves structured server errors (20.748458ms)
+✔ combines related pages and deduplicates the repeated root/edges (0.486791ms)
+✔ repeated cursor fails instead of an endless network loop (0.233208ms)
+✔ formats exact money without losing large decimal digits (2.075416ms)
+✔ write payload excludes server fields and emits optional date null (0.9725ms)
+✔ six explicit agendas preserve customer versus supplier (0.08975ms)
+✔ unrelated procurement edits preserve the original exact deadline through payload conversion (0.432542ms)
+✔ null error JSON uses the structured Slovak API fallback (0.297042ms)
+✔ malformed API error details cannot escape the declared shape (0.794083ms)
+✔ malformed API error scalar fields use typed fallbacks (0.314083ms)
+✔ inverse owners exclude neighbor-to-neighbor claims in a triangle (0.203917ms)
+✔ winter wall clock is interpreted in Bratislava even on a UTC host (0.97225ms)
+✔ summer clock uses Bratislava daylight saving time (0.180125ms)
+✔ nonexistent spring clock is rejected rather than silently shifted (0.192042ms)
+✔ local deadline input retains seconds and browser-supported fractional precision (0.067625ms)
+✔ unchanged local deadline preserves the exact instant and either autumn occurrence (0.060833ms)
+✔ a deliberate local deadline edit converts seconds and fractions instead of retaining the original (0.074334ms)
+✔ agenda presentation uses document semantics and preserves exact values (1.409458ms)
+✔ return context only accepts same portal list and home paths (0.22125ms)
+✔ public adapter forces published filter and municipality (21.021333ms)
+✔ public adapter denies writes and internal routes without fetching (0.491125ms)
+✔ unpublished VZN and its file remain hidden (0.71825ms)
+✔ forbids encoded path traversal (0.136458ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.720333

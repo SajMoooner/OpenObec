@@ -1,0 +1,80 @@
+
+Running 2 tests using 1 worker
+
+(node:23434) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › deleting the last row on a retained office page recovers without losing filters (11.0s)
+(node:23509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › unpublishing the last row on a retained office page recovers without losing filters (10.7s)
+
+
+  1) [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › deleting the last row on a retained office page recovers without losing filters 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' }) with timeout 10000ms
+      - waiting for getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+
+
+      436 |     await expect(
+      437 |       page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }),
+    > 438 |     ).toBeVisible();
+          |       ^
+      439 |     await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+      440 |     await expect(page).toHaveURL(`${office}/uradnik/vzn?q=owned&sort=updated_at&state=true&page=1`);
+      441 |     await expect(page.getByRole("link", { name: "Otvoriť OWNED-WORKFLOW" })).toBeVisible();
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/workflow-ux.spec.ts:438:7
+
+    Error Context: test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › unpublishing the last row on a retained office page recovers without losing filters 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' }) with timeout 10000ms
+      - waiting for getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+
+
+      436 |     await expect(
+      437 |       page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }),
+    > 438 |     ).toBeVisible();
+          |       ^
+      439 |     await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+      440 |     await expect(page).toHaveURL(`${office}/uradnik/vzn?q=owned&sort=updated_at&state=true&page=1`);
+      441 |     await expect(page.getByRole("link", { name: "Otvoriť OWNED-WORKFLOW" })).toBeVisible();
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/workflow-ux.spec.ts:438:7
+
+    Error Context: test-results/workflow-ux-unpublishing-t-9fd2a-vers-without-losing-filters-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflow-ux-unpublishing-t-9fd2a-vers-without-losing-filters-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/workflow-ux-unpublishing-t-9fd2a-vers-without-losing-filters-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › deleting the last row on a retained office page recovers without losing filters 
+    [chromium] › tests/e2e/workflow-ux.spec.ts:393:7 › unpublishing the last row on a retained office page recovers without losing filters 

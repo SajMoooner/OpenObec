@@ -1,0 +1,224 @@
+ Image openobec/citizen:demo Building 
+ Image openobec/office:demo Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.05kB done
+#1 DONE 0.0s
+
+#2 [citizen internal] load build definition from Dockerfile
+#2 transferring dockerfile: 919B done
+#2 DONE 0.0s
+
+#3 [office internal] load build definition from Dockerfile
+#3 transferring dockerfile: 912B done
+#3 DONE 0.0s
+
+#4 [office internal] load metadata for docker.io/library/node:26.3.1-alpine@sha256:a2dc166a387cc6ca1e62d0c8e265e49ca985d6e60abc9fe6e6c3d6ce8e63f606
+#4 DONE 0.8s
+
+#5 [citizen internal] load .dockerignore
+#5 transferring context: 215B done
+#5 DONE 0.0s
+
+#6 [office build 1/8] FROM docker.io/library/node:26.3.1-alpine@sha256:a2dc166a387cc6ca1e62d0c8e265e49ca985d6e60abc9fe6e6c3d6ce8e63f606
+#6 resolve docker.io/library/node:26.3.1-alpine@sha256:a2dc166a387cc6ca1e62d0c8e265e49ca985d6e60abc9fe6e6c3d6ce8e63f606 done
+#6 DONE 0.0s
+
+#7 [office internal] load build context
+#7 transferring context: 552.66kB 0.0s done
+#7 DONE 0.0s
+
+#8 [citizen build 2/8] WORKDIR /workspace
+#8 CACHED
+
+#9 [citizen build 3/8] RUN npm install --global pnpm@11.25.0
+#9 CACHED
+
+#10 [citizen build 4/8] COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+#10 CACHED
+
+#11 [office build 5/8] COPY packages packages
+#11 DONE 0.0s
+
+#12 [office build 6/8] COPY apps apps
+#12 DONE 0.0s
+
+#13 [citizen build 7/8] RUN pnpm install --frozen-lockfile
+#13 0.374 Scope: all 7 workspace projects
+#13 0.426 ? Verifying lockfile against supply-chain policies (703 entries)...
+#13 0.431 Lockfile is up to date, resolution step is skipped
+#13 0.498 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 0.585 Packages: +598
+#13 0.585 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 1.020 Packages are hard linked from the content-addressable store to the virtual store.
+#13 1.020   Content-addressable store is at: /root/.local/share/pnpm/store/v11
+#13 1.020   Virtual store is at:             node_modules/.pnpm
+#13 1.280 
+#13 1.280    ╭──────────────────────────────────────────────────────────────────────╮
+#13 1.280    │                                                                      │
+#13 1.280    │                 Update available! 11.25.0 → 12.16.1.                 │
+#13 1.280    │                 Changelog: https://pnpm.io/v/12.16.1                 │
+#13 1.280    │   To update, run: curl -fsSL https://get.pnpm.io/install.sh | sh -   │
+#13 1.280    │                                                                      │
+#13 1.280    ╰──────────────────────────────────────────────────────────────────────╯
+#13 1.280 
+#13 1.500 Progress: resolved 598, reused 0, downloaded 109, added 108
+#13 2.500 Progress: resolved 598, reused 0, downloaded 272, added 271
+#13 3.500 Progress: resolved 598, reused 0, downloaded 582, added 582
+#13 4.527 Progress: resolved 598, reused 0, downloaded 596, added 596
+#13 4.596 Progress: resolved 598, reused 0, downloaded 598, added 598, done
+#13 4.966 ✓ Lockfile passes supply-chain policies (703 entries in 4.5s)
+#13 4.971 .../node_modules/unrs-resolver postinstall$ node postinstall.js
+#13 4.984 .../esbuild@0.28.2/node_modules/esbuild postinstall$ node install.js
+#13 5.012 .../node_modules/unrs-resolver postinstall: Done
+#13 5.018 .../esbuild@0.28.2/node_modules/esbuild postinstall: Done
+#13 5.079 
+#13 5.079 devDependencies:
+#13 5.079 + @playwright/test 1.64.1
+#13 5.079 + @types/node 26.6.6
+#13 5.079 + eslint 10.14.0
+#13 5.079 + eslint-config-next 16.4.3
+#13 5.079 + openapi-typescript 7.13.0
+#13 5.079 + prettier 3.9.10
+#13 5.079 + shadcn 4.23.0
+#13 5.079 + tsx 4.23.15
+#13 5.079 + typescript 5.9.3
+#13 5.079 
+#13 5.114 Done in 5s using pnpm v11.25.0
+#13 DONE 5.4s
+
+#14 [citizen build 8/8] RUN pnpm --filter @openobec/citizen build
+#14 0.497 $ next build
+#14 0.676 ▲ Next.js 16.4.3 (Turbopack)
+#14 0.695 ✓ Running next.config.ts took 19ms
+#14 0.704 - Experiments (use with caution):
+#14 0.704   · serverActions
+#14 0.704 
+#14 0.716   Creating an optimized production build ...
+#14 2.507 ✓ Compiled successfully in 1789ms
+#14 2.509   Running TypeScript ...
+#14 4.619   Finished TypeScript in 2.1s ...
+#14 4.625   Collecting page data using 9 workers ...
+#14 5.327   Generating static pages using 9 workers (0/2) ...
+#14 5.557 ✓ Generating static pages using 9 workers (2/2) in 231ms
+#14 ...
+
+#15 [office build 8/8] RUN pnpm --filter @openobec/office build
+#15 0.497 $ next build
+#15 0.677 ▲ Next.js 16.4.3 (Turbopack)
+#15 0.695 ✓ Running next.config.ts took 18ms
+#15 0.703 - Experiments (use with caution):
+#15 0.703   · serverActions
+#15 0.703 
+#15 0.717   Creating an optimized production build ...
+#15 2.663 ✓ Compiled successfully in 1945ms
+#15 2.665   Running TypeScript ...
+#15 4.899   Finished TypeScript in 2.2s ...
+#15 4.901   Collecting page data using 14 workers ...
+#15 5.421   Generating static pages using 14 workers (0/4) ...
+#15 5.449   Generating static pages using 14 workers (1/4) 
+#15 5.455   Generating static pages using 14 workers (2/4) 
+#15 5.481   Generating static pages using 14 workers (3/4) 
+#15 5.489 ✓ Generating static pages using 14 workers (4/4) in 69ms
+#15 5.491   Finalizing page optimization ...
+#15 5.630 
+#15 5.632 Route (app)
+#15 5.632 ┌ ƒ /
+#15 5.632 ├ ƒ /_not-found
+#15 5.632 ├ ƒ /api/[...path]
+#15 5.632 ├ ƒ /api/demo
+#15 5.632 ├ ƒ /api/demo/logout
+#15 5.632 ├ ○ /icon.svg
+#15 5.632 ├ ƒ /uradnik/[agenda]
+#15 5.632 ├ ƒ /uradnik/[agenda]/[id]
+#15 5.632 ├ ƒ /uradnik/[agenda]/[id]/upravit
+#15 5.632 ├ ƒ /uradnik/[agenda]/novy
+#15 5.632 ├ ƒ /uradnik/home
+#15 5.632 ├ ƒ /uradnik/prihlasenie
+#15 5.632 └ ƒ /uradnik/settings
+#15 5.632 
+#15 5.632 
+#15 5.632 ○  (Static)   prerendered as static content
+#15 5.632 ƒ  (Dynamic)  server-rendered on demand
+#15 5.632 
+#15 DONE 5.8s
+
+#14 [citizen build 8/8] RUN pnpm --filter @openobec/citizen build
+#14 5.559   Finalizing page optimization ...
+#14 5.654 
+#14 5.655 Route (app)
+#14 5.655 ┌ ƒ /
+#14 5.655 ├ ƒ /_not-found
+#14 5.655 ├ ƒ /api/[...path]
+#14 5.655 ├ ○ /icon.svg
+#14 5.655 ├ ƒ /obcan/[agenda]
+#14 5.655 ├ ƒ /obcan/[agenda]/[id]
+#14 5.655 └ ƒ /obcan/home
+#14 5.655 
+#14 5.655 
+#14 5.655 ○  (Static)   prerendered as static content
+#14 5.655 ƒ  (Dynamic)  server-rendered on demand
+#14 5.655 
+#14 DONE 5.8s
+
+#16 [citizen stage-1 2/5] WORKDIR /app
+#16 CACHED
+
+#17 [office stage-1 3/5] COPY --from=build --chown=node:node /workspace/apps/office/.next/standalone ./
+#17 ...
+
+#18 [citizen stage-1 3/5] COPY --from=build --chown=node:node /workspace/apps/citizen/.next/standalone ./
+#18 DONE 0.2s
+
+#17 [office stage-1 3/5] COPY --from=build --chown=node:node /workspace/apps/office/.next/standalone ./
+#17 DONE 0.2s
+
+#19 [office stage-1 4/5] COPY --from=build --chown=node:node /workspace/apps/office/.next/static ./apps/office/.next/static
+#19 DONE 0.0s
+
+#20 [citizen stage-1 4/5] COPY --from=build --chown=node:node /workspace/apps/citizen/.next/static ./apps/citizen/.next/static
+#20 DONE 0.1s
+
+#21 [office stage-1 5/5] COPY --from=build --chown=node:node /workspace/apps/office/public ./apps/office/public
+#21 DONE 0.0s
+
+#22 [citizen stage-1 5/5] COPY --from=build --chown=node:node /workspace/apps/citizen/public ./apps/citizen/public
+#22 DONE 0.0s
+
+#23 [citizen] exporting to image
+#23 exporting layers
+#23 exporting layers 0.6s done
+#23 exporting manifest sha256:ef38b49184ba63ca2197166f70ccd9e08b337c8d2d624a19d1b8cbbd2403f045
+#23 exporting manifest sha256:ef38b49184ba63ca2197166f70ccd9e08b337c8d2d624a19d1b8cbbd2403f045 done
+#23 exporting config sha256:f1a747deaffceed110d437bc2cba6d5b878d4deba8e61b122453d239dadefdb1 done
+#23 exporting attestation manifest sha256:2b55a2dd356611636bbf1e80b50254358e9b2afeebcd088ee024ea7ba596eb87 0.0s done
+#23 exporting manifest list sha256:41272e46c44af68c093eea1ec748bfdf84c825c56bb159fe714b500241ac55bd done
+#23 naming to docker.io/openobec/citizen:demo done
+#23 unpacking to docker.io/openobec/citizen:demo
+#23 unpacking to docker.io/openobec/citizen:demo 0.2s done
+#23 DONE 0.9s
+
+#24 [office] exporting to image
+#24 exporting layers 0.6s done
+#24 exporting manifest sha256:3ca7f3b95b52f877c21ceefe3dd8df3edb66d8eb3f02e564a84fcb61053a8014 done
+#24 exporting config sha256:b1f1363e139390df32612b9adf6e0c516227d2248daa02c866ebcbc1197140e6 done
+#24 exporting attestation manifest sha256:12270e049ca9c0acbe8c1edee47f52ab9cccb2a876c26f88bce7e3fbca2d41a7 0.0s done
+#24 exporting manifest list sha256:60a77a1292bc394e3c93eb233c13007d9a7ad5abe5f09bd5ff0b9a34d9c44579 done
+#24 naming to docker.io/openobec/office:demo done
+#24 unpacking to docker.io/openobec/office:demo 0.2s done
+#24 DONE 0.9s
+
+#25 [office] resolving provenance for metadata file
+#25 DONE 0.0s
+
+#26 [citizen] resolving provenance for metadata file
+#26 DONE 0.0s
+ Image openobec/office:demo Built 
+ Image openobec/citizen:demo Built 
+ Container openobec-office-1 Recreate 
+ Container openobec-citizen-1 Recreate 
+ Container openobec-office-1 Recreated 
+ Container openobec-citizen-1 Recreated 
+ Container openobec-office-1 Starting 
+ Container openobec-citizen-1 Starting 
+ Container openobec-citizen-1 Started 
+ Container openobec-office-1 Started 

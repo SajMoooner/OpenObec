@@ -1,0 +1,80 @@
+
+Running 2 tests using 1 worker
+
+(node:23313) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related obcan detail labels the originating list and editor continuation (10.4s)
+(node:23377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related uradnik detail labels the originating list and editor continuation (10.7s)
+
+
+  1) [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related obcan detail labels the originating list and editor continuation 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+    Expected: "/obcan/zmluvy?q=owned&sort=updated_at&page=2"
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" locator('main').getByRole('link', { name: 'Zmluvy', exact: true }) with timeout 10000ms
+      - waiting for locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+
+
+      300 |     await page.getByRole("link", { name: "Otvoriť celý dokument" }).click();
+      301 |     const back = page.locator("main").getByRole("link", { name: "Zmluvy", exact: true });
+    > 302 |     await expect(back).toHaveAttribute("href", returnTo);
+          |                        ^
+      303 |     if (portal === "uradnik") {
+      304 |       await page.getByRole("link", { name: "Upraviť", exact: true }).click();
+      305 |       await expect(back).toHaveAttribute("href", returnTo);
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:302:24
+
+    Error Context: test-results/browsing-ux-cross-agenda-r-329f3-ist-and-editor-continuation-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-cross-agenda-r-329f3-ist-and-editor-continuation-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-cross-agenda-r-329f3-ist-and-editor-continuation-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related uradnik detail labels the originating list and editor continuation 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+    Expected: "/uradnik/zmluvy?q=owned&sort=updated_at&page=2"
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" locator('main').getByRole('link', { name: 'Zmluvy', exact: true }) with timeout 10000ms
+      - waiting for locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+
+
+      303 |     if (portal === "uradnik") {
+      304 |       await page.getByRole("link", { name: "Upraviť", exact: true }).click();
+    > 305 |       await expect(back).toHaveAttribute("href", returnTo);
+          |                          ^
+      306 |     }
+      307 |   });
+      308 | }
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:305:26
+
+    Error Context: test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related obcan detail labels the originating list and editor continuation 
+    [chromium] › tests/e2e/browsing-ux.spec.ts:269:7 › cross-agenda related uradnik detail labels the originating list and editor continuation 

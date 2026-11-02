@@ -1,0 +1,7 @@
+c177f36209331409398532c934fbdd4ca802d5cd7a45ca0bcc6c118141c4ed5b  packages/ui/src/features/list.tsx
+38ca1938bcfc78564764666a17b1c7a253394ad33f619f802b0f4dd37bc9e09e  packages/ui/src/features/editor.tsx
+31a650d77c624c1c0d7a9a411535349f20755b92a0705a364533c53fbc53689d  packages/ui/src/features/document-fields.tsx
+e10b941f4a14ad95944a53f0dc386a7526594a48a7ba2167690e7c830bffa8a4  packages/ui/src/features/citizen.tsx
+59bff89c8387fcf4c49aba6e4fcdda86745f800d9204cf2385fe589160b84e44  packages/ui/src/features/dashboard.tsx
+d737ed6c27c756178dff264a62287a1b0c4b9ab1497d2dc5e5665aca18e945e5  tests/e2e/browsing-ux.spec.ts
+054f9fb6110158551da5996d1afc1b7261c8be8c600321f2165be6dc9cc80074  tests/e2e/workflow-ux.spec.ts

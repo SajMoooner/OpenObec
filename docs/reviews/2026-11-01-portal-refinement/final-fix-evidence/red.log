@@ -1,0 +1,278 @@
+
+Running 9 tests using 1 worker
+
+(node:22921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range obcan page offers truthful recovery with context and no history trap (45.1s)
+(node:23021) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range uradnik page offers truthful recovery with context and no history trap (45.1s)
+(node:23169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [chromium] › tests/e2e/browsing-ux.spec.ts:239:5 › citizen latest ten includes ten newest records from one busy agenda (10.3s)
+(node:23196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [chromium] › tests/e2e/browsing-ux.spec.ts:270:7 › cross-agenda related obcan detail labels the originating list and editor continuation (522ms)
+  ✘  5 [chromium] › tests/e2e/browsing-ux.spec.ts:270:7 › cross-agenda related uradnik detail labels the originating list and editor continuation (10.7s)
+(node:23229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [chromium] › tests/e2e/workflow-ux.spec.ts:387:5 › deleting the last row on a retained office page recovers without losing filters (828ms)
+(node:23248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  7 [chromium] › tests/e2e/workflow-ux.spec.ts:428:5 › long selected attachment fits mobile editor, validation and dirty confirmation (397ms)
+(node:23262) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 [chromium] › tests/e2e/workflow-ux.spec.ts:455:5 › existing and pending detail attachments keep full filenames and remove action reachable on mobile (485ms)
+  ✘  9 [chromium] › tests/e2e/workflow-ux.spec.ts:496:5 › dashboard recent ten and draft six include newest records concentrated in one agenda (10.2s)
+
+
+  1) [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range obcan page offers truthful recovery with context and no history trap 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+
+
+      209 |       0,
+      210 |     );
+    > 211 |     await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+          |                                                                                    ^
+      212 |     await expect(page).toHaveURL(
+      213 |       `${origin}/${portal}/faktury?q=owned&sort=updated_at&state=true&page=1`,
+      214 |     );
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:211:84
+
+    Error Context: test-results/browsing-ux-retained-out-o-a6568-context-and-no-history-trap-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-retained-out-o-a6568-context-and-no-history-trap-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-retained-out-o-a6568-context-and-no-history-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range uradnik page offers truthful recovery with context and no history trap 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Prejsť na poslednú dostupnú stranu' })
+
+
+      209 |       0,
+      210 |     );
+    > 211 |     await expect(
+          |                  ^
+      212 |       page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }),
+      213 |     ).toBeVisible();
+      214 |     await page.getByRole("button", { name: "Prejsť na poslednú dostupnú stranu" }).click();
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:211:84
+
+    Error Context: test-results/browsing-ux-retained-out-o-627a3-context-and-no-history-trap-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-retained-out-o-627a3-context-and-no-history-trap-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-retained-out-o-627a3-context-and-no-history-trap-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests/e2e/browsing-ux.spec.ts:239:5 › citizen latest ten includes ten newest records from one busy agenda 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('main tbody tr').getByRole('link', { name: /^Otvoriť / })
+    Timeout: 10000ms
+    - Expected  - 10
+    + Received  + 10
+
+      Array [
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    -   "Otvoriť",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+    +   "",
+      ]
+
+    Call log:
+      - Expect "toHaveText" locator('main tbody tr').getByRole('link', { name: /^Otvoriť / }) with timeout 10000ms
+      - waiting for locator('main tbody tr').getByRole('link', { name: /^Otvoriť / })
+        24 × locator resolved to 10 elements
+
+
+      260 |     });
+      261 |   });
+    > 262 |   await page.goto("/obcan/home");
+          |                                  ^
+      263 |   const rows = page.locator("main tbody tr");
+      264 |   await expect(rows).toHaveCount(10);
+      265 |   for (let i = 1; i <= 10; i++) await expect(rows.nth(i - 1)).toContainText(`NEW-${i}`);
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:262:63
+
+    Error Context: test-results/browsing-ux-citizen-latest-31ceb-ecords-from-one-busy-agenda-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-citizen-latest-31ceb-ecords-from-one-busy-agenda-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-citizen-latest-31ceb-ecords-from-one-busy-agenda-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests/e2e/browsing-ux.spec.ts:270:7 › cross-agenda related uradnik detail labels the originating list and editor continuation 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+    Expected: "/uradnik/zmluvy?q=owned&sort=updated_at&page=2"
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" locator('main').getByRole('link', { name: 'Zmluvy', exact: true }) with timeout 10000ms
+      - waiting for locator('main').getByRole('link', { name: 'Zmluvy', exact: true })
+
+
+      304 |       await page.getByRole("link", { name: "Upraviť", exact: true }).click();
+      305 |       await expect(back).toHaveAttribute("href", returnTo);
+    > 306 |     }
+          |      ^
+      307 |   });
+      308 | }
+      309 |
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/browsing-ux.spec.ts:306:26
+
+    Error Context: test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/browsing-ux-cross-agenda-r-3477d-ist-and-editor-continuation-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tests/e2e/workflow-ux.spec.ts:387:5 › deleting the last row on a retained office page recovers without losing filters 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "10 dokumentov"
+    Error: strict mode violation: getByRole('status') resolved to 2 elements:
+        1) <p role="status" class="text-sm text-muted-foreground">Načítavam dokumenty…</p> aka getByText('Načítavam dokumenty…')
+        2) <div role="status" class="space-y-4 py-8" aria-label="Načítavam údaje">…</div> aka getByRole('status', { name: 'Načítavam údaje' })
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 10000ms
+      - waiting for getByRole('status')
+
+
+      418 |   await page.goto(`${office}/uradnik/vzn?q=owned&sort=updated_at&state=true&page=2`);
+      419 |   await page.getByRole("link", { name: "Otvoriť OWNED-WORKFLOW" }).click();
+    > 420 |   await page.getByRole("button", { name: "Vymazať dokument", exact: true }).click();
+          |                                          ^
+      421 |   await page
+      422 |     .getByRole("alertdialog")
+      423 |     .getByRole("button", { name: "Vymazať dokument", exact: true })
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/workflow-ux.spec.ts:420:42
+
+    Error Context: test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/workflow-ux-deleting-the-l-9f9cf-vers-without-losing-filters-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [chromium] › tests/e2e/workflow-ux.spec.ts:428:5 › long selected attachment fits mobile editor, validation and dirty confirmation 
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 390
+    Received:    929
+
+      441 |     buffer: Buffer.from("%PDF-1.4"),
+      442 |   });
+    > 443 |   await expect(page.getByText(longFilename, { exact: false }).last()).toContainText(
+          |                                                                           ^
+      444 |     "Vybrané, čaká na nahratie",
+      445 |   );
+      446 |   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/workflow-ux.spec.ts:443:75
+
+    Error Context: test-results/workflow-ux-long-selected--8310b-tion-and-dirty-confirmation-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflow-ux-long-selected--8310b-tion-and-dirty-confirmation-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/workflow-ux-long-selected--8310b-tion-and-dirty-confirmation-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [chromium] › tests/e2e/workflow-ux.spec.ts:496:5 › dashboard recent ten and draft six include newest records concentrated in one agenda 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('main tbody tr').nth(5)
+    Expected substring: "NEW-6"
+    Received string:    "Older 1OLD-1Dodávateľské faktúryDodávateľ: —Upravené: 1. 1. 2025, 1:00Suma s DPH: 12 345 678 901 234 567 890,12 €ZverejnenéDodávateľské faktúryDodávateľ—Upravené1. 1. 2025, 1:00Suma s DPH12 345 678 901 234 567 890,12 €Zverejnené"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" locator('main tbody tr').nth(5) with timeout 10000ms
+      - waiting for locator('main tbody tr').nth(5)
+        24 × locator resolved to <tr data-slot="table-row" class="border-b transition-colors hover:bg-muted/50 has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted">…</tr>
+           - unexpected value "Older 1OLD-1Dodávateľské faktúryDodávateľ: —Upravené: 1. 1. 2025, 1:00Suma s DPH: 12 345 678 901 234 567 890,12 €ZverejnenéDodávateľské faktúryDodávateľ—Upravené1. 1. 2025, 1:00Suma s DPH12 345 678 901 234 567 890,12 €Zverejnené"
+
+
+      524 |   await page.goto(`${office}/uradnik/home`);
+      525 |   const rows = page.locator("main tbody tr");
+    > 526 |   await expect(rows).toHaveCount(10);
+          |                                      ^
+      527 |   for (let i = 1; i <= 10; i++) await expect(rows.nth(i - 1)).toContainText(`NEW-${i}`);
+      528 |   const drafts = page
+      529 |     .locator("section")
+        at /Users/simonochotnicky/Desktop/Projekty/OpenObec/tests/e2e/workflow-ux.spec.ts:526:63
+
+    Error Context: test-results/workflow-ux-dashboard-rece-a00fd--concentrated-in-one-agenda-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflow-ux-dashboard-rece-a00fd--concentrated-in-one-agenda-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/workflow-ux-dashboard-rece-a00fd--concentrated-in-one-agenda-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7 failed
+    [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range obcan page offers truthful recovery with context and no history trap 
+    [chromium] › tests/e2e/browsing-ux.spec.ts:177:7 › retained out-of-range uradnik page offers truthful recovery with context and no history trap 
+    [chromium] › tests/e2e/browsing-ux.spec.ts:239:5 › citizen latest ten includes ten newest records from one busy agenda 
+    [chromium] › tests/e2e/browsing-ux.spec.ts:270:7 › cross-agenda related uradnik detail labels the originating list and editor continuation 
+    [chromium] › tests/e2e/workflow-ux.spec.ts:387:5 › deleting the last row on a retained office page recovers without losing filters 
+    [chromium] › tests/e2e/workflow-ux.spec.ts:428:5 › long selected attachment fits mobile editor, validation and dirty confirmation 
+    [chromium] › tests/e2e/workflow-ux.spec.ts:496:5 › dashboard recent ten and draft six include newest records concentrated in one agenda 
+  2 passed (2.1m)

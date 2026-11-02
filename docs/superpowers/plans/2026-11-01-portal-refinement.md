@@ -93,7 +93,7 @@
 - [x] Refine navigation/footer/current links, spacing/type, long text, focus and mobile rhythm across four pages. Preserve all functioning demo/search links, semantic headings and image alt text; lightweight stable image dimensions.
 - [x] Run relevant marketing tests; update obsolete copy expectations only with clear intended behavior. Run type/lint, all frontend unit tests and three production builds. Commit files.
 - [x] Controller: rebuild three frontend Docker services and run full browser suite on fresh version. Inspect all 44 routes at 390/768/1440, wide marketing at 2560/3440; check no overflow, console errors, stuck loading, keyboard focus/validation and genuine mutations with owned fixtures. Inspect rendered screenshots, not only geometry.
-- [ ] Controller: one scoped Impeccable detector over all changed UI, resolve actual findings; record final verification and visual evidence honestly. Run one final whole-branch review against starting commit, address must-fix findings, archive reports and continue with the subsequently authorized GitHub publication in Task 6.
+- [x] Controller: one scoped Impeccable detector over all changed UI, resolve actual findings; record final verification and visual evidence honestly. Run one final whole-branch review against starting commit, address must-fix findings, archive reports and continue with the subsequently authorized GitHub publication in Task 6.
 
 ### Task 4: Realistic fictional records and useful PDFs
 

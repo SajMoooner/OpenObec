@@ -1,6 +1,6 @@
 {
   "kind": "current-ordinary-refinement",
-  "recorded_at": "2026-11-01T20:14:54.261952+00:00",
+  "recorded_at": "2026-11-02T07:09:09.403269+00:00",
   "scope": "Approved all-three-portal presentation and usability refinement; realistic fictional data; real screenshot animation on homepage; recorded video and MIT open-source documentation for GitHub.",
   "user_authority": {
     "spec": "docs/design/2026-11-01-portal-review/navrh.md",
@@ -9,8 +9,8 @@
     "latest_direction": "Use platform screenshots and a nice animation on homepage; keep completed video on GitHub; push whole project with README; MIT selected.",
     "preserve": "shadcn/ui, Geist, IDSK3 colors only; navy/panorama and centered maximum 1280px; light citizen and navy office sidebar."
   },
-  "application_revision": "413b520",
-  "latest_test_revision": "22dc757",
+  "application_revision": "75dd3f6",
+  "latest_test_revision": "75dd3f6",
   "latest_brief_revision": "5f402ee",
   "source_sha256": {
     "DESIGN.md": "057d66e6d09e7ed0fe4e4b6db4cf4969aa3cb0f6c6e27842357d82765803ed62",
@@ -33,12 +33,12 @@
     "apps/marketing/app/vyhody/page.tsx": "9bdaee74a7cd29f0b3aa86cf6762bfb06f387f234f78130c93bebae41750b8ca",
     "packages/api-client/src/presentation.ts": "0f72dc7dc6de298ca4d7c0e12979a5102203247b704a0b60f6426864dcd4ba45",
     "packages/ui/src/features/attachments.tsx": "ba9c42535f7682bd03117b099388c33fcb5c2deef5f31289cd33198f65a592cb",
-    "packages/ui/src/features/citizen.tsx": "ba180f80ba322b15dd67e45b5eb06a529b0052a4335dfb49a7780e1a453e6631",
-    "packages/ui/src/features/dashboard.tsx": "3e17e5fa9970dd18595ed8ab0c3ab653c9825fd7e296bca7b22fa1e654cdaea5",
+    "packages/ui/src/features/citizen.tsx": "e10b941f4a14ad95944a53f0dc386a7526594a48a7ba2167690e7c830bffa8a4",
+    "packages/ui/src/features/dashboard.tsx": "59bff89c8387fcf4c49aba6e4fcdda86745f800d9204cf2385fe589160b84e44",
     "packages/ui/src/features/detail.tsx": "e9a6b936e5840b3f33794847f4c6dfbe3e816219c785a43aff8be817a519f505",
-    "packages/ui/src/features/document-fields.tsx": "77d5d688b1259e44e5228396f489c4dd3a1e64d5ed9922de56b332acce09e3da",
-    "packages/ui/src/features/editor.tsx": "1c85d05dd02fa3903bbe88b683c1d6af1774763a1608b5ab06664f238c53621e",
-    "packages/ui/src/features/list.tsx": "2088b5d52657e139b50eb616db86cc59146bbd0d04930f51b0c37d93a83c7b90",
+    "packages/ui/src/features/document-fields.tsx": "31a650d77c624c1c0d7a9a411535349f20755b92a0705a364533c53fbc53689d",
+    "packages/ui/src/features/editor.tsx": "38ca1938bcfc78564764666a17b1c7a253394ad33f619f802b0f4dd37bc9e09e",
+    "packages/ui/src/features/list.tsx": "c177f36209331409398532c934fbdd4ca802d5cd7a45ca0bcc6c118141c4ed5b",
     "packages/ui/src/features/login.tsx": "22832dd1cc203a82dc0840b7d1a8461e5ca122e0d765ca5ff0400f207200e58e",
     "packages/ui/src/features/navigation-guard.tsx": "9e3133912814e2f26bbb3ccbdf326f210b868c79bb5e752716cf1468be4058fd",
     "packages/ui/src/features/reference-picker.tsx": "199194cba04fa814b04d4e46efa0c2eeec4047cdf78280e4c389fe2a7c99e3f7",
@@ -68,9 +68,9 @@
     "explanation": "Engine did not recognize the quoted Slovak user-directed spatial supersession. Its failed comparison and open phase are preserved; no forced pass, comp replacement or state closure is claimed.",
     "preserved_snapshot": ".impeccable/review/legacy-comp-state.json"
   },
-  "current_visual_disposition": "ship; independent whole-refinement review and authorized publication pending",
+  "current_visual_disposition": "ship; final broad review and one fix-wave re-review complete, authorized GitHub transfer next",
   "actual_checks": {
-    "full_browser": 59,
+    "full_browser": "59 passed before final fixes; changed browsing/workflow suites30 passed after final fixes",
     "changed_search_test_after_full_suite": 1,
     "frontend_units": 23,
     "typecheck": "pass",
@@ -78,19 +78,25 @@
     "production_frontends": 3,
     "native_unique_route_width_pairs": 132,
     "wide_observations": 8,
-    "healthy_services": 21,
+    "healthy_services": "21 before interruption; Docker daemon unavailable on2026-11-02, no current readiness claim",
     "homepage_screenshots": 3,
     "homepage_video_elements": 0,
     "retained_documentation_video_seconds": 39.24,
     "seed_identities_preserved": 72,
     "subsequent_user_edit_preserved": 1,
-    "owned_showcase_invoice_added": 1
+    "owned_showcase_invoice_added": 1,
+    "final_fix_browser": 30,
+    "final_affected_production_frontends": 2
   },
   "detector": {
     "whole_changed_ui": "docs/reviews/2026-11-01-portal-refinement/impeccable-detector.json",
     "result": "exit 0, one advisory for unchanged intentional selection color #c3d9f9",
     "latest_changed_home": "docs/reviews/2026-11-01-portal-refinement/impeccable-showcase-detector.json",
-    "latest_result": "exit 0, no findings"
+    "latest_result": "exit 0, no findings",
+    "final_changed_ui": "docs/reviews/2026-11-01-portal-refinement/impeccable-final-fix-detector.json",
+    "final_result": "exit0, no findings"
   },
-  "current_visual_scope": "Manual evidence-based verdict for current approved refinement. Historical engine comp comparison is preserved open/failed; no forced acceptance or engine-state rewrite."
+  "current_visual_scope": "Manual evidence-based verdict for current approved refinement. Historical engine comp comparison is preserved open/failed; no forced acceptance or engine-state rewrite.",
+  "final_code_review": "docs/reviews/2026-11-01-portal-refinement/final-review.md",
+  "final_fix_review": "docs/reviews/2026-11-01-portal-refinement/final-fix-review.md"
 }

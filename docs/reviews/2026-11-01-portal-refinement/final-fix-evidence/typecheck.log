@@ -1,0 +1,12 @@
+$ pnpm -r typecheck
+Scope: 6 of 7 workspace projects
+packages/api-client typecheck$ tsc --noEmit
+packages/api-client typecheck: Done
+packages/ui typecheck$ tsc --noEmit
+packages/ui typecheck: Done
+apps/office typecheck$ tsc --noEmit
+apps/citizen typecheck$ tsc --noEmit
+apps/marketing typecheck$ tsc --noEmit
+apps/marketing typecheck: Done
+apps/citizen typecheck: Done
+apps/office typecheck: Done

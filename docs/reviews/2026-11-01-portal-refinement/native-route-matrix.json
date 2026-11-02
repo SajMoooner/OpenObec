@@ -474,5 +474,21 @@
     ],
     "all_images_loaded": true,
     "reduced_motion_and_hidden_offscreen": "verified by focused browser tests in task5report"
+  },
+  "final_fix_checks": {
+    "source_revision": "75dd3f6",
+    "width": 390,
+    "citizen_recovery": {
+      "input": "/obcan/faktury?page=999&sort=created_at&q=FV",
+      "output": "/obcan/faktury?page=1&sort=created_at&q=FV",
+      "page_scroll_width": 375
+    },
+    "office_recovery": {
+      "input": "/uradnik/faktury?page=999&sort=updated_at&state=false&q=FV",
+      "output": "/uradnik/faktury?page=1&sort=updated_at&state=false&q=FV",
+      "page_scroll_width": 375
+    },
+    "native_filename_attempt": "Interrupted during file chooser before completion; not claimed passed. Automated focused pending/validation/failed-upload/dirty tests passed.",
+    "viewport": "reset after resume; no retained test tabs"
   }
 }

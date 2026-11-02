@@ -6,11 +6,11 @@ Rozsah od `625fc6d` (rovnaký produktový kód ako pôvodný `4a3f798`). Autorit
 
 - Tri portály zachovávajú shadcn/ui, Geist a farby IDSK3. Spoločné tabuľky majú údaje podľa agendy, návrat zachová filtre, detail uprednostňuje prílohy a editor chráni rozpracovanú prácu.
 - Marketing má reálne obrazovky, konkrétne scenáre a tri animované kroky tej istej faktúry. Má manuálne prepínanie, pozastavenie a obmedzený pohyb; úvod nenačítava video.
-- Všetkých 72 pôvodných ukážkových identít a väzieb bolo zachovaných pri obnove realistických údajov a PDF. Následná používateľská úprava jednej faktúry zostala nedotknutá (71 záznamov zhodných s obnoveným základom + 1 upravený). Nová faktúra 0057 vznikla výhradne pre skutočnú ukážku; konečný počet je 73, z toho 24 konceptov / 49 zverejnených.
+- Všetkých 72 pôvodných ukážkových identít a väzieb bolo zachovaných pri obnove realistických údajov a PDF. Následná používateľská úprava jednej faktúry zostala nedotknutá (71 záznamov zhodných s obnoveným základom + 1 upravený). Nová faktúra 0057 vznikla výhradne pre skutočnú ukážku; v čase záznamu bol počet 73, z toho 24 konceptov / 49 zverejnených. Neskoršie používanie môže počty meniť.
 - Záznam skutočného postupu má 39,24 s, VP9/WebM, 1280×800 a 3 458 209 bajtov. Zdrojový aj občiansky dokument majú rovnaké ID; autorovaný, zdrojový a občiansky PDF rovnaký SHA-256. [Video a pôvod](../../media/showcase/README.md).
 - README, MIT licencia, prispievanie a oznámenia tretích strán sú pripravené. GitHub publikácia nasleduje až po záverečnej kontrole.
 
-Všetkých 21 kontajnerov je spustených a hlási zdravý stav.
+Pred prerušením bolo všetkých 21 kontajnerov spustených a zdravých. Pri pokračovaní 2. 11. 2026 Docker nebežal (chýbajúci socket); aktuálna živá pripravenosť sa preto netvrdí. Uložené úspešné behy zodpovedajú uvedeným revíziám.
 
 ## Automatické overenie
 
@@ -44,5 +44,15 @@ Pôvodné obrazové porovnanie so širokým compom zostáva historicky otvorené
 
 ## Ešte pred odoslaním
 
-- [ ] Záverečná kontrola celého rozsahu a vyriešenie prípadných závažných nálezov.
+- [x] Záverečná kontrola celého rozsahu a vyriešenie nálezov jednou opravnou vlnou; následná kontrola bez nových nálezov.
 - [ ] Overený push do existujúceho GitHub repozitára, kontrola README/licencie/médií a pravdivý stav vzdialeného CI.
+
+## Finálne opravy po nezávislej kontrole
+
+[Kontrola celého rozsahu](final-review.md) našla štyri konkrétne okrajové stavy. Commit `75dd3f6` opravil návrat z prázdnej zachovanej strany so zachovaním filtrov, zalomenie dlhého názvu prílohy na mobile, správny názov cieľovej agendy v návratovom odkaze a výber skutočne najnovších dokumentov naprieč agendami. [Kontrola opráv](final-fix-review.md) označila všetky štyri za vyriešené bez nových nálezov.
+
+Na nových produkčných zostaveniach občana/úradníka prešlo **30/30** dotknutých prehliadačových skúšok (21,6 s), vrátane 10 nových prípadov a rozšíreného testu opakovaného uploadu. Znovu prešlo 23 jednotkových skúšok, typy a lint. [Úplný výsledok](final-fix-evidence/green.log), [opis a príkazy](final-fix-report.md). Celý skorší 59-testový balík sa nezopakoval; nezmenené scenáre majú predchádzajúci dôkaz a zmenené časti čerstvý beh.
+
+Ručne bol na 390 px potvrdený návrat zo strany 999 v oboch portáloch, správne URL po návrate a nulový vodorovný presah. Výber súboru cez natívny dialóg bol prerušený; jeho ručný úspech sa netvrdí. Dlhý názov prílohy vrátane validačnej chyby, neúspešného uploadu a zachovania pri odmietnutí odchodu overili uvedené prehliadačové skúšky. [Detektor piatich zmenených UI súborov](impeccable-final-fix-detector.json): exit 0, bez nálezov.
+
+Všetky prijaté procesné rozhodnutia a ich dôsledky: [záznam rozhodnutí](rulings.md). Táto verzia overenia vzniká pred prenosom na GitHub; výsledok publikácie sa uvádza samostatne.
