@@ -228,7 +228,9 @@ test("partial attachment save retries only remaining files on the same record an
   });
   await page.getByRole("button", { name: "Uložiť koncept" }).click();
   await expect(page).toHaveURL(new RegExp(`/uradnik/vzn/${synthetic.id}\\?`));
-  await expect(page.getByRole("status")).toContainText("Dokument bol uložený");
+  await expect(page.getByRole("status").filter({ hasText: "Dokument bol uložený" })).toContainText(
+    "Dokument bol uložený",
+  );
   expect(creates).toBe(1);
   expect(updates).toBe(1);
   expect(filenames).toEqual(["first.pdf", longFilename, longFilename]);
@@ -426,7 +428,9 @@ for (const action of ["deleting", "unpublishing"]) {
         .click();
     } else {
       await page.getByRole("button", { name: "Stiahnuť zo zverejnenia", exact: true }).click();
-      await expect(page.getByRole("status")).toContainText("stiahnutý zo zverejnenia");
+      await expect(
+        page.getByRole("status").filter({ hasText: "stiahnutý zo zverejnenia" }),
+      ).toContainText("stiahnutý zo zverejnenia");
       await page.locator("main").getByRole("link", { name: "VZN", exact: true }).click();
     }
     await expect(page.getByRole("status").filter({ hasText: "10 dokumentov" })).toBeVisible();
