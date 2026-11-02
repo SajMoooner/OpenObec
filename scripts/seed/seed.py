@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Two-pass, API-only fictional municipal seed. Existing owned records are never rewritten."""
 import argparse
+from datetime import timezone
+from email.utils import parsedate_to_datetime
 import hashlib
 import json
 import os
@@ -18,12 +20,51 @@ AGENDAS = ('faktury', 'dodavatelske-faktury', 'zmluvy', 'objednavky', 'verejne-o
 BASE = os.environ.get('API_BASE_URL', 'http://localhost:8080').rstrip('/')
 
 
+def retry_delay(value, attempt):
+    """Honor Retry-After up to the gateway's 60s window; never retry early."""
+    delay = 2 ** attempt  # Missing/malformed header: 1s, then 2s.
+    if value is not None:
+        value = value.strip()
+        try:
+            if value.isascii() and value.isdigit():
+                delay = int(value)
+            else:
+                when = parsedate_to_datetime(value)
+                if when.tzinfo is None:
+                    when = when.replace(tzinfo=timezone.utc)
+                delay = max(0, when.timestamp() - time.time())
+        except (ValueError, TypeError, OverflowError):
+            pass
+    return delay if delay <= 60 else None
+
+
+def open_request(req):
+    """Retry only explicit 429 rejections, at most three attempts/120s sleep.
+
+    GatewayWebFilter rejects 429 before reading/forwarding to the owning service,
+    so the same buffered POST is safe to submit again. Connection errors, other
+    statuses and failures while reading a successful response are never retried.
+    The caller retains ownership of successful responses and terminal HTTPErrors.
+    """
+    for attempt in range(3):
+        try:
+            return urllib.request.urlopen(req, timeout=30)
+        except urllib.error.HTTPError as error:
+            if error.code != 429 or attempt == 2:
+                raise
+            delay = retry_delay(error.headers.get('Retry-After') if error.headers else None, attempt)
+            if delay is None:
+                raise
+            error.close()
+            time.sleep(delay)
+
+
 def request(method, path, body=None, content_type='application/json'):
     if isinstance(body, dict):
         body = json.dumps(body, ensure_ascii=False).encode()
     req = urllib.request.Request(BASE + '/rest/v1/' + path, data=body, method=method,
                                  headers={'X-Obec-Id': 'zilina', 'Content-Type': content_type})
-    with urllib.request.urlopen(req, timeout=30) as response:
+    with open_request(req) as response:
         data = response.read()
         return json.loads(data) if 'json' in response.headers.get('Content-Type', '') and data else data
 
