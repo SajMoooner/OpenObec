@@ -56,3 +56,13 @@ Na nových produkčných zostaveniach občana/úradníka prešlo **30/30** dotkn
 Ručne bol na 390 px potvrdený návrat zo strany 999 v oboch portáloch, správne URL po návrate a nulový vodorovný presah. Výber súboru cez natívny dialóg bol prerušený; jeho ručný úspech sa netvrdí. Dlhý názov prílohy vrátane validačnej chyby, neúspešného uploadu a zachovania pri odmietnutí odchodu overili uvedené prehliadačové skúšky. [Detektor piatich zmenených UI súborov](impeccable-final-fix-detector.json): exit 0, bez nálezov.
 
 Všetky prijaté procesné rozhodnutia a ich dôsledky: [záznam rozhodnutí](rulings.md). Táto verzia overenia vzniká pred prenosom na GitHub; výsledok publikácie sa uvádza samostatne.
+
+## Zverejnenie a čisté spustenie na GitHube
+
+Projekt bol 2. 11. 2026 odoslaný na `main` aj `codex/openobec-demo` v [SajMoooner/OpenObec](https://github.com/SajMoooner/OpenObec). Prvá publikovaná revízia `2fa3338` obsahuje celé aplikácie, README, MIT licenciu aj video. Vzdialený commit a zhodu obsahu README/licencie/videa potvrdili GitHub API a Git blob identifikátory; GitHub rozpoznal MIT.
+
+[Prvý automatický beh](https://github.com/SajMoooner/OpenObec/actions/runs/41404577570) narazil po úspešnom štarte démonov na čakanie na už ukončené inicializačné úlohy. [Výpis chyby](ci-startup-failure.txt), [diagnóza a oprava](ci-fix-report.md). Commit `41f7d79` kontroluje aj ukončené úlohy, ich návratové kódy a spoločný časový limit bez potlačenia skutočných chýb. Prešlo 11 cielených regresií, celá sada 19 runtime a 12 kontraktových skúšok, syntax, kompilácia a obe Compose konfigurácie. [Nezávislá kontrola](ci-fix-review.md) schválila súlad aj kvalitu bez nálezov.
+
+Oprava bola odoslaná v revízii `e65d6a9`. [Druhý automatický beh](https://github.com/SajMoooner/OpenObec/actions/runs/41406073384) úspešne overil infraštruktúru, kontrakty, runtime, Java služby, frontend aj celý štart dema. Hromadné smoke skúšky následne dosiahli nezmenený limit API; živá obnova dát a jej upratovanie skončili HTTP 429. [Výpis](ci-throttle-failure.txt).
+
+Commit `aaeb130` doplnil iba bezpečné, ohraničené opakovanie výslovne odmietnutých HTTP 429 v spoločnom seed transporte. Rešpektuje `Retry-After`, nemení limity API a neopakuje nejasné chyby zápisov. Prešlo 8 transportných regresií, 27 runtime, 12 kontraktových a 8 offline skúšok obnovy dát. [Opis a výsledky](ci-throttle-report.md), [nezávislá kontrola](ci-throttle-review.md): súlad aj kvalita schválené bez nálezov. Úplný vzdialený beh sa zopakuje po odoslaní tejto opravy.

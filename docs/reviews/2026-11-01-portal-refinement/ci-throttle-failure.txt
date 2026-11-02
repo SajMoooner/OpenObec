@@ -1,0 +1,22 @@
+Run: https://github.com/SajMoooner/OpenObec/actions/runs/41406073384
+Revision:e65d6a9
+Focused excerpt; repeated urllib frames omitted.
+
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:29.8028755Z test_all_seventy_operations_return_contract_valid_concrete_fixtures (test_contract_http.ContractHttpAcceptance.test_all_seventy_operations_return_contract_valid_concrete_fixtures) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:29.8778567Z test_rebuild_help_does_not_need_a_running_service (test_rebuild_command.RebuildCommand.test_rebuild_help_does_not_need_a_running_service) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:36.7872566Z test_seed_has_twelve_per_agenda_branching_components_and_real_pdf (test_seed.SeedAcceptance.test_seed_has_twelve_per_agenda_branching_components_and_real_pdf) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:39.9821811Z test_deleted_link_target_keeps_surviving_owner_and_rerun_succeeds (test_seed_preservation.SeedPreservation.test_deleted_link_target_keeps_surviving_owner_and_rerun_succeeds) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.3640215Z test_existing_user_edit_and_logical_delete_survive_rerun (test_seed_preservation.SeedPreservation.test_existing_user_edit_and_logical_delete_survive_rerun) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.7903262Z test_owned_refresh_preserves_edit_delete_extra_and_ordinary_rerun (test_seed_refresh.LiveRefreshPreservation.test_owned_refresh_preserves_edit_delete_extra_and_ordinary_rerun) ... ERROR
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.8157551Z test_changed_field_relation_and_unknown_pdf_are_preserved (test_seed_refresh.RefreshTests.test_changed_field_relation_and_unknown_pdf_are_preserved) ... /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/json/encoder.py:356: ResourceWarning: unclosed <socket.socket [closed] fd=3, family=10, type=1, proto=6>
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.8437185Z test_edit_after_partial_upload_and_after_completion_is_preserved (test_seed_refresh.RefreshTests.test_edit_after_partial_upload_and_after_completion_is_preserved) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.8641240Z test_explicitly_proven_restored_legacy_version_requires_full_content_proof (test_seed_refresh.RefreshTests.test_explicitly_proven_restored_legacy_version_requires_full_content_proof) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.8824586Z test_modified_original_pdf_during_interruption_is_preserved (test_seed_refresh.RefreshTests.test_modified_original_pdf_during_interruption_is_preserved) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9049033Z test_preview_and_apply_preserve_identity_extras_and_rerun (test_seed_refresh.RefreshTests.test_preview_and_apply_preserve_identity_extras_and_rerun) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9224536Z test_restored_identity_exception_does_not_allow_modified_attachment (test_seed_refresh.RefreshTests.test_restored_identity_exception_does_not_allow_modified_attachment) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9438542Z test_retry_after_upload_and_after_remote_update_does_not_duplicate (test_seed_refresh.RefreshTests.test_retry_after_upload_and_after_remote_update_does_not_duplicate) ... ok
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9442909Z ERROR: test_owned_refresh_preserves_edit_delete_extra_and_ordinary_rerun (test_seed_refresh.LiveRefreshPreservation.test_owned_refresh_preserves_edit_delete_extra_and_ordinary_rerun)
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9460896Z urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9474420Z urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9475237Z Ran 13 tests in 15.649s
+demo	Run scripts/smoke/run.sh	2026-11-02T07:31:42.9475475Z FAILED (errors=1)

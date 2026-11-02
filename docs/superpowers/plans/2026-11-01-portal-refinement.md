@@ -161,3 +161,11 @@ First public revision `2fa3338` reached healthy daemons on GitHub Actions, then 
 - [x] Confirm the failure against exact CI output and supported Compose behavior.
 - [x] Preserve bounded startup and explicit init failures while accepting already-successful jobs; add focused offline regressions and run relevant existing checks.
 - [ ] Independently review the small change, push without force and verify the next actual GitHub run. No default-data reset, API/schema/frontend change or skipped verification.
+
+### Post-publication verification: seed client throttling
+
+The next actual CI run passed startup, contracts, runtime, Java and frontend checks; the combined smoke workload reached the gateway's unchanged rate limit during the live seed-refresh test. Repair the seed transport to respect explicitly rejected HTTP429 responses without retrying ambiguous writes or weakening the gateway.
+
+- [x] Prove retry safety from gateway ordering and inspect all seed transport paths.
+- [x] Add bounded Retry-After handling and deterministic regressions; preserve final error details, ownership and unrelated failures.
+- [ ] Independently review the focused change and verify the next full remote CI run.
