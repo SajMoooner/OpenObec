@@ -1,0 +1,12 @@
+First public run: https://github.com/SajMoooner/OpenObec/actions/runs/41404577570
+Source revision:2fa3338c5e3c8b181c71b690bd6189dd3b89cf6d
+Focused excerpt; pull-progress lines omitted.
+
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:51.8766292Z  Container openobec-rustfs-init-1  Started
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:53.0668695Z  Container openobec-kafka-init-1  Started
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.3508821Z  Container openobec-mongo-read-1  Healthy
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.4507293Z no containers for project "openobec"
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.4886304Z Traceback (most recent call last):
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.4932694Z     raise CalledProcessError(retcode, process.args,
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.4933357Z subprocess.CalledProcessError: Command '['docker', 'compose', '-p', 'openobec', '-f', '/home/runner/work/OpenObec/OpenObec/compose.yaml', 'wait', 'kafka-init', 'rustfs-init']' returned non-zero exit status 1.
+demo	Run scripts/dev/infra.sh up	2026-11-02T07:11:58.4988576Z ##[error]Process completed with exit code 1.

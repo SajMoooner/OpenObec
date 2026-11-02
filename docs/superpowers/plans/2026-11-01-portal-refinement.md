@@ -153,3 +153,11 @@
 - [x] Add short contribution guidance with existing repo commands, feature branch/PR workflow and focused-change expectations. Keep optional roadmap separate from implemented features (real auth, city IS/external registries, intelligent search, multi-municipality support remain future work).
 - [x] Verify local Markdown links/assets, copied commands against actual scripts/config, no absolute author-machine paths in the public quickstart, and license text. Self-review, commit only Task6 files and report. No application code changes or test duplication for documentation.
 - [ ] Controller: complete focused/final whole-refinement checks and review, inspect publishable tracked files/history and ignore rules for credentials/local data, verify latest remote ancestry, then push reviewed history to current feature branch and fast-forward default `main` without force. If remote changed, reconcile safely before pushing. Verify remote HEAD/README/LICENSE/media and report actual CI status separately from local verification. Do not deploy services or alter repository visibility/settings.
+
+### Post-publication verification: Compose init readiness
+
+First public revision `2fa3338` reached healthy daemons on GitHub Actions, then older Compose failed to wait on init jobs that had already exited. This new clean-run evidence requires a narrow launcher compatibility repair; it does not reopen the completed UI review.
+
+- [x] Confirm the failure against exact CI output and supported Compose behavior.
+- [x] Preserve bounded startup and explicit init failures while accepting already-successful jobs; add focused offline regressions and run relevant existing checks.
+- [ ] Independently review the small change, push without force and verify the next actual GitHub run. No default-data reset, API/schema/frontend change or skipped verification.
