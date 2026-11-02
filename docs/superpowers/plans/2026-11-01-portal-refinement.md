@@ -152,7 +152,7 @@
 - [x] Add exact standard MIT license with `Copyright (c) 2026 OpenObec contributors`; user explicitly selected it. Preserve third-party ownership/licenses, including existing Geist/Lucide and embedded Liberation font notice; generated shadcn components must retain appropriate attribution. Do not claim database/container dependencies are all MIT.
 - [x] Add short contribution guidance with existing repo commands, feature branch/PR workflow and focused-change expectations. Keep optional roadmap separate from implemented features (real auth, city IS/external registries, intelligent search, multi-municipality support remain future work).
 - [x] Verify local Markdown links/assets, copied commands against actual scripts/config, no absolute author-machine paths in the public quickstart, and license text. Self-review, commit only Task6 files and report. No application code changes or test duplication for documentation.
-- [ ] Controller: complete focused/final whole-refinement checks and review, inspect publishable tracked files/history and ignore rules for credentials/local data, verify latest remote ancestry, then push reviewed history to current feature branch and fast-forward default `main` without force. If remote changed, reconcile safely before pushing. Verify remote HEAD/README/LICENSE/media and report actual CI status separately from local verification. Do not deploy services or alter repository visibility/settings.
+- [x] Controller: complete focused/final whole-refinement checks and review, inspect publishable tracked files/history and ignore rules for credentials/local data, verify latest remote ancestry, then push reviewed history to current feature branch and fast-forward default `main` without force. If remote changed, reconcile safely before pushing. Verify remote HEAD/README/LICENSE/media and report actual CI status separately from local verification. Do not deploy services or alter repository visibility/settings.
 
 ### Post-publication verification: Compose init readiness
 
@@ -160,7 +160,7 @@ First public revision `2fa3338` reached healthy daemons on GitHub Actions, then 
 
 - [x] Confirm the failure against exact CI output and supported Compose behavior.
 - [x] Preserve bounded startup and explicit init failures while accepting already-successful jobs; add focused offline regressions and run relevant existing checks.
-- [ ] Independently review the small change, push without force and verify the next actual GitHub run. No default-data reset, API/schema/frontend change or skipped verification.
+- [x] Independently review the small change, push without force and verify the next actual GitHub run. No default-data reset, API/schema/frontend change or skipped verification.
 
 ### Post-publication verification: seed client throttling
 
@@ -168,4 +168,12 @@ The next actual CI run passed startup, contracts, runtime, Java and frontend che
 
 - [x] Prove retry safety from gateway ordering and inspect all seed transport paths.
 - [x] Add bounded Retry-After handling and deterministic regressions; preserve final error details, ownership and unrelated failures.
-- [ ] Independently review the focused change and verify the next full remote CI run.
+- [x] Independently review the focused change and verify the next full remote CI run.
+
+### Final publication receipt
+
+- [x] Qualify two ambiguous browser-test success locators without weakening assertions; focused real-browser checks and independent review passed (`29b4e7a`).
+- [x] Complete GitHub run [41410124949](https://github.com/SajMoooner/OpenObec/actions/runs/41410124949) passed on `60530be6ec1e018b9a4c3414158e3c1680fc249f`: clean startup, all verification stages and 69/69 browser scenarios.
+- [x] Archive final evidence, all reports/reviews and every ruling before removing only this plan's disposable SDD scratch directory. Preserve the checkout, other plans and the user's three unrelated research files.
+
+The closing documentation commit does not change application code, configuration, tests or published media. See [verification](../../reviews/2026-11-01-portal-refinement/verification.md) for exact evidence and the local Docker availability limitation.

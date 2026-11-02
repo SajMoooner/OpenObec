@@ -1,0 +1,40 @@
+Selected, unmodified result lines from GitHub Actions run 41410124949.
+Source: https://github.com/SajMoooner/OpenObec/actions/runs/41410124949
+Commit: 60530be6ec1e018b9a4c3414158e3c1680fc249f
+Full step dispositions: ci-success.json
+
+demo	Run python3 -m unittest discover -s tests/contracts -v	2026-11-02T08:03:47.9829370Z Ran 12 tests in 1.212s
+demo	Run python3 -m unittest discover -s tests/contracts -v	2026-11-02T08:03:47.9829684Z OK
+demo	Run python3 -m unittest discover -s tests/runtime -v	2026-11-02T08:03:49.2069596Z Ran 27 tests in 0.677s
+demo	Run python3 -m unittest discover -s tests/runtime -v	2026-11-02T08:03:49.2070876Z OK
+demo	Run ./mvnw -B verify	2026-11-02T08:04:16.5159529Z [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:04:30.4594336Z [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:04:34.4751495Z [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:04:50.5346980Z [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:05:07.2542754Z [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:05:19.7284879Z [INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:05:29.4134031Z [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:05:39.0735514Z [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:05:49.9090248Z [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:06:00.1186348Z [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:06:08.8500811Z [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:06:25.9835907Z [INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+demo	Run ./mvnw -B verify	2026-11-02T08:06:26.1810720Z [INFO] BUILD SUCCESS
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:28.5771559Z packages/api-client typecheck: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:32.0604180Z packages/ui typecheck: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:39.2154849Z apps/marketing typecheck: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:40.2436383Z apps/citizen typecheck: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:40.5452544Z apps/office typecheck: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:49.6338194Z ℹ tests 23
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:49.6339303Z ℹ pass 23
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:49.6339730Z ℹ fail 0
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:49.6340329Z ℹ cancelled 0
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:06:49.6340732Z ℹ skipped 0
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:07:22.7774373Z apps/marketing build: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:07:24.5601668Z apps/citizen build: Done
+demo	Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build	2026-11-02T08:07:25.8194194Z apps/office build: Done
+demo	Run scripts/dev/up.sh manual --skip-build	2026-11-02T08:09:09.1926476Z OpenObec ready: marketing http://localhost:3000 · citizens http://localhost:3001 · office http://localhost:3002
+demo	Run scripts/smoke/run.sh	2026-11-02T08:09:28.4952568Z Ran 13 tests in 18.916s
+demo	Run scripts/smoke/run.sh	2026-11-02T08:09:28.4952813Z OK
+demo	Run scripts/smoke/run.sh	2026-11-02T08:09:28.4953365Z 70 concrete HTTP fixtures validated: /home/runner/work/OpenObec/OpenObec/.run/contract-fixtures.json
+demo	Run pnpm test:e2e	2026-11-02T08:11:02.6376364Z   69 passed (1.5m)

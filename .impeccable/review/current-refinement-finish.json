@@ -1,6 +1,6 @@
 {
   "kind": "current-ordinary-refinement",
-  "recorded_at": "2026-11-02T07:09:09.403269+00:00",
+  "recorded_at": "2026-11-02T08:14:03.177869+00:00",
   "scope": "Approved all-three-portal presentation and usability refinement; realistic fictional data; real screenshot animation on homepage; recorded video and MIT open-source documentation for GitHub.",
   "user_authority": {
     "spec": "docs/design/2026-11-01-portal-review/navrh.md",
@@ -10,7 +10,7 @@
     "preserve": "shadcn/ui, Geist, IDSK3 colors only; navy/panorama and centered maximum 1280px; light citizen and navy office sidebar."
   },
   "application_revision": "75dd3f6",
-  "latest_test_revision": "75dd3f6",
+  "latest_test_revision": "29b4e7a",
   "latest_brief_revision": "5f402ee",
   "source_sha256": {
     "DESIGN.md": "057d66e6d09e7ed0fe4e4b6db4cf4969aa3cb0f6c6e27842357d82765803ed62",
@@ -68,9 +68,9 @@
     "explanation": "Engine did not recognize the quoted Slovak user-directed spatial supersession. Its failed comparison and open phase are preserved; no forced pass, comp replacement or state closure is claimed.",
     "preserved_snapshot": ".impeccable/review/legacy-comp-state.json"
   },
-  "current_visual_disposition": "ship; final broad review and one fix-wave re-review complete, authorized GitHub transfer next",
+  "current_visual_disposition": "ship; final review and scoped fix reviews complete; published to GitHub main and feature branch; complete remote CI passed",
   "actual_checks": {
-    "full_browser": "59 passed before final fixes; changed browsing/workflow suites30 passed after final fixes",
+    "full_browser": "69 passed in final complete GitHub CI; no skipped browser cases",
     "changed_search_test_after_full_suite": 1,
     "frontend_units": 23,
     "typecheck": "pass",
@@ -86,7 +86,13 @@
     "subsequent_user_edit_preserved": 1,
     "owned_showcase_invoice_added": 1,
     "final_fix_browser": 30,
-    "final_affected_production_frontends": 2
+    "final_affected_production_frontends": 2,
+    "remote_ci": "success: https://github.com/SajMoooner/OpenObec/actions/runs/41410124949",
+    "contracts": 12,
+    "runtime": 27,
+    "java": 148,
+    "smoke": 13,
+    "http_contract_fixtures": 70
   },
   "detector": {
     "whole_changed_ui": "docs/reviews/2026-11-01-portal-refinement/impeccable-detector.json",
@@ -98,5 +104,16 @@
   },
   "current_visual_scope": "Manual evidence-based verdict for current approved refinement. Historical engine comp comparison is preserved open/failed; no forced acceptance or engine-state rewrite.",
   "final_code_review": "docs/reviews/2026-11-01-portal-refinement/final-review.md",
-  "final_fix_review": "docs/reviews/2026-11-01-portal-refinement/final-fix-review.md"
+  "final_fix_review": "docs/reviews/2026-11-01-portal-refinement/final-fix-review.md",
+  "ci_verified_revision": "60530be6ec1e018b9a4c3414158e3c1680fc249f",
+  "publication": {
+    "repository": "https://github.com/SajMoooner/OpenObec",
+    "branches": [
+      "main",
+      "codex/openobec-demo"
+    ],
+    "license": "MIT",
+    "receipt": "docs/reviews/2026-11-01-portal-refinement/ci-success.json",
+    "closing_commit_scope": "documentation and verification metadata only; reviewed application, tests and media unchanged"
+  }
 }

@@ -1,0 +1,209 @@
+{
+  "repository": "https://github.com/SajMoooner/OpenObec",
+  "run": {
+    "id": 41410124949,
+    "head_sha": "60530be6ec1e018b9a4c3414158e3c1680fc249f",
+    "head_branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/SajMoooner/OpenObec/actions/runs/41410124949",
+    "started_at": "2026-11-02T08:01:58Z",
+    "updated_at": "2026-11-02T08:11:14Z"
+  },
+  "jobs": [
+    {
+      "id": 125161020734,
+      "name": "demo",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-02T08:02:02Z",
+      "completed_at": "2026-11-02T08:11:13Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-02T08:02:03Z",
+          "completed_at": "2026-11-02T08:02:04Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-02T08:02:04Z",
+          "completed_at": "2026-11-02T08:02:07Z"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-02T08:02:07Z",
+          "completed_at": "2026-11-02T08:02:07Z"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-02T08:02:07Z",
+          "completed_at": "2026-11-02T08:02:13Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-02T08:02:13Z",
+          "completed_at": "2026-11-02T08:02:13Z"
+        },
+        {
+          "name": "Run npm install --global pnpm@11.25.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-02T08:02:13Z",
+          "completed_at": "2026-11-02T08:02:15Z"
+        },
+        {
+          "name": "Run python3 -m pip install -r tests/integration/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-02T08:02:15Z",
+          "completed_at": "2026-11-02T08:02:23Z"
+        },
+        {
+          "name": "Run pnpm install --frozen-lockfile",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-02T08:02:23Z",
+          "completed_at": "2026-11-02T08:02:31Z"
+        },
+        {
+          "name": "Run pnpm exec playwright install --with-deps chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-02T08:02:31Z",
+          "completed_at": "2026-11-02T08:03:02Z"
+        },
+        {
+          "name": "Run scripts/dev/infra.sh up",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-02T08:03:02Z",
+          "completed_at": "2026-11-02T08:03:46Z"
+        },
+        {
+          "name": "Run python3 -m unittest discover -s tests/contracts -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-02T08:03:46Z",
+          "completed_at": "2026-11-02T08:03:47Z"
+        },
+        {
+          "name": "Run python3 -m unittest discover -s tests/runtime -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-02T08:03:47Z",
+          "completed_at": "2026-11-02T08:03:49Z"
+        },
+        {
+          "name": "Run ./mvnw -B verify",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-02T08:03:49Z",
+          "completed_at": "2026-11-02T08:06:26Z"
+        },
+        {
+          "name": "Run pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-02T08:06:26Z",
+          "completed_at": "2026-11-02T08:07:25Z"
+        },
+        {
+          "name": "Run scripts/dev/up.sh manual --skip-build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-02T08:07:25Z",
+          "completed_at": "2026-11-02T08:09:09Z"
+        },
+        {
+          "name": "Run scripts/smoke/run.sh",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-02T08:09:09Z",
+          "completed_at": "2026-11-02T08:09:28Z"
+        },
+        {
+          "name": "Run pnpm test:e2e",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-02T08:09:28Z",
+          "completed_at": "2026-11-02T08:11:02Z"
+        },
+        {
+          "name": "Run scripts/dev/down.sh manual",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-02T08:11:02Z",
+          "completed_at": "2026-11-02T08:11:07Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-11-02T08:11:07Z",
+          "completed_at": "2026-11-02T08:11:08Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34,
+          "started_at": "2026-11-02T08:11:08Z",
+          "completed_at": "2026-11-02T08:11:08Z"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-11-02T08:11:08Z",
+          "completed_at": "2026-11-02T08:11:11Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-11-02T08:11:11Z",
+          "completed_at": "2026-11-02T08:11:11Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-11-02T08:11:11Z",
+          "completed_at": "2026-11-02T08:11:11Z"
+        }
+      ]
+    }
+  ]
+}

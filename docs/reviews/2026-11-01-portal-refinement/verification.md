@@ -8,7 +8,7 @@ Rozsah od `625fc6d` (rovnaký produktový kód ako pôvodný `4a3f798`). Autorit
 - Marketing má reálne obrazovky, konkrétne scenáre a tri animované kroky tej istej faktúry. Má manuálne prepínanie, pozastavenie a obmedzený pohyb; úvod nenačítava video.
 - Všetkých 72 pôvodných ukážkových identít a väzieb bolo zachovaných pri obnove realistických údajov a PDF. Následná používateľská úprava jednej faktúry zostala nedotknutá (71 záznamov zhodných s obnoveným základom + 1 upravený). Nová faktúra 0057 vznikla výhradne pre skutočnú ukážku; v čase záznamu bol počet 73, z toho 24 konceptov / 49 zverejnených. Neskoršie používanie môže počty meniť.
 - Záznam skutočného postupu má 39,24 s, VP9/WebM, 1280×800 a 3 458 209 bajtov. Zdrojový aj občiansky dokument majú rovnaké ID; autorovaný, zdrojový a občiansky PDF rovnaký SHA-256. [Video a pôvod](../../media/showcase/README.md).
-- README, MIT licencia, prispievanie a oznámenia tretích strán sú pripravené. GitHub publikácia nasleduje až po záverečnej kontrole.
+- README, MIT licencia, prispievanie, oznámenia tretích strán a médiá sú zverejnené na [GitHube](https://github.com/SajMoooner/OpenObec). Záverečný úplný [CI beh](https://github.com/SajMoooner/OpenObec/actions/runs/41410124949) na revízii `60530be` prešiel úspešne.
 
 Pred prerušením bolo všetkých 21 kontajnerov spustených a zdravých. Pri pokračovaní 2. 11. 2026 Docker nebežal (chýbajúci socket); aktuálna živá pripravenosť sa preto netvrdí. Uložené úspešné behy zodpovedajú uvedeným revíziám.
 
@@ -16,6 +16,7 @@ Pred prerušením bolo všetkých 21 kontajnerov spustených a zdravých. Pri po
 
 | Kontrola | Výsledok a rozsah |
 |---|---|
+| Finálny celý CI na GitHube | **ÚSPECH**, revízia `60530be6ec1e018b9a4c3414158e3c1680fc249f`, 2. 11. 2026. 12 kontraktových, 27 runtime, 148 Java, 23 frontendových, 13 smoke a **69/69 prehliadačových skúšok**; typy, lint, všetky tri zostavenia a úplný štart. [Strojový záznam krokov](ci-success.json), [výpis výsledkov](ci-success.txt). Nižšie sú zachované aj skoršie lokálne dôkazy. |
 | Celý prehliadač | 59/59 prešlo na finálnej aplikácii 413b520, 50,0 s, exit 0. [Úplný log](browser-suite.log). Príkaz `env -u NO_COLOR pnpm test:e2e` odstránil konflikt farieb v prostredí.|
 | Prenositeľnosť nového testu |Následne upravené hľadanie z lokálnej faktúry 0057 na štandardný zverejnený seed 0041; zmenený prípad 1/1 prešiel, nezávislá kontrola opravy schválená. Bez úpravy dát alebo oslabenia kontroly výsledku.|
 | Frontend | 23 jednotkových testov prešlo; typy a lint prešli na finálnom UI. Po poslednej úprave testu celý projektový `pnpm lint` opäť exit 0 bez varovaní.|
@@ -42,10 +43,10 @@ Celý zmenený UI rozsah: [detektor](impeccable-detector.json), exit 0, jediná 
 
 Pôvodné obrazové porovnanie so širokým compom zostáva historicky otvorené a neúspešné (0,63); nebol použitý vynútený úspech ani zamenený comp. Novšia používateľská požiadavka schválila centrovaný marketing a potom screenshotovú animáciu. Súčasný záznam viaže prijatie na aktuálne zdroje, snímky a funkčné dôkazy; staré skóre sa neprepisuje.
 
-## Ešte pred odoslaním
+## Dokončenie
 
 - [x] Záverečná kontrola celého rozsahu a vyriešenie nálezov jednou opravnou vlnou; následná kontrola bez nových nálezov.
-- [ ] Overený push do existujúceho GitHub repozitára, kontrola README/licencie/médií a pravdivý stav vzdialeného CI.
+- [x] Overený push do existujúceho GitHub repozitára, kontrola README/licencie/médií a úspešný úplný vzdialený CI.
 
 ## Finálne opravy po nezávislej kontrole
 
@@ -55,7 +56,7 @@ Na nových produkčných zostaveniach občana/úradníka prešlo **30/30** dotkn
 
 Ručne bol na 390 px potvrdený návrat zo strany 999 v oboch portáloch, správne URL po návrate a nulový vodorovný presah. Výber súboru cez natívny dialóg bol prerušený; jeho ručný úspech sa netvrdí. Dlhý názov prílohy vrátane validačnej chyby, neúspešného uploadu a zachovania pri odmietnutí odchodu overili uvedené prehliadačové skúšky. [Detektor piatich zmenených UI súborov](impeccable-final-fix-detector.json): exit 0, bez nálezov.
 
-Všetky prijaté procesné rozhodnutia a ich dôsledky: [záznam rozhodnutí](rulings.md). Táto verzia overenia vzniká pred prenosom na GitHub; výsledok publikácie sa uvádza samostatne.
+Všetky prijaté procesné rozhodnutia a ich dôsledky: [záznam rozhodnutí](rulings.md). [Pracovný denník](execution-ledger.md) zachováva postup aj historické priebežné stavy; konečný výsledok publikácie je uvedený nižšie.
 
 ## Zverejnenie a čisté spustenie na GitHube
 
@@ -68,3 +69,5 @@ Oprava bola odoslaná v revízii `e65d6a9`. [Druhý automatický beh](https://gi
 Commit `aaeb130` doplnil iba bezpečné, ohraničené opakovanie výslovne odmietnutých HTTP 429 v spoločnom seed transporte. Rešpektuje `Retry-After`, nemení limity API a neopakuje nejasné chyby zápisov. Prešlo 8 transportných regresií, 27 runtime, 12 kontraktových a 8 offline skúšok obnovy dát. [Opis a výsledky](ci-throttle-report.md), [nezávislá kontrola](ci-throttle-review.md): súlad aj kvalita schválené bez nálezov. Úplný vzdialený beh sa zopakuje po odoslaní tejto opravy.
 
 [Tretí beh](https://github.com/SajMoooner/OpenObec/actions/runs/41408422911), revízia `d994d7f`, úspešne dokončil aj celé živé smoke skúšky vrátane obnovy dát. Z 69 prehliadačových scenárov prešlo 67; dve testové kontroly nedokázali rozlíšiť súčasne prítomné potvrdenie úspechu a indikátor načítania ([výpis](ci-status-failure.txt)). Obe očakávané potvrdenia v rozhraní existovali. Commit `29b4e7a` spresnil iba dva testové selektory a zachoval všetky pôvodné kontroly. [Overenie](ci-status-report.md) zahŕňa reálny prehliadač s oboma stavmi, negatívne prípady, zber 69 testov, lint a typy; [kontrola opravy](ci-status-review.md) je bez nálezov. Ďalší úplný CI beh overí konečnú verziu.
+
+[Štvrtý, finálny beh](https://github.com/SajMoooner/OpenObec/actions/runs/41410124949), revízia `60530be6ec1e018b9a4c3414158e3c1680fc249f`, skončil 2. 11. 2026 o 08:11 UTC úspešne. Všetky kroky prešli vrátane čistého štartu služieb, 70 konkrétnych HTTP odpovedí overených voči kontraktu, ochrany používateľských úprav pri obnove dát a **69 prehliadačových scenárov za 1,5 minúty**. Žiadny scenár nebol preskočený. Finálny dokumentačný commit pridáva iba tieto dôkazy, stav plánu a archív denníka; aplikácie, konfigurácia, testy, README, licencia a médiá zostávajú zhodné s overenou revíziou. Úplný CI sa pre samotný archív výsledku neopakuje.
