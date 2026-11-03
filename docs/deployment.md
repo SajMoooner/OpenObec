@@ -14,7 +14,7 @@ Samostatný Compose projekt `openobec-public`, sieť `openobec-public`, vlastné
 
 `compose.public.yaml` odstráni pôvodné publikované porty. Portály počúvajú iba na loopback portoch 13000, 13001 a 13002. Gateway 18080 je dostupná iba lokálne pre seed a diagnostiku. MongoDB, Kafka a RustFS nemajú publikované hostiteľské porty.
 
-Všetky nové kontajnery vrátane inicializácie patria do `openobec.slice`: MemoryHigh 3 GiB, MemoryMax 3584 MiB a CPUQuota 200 %. Tento limit chráni ostatné projekty, ale pri jeho prekročení môže byť ukončená služba OpenObec. Pred zvýšením limitu skontrolujte skutočnú voľnú kapacitu hostiteľa. Java používa menšie heap limity a 2 logické procesory; Next.js má obmedzený heap.
+Všetky nové kontajnery vrátane inicializácie patria do `openobec.slice`: MemoryHigh 3400 MiB, MemoryMax 3584 MiB a CPUQuota 200 %. Tento limit chráni ostatné projekty, ale pri jeho prekročení môže byť ukončená služba OpenObec. Pred zvýšením limitu skontrolujte skutočnú voľnú kapacitu hostiteľa. Java používa heap 64 MiB, Serial GC a 2 logické procesory; Kafka má heap 256 MiB; Next.js má obmedzený heap.
 
 ## Verzie a nastavenia
 
@@ -56,3 +56,18 @@ curl -fsS http://127.0.0.1:18080/actuator/health
 ```
 
 Pri aktualizácii najprv vytvorte zálohu databáz a príloh; aplikácie s nekompatibilnou migráciou nevracajte bez obnovy dát. Pre čisto aplikačný rollback nastavte predchádzajúce obrazové tagy a spustite rovnaký Compose projekt. Zväzky nikdy nemažte cez `down -v`. Pri probléme s proxy obnovte iba zálohu vhostu OpenObec, otestujte `nginx -t` a urobte reload. Nepoužívajte globálne `docker prune` ani reštart Docker démona.
+
+## Overenie nasadenia 3. novembra 2026
+
+- Vydanie `20261103-1`, všetky tri portály dostupné cez HTTPS. `www.openobec.sk` presmerúva na hlavnú doménu.
+- Certifikát pre všetky štyri názvy platí do 1. februára 2027. Timer obnovy je aktívny; ručné spustenie služby prešlo (obnova ešte nebola potrebná). Simulácia obnovy narazila na reset spojenia so staging serverom Let's Encrypt, preto nie je považovaná za úspešne overenú. Produkčné vydanie aj rozšírenie certifikátu prešli.
+- Seed dokončil 72 dokumentov, po 12 v každej agende, s prílohami.
+- Identifikátory všetkých 40 pôvodných kontajnerov zostali nezmenené. Kontrolované existujúce weby vracali rovnaké HTTP stavy ako pred nasadením.
+- Limitovanie požiadaviek vylučuje statické Next.js skripty a ikony: ich blokovanie spôsobovalo neúplné načítanie ovládania. Dynamické stránky a API zostávajú limitované. Pri zmene kľúča `limit_req_zone` použite nový názov zóny: samotné `nginx -t` tento konflikt so starou bežiacou konfiguráciou nezachytí; po reloade kontrolujte aj error log.
+- Ide o demo na zdieľanom hostiteľovi s malou pamäťovou rezervou, nie o overenie kapacity pre produkčnú záťaž.
+
+Verejný E2E test používa adresy `OFFICE_URL`, `CITIZEN_URL` a `API_BASE_URL`. Pre vzdialené demo čaká na asynchrónne premietnutie do verejného vyhľadávania najviac 60 sekúnd (lokálne 15 sekúnd). Pri tomto nasadení prvé overenie prekročilo 15 sekúnd; nejde o garanciu okamžitého zverejnenia ani o záťažový test.
+
+Záverečný verejný E2E test po schválenej úprave limitu na 20 požiadaviek/s a burst 120 prešiel za 6,3 sekundy: vytvorenie, príloha PDF, prepojenie, publikovanie, verejné vyhľadanie, zhodný SHA-256 stiahnutého PDF, úprava, stiahnutie zo zverejnenia aj vyčistenie vlastného záznamu. Všetkých 21 služieb bolo healthy.
+
+Prvý GitHub CI beh mal 76 úspešných a 10 neúspešných E2E testov. Prihlasovací presun používal `localhost`, zatiaľ čo testy pokračovali na `127.0.0.1`, kde nebol demo cookie. CI spúšťanie teraz používa konzistentné adresy `127.0.0.1`; nový kompletný beh treba overiť pred zlúčením.

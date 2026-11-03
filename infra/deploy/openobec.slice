@@ -3,7 +3,7 @@ Description=Resource boundary for OpenObec public demo
 
 [Slice]
 MemoryAccounting=true
-MemoryHigh=3G
+MemoryHigh=3400M
 MemoryMax=3584M
 CPUAccounting=true
 CPUQuota=200%
