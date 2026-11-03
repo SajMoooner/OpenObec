@@ -1,85 +1,94 @@
-import { ArrowRight } from "lucide-react";
 import { publicLinks } from "@openobec/api-client/server";
+import { ArrowRight, Search } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
-import { MarketingHeader, MarketingFooter } from "../components/site-shell";
-import { ProductPreview } from "../components/product-preview";
-import "../home/marketing.css";
-export const metadata = { title: "Demo" };
+import { Input } from "@openobec/ui/components/input";
+import { ProductImage, Cta } from "../components/sections";
+export const metadata = { title: "Vyskúšať demo" };
 export default function Demo() {
   const links = publicLinks();
   return (
-    <>
-      <MarketingHeader />
-      <main className="marketing-container marketing-page">
-        <section className="max-w-3xl">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Spoznajte OpenObec v praxi.
+    <main id="obsah">
+      <section className="section m-container demo-section">
+        <div className="hero-copy">
+          <h1>
+            Vyskúšajte obe
+            <br />
+            strany obce.
           </h1>
-          <p className="marketing-section-copy text-lg">
-            Vyberte si pohľad občana alebo pracovný portál. Na vstup do dema nepotrebujete heslo.
+          <p>
+            Pripravte dokument ako úradník. Potom si ho pozrite ako občan. Demo používa fiktívne
+            dokumenty a organizácie mesta Žilina.
           </p>
-          <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Všetky údaje a organizácie sú fiktívne. Nejde o oficiálne dokumenty ani oficiálny portál
-            mesta Žilina.
-          </p>
-        </section>
-        {(
-          [
-            {
-              role: "citizen",
-              title: "Pre občana",
-              description: "Nájdite dokument a pochopte jeho súvislosti.",
-              steps: [
-                "Vyhľadajte napríklad knižnicu alebo otvorte agendu Zmluvy.",
-                "V detaile si pozrite zmluvnú stranu, účinnosť a sumu s DPH.",
-                "Stiahnite dostupnú prílohu a otvorte súvisiaci dokument.",
-              ],
-              href: `${links.citizen}/obcan/home`,
-              action: "Otvoriť občianske demo",
-            },
-            {
-              role: "office",
-              title: "Pre úradníka",
-              description: "Prejdite od konceptu k verejnému dokumentu.",
-              steps: [
-                "Vstúpte do dema a z prehľadu zvoľte Pridať dokument.",
-                "Vyplňte údaje, priložte súbor a uložte vlastný koncept.",
-                "Zverejnite dokument a overte ho v občianskom portáli.",
-              ],
-              href: `${links.office}/uradnik/prihlasenie`,
-              action: "Otvoriť pracovné demo",
-            },
-          ] as const
-        ).map((item) => (
-          <section key={item.role} className="product-story border-t pt-10">
-            <div>
-              <h2 className="marketing-section-title">{item.title}</h2>
-              <p className="marketing-section-copy">{item.description}</p>
-              <ol className="mt-6 list-decimal space-y-4 pl-5 text-sm leading-6 marker:font-semibold marker:text-primary">
-                {item.steps.map((step) => (
-                  <li key={step} className="pl-2">
-                    {step}
-                  </li>
-                ))}
-              </ol>
-              <Button asChild className="mt-7">
-                <a href={item.href}>
-                  {item.action}
-                  <ArrowRight />
-                </a>
-              </Button>
-              {item.role === "office" && (
-                <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                  Zmeny sa v deme ukladajú. Na skúšanie vytvorte vlastný ukážkový záznam. Pripojenie
-                  mestského IS je iba simulácia.
-                </p>
-              )}
-            </div>
-            <ProductPreview role={item.role} />
+        </div>
+        <div className="demo-grid">
+          <section>
+            <h2>Pre úradníka</h2>
+            <p>Od rozpracovaného konceptu po zverejnený dokument.</p>
+            <ol>
+              <li>Vstúpte do pracovného dema bez hesla.</li>
+              <li>Vytvorte dokument, priložte PDF a vyberte súvislosti.</li>
+              <li>Zverejnite ho a overte verejný výsledok.</li>
+            </ol>
+            <Button asChild className="m-button">
+              <a href={`${links.office}/uradnik/prihlasenie`}>
+                Otvoriť pracovné demo <ArrowRight />
+              </a>
+            </Button>
+            <figure>
+              <ProductImage
+                src="/previews/office-overview.png"
+                alt="Pracovný prehľad dokumentov OpenObec."
+              />
+              <figcaption>Snímka ukážkového prostredia · pracovný portál</figcaption>
+            </figure>
           </section>
-        ))}
-      </main>
-      <MarketingFooter />
-    </>
+          <section>
+            <h2>Pre občana</h2>
+            <p>Nájdite dokument, jeho prílohu aj ďalšie súvislosti.</p>
+            <ol>
+              <li>Otvorte občiansky portál a vyhľadajte dokument.</li>
+              <li>Pozrite si údaje a stiahnite prílohu PDF.</li>
+              <li>Prejdite na súvisiacu zmluvu alebo objednávku.</li>
+            </ol>
+            <Button asChild variant="outline" className="m-button">
+              <a href={`${links.citizen}/obcan/home`}>
+                Otvoriť občianske demo <ArrowRight />
+              </a>
+            </Button>
+            <figure>
+              <ProductImage
+                src="/previews/citizen-contract.png"
+                alt="Detail zmluvy v občianskom portáli OpenObec."
+              />
+              <figcaption>Snímka ukážkového prostredia · občiansky portál</figcaption>
+            </figure>
+          </section>
+        </div>
+        <div className="demo-search">
+          <h2>Hľadajte rovno v dokumentoch</h2>
+          <p>Skúste napríklad „knižnice“. Výsledky sa otvoria v občianskom portáli.</p>
+          <form role="search" action={`${links.citizen}/obcan/home`}>
+            <label className="sr-only" htmlFor="demo-query">
+              Hľadať dokumenty
+            </label>
+            <Input
+              id="demo-query"
+              type="search"
+              name="q"
+              placeholder="Názov alebo text dokumentu"
+            />
+            <Button className="m-button" type="submit">
+              <Search />
+              Hľadať
+            </Button>
+          </form>
+        </div>
+        <p className="demo-note">
+          Demo nie je oficiálnym portálom mesta Žilina. Reálne integrácie s mestským IS ani
+          externými registrami nie sú súčasťou tejto verzie.
+        </p>
+      </section>
+      <Cta />
+    </main>
   );
 }

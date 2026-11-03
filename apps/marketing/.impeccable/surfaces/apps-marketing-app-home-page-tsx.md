@@ -2,8 +2,18 @@
 version: 1
 slug: "apps-marketing-app-home-page-tsx"
 primary_target: "apps/marketing/app/home/page.tsx"
-related_targets: ["apps/marketing/app/vyhody/page.tsx","apps/marketing/app/kontakt/page.tsx","apps/marketing/app/demo/page.tsx"]
+related_targets: ["apps/marketing/app/vyhody/page.tsx", "apps/marketing/app/o-nas/page.tsx", "apps/marketing/app/pricing/page.tsx", "apps/marketing/app/kontakt/page.tsx", "apps/marketing/app/demo/page.tsx"]
 ---
+
+# Current marketing contract — 2026-11-03
+
+Mode: Persuade. Audience: municipal officer. The explicit approved MetaFi replacement overrides every historical visual instruction below. See apps/marketing/DESIGN.md and apps/marketing/PRODUCT.md for active tokens, typography, composition, truthful copy and controls. Reference evidence lives in docs/design/2026-11-03-metafi/reference. Hero is white, Inter, centered 68px/500, real dashboard. Purple CTA and near-black footer. No navy panorama; no IDSK3 marketing identity. Shared citizen/office styles and facts are untouched.
+
+Home: product statement → dashboard → six agendas → feature panels → agenda grid → three-step workflow → FAQ → editorial links → CTA. Benefits owns manual vertical screenshot tabs; /demo owns functional citizen search and guided role entry. Video stays in documentation. Theme persistence, Sheet navigation, Accordion FAQ and native links remain functional. Local CSS/fonts/logo are marketing-only.
+
+# Historical record — superseded, not implementation instructions
+
+
 
 # Marketing OpenObec
 
