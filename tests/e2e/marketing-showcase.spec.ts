@@ -40,11 +40,12 @@ test("homepage and demo remain useful before JavaScript", async ({ browser }) =>
       .poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0))
       .toBe(true);
     await expect(
-      page.locator(".hero-copy").getByRole("link", { name: "Vyskúšať pracovný portál" }),
+      page.locator(".hero-copy").getByRole("link", { name: "Vyskúšať demo" }),
     ).toBeVisible();
     await page.goto(`${base}/demo`);
     await expect(page.getByRole("searchbox")).toBeVisible();
-    await expect(page.locator("main ol")).toHaveCount(2);
+    await expect(page.getByRole("region", { name: "Pohľad občana", exact: true })).toBeVisible();
+    await expect(page.getByRole("region", { name: "Pohľad úradníka", exact: true })).toBeVisible();
   } finally {
     await context.close();
   }

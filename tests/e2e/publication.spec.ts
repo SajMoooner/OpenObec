@@ -8,7 +8,7 @@ const fixture = path.resolve("tests/e2e/fixtures/publication.pdf");
 const owned: string[] = [];
 async function enter(page: Page) {
   await page.goto(`${office}/uradnik/prihlasenie`);
-  await page.getByRole("button", { name: "Vstúpiť do dema" }).click();
+  await page.getByRole("button", { name: "Vyskúšať ako úradník" }).click();
   await expect(page.getByRole("heading", { name: "Prehľad dokumentov" })).toBeVisible();
 }
 async function invoice(page: Page, number: string, title: string) {

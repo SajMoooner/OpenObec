@@ -80,7 +80,7 @@ test("office retains query, page, sort and publication state through detail and 
   page,
 }) => {
   await page.goto("http://127.0.0.1:3002/uradnik/prihlasenie");
-  await page.getByRole("button", { name: "Vstúpiť do dema" }).click();
+  await page.getByRole("button", { name: "Vyskúšať ako úradník" }).click();
   await expect(page).toHaveURL(/uradnik\/home/);
   await page.route("**/api/rest/v1/zmluvy?*", (route) =>
     route.fulfill({

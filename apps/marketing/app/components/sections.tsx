@@ -10,7 +10,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
-import { publicLinks } from "@openobec/api-client/server";
 export { ProductImage } from "./product-image";
 export function DemoActions({
   secondary = "Ako to funguje",
@@ -19,17 +18,18 @@ export function DemoActions({
   secondary?: string;
   href?: string;
 }) {
-  const links = publicLinks();
   return (
     <div className="action-row">
       <Button asChild className="m-button">
-        <a href={`${links.office}/uradnik/prihlasenie`}>
-          Vyskúšať pracovný portál <ArrowRight size={16} />
-        </a>
+        <Link href="/demo">
+          Vyskúšať demo <ArrowRight size={16} />
+        </Link>
       </Button>
-      <Button asChild variant="outline" className="m-button">
-        <Link href={href}>{secondary}</Link>
-      </Button>
+      {href !== "/demo" && (
+        <Button asChild variant="outline" className="m-button">
+          <Link href={href}>{secondary}</Link>
+        </Button>
+      )}
     </div>
   );
 }

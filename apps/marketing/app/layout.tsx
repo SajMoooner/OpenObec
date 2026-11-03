@@ -28,12 +28,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <a className="skip-link" href="#obsah">
           Preskočiť na obsah
         </a>
-        <MarketingHeader officeUrl={`${links.office}/uradnik/prihlasenie`} />
+        <MarketingHeader />
         {children}
-        <MarketingFooter
-          officeUrl={`${links.office}/uradnik/prihlasenie`}
-          citizenUrl={`${links.citizen}/obcan/home`}
-        />
+        <MarketingFooter officeUrl="/demo#uradnik" citizenUrl={`${links.citizen}/obcan/home`} />
       </body>
     </html>
   );

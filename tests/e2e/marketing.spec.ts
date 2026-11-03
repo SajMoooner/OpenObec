@@ -57,12 +57,14 @@ test("FAQ and workflow are keyboard operable", async ({ page }) => {
 });
 test("demo destinations and search preserve runtime portal addresses", async ({ page }) => {
   await page.goto(`${base}/demo`);
-  await expect(
-    page.getByRole("link", { name: "Otvoriť pracovné demo", exact: true }),
-  ).toHaveAttribute("href", /:3002\/uradnik\/prihlasenie$/);
-  await expect(
-    page.getByRole("link", { name: "Otvoriť občianske demo", exact: true }),
-  ).toHaveAttribute("href", /:3001\/obcan\/home$/);
+  await expect(page.locator('form[action$="/api/demo/enter"]')).toHaveAttribute(
+    "action",
+    /:3002\/api\/demo\/enter$/,
+  );
+  await expect(page.getByRole("link", { name: "Vyskúšať ako občan", exact: true })).toHaveAttribute(
+    "href",
+    /:3001\/obcan\/home$/,
+  );
   await page.getByRole("searchbox").fill("knižnice");
   await page.getByRole("button", { name: "Hľadať", exact: true }).click();
   await expect(page).toHaveURL(/:3001\/obcan\/home\?q=/);

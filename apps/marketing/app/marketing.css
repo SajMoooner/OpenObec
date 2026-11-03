@@ -1085,36 +1085,87 @@ figcaption,
   line-height: 1.6;
 }
 .demo-section {
-  padding-top: 96px;
+  padding-top: 64px;
+}
+.demo-intro h1 {
+  font-size: 48px;
+}
+.demo-intro p {
+  max-width: 620px;
+  margin-inline: auto;
 }
 .demo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 72px;
+  gap: 24px;
+  margin-top: 48px;
+}
+.demo-role {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+  scroll-margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.demo-role-copy {
+  padding: 32px;
+  flex: 1;
+}
+.demo-role-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--tagline);
+  margin-bottom: 24px;
 }
 .demo-grid h2 {
-  font-size: 32px;
+  font-size: 28px;
 }
 .demo-grid p {
-  margin-top: 16px;
+  margin-top: 12px;
 }
-.demo-grid ol {
-  list-style: decimal;
-  padding-left: 20px;
-  margin-block: 28px;
+.demo-grid ul {
+  list-style: none;
+  padding: 0;
+  margin-block: 24px;
+  line-height: 1.6;
+  font-size: 14px;
   color: var(--muted-foreground);
-  line-height: 1.65;
+}
+.demo-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 .demo-grid li + li {
   margin-top: 12px;
 }
-.demo-grid figure {
-  margin-top: 32px;
+.demo-grid li svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin-top: 3px;
+  color: var(--foreground);
 }
-.demo-grid img {
-  border-radius: 12px;
-  border: 1px solid var(--border);
+.demo-role-action {
+  width: 100%;
+}
+.demo-role figure {
+  padding: 24px 24px 0;
+  background: var(--muted);
+  border-top: 1px solid var(--border);
+}
+.demo-role img {
+  width: 100%;
+  aspect-ratio: 1.85;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px 8px 0 0;
+}
+.demo-role figcaption {
+  padding-block: 12px;
+  font-size: 12px;
 }
 .demo-search {
   max-width: 768px;
@@ -1550,8 +1601,14 @@ figcaption,
     padding-top: 56px;
   }
   .demo-grid {
-    gap: 56px;
-    margin-top: 48px;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .demo-role-copy {
+    padding: 24px;
+  }
+  .demo-intro h1 {
+    font-size: 36px;
   }
   .demo-search {
     margin-top: 64px;

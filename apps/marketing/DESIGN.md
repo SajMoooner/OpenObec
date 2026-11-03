@@ -25,7 +25,7 @@ Pricing: two cards with internal split columns, purple proposed managed service 
 
 Contact: centered heading over a soft background, overlapping 768px white panel containing genuine GitHub and demo paths. No fake email address or delivery form. A public-issue note explains visibility and avoids encouraging private municipal data disclosure.
 
-Demo: two real portal entry points, three steps for each role, actual screenshots and a functional citizen document search.
+Demo: marketing-hosted two-role chooser, citizen left and officer right. Each role shows three outcomes, an authentic screenshot and one entry action. All generic demo CTAs lead to /demo. Officer selection submits a native POST to its /api/demo/enter, creates the existing demo cookie and redirects303 to /uradnik/home; legacy login redirects to the marketing chooser. No redundant closing CTA on the chooser. Citizen search remains available.
 
 ## Interaction and accessibility
 

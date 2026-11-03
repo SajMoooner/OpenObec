@@ -35,7 +35,7 @@ for (const [name, deadline] of [
       const before = (await (await request.get(`${endpoint}/${id}`, { headers })).json()).data;
       expect(before.lehota_predkladania).toBe(deadline);
       await page.goto(`${office}/uradnik/prihlasenie`);
-      await page.getByRole("button", { name: "Vstúpiť do dema" }).click();
+      await page.getByRole("button", { name: "Vyskúšať ako úradník" }).click();
       await expect(page.getByRole("heading", { name: "Prehľad dokumentov" })).toBeVisible();
       await page.goto(`${office}/uradnik/verejne-obstaravanie/${id}/upravit`);
       await page.locator("#predmet").fill("Upravený predmet bez zmeny lehoty");

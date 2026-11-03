@@ -78,7 +78,7 @@ export function Brand() {
     </Link>
   );
 }
-export function MarketingHeader({ officeUrl }: { officeUrl: string }) {
+export function MarketingHeader() {
   const pathname = usePathname();
   return (
     <header className="site-header">
@@ -93,7 +93,7 @@ export function MarketingHeader({ officeUrl }: { officeUrl: string }) {
         </nav>
         <div className="header-actions">
           <Button asChild className="header-demo">
-            <a href={officeUrl}>Vyskúšať demo</a>
+            <Link href="/demo">Vyskúšať demo</Link>
           </Button>
           <ThemeToggle />
           <Sheet>
@@ -120,9 +120,9 @@ export function MarketingHeader({ officeUrl }: { officeUrl: string }) {
                   </SheetClose>
                 ))}
                 <SheetClose asChild>
-                  <a className="mobile-demo" href={officeUrl}>
-                    Vyskúšať pracovný portál <ArrowUpRight size={16} />
-                  </a>
+                  <Link className="mobile-demo" href="/demo">
+                    Vyskúšať demo <ArrowUpRight size={16} />
+                  </Link>
                 </SheetClose>
               </nav>
             </SheetContent>
