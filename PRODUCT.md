@@ -2,6 +2,10 @@
 
 <!-- impeccable:product-schema 1 -->
 
+## Aktualizácia marketingu — 3. 11. 2026
+
+Používateľ schválil úplné nahradenie marketingu podľa MetaFi. Pre `apps/marketing` už neplatia nižšie zachované historické požiadavky IDSK3, Geist, modrý úvod, panoráma ani comp2. Aktuálnu autoritu majú [marketingový produktový kontext](apps/marketing/PRODUCT.md), [marketingový dizajn](apps/marketing/DESIGN.md) a schválený návrh z 3. 11. 2026. Občiansky a úradnícky portál, zdieľané štýly a všetky produktové fakty zostávajú bez zmeny.
+
 ## Platform
 
 web

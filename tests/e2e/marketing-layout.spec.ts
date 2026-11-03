@@ -1,61 +1,41 @@
 import { test, expect } from "@playwright/test";
-for (const width of [2560, 3440]) {
-  test(`marketing content remains centered and bounded at ${width}px`, async ({ page }) => {
-    await page.setViewportSize({ width, height: 1100 });
-    await page.goto("http://127.0.0.1:3000/home");
-    const preview = await page.locator(".publication-frame:visible").boundingBox();
-    expect(preview).not.toBeNull();
-    expect(preview!.width).toBeLessThanOrEqual(1280);
-    expect(Math.abs(preview!.x + preview!.width / 2 - width / 2)).toBeLessThan(2);
-    const demo = await page
-      .getByRole("heading", { name: "Vyskúšajte obe strany obce", exact: true })
-      .boundingBox();
-    expect(demo).not.toBeNull();
-    expect(Math.abs(preview!.x - demo!.x)).toBeLessThanOrEqual(32);
-    expect(
-      await page.locator("h1").evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
-    ).toBeLessThanOrEqual(60);
-  });
-}
-test("homepage explains the product and answers practical questions", async ({ page }) => {
-  await page.goto("http://127.0.0.1:3000/home");
-  for (const name of [
-    "Menej hľadania. Viac prehľadu.",
-    "Šesť agend na jednom mieste",
-    "Jednoduché v 3 krokoch",
-    "Navrhovaná cena služby",
-    "Časté otázky",
-    "Vyskúšajte obe strany obce",
-  ]) {
-    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
-  }
-  await page
-    .getByRole("button", { name: "Dá sa OpenObec prepojiť s informačným systémom obce?" })
-    .click();
-  await expect(page.getByText(/V tomto deme je pripojenie iba simulované/)).toBeVisible();
-});
-
-for (const width of [390, 768, 1440]) {
-  for (const route of ["home", "vyhody", "demo", "kontakt"]) {
-    test(`${route} preserves readable bounded layout at ${width}px`, async ({ page }) => {
+const base = process.env.MARKETING_URL ?? "http://127.0.0.1:3000";
+for (const width of [390, 768, 1440, 2560]) {
+  for (const route of ["home", "vyhody", "o-nas", "pricing", "kontakt", "demo"]) {
+    test(`${route} remains readable and bounded at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 1000 });
-      await page.goto(`http://127.0.0.1:3000/${route}`);
+      await page.goto(`${base}/${route}`);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
         width,
       );
-      await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
       for (const figure of await page.locator("main figure").all()) {
         const bounds = (await figure.boundingBox())!;
         expect(bounds.x).toBeGreaterThanOrEqual(0);
         expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
-        expect(bounds.width).toBeGreaterThanOrEqual(300);
       }
-      if (route === "kontakt") {
-        await expect(
-          page.getByText("Kontaktná adresa zatiaľ nie je nastavená.", { exact: false }),
-        ).toBeVisible();
-        await expect(page.locator("main form")).toHaveCount(0);
-      }
+      const container = await page.locator("header .m-container").boundingBox();
+      expect(container!.width).toBeLessThanOrEqual(1152);
+      expect(Math.abs(container!.x + container!.width / 2 - width / 2)).toBeLessThan(2);
     });
   }
 }
+test("homepage uses the approved Inter, near-black and purple system", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto(`${base}/home`);
+  const heading = await page
+    .locator("h1")
+    .evaluate((el) => ({
+      size: getComputedStyle(el).fontSize,
+      weight: getComputedStyle(el).fontWeight,
+      font: getComputedStyle(el).fontFamily,
+    }));
+  expect(heading.size).toBe("68px");
+  expect(heading.weight).toBe("500");
+  expect(heading.font.toLowerCase()).toContain("inter");
+  await expect(page.locator(".hero-product img")).toBeVisible();
+  await expect(page.locator(".feature-card")).toHaveCount(4);
+  await expect(page.locator(".agenda-grid article")).toHaveCount(6);
+  await expect(page.locator(".workflow-grid article")).toHaveCount(3);
+  await expect(page.locator(".cta-section")).toBeVisible();
+});

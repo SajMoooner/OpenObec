@@ -2,13 +2,14 @@ import { test, expect, type Page } from "@playwright/test";
 import { randomUUID, createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-const office = "http://127.0.0.1:3002",
-  citizen = "http://127.0.0.1:3001";
+const office = process.env.OFFICE_URL ?? "http://127.0.0.1:3002",
+  citizen = process.env.CITIZEN_URL ?? "http://127.0.0.1:3001",
+  gateway = process.env.API_BASE_URL ?? "http://127.0.0.1:8080";
 const fixture = path.resolve("tests/e2e/fixtures/publication.pdf");
 const owned: string[] = [];
 async function enter(page: Page) {
   await page.goto(`${office}/uradnik/prihlasenie`);
-  await page.getByRole("button", { name: "Vstúpiť do dema" }).click();
+  await page.getByRole("button", { name: "Vyskúšať ako úradník" }).click();
   await expect(page.getByRole("heading", { name: "Prehľad dokumentov" })).toBeVisible();
 }
 async function invoice(page: Page, number: string, title: string) {
@@ -29,12 +30,12 @@ async function invoice(page: Page, number: string, title: string) {
 }
 test.afterEach(async ({ request }) => {
   for (const id of owned.splice(0))
-    await request.post(`http://127.0.0.1:8080/rest/v1/faktury/${id}/delete`, {
+    await request.post(`${gateway}/rest/v1/faktury/${id}/delete`, {
       headers: { "X-Obec-Id": "zilina" },
     });
 });
 test("create PDF, link, publish, search, edit and unpublish", async ({ page, request }) => {
-  test.setTimeout(90000);
+  test.setTimeout(process.env.OFFICE_URL ? 180000 : 90000);
   const key = randomUUID().slice(0, 8),
     title = `E2E ${key} – údržba verejného priestoru`;
   await enter(page);
@@ -62,7 +63,7 @@ test("create PDF, link, publish, search, edit and unpublish", async ({ page, req
   await expect(async () => {
     await page.goto(`${citizen}/obcan/home?q=${key}`);
     await expect(page.getByRole("link", { name: title, exact: true })).toBeVisible();
-  }).toPass({ timeout: 15000 });
+  }).toPass({ timeout: process.env.OFFICE_URL ? 60000 : 15000 });
   await page.getByRole("link", { name: title, exact: true }).click();
   await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible();
   await expect(page.getByRole("link", { name: "publication.pdf", exact: true })).toBeVisible();

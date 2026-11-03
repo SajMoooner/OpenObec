@@ -1,0 +1,57 @@
+[
+  {
+    "h1": [
+      {
+        "font": "36px",
+        "text": "Simplifying Payments for Growing Business"
+      }
+    ],
+    "height": 10887,
+    "url": "https://metafi-nextjs-template.vercel.app/",
+    "width": 390
+  },
+  {
+    "h1": [
+      {
+        "font": "36px",
+        "text": "Recurring Billing for Your Businesses"
+      }
+    ],
+    "height": 6188,
+    "url": "https://metafi-nextjs-template.vercel.app/features",
+    "width": 390
+  },
+  {
+    "h1": [
+      {
+        "font": "36px",
+        "text": "Get to Know Metafi"
+      }
+    ],
+    "height": 6113,
+    "url": "https://metafi-nextjs-template.vercel.app/about",
+    "width": 390
+  },
+  {
+    "h1": [
+      {
+        "font": "36px",
+        "text": "Simple, Flexible Pricing"
+      }
+    ],
+    "height": 5800,
+    "url": "https://metafi-nextjs-template.vercel.app/pricing",
+    "width": 390
+  },
+  {
+    "h1": [
+      {
+        "font": "30px",
+        "text": "Let’s Talk"
+      }
+    ],
+    "height": 1761,
+    "url": "https://metafi-nextjs-template.vercel.app/contact",
+    "width": 390
+  }
+]

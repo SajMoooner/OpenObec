@@ -1,0 +1,170 @@
+[
+  {
+    "headings": [
+      {
+        "box": {
+          "width": 504,
+          "x": 184.5,
+          "y": 228.203125
+        },
+        "font": "64px",
+        "text": "Recurring Billing for Your Businesses",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 768,
+          "x": 136.5,
+          "y": 1190
+        },
+        "font": "52px",
+        "text": "Building Blocks for Recurring Billing",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 576,
+          "x": 136.5,
+          "y": 2038
+        },
+        "font": "56px",
+        "text": "End-to-end Billing Software",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 768,
+          "x": 328.5,
+          "y": 2616
+        },
+        "font": "48px",
+        "text": "Make Payments Easier with 50+ Integrations",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 1024,
+          "x": 200.5,
+          "y": 3650
+        },
+        "font": "60px",
+        "text": "Simplifying Payments for Growing Business",
+        "weight": "500"
+      }
+    ],
+    "height": 4458,
+    "url": "https://metafi-nextjs-template.vercel.app/features",
+    "width": 1440
+  },
+  {
+    "headings": [
+      {
+        "box": {
+          "width": 832,
+          "x": 296.5,
+          "y": 260
+        },
+        "font": "68px",
+        "text": "Get to Know Metafi",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 528,
+          "x": 136.5,
+          "y": 1091.40625
+        },
+        "font": "48px",
+        "text": "The Number to Back It Up",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 1152,
+          "x": 136.5,
+          "y": 2101.40625
+        },
+        "font": "48px",
+        "text": "It’s All About The People",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 1024,
+          "x": 200.5,
+          "y": 3449.40625
+        },
+        "font": "60px",
+        "text": "Simplifying Payments for Growing Business",
+        "weight": "500"
+      }
+    ],
+    "height": 4258,
+    "url": "https://metafi-nextjs-template.vercel.app/about",
+    "width": 1440
+  },
+  {
+    "headings": [
+      {
+        "box": {
+          "width": 832,
+          "x": 296.5,
+          "y": 260
+        },
+        "font": "68px",
+        "text": "Simple, Flexible Pricing",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 1200,
+          "x": 112.5,
+          "y": 1240
+        },
+        "font": "48px",
+        "text": "What’s Included",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 768,
+          "x": 328.5,
+          "y": 2328
+        },
+        "font": "48px",
+        "text": "Frequently Asked Questions",
+        "weight": "500"
+      },
+      {
+        "box": {
+          "width": 1024,
+          "x": 200.5,
+          "y": 3138
+        },
+        "font": "60px",
+        "text": "Simplifying Payments for Growing Business",
+        "weight": "500"
+      }
+    ],
+    "height": 3946,
+    "url": "https://metafi-nextjs-template.vercel.app/pricing",
+    "width": 1440
+  },
+  {
+    "headings": [
+      {
+        "box": {
+          "width": 1200,
+          "x": 112.5,
+          "y": 252
+        },
+        "font": "48px",
+        "text": "Let’s Talk",
+        "weight": "500"
+      }
+    ],
+    "height": 1582,
+    "url": "https://metafi-nextjs-template.vercel.app/contact",
+    "width": 1440
+  }
+]

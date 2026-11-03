@@ -29,6 +29,10 @@ jobs:
       - run: ./mvnw -B verify
       - run: pnpm typecheck && pnpm lint && pnpm test:frontend && pnpm build
       - run: scripts/dev/up.sh manual --skip-build
+        env:
+          MARKETING_URL: http://127.0.0.1:3000
+          CITIZEN_URL: http://127.0.0.1:3001
+          OFFICE_URL: http://127.0.0.1:3002
       - run: scripts/smoke/run.sh
       - run: pnpm test:e2e
       - if: always()

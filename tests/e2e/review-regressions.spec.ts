@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const marketing = "http://127.0.0.1:3000";
+const marketing = process.env.MARKETING_URL ?? "http://127.0.0.1:3000";
 const citizen = "http://127.0.0.1:3001";
 const office = "http://127.0.0.1:3002";
 // The user-directed animated real screenshots supersedes the illustrative table and its agenda tabs.
@@ -73,20 +73,11 @@ for (const [name, url, isOffice, hasAgenda, width] of [
   });
 }
 
-// Removing a desktop line break on mobile must keep the words on either side separated.
-for (const [name, selector, text] of [
-  ["intro", ".marketing-intro", "Jedno miesto pre občanov. Jednoduchšia evidencia pre úradníkov."],
-  [
-    "price",
-    ".marketing-price-copy",
-    "Jeden ročný paušál za evidenciu dokumentov a ich verejné sprístupnenie. Cena je návrh, nie záväzná ponuka.",
-  ],
-] as const) {
-  test(`mobile marketing ${name} preserves spaces when desktop line breaks disappear`, async ({
-    page,
-  }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(`${marketing}/home`);
-    expect((await page.locator(selector).innerText()).replace(/\s+/g, " ").trim()).toBe(text);
-  });
-}
+// A hidden desktop line break must retain word separation on the mobile hero.
+test("mobile marketing headline preserves spaces", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${marketing}/home`);
+  expect((await page.locator("h1").innerText()).replace(/\s+/g, " ").trim()).toBe(
+    "Zverejňovanie dokumentov, v ktorom máte poriadok.",
+  );
+});

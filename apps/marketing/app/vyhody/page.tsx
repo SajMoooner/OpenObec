@@ -1,86 +1,108 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@openobec/ui/components/button";
-import { MarketingHeader, MarketingFooter } from "../components/site-shell";
-import { DemoLinks } from "../components/demo-links";
-import { ProductPreview } from "../components/product-preview";
-import "../home/marketing.css";
+import { FilePenLine, Paperclip, Network } from "lucide-react";
+import { AgendaGrid, Cta, DemoActions, ProductImage, SectionHeading } from "../components/sections";
+import { FeatureTabs } from "../components/feature-tabs";
 export const metadata = { title: "Výhody" };
 export default function Benefits() {
   return (
-    <>
-      <MarketingHeader />
-      <main className="marketing-container marketing-page">
-        <section className="max-w-3xl">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Dokumenty, v ktorých sa dá vyznať.
+    <main id="obsah">
+      <section className="m-container feature-hero">
+        <div>
+          <h1>
+            Dokumenty obce.
+            <br />
+            Pod kontrolou.
           </h1>
-          <p className="marketing-section-copy text-lg">
-            Občan potrebuje odpoveď. Úradník potrebuje dokončiť záznam. OpenObec dáva každému
-            vlastný pohľad na spoločnú evidenciu.
+          <p>
+            Koncepty, prílohy a súvislosti v jednom pracovnom prostredí. Jasný postup pre vás,
+            prehľadný výsledok pre občana.
           </p>
-        </section>
-        <section className="product-story">
+          <DemoActions secondary="Sprievodca demom" href="/demo" />
+        </div>
+        <figure className="feature-hero-image">
+          <ProductImage
+            priority
+            src="/illustrations/attachment.png"
+            alt="Zverejnená faktúra v OpenObec s údajmi, prílohou a súvislosťami."
+          />
+          <figcaption>Od prílohy k prehľadnému dokumentu.</figcaption>
+        </figure>
+      </section>
+      <section className="m-container benefit-highlights">
+        {[
+          {
+            icon: FilePenLine,
+            title: "Priestor na prípravu",
+            text: "Rozpracované koncepty zostávajú oddelené od zverejnených dokumentov.",
+          },
+          {
+            icon: Paperclip,
+            title: "Príloha pri zázname",
+            text: "PDF a údaje dokumentu nájdete spolu, bez hľadania v ďalšom priečinku.",
+          },
+          {
+            icon: Network,
+            title: "Viditeľné súvislosti",
+            text: "Prepojte záznamy, ktoré k sebe patria. Vyberáte ich priamo z evidencie.",
+          },
+        ].map(({ icon: Icon, title, text }) => (
+          <article key={title}>
+            <div className="icon-box">
+              <Icon aria-hidden="true" />
+            </div>
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
+      </section>
+      <section className="section m-container">
+        <SectionHeading left title="Jeden dokument. Celý postup.">
+          Pripravte, skontrolujte a sprístupnite. Pozrite si, ako na seba jednotlivé kroky
+          nadväzujú.
+        </SectionHeading>
+        <FeatureTabs />
+      </section>
+      <section className="section m-container split-section">
+        <div>
+          <h2>
+            Úrad pripravuje.
+            <br />
+            Občan nachádza.
+          </h2>
+          <p>
+            Pracovný portál slúži na evidenciu a zverejňovanie. Občiansky portál ukazuje dokumenty,
+            ktoré už majú byť dostupné verejnosti.
+          </p>
+          <p>
+            Občan môže vyhľadávať, prečítať si údaje, stiahnuť PDF a otvoriť súvisiace dokumenty.
+            Každá strana má prostredie pre svoju úlohu.
+          </p>
+          <DemoActions secondary="Obe strany dema" href="/demo" />
+        </div>
+        <figure className="soft-image">
+          <ProductImage
+            src="/illustrations/relations.png"
+            alt="Občiansky detail zmluvy s prílohou a súvisiacimi dokumentmi."
+          />
+          <figcaption>Dokumenty a ich súvislosti na jednom mieste.</figcaption>
+        </figure>
+      </section>
+      <section className="section m-container">
+        <SectionHeading title="Každá agenda má svoje miesto">
+          Od faktúry po VZN. Spoločné prostredie, údaje podľa typu dokumentu.
+        </SectionHeading>
+        <AgendaGrid />
+        <div className="integration-note">
+          <Network aria-hidden="true" />
           <div>
-            <h2 className="marketing-section-title">Čo patrí k obnove knižnice?</h2>
-            <p className="marketing-section-copy">
-              Občan otvorí zmluvu, overí zmluvnú stranu, účinnosť a sumu s DPH. Znenie nájde v PDF
-              prílohe. Vybrané súvislosti ho dovedú k objednávke, faktúram a obstarávaniu.
-            </p>
-            <p className="marketing-section-copy">
-              Súvislosť je výslovne vybraný odkaz medzi dokumentmi; nevzniká iba preto, že majú
-              rovnakého dodávateľa.
+            <h3>Prepojenie s mestským IS pripravujeme</h3>
+            <p>
+              Aktuálne demo funguje samostatne. Reálne integrácie s informačnými systémami obcí sú
+              plánovaným rozšírením.
             </p>
           </div>
-          <ProductPreview role="citizen" />
-        </section>
-        <section className="product-story product-story-reverse border-t pt-12">
-          <div>
-            <h2 className="marketing-section-title">Čo ešte treba doplniť pred zverejnením?</h2>
-            <p className="marketing-section-copy">
-              Úradník sa z prehľadu vráti do konceptu. Doplní údaje podľa agendy, priloží súbor a
-              uloží záznam. Až zverejnený dokument je dostupný občanom.
-            </p>
-            <p className="marketing-section-copy">
-              Pri obstarávaní sleduje lehotu ponúk a hodnotu bez DPH. Pri VZN dátum schválenia a
-              účinnosť; táto agenda sa vedie samostatne.
-            </p>
-          </div>
-          <ProductPreview role="office" />
-        </section>
-        <section className="grid gap-8 border-y py-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold">Údaje podľa významu dokumentu</h2>
-            <p className="marketing-section-copy">
-              Odberateľské faktúry ukazujú odberateľa, dodávateľské faktúry dodávateľa. Objednávky
-              dopĺňajú dátum objednania, zmluvy účinnosť. Nemusíte hľadať význam v rovnakých
-              všeobecných stĺpcoch.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-semibold">Verejný obsah aj rozpracovaná evidencia</h2>
-            <p className="marketing-section-copy">
-              Občan prezerá publikované dokumenty bez účtu. Úradník má aj koncepty, úpravy a správu
-              príloh. Demo umožňuje vyskúšať oba pohľady bez hesla.
-            </p>
-          </div>
-        </section>
-        <section className="flex flex-wrap items-center justify-between gap-6 rounded-xl bg-secondary p-6 sm:p-8">
-          <div>
-            <h2 className="text-2xl font-semibold">Navrhovaná cena služby: 199 € / rok</h2>
-            <p className="mt-3 max-w-prose leading-7 text-foreground/80">
-              Implementačný poplatok a režim DPH zatiaľ nie sú určené.
-            </p>
-          </div>
-          <Button asChild variant="outline">
-            <Link href="/home#cena">
-              Podrobnosti cenového návrhu <ArrowRight />
-            </Link>
-          </Button>
-        </section>
-        <DemoLinks />
-      </main>
-      <MarketingFooter />
-    </>
+        </div>
+      </section>
+      <Cta />
+    </main>
   );
 }

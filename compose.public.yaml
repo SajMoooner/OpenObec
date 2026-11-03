@@ -1,0 +1,146 @@
+# Public demo override. Docker Compose 2.24.4+; Linux systemd cgroup driver.
+services:
+  mongo-invoices:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-supplier-invoices:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-contracts:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-orders:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-procurement:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-ordinances:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  mongo-read:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    healthcheck:
+      interval: 30s
+  kafka:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    mem_limit: 640m
+    environment:
+      KAFKA_HEAP_OPTS: -Xms128m -Xmx256m
+    healthcheck:
+      interval: 30s
+  rustfs:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    mem_limit: 512m
+    environment:
+      RUSTFS_CONSOLE_ENABLE: "false"
+  invoices-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/invoices-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  supplier-invoices-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/supplier-invoices-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  contracts-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/contracts-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  orders-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/orders-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  procurement-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/procurement-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  ordinances-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/ordinances-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  query-api:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/query-api:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  pairing-service:
+    cgroup_parent: openobec.slice
+    ports: !reset []
+    image: openobec/pairing-service:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 320m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+  marketing:
+    cgroup_parent: openobec.slice
+    ports: !override ["127.0.0.1:13000:3000"]
+    image: openobec/marketing:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 256m
+    environment:
+      NODE_OPTIONS: --max-old-space-size=160
+  citizen:
+    cgroup_parent: openobec.slice
+    ports: !override ["127.0.0.1:13001:3001"]
+    image: openobec/citizen:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 256m
+    environment:
+      NODE_OPTIONS: --max-old-space-size=160
+  office:
+    cgroup_parent: openobec.slice
+    ports: !override ["127.0.0.1:13002:3002"]
+    image: openobec/office:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 256m
+    environment:
+      NODE_OPTIONS: --max-old-space-size=160
+  api-gateway:
+    cgroup_parent: openobec.slice
+    ports: !override ["127.0.0.1:18080:8080"]
+    image: openobec/api-gateway:${OPENOBEC_RELEASE:?Set release tag}
+    mem_limit: 256m
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms24m -Xmx64m -XX:+UseSerialGC -XX:ActiveProcessorCount=2
+
+  kafka-init:
+    cgroup_parent: openobec.slice
+  rustfs-init:
+    cgroup_parent: openobec.slice
+  rustfs-permissions:
+    cgroup_parent: openobec.slice
+
+networks:
+  default:
+    name: openobec-public
