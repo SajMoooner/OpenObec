@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "@openobec/ui/styles.css";
 import "./marketing.css";
 import { publicLinks } from "@openobec/api-client/server";
-import { MarketingHeader, MarketingFooter } from "./components/site-shell";
+import { MarketingHeader, MarketingFooter, OpenSourceBanner } from "./components/site-shell";
 const inter = localFont({
   src: "../public/fonts/InterVariable.woff2",
   variable: "--font-inter",
@@ -28,6 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <a className="skip-link" href="#obsah">
           Preskočiť na obsah
         </a>
+        <OpenSourceBanner />
         <MarketingHeader />
         {children}
         <MarketingFooter officeUrl="/demo#uradnik" citizenUrl={`${links.citizen}/obcan/home`} />

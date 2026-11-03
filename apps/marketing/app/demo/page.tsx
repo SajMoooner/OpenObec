@@ -45,11 +45,11 @@ export default function Demo() {
             </div>
             <figure>
               <ProductImage
-                src="/previews/citizen-contract.png"
+                src="/illustrations/relations.png"
                 alt="Čo vidí občan: detail zmluvy s údajmi, prílohami a súvislosťami."
                 priority
               />
-              <figcaption>Občiansky portál · skutočná snímka dema</figcaption>
+              <figcaption>Zverejnené dokumenty, prílohy a súvislosti.</figcaption>
             </figure>
           </section>
           <section className="demo-role" id="uradnik" aria-labelledby="uradnik-title">
@@ -77,11 +77,11 @@ export default function Demo() {
             </div>
             <figure>
               <ProductImage
-                src="/previews/office-overview.png"
+                src="/illustrations/preparation.png"
                 alt="Čo vidí úradník: pracovný prehľad konceptov, zverejnených dokumentov a agend."
                 priority
               />
-              <figcaption>Pracovný portál · skutočná snímka dema</figcaption>
+              <figcaption>Príprava, evidencia a zverejňovanie dokumentov.</figcaption>
             </figure>
           </section>
         </div>

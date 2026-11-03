@@ -33,10 +33,10 @@ export default function About() {
         <figure className="about-panorama">
           <ProductImage
             priority
-            src="/previews/office-overview.png"
+            src="/illustrations/preparation.png"
             alt="Pracovné prostredie OpenObec s prehľadom dokumentov a samostatnými agendami."
           />
-          <figcaption>OpenObec v praxi · skutočný produkt, ukážkové údaje</figcaption>
+          <figcaption>Od prvého konceptu k zverejnenému dokumentu.</figcaption>
         </figure>
       </section>
       <section className="section m-container split-section about-story">
@@ -75,7 +75,7 @@ export default function About() {
         </div>
         <figure className="about-detail">
           <ProductImage
-            src="/showcase/citizen.png"
+            src="/illustrations/publication.png"
             alt="Verejný detail ukážkovej faktúry: výsledok práce úradníka dostupný občanovi."
           />
           <figcaption>Jeden dokument z pohľadu občana.</figcaption>
@@ -107,7 +107,7 @@ export default function About() {
               {
                 icon: Monitor,
                 title: "Vyskúšateľný produkt",
-                text: "Ukazujeme funkčné demo s ukladaním dokumentov a príloh. Obrázky na webe pochádzajú z tohto prostredia.",
+                text: "Ukazujeme funkčné demo s ukladaním dokumentov a príloh. Celý postup si môžete vyskúšať z pohľadu úradníka aj občana.",
               },
               {
                 icon: Scale,

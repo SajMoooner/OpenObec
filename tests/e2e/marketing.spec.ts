@@ -53,7 +53,7 @@ test("FAQ and workflow are keyboard operable", async ({ page }) => {
   await first.focus();
   await page.keyboard.press("ArrowDown");
   await expect(page.getByRole("tab").nth(1)).toHaveAttribute("aria-selected", "true");
-  await expect(page.getByRole("tabpanel")).toContainText("Snímka");
+  await expect(page.getByRole("tabpanel")).toContainText("Ilustrácia postupu");
 });
 test("demo destinations and search preserve runtime portal addresses", async ({ page }) => {
   await page.goto(`${base}/demo`);

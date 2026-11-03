@@ -1,8 +1,8 @@
 "use client";
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
 import {
   Sheet,
@@ -76,6 +76,33 @@ export function Brand() {
       </svg>
       <span>OpenObec</span>
     </Link>
+  );
+}
+export function OpenSourceBanner() {
+  const [dismissed, setDismissed] = useState(false);
+  if (dismissed) return null;
+  return (
+    <aside className="opensource-banner" aria-label="Open source projekt">
+      <div className="opensource-message">
+        <p>
+          OpenObec je <strong>open source</strong>.
+        </p>
+        <Button asChild size="sm" className="opensource-link">
+          <a href={projectUrl}>
+            Pozrieť na GitHube <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        </Button>
+      </div>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="opensource-dismiss"
+        aria-label="Zavrieť oznam o open source"
+        onClick={() => setDismissed(true)}
+      >
+        <X size={16} aria-hidden="true" />
+      </Button>
+    </aside>
   );
 }
 export function MarketingHeader() {

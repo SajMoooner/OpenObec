@@ -50,3 +50,26 @@ test("homepage and demo remain useful before JavaScript", async ({ browser }) =>
     await context.close();
   }
 });
+
+test("generated illustrations replace every screenshot outside the home hero", async ({ page }) => {
+  for (const route of ["home", "vyhody", "o-nas", "pricing", "kontakt", "demo"]) {
+    await page.goto(`${base}/${route}`);
+    await expect(page.locator('img[src*="previews"], img[src*="showcase"]')).toHaveCount(
+      route === "home" ? 1 : 0,
+    );
+  }
+});
+
+test("hero grid can pause and respects reduced motion", async ({ page }) => {
+  await page.goto(`${base}/home`);
+  const grid = page.locator(".hero-grid-lines");
+  await expect(grid).toHaveCSS("animation-play-state", "running");
+  await page.getByRole("button", { name: "Pozastaviť animáciu mriežky" }).click();
+  await expect(grid).toHaveCSS("animation-play-state", "paused");
+  await page.getByRole("button", { name: "Spustiť animáciu mriežky" }).click();
+  await expect(grid).toHaveCSS("animation-play-state", "running");
+  await page.locator("footer").scrollIntoViewIfNeeded();
+  await expect(grid).toHaveCSS("animation-play-state", "paused");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(grid).toHaveCSS("animation-name", "none");
+});

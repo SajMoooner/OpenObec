@@ -9,37 +9,46 @@ import {
   ProductImage,
   SectionHeading,
 } from "../components/sections";
+import { ProductDetail } from "../components/product-detail";
+import { HeroGrid } from "../components/hero-grid";
+import { ShowcaseMotion } from "../components/showcase-motion";
 import { Faq } from "../components/faq";
 const features = [
   {
     title: "Rozpracujte teraz. Zverejnite, keď je čas.",
     text: "Koncepty majú vlastné miesto. Údaje si pripravíte a skontrolujete skôr, než ich sprístupníte občanom.",
-    src: "/showcase/preparation.png",
+    src: "/illustrations/preparation.png",
+    detail: "preparation" as const,
     alt: "Príprava konceptu faktúry v pracovnom portáli.",
   },
   {
     title: "PDF aj údaje patria k sebe.",
     text: "Prílohu otvoríte priamo pri zázname. Názov dokumentu, dátumy a sumy zostávajú v prehľadnom detaile.",
-    src: "/showcase/published.png",
+    src: "/illustrations/attachment.png",
+    detail: "attachment" as const,
     alt: "Detail zverejnenej faktúry s údajmi a prílohou PDF.",
   },
   {
     title: "Súvislosti na jedno otvorenie.",
     text: "Prepojte faktúru so zmluvou či objednávkou. Súvisiace dokumenty nemusíte opäť hľadať od začiatku.",
-    src: "/previews/citizen-contract.png",
+    src: "/illustrations/relations.png",
+    detail: "relations" as const,
     alt: "Detail zmluvy a zoznam jej súvisiacich dokumentov.",
   },
   {
     title: "Výsledok dostupný občanom.",
     text: "Zverejnený dokument má vlastný verejný detail. Občan v ňom nájde údaje, prílohy aj súvislosti.",
-    src: "/showcase/citizen.png",
+    src: "/illustrations/publication.png",
+    detail: "citizen" as const,
     alt: "Verejný detail ukážkovej faktúry.",
   },
 ];
 export default function Home() {
   return (
     <main id="obsah">
+      <ShowcaseMotion />
       <section className="home-hero">
+        <HeroGrid />
         <div className="m-container">
           <div className="hero-copy">
             <h1>
@@ -75,14 +84,12 @@ export default function Home() {
             <article className="feature-card" key={feature.title}>
               <h3>{feature.title}</h3>
               <p>{feature.text}</p>
-              <div className="feature-image">
-                <ProductImage src={feature.src} alt={feature.alt} />
-              </div>
+              <ProductDetail src={feature.src} alt={feature.alt} detail={feature.detail} />
             </article>
           ))}
         </div>
         <p className="image-caption center">
-          Reálne obrazovky OpenObec s fiktívnymi ukážkovými dokumentmi.
+          Ilustrácie približujú prácu s dokumentmi. Skutočný portál si môžete vyskúšať v deme.
         </p>
       </section>
       <section className="section m-container">
@@ -151,25 +158,25 @@ export default function Home() {
               title: "Celý postup zverejnenia",
               text: "Vyskúšajte si prácu s jedným dokumentom od začiatku do konca.",
               href: "/demo",
-              image: "/showcase/preparation.png",
+              image: "/illustrations/preparation.png",
             },
             {
               title: "Čo vidí občan",
               text: "Údaje, prílohy a prepojené záznamy vo verejnom detaile.",
               href: "/vyhody",
-              image: "/showcase/citizen.png",
+              image: "/illustrations/publication.png",
             },
             {
               title: "Prečo vzniká OpenObec",
               text: "Otvorený nástroj pre každodenné dokumenty samosprávy.",
               href: "/o-nas",
-              image: "/previews/office-overview.png",
+              image: "/illustrations/preparation.png",
             },
             {
               title: "Možnosti prevádzky",
               text: "Vlastné prostredie alebo pripravovaná spravovaná služba.",
               href: "/pricing",
-              image: "/previews/citizen-contract.png",
+              image: "/illustrations/relations.png",
             },
           ].map((item) => (
             <Link className="editorial-item" href={item.href} key={item.title}>

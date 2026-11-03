@@ -21,10 +21,10 @@ export default function Benefits() {
         <figure className="feature-hero-image">
           <ProductImage
             priority
-            src="/showcase/published.png"
+            src="/illustrations/attachment.png"
             alt="Zverejnená faktúra v OpenObec s údajmi, prílohou a súvislosťami."
           />
-          <figcaption>Snímka pracovného dema · ukážkové údaje</figcaption>
+          <figcaption>Od prílohy k prehľadnému dokumentu.</figcaption>
         </figure>
       </section>
       <section className="m-container benefit-highlights">
@@ -56,8 +56,8 @@ export default function Benefits() {
       </section>
       <section className="section m-container">
         <SectionHeading left title="Jeden dokument. Celý postup.">
-          Pripravte, skontrolujte a sprístupnite. Pozrite si jednotlivé kroky na skutočných
-          obrazovkách dema.
+          Pripravte, skontrolujte a sprístupnite. Pozrite si, ako na seba jednotlivé kroky
+          nadväzujú.
         </SectionHeading>
         <FeatureTabs />
       </section>
@@ -80,10 +80,10 @@ export default function Benefits() {
         </div>
         <figure className="soft-image">
           <ProductImage
-            src="/previews/citizen-contract.png"
+            src="/illustrations/relations.png"
             alt="Občiansky detail zmluvy s prílohou a súvisiacimi dokumentmi."
           />
-          <figcaption>Občiansky portál · ukážkové údaje</figcaption>
+          <figcaption>Dokumenty a ich súvislosti na jednom mieste.</figcaption>
         </figure>
       </section>
       <section className="section m-container">

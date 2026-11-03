@@ -1,0 +1,10 @@
+[Unit]
+Description=Resource boundary for OpenObec public demo
+
+[Slice]
+MemoryAccounting=true
+MemoryHigh=3G
+MemoryMax=3584M
+CPUAccounting=true
+CPUQuota=200%
+TasksMax=2048

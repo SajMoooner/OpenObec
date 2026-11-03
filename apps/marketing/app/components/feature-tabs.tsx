@@ -1,6 +1,6 @@
 "use client";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@openobec/ui/components/tabs";
-import { ProductImage } from "./product-image";
+import { ProductDetail } from "./product-detail";
 const stages = [
   {
     id: "priprava",
@@ -37,10 +37,19 @@ export function FeatureTabs() {
       <div className="tab-images">
         {stages.map((stage) => (
           <TabsContent value={stage.id} key={stage.id}>
-            <div className="tab-image-frame">
-              <ProductImage src={`/showcase/${stage.image}.png`} alt={stage.alt} />
-            </div>
-            <p className="image-caption">Snímka skutočného dema · ukážkové údaje</p>
+            <ProductDetail
+              alt={stage.alt}
+              detail={
+                stage.id === "priprava"
+                  ? "preparation"
+                  : stage.id === "prilohy"
+                    ? "attachment"
+                    : stage.id === "zverejnenie"
+                      ? "published"
+                      : "citizen"
+              }
+            />
+            <p className="image-caption">Ilustrácia postupu · funkčný portál nájdete v deme</p>
           </TabsContent>
         ))}
       </div>

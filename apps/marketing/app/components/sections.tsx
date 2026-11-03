@@ -1,12 +1,12 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  FileText,
-  Receipt,
-  ShoppingBag,
-  Landmark,
-  Scale,
-  Files,
+  FileOutput,
+  FileInput,
+  ClipboardList,
+  FileSignature,
+  ListChecks,
+  ScrollText,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@openobec/ui/components/button";
@@ -65,41 +65,45 @@ export function Cta() {
   );
 }
 export const agendas: { title: string; icon: LucideIcon; text: string }[] = [
-  { title: "Faktúry", icon: Receipt, text: "Odberateľské faktúry s údajmi, stavom a prílohami." },
+  {
+    title: "Faktúry",
+    icon: FileOutput,
+    text: "Odberateľské faktúry s údajmi, stavom a prílohami.",
+  },
   {
     title: "Dodávateľské faktúry",
-    icon: Files,
+    icon: FileInput,
     text: "Prijaté faktúry v súvislosti so zmluvami a objednávkami.",
   },
   {
     title: "Objednávky",
-    icon: ShoppingBag,
+    icon: ClipboardList,
     text: "Predmet objednávky, dodávateľ a súvisiace dokumenty.",
   },
   {
     title: "Zmluvy",
-    icon: FileText,
+    icon: FileSignature,
     text: "Zmluvné strany, dátumy, prílohy a nadväzujúce záznamy.",
   },
   {
     title: "Verejné obstarávanie",
-    icon: Landmark,
+    icon: ListChecks,
     text: "Samostatná agenda pre dokumenty verejného obstarávania.",
   },
-  { title: "VZN", icon: Scale, text: "Nariadenia obce vo vlastnej prehľadnej evidencii." },
+  { title: "VZN", icon: ScrollText, text: "Nariadenia obce vo vlastnej prehľadnej evidencii." },
 ];
 export function AgendaStrip() {
   return (
     <section className="agenda-strip m-container" aria-label="Podporované agendy">
       <p>Jedno miesto pre každodenné agendy obce</p>
-      <div>
+      <ul className="agenda-index">
         {agendas.map(({ title, icon: Icon }) => (
-          <span key={title}>
-            <Icon aria-hidden="true" />
-            {title}
-          </span>
+          <li key={title}>
+            <Icon aria-hidden="true" strokeWidth={1.6} />
+            <span>{title}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
